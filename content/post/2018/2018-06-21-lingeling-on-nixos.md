@@ -1,0 +1,48 @@
+---
+title: Lingeling on NixOS
+subtitle: NixOSにLingelingをインストール
+date: 2018-06-21
+tags: ["Lingeling", "NixOS", "SAT"]
+---
+
+### lingeling.nix
+
+```nix
+{ pkgs ? import <nixpkgs>{} } :
+let
+  stdenv = pkgs.stdenv;
+  fetchurl = pkgs.fetchurl;
+  zlib = pkgs.zlib;
+in
+stdenv.mkDerivation rec {
+  name = "lingeling";
+  version = "1.0";
+
+  src = fetchurl {
+   url = "http://fmv.jku.at/lingeling/lingeling-bbc-9230380-160707.tar.gz";
+   sha256 = "7960c69ebd3da1400b0f3135fa08d71abd405c180fc52f785b35ad8a58585126";
+  };
+
+  sourceRoot = "lingeling-bbc-9230380-160707";
+  configureScript="./configure.sh";
+  dontAddPrefix=true;
+  makeFlags = [ "" ];
+  installPhase = ''
+    install -Dm0755 lingeling $out/bin/lingeling
+    mkdir -p "$out/share/doc/${name}/"
+    install -Dm0755 {COPYING,NEWS,README,VERSION} "$out/share/doc/${name}/"
+  '';
+
+  meta = with stdenv.lib; {
+
+    description = "A Modern and parallel SAT solver. Copyright (c) 2010 - 2016 Armin Biere, Johannes Kepler University, Linz, Austria. http://fmv.jku.at/lingeling/";
+#    license = licenses.mit;
+    platforms = platforms.unix;
+  };
+}
+```
+
+Run: 
+```bash
+$ nix-build lingeling.nix
+```

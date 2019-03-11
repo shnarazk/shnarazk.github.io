@@ -1,0 +1,30 @@
+<footer>
+    {{ if eq .Type "post" }}  <small>© {{  .Site.Author.name }}, 2018, 2019.<em> Written on {{  .Date.Format "2006-01-02" }}.</em></small>{{ end }}
+    {{ if .Params.social }}
+      <div style="text-align: center;">
+        <span>
+          {{ range .Site.Data.social.social_icons }}
+            {{- if isset $.Site.Author .id }}
+              <span>
+                <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}" style="display:inline;">
+                  <span class="fa-stack fa-lg" style="display:inline-block;">
+                    <i class="fa fa-circle fa-stack-2x" style="display:inline;"></i>
+                    <i class="fa {{ .icon }} fa-stack-1x fa-inverse" style="display:inline;"></i>
+                  </span>
+                </a>
+              </span>
+            {{- end -}}
+          {{ end }}
+        </span>
+      </div>
+    {{ end }}
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{{ "js/main.js" | absURL }}"></script>
+<script> renderMathInElement(document.body); </script>
+</body>
+
+</html>

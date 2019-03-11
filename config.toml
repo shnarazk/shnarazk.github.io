@@ -1,0 +1,40 @@
+baseurl = "https://shujinarazaki.gitlab.io/"
+contentdir    = "content"
+layoutdir     = "layouts"
+publishdir    = "public"
+title = "Just a note"
+canonifyurls  = true
+
+DefaultContentLanguage = "ja"
+theme = "note"
+
+metaDataFormat = "yaml"
+pygmentsCodeFencesGuessSyntax = true
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsOptions = "linenos=inline"
+#disqusShortname = "XXX"
+#googleAnalytics = "XXX"
+
+[Params]
+  subtitle = "A collection of program segments and thoughts"
+  logo = "img/SAT-extended.png" # ""img/avatar-icon.png"
+  favicon = "img/gitlab.ico"
+  dateFormat = "2006-01-02"
+  commit = false
+  rss = true
+#  comments = true
+#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+
+[Author]
+  name = "Shuji Narazaki"
+#  email = ""
+  gitlab = "shujinarazaki"
+  github = "shnarazk"
+  medium = "shnarazk"
+#  twitter = "username"
+#  reddit = "nash1011"
+#  stackoverflow = "users/XXXXXXX/username"
+#  youtube = "user/username" # or channel/channelname
+#  spotify = "username"
+#  bandcamp = "username"

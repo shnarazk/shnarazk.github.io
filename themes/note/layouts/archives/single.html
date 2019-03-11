@@ -1,0 +1,29 @@
+{{ partial "header.html" . }}
+
+<div class="content">
+
+  <h1>Tags</h1>
+  <ul id="all-tags">
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      <li style="display: inline;"><a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">#{{ $name }}</a></li>
+    {{ end }}
+  </ul>
+
+  <h1>Archives</h1>
+  {{ with .Site.GetPage "section" "post" }}
+    {{ range .Data.Pages.GroupByDate "2006" }}
+    <section>
+      <h2>{{ .Key }}</h2>
+      <ul>
+        {{ range .Pages }}
+          <li><a href="{{ .Permalink }}" class="permalink">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    </section>
+
+    {{ end }}
+  {{ end }}
+
+</div>
+
+{{ partial "footer.html" . }}
