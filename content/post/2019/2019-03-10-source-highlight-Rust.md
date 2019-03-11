@@ -5,7 +5,7 @@ date: 2019-03-10
 tags: ["Rust", "NixOS"]
 ---
 
-Let's syntax highlighten for Rust!
+Let's Rust syntax highlighten in less!
 
 1. We need to apply [a patch](https://gist.github.com/tav/3846383).
 1. To apply the patch, make a simple overlay(~/.config/nixpkgs/overlays/source-highlight.nix) against [the expression](https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/text/source-highlight/default.nix) in the master branch.

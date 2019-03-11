@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
 
 body {
   font-family: 'Lora', 'Times New Roman', serif;
@@ -18,8 +17,9 @@ h1,h2,h3,h4,h5,h6,header,header.a {
 	font-family: sans-serif;
 }
 
-header,header.a{
-	font-weight: bold;
+header,header.a {
+    font-size: 200%;
+    font-weight: bold;
 }
 
 @media all {
@@ -80,7 +80,6 @@ body {
 	-o-font-feature-settings: 'kern' 1;
 	-ms-font-feature-settings: 'kern' 1;
 	font-feature-settings: 'kern' 1;
-
 	text-rendering: optimizeLegibility;
 	-moz-font-feature-settings: 'liga=1';
 	-moz-font-feature-settings: 'liga' 1;
@@ -92,13 +91,12 @@ body {
 
 div.content { 
 	display: block; 
-	padding: 1rem 0 1rem 0;
+	padding: 2rem 0 1rem 0;
 }
 
 header {
-	display:block;
-	padding: 0.5rem 0 1.2rem 0;
-	border-bottom: 0.10em solid black;
+	display: block;
+	padding: 0.6rem 0 0.8rem 0;
 }
 
 footer {
@@ -228,6 +226,12 @@ a:hover {
 	-moz-transition-duration: 0.2s;
 	-webkit-transition-duration: 0.2s;
 	transition-duration: 0.2s;
+}
+
+.header-link, .header-link:hover {
+    font-size: 200%;
+    background: none;
+    text-decoration: none;
 }
 
 .content a {

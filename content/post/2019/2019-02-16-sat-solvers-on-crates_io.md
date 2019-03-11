@@ -1,5 +1,6 @@
 ---
 title: SAT solvers in crates.io
+subtitle: Rust製SATソルバー一覧
 date: 2019-02-16
 tags: ["sat", "rust"]
 ---
