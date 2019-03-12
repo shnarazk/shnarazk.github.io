@@ -5,12 +5,12 @@ date: 2019-03-06
 tags: ["NixOS"]
 ---
 
-1. configuration @ /etc/nixos/configuration.nix
+- Where's configuration: /etc/nixos/configuration.nix
    - The option `system.nixos.stateVersion` has been renamed `system.stateVersion`.
-1. kernel version: https://nixos.wiki/wiki/Choose_your_kernel_on_NixOS
-1. update
+- Choose kernel version: https://nixos.wiki/wiki/Choose_your_kernel_on_NixOS
+- how to update:
 ```
 nixos-rebuild switch --upgrade
 ```
-1. 'nix search' is fast.
+- 'nix search' is faster than `nix-env -qa`.
 
