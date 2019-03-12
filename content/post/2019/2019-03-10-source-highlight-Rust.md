@@ -21,6 +21,12 @@ export LESSOPEN='|| ~/.nix-profile/bin/src-hilite-lesspipe.sh %s'
 
 The double veritical bars are important!
 
+> However, if the first character of LESSOPEN  starts  with  two  vertical  bars, the exit status of the script becomes meaningful.  If the exit status is zero, the output is considered to  be replacement text, even if it empty.  If the exit status is nonzero, any output is ignored and the original file is used.  For compatibility with previous versions of  less, if LESSOPEN starts with only one vertical bar, the exit status of the preprocessor is ignored.
+
+In most cases in which less is used as a pager, this settings is identital to the original
+behavior. On the other side,  with a single bar, `less` clears the sceen to switch to full
+screen mode.
+
 ### files
 
 - ~/.config/nixpkgs/overlays/source-highlight.nix
