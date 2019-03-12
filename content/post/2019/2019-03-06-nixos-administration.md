@@ -7,6 +7,7 @@ tags: ["NixOS"]
 
 1. configuration @ /etc/nixos/configuration.nix
    - The option `system.nixos.stateVersion` has been renamed `system.stateVersion`.
+1. kernel version: https://nixos.wiki/wiki/Choose_your_kernel_on_NixOS
 1. update
 ```
 nixos-rebuild switch --upgrade
