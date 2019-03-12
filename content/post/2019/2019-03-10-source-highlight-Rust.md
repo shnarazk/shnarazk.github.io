@@ -16,8 +16,10 @@ Let's Rust syntax highlighten in less!
 
 ```shell
 export LESS='-R'
-export LESSOPEN='| ~/.nix-profile/bin/src-hilite-lesspipe.sh %s'
+export LESSOPEN='|| ~/.nix-profile/bin/src-hilite-lesspipe.sh %s'
 ```
+
+The double veritical bars are important!
 
 ### files
 
