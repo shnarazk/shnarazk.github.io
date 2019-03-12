@@ -1,5 +1,5 @@
 <footer>
-    {{ if eq .Type "post" }}  <small>© {{  .Site.Author.name }}, 2018, 2019.<em> Written on {{  .Date.Format "2006-01-02" }}.</em></small>{{ end }}
+    {{ if eq .Type "post" }}<small>© {{ .Site.Author.name }}, 2018, 2019.<em> Written on {{  .Date.Format "2006-01-02" }}.</em></small>{{ end }}
     {{ if .Params.social }}
       <div style="text-align: center;">
         <span>
@@ -16,6 +16,9 @@
             {{- end -}}
           {{ end }}
         </span>
+      </div>
+      <div style="text-align: center;">
+	<small>© {{ .Site.Author.name }}, 2018, 2019.</small>
       </div>
     {{ end }}
 </footer>
