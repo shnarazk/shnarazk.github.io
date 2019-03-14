@@ -9,13 +9,13 @@ tags: ["gtk", "NixOS", "macOS"]
 
 - target: https://developer.gnome.org/gtk3/stable/gtk-getting-started.html
 
-Switch to the environment:
+Dive into the environment:
 
 ```shell
 nix-shell -p gtk3 gcc pkgconfig
 ```
 
-Cmopile:
+And compile:
 ```shell
 gcc `pkg-config --cflags gtk+-3.0` -o example example.c `pkg-config --libs gtk+-3.0`
 ```
