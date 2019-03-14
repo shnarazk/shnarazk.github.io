@@ -24,6 +24,7 @@ That works.
 
 ## Rust
 
+- package: https://crates.io/crates/gtk
 - target: https://github.com/gtk-rs/gtk/blob/master/src/rt.rs
 - Cargo.toml: `gtk = 0.5`  # 0.6 requires unstable channel
 
