@@ -57,3 +57,13 @@ self: super:
 ```
 
 It needs `overrideDerivation`. What's this???
+
+Anyway, give it a try.
+
+```shell
+$ nix-shell -p gtk3RustDarwin gcc pkgconfig rustc cargo llvm
+$ cargo clean  # to purge the previous attempt
+$ cargo run
+```
+
+That works!
