@@ -7,7 +7,7 @@ tags: ["gtk", "NixOS", "macOS"]
 
 ## C
 
-- target: https://developer.gnome.org/gtk3/stable/gtk-getting-started.html
+- sample target: https://developer.gnome.org/gtk3/stable/gtk-getting-started.html
 
 Dive into the environment:
 
@@ -24,9 +24,9 @@ That works.
 
 ## Rust
 
-- package: https://crates.io/crates/gtk
-- target: https://github.com/gtk-rs/gtk/blob/master/src/rt.rs
-- Cargo.toml: `gtk = 0.5`  # 0.6 requires unstable channel
+- package: https://crates.io/crates/gtk  
+   Cargo.toml: `gtk = 0.5`  # 0.6 requires unstable channel
+- sample target: https://github.com/gtk-rs/gtk/blob/master/src/rt.rs
 
 Start with the same approach:
 
@@ -59,7 +59,22 @@ self: super:
 }
 ```
 
-It needs `overrideDerivation`. What's this??? https://nixos.org/nixpkgs/manual/#sec-pkg-overrideDerivation
+What's `overrideDerivation`? It's a [deprecated](https://nixos.org/nixpkgs/manual/#sec-pkg-overrideDerivation) function.
+So the following seems better:
+
+```
+self: super:
+{
+    gtk3RustDarwin = super.gtk3.overrideAttrs (attrs: rec {
+        configureFlags = [
+            "--enable-debug"
+            "--disable-dependency-tracking"
+            "--disable-glibtest"
+            "--enable-quartz-backend"
+        ];
+    });
+}
+```
 
 Anyway, give it a try.
 
