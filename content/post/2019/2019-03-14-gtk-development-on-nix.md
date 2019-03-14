@@ -59,7 +59,7 @@ self: super:
 }
 ```
 
-It needs `overrideDerivation`. What's this???
+It needs `overrideDerivation`. What's this??? https://nixos.org/nixpkgs/manual/#sec-pkg-overrideDerivation
 
 Anyway, give it a try.
 
