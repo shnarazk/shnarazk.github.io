@@ -30,7 +30,7 @@ That works.
 Start with the same approach:
 
 ```shell
-$ nix-shell -p gtk3 gcc pkgconfig rustc cargo llvm
+$ nix-shell -p gtk3 pkgconfig rustc cargo llvm
 $ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.21s                                       
      Running `target/debug/gtktest`
@@ -38,6 +38,7 @@ thread 'main' panicked at 'libgtk-3 was configured with `--enable-debug=no`. See
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 ```
 
+- the issue: https://github.com/gtk-rs/gtk/issues/270
 - src: https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/libraries/gtk%2B/3.x.nix
 
 
