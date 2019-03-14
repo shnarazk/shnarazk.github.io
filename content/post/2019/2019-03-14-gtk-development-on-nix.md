@@ -39,7 +39,7 @@ note: Run with `RUST_BACKTRACE=1` for a backtrace.
 ```
 
 - the issue: https://github.com/gtk-rs/gtk/issues/270
-- src: https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/libraries/gtk%2B/3.x.nix
+- src:  [nix expression for gtk3](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/libraries/gtk%2B/3.x.nix)
 
 
 So let's make an overlay:
