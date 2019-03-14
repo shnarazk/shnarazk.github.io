@@ -1,17 +1,18 @@
 ---
-title: GTK development on Nix
+title: GTK development on Nix on macOS
 date: 2019-03-14
 tags: ["gtk", "NixOS", "macOS"]
 ---
 
 ## C
 
-```
+- https://developer.gnome.org/gtk3/stable/gtk-getting-started.html
+
+```shell
 nix-shell -p gtk3 gcc pkgconfig
 ```
 
-```console
-# https://developer.gnome.org/gtk3/stable/gtk-getting-started.html
+```shell
 gcc `pkg-config --cflags gtk+-3.0` -o example example.c `pkg-config --libs gtk+-3.0`
 ```
 
@@ -19,9 +20,9 @@ That works.
 
 ## Rust
 
-- gtk = 0.5  # 0.6 requires unstable channel
+- Cargo.toml: `gtk = 0.5`  # 0.6 requires unstable channel
 
-```
+```shell
 $ nix-shell -p gtk3 gcc pkgconfig rustc cargo llvm
 $ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.21s                                       
