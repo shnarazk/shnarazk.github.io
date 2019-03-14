@@ -1,5 +1,6 @@
 ---
 title: GTK development on Nix on macOS
+subtitle: これでどこでもgtkでいいじゃん
 date: 2019-03-14
 tags: ["gtk", "NixOS", "macOS"]
 ---
