@@ -153,4 +153,32 @@ pkgsを更新している？
 }
 ```
 
-ここで`with import <nixpkgs>`を使っても問題ないはずなのだが、要確認。
+ここで`with import <nixpkgs>`を使っても問題ないはず。
+試してみたところ、下のどちらでも正しく評価できる。
+
+```nix
+with import <inxpkgs>; self: super:
+...
+```
+
+
+```nix
+with import <inxpkgs> {}; self: super:
+```
+
+それどころか以下でも問題ない。
+
+```nix
+with import <inxpkgs> {} {}; self: super:
+```
+
+何故ならば、`import <nixpkgs>`は`関数：集合 -> 集合`。
+なので`with import <inxpkgs> {}`は関数適用。もちろん返値は集合を受け付ける関数。
+そして評価が終わった`import <inxpkgs> {} {}`までを環境として、セミコロン以下の本体を評価する。
+括弧で構文糖衣を被せればこういうこと。
+
+```
+with ((import <inxpkgs>) {} {}) (self: super)
+```
+
+やはりヘンタイ。
