@@ -175,6 +175,9 @@ with import <inxpkgs> {} {}; self: super:
 何故ならば、`import <nixpkgs>`は`関数：集合 -> 集合`。
 なので`with import <inxpkgs> {}`は関数適用。もちろん返値は集合を受け付ける関数。
 そして評価が終わった`import <inxpkgs> {} {}`までを環境として、セミコロン以下の本体を評価する。
+
+- https://nixos.org/nixos/nix-pills/functions-and-imports.html#idm140737316371552
+
 括弧で構文糖衣を被せればこういうこと。
 
 ```
