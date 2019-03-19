@@ -181,7 +181,7 @@ with import <inxpkgs> {} {}; self: super:
 括弧で構文糖衣を被せればこういうこと。
 
 ```
-with ((import <inxpkgs>) {} {}) (self: super)
+with ((import <inxpkgs>) {} {}) (self: super: ...)
 ```
 
 やはりヘンタイ。
