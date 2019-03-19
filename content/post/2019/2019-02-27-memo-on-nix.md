@@ -164,12 +164,14 @@ with import <inxpkgs>; self: super:
 
 ```nix
 with import <inxpkgs> {}; self: super:
+...
 ```
 
 それどころか以下でも問題ない。
 
 ```nix
 with import <inxpkgs> {} {}; self: super:
+...
 ```
 
 何故ならば、`import <nixpkgs>`は`関数：集合 -> 集合`。
