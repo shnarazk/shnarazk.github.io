@@ -105,7 +105,7 @@ self: super:
 }
 ```
 
-となるし、let文を使いたいなら以下のようになる。
+となるし、let式を使いたいなら以下のようになる。
 
 ```nix
 { config, pkgs }:
@@ -124,7 +124,7 @@ with import <nixgkgs> {};   # この;は文を区切るものではなく、with
   ...  # derivationを返すこと
 ```
 
-a derivationを返すwith式が一つあるだけ。
+a derivationを返すwith式が一つあるだけ。with式については後述。
 
 - nix-shellに与えるべきnixファイル（default.nixがデフォールト）はこんな感じ:
 
@@ -178,7 +178,7 @@ with import <inxpkgs> {} {}; self: super:
 
 - https://nixos.org/nixos/nix-pills/functions-and-imports.html#idm140737316371552
 
-括弧で構文糖衣を被せればこういうこと。
+S式で表せばこういうこと。
 
 ```nix
 with (((import <inxpkgs>) {}) {}) (self: super: ...)
