@@ -117,7 +117,7 @@ in
   x
 ```
 
-- nix-build(shell.nixがconvention?)に与えるべきnixファイルはこんな感じ:
+- nix-buildに与えるべきnixファイル(shell.nixがconvention?)はこんな感じ:
 
 ```nix
 with import <nixgkgs> {};   # この;は文を区切るものではなく、withは次の行まで続いている
@@ -126,7 +126,7 @@ with import <nixgkgs> {};   # この;は文を区切るものではなく、with
 
 a derivationを返すwith式が一つあるだけ。
 
-- nix-shell（default.nixがデフォールト）に与えるべきnixファイルはこんな感じ:
+- nix-shellに与えるべきnixファイル（default.nixがデフォールト）はこんな感じ:
 
 ```nix
 with import <nixgkgs> {};
@@ -152,3 +152,5 @@ pkgsを更新している？
 	...
 }
 ```
+
+ここで`with import <nixpkgs>`を使っても問題ないはずなのだが、要確認。
