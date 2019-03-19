@@ -1,4 +1,4 @@
-baseurl = "https://shnarazk.now.sh" # "https://shujinarazaki.gitlab.io/"
+baseurl = "https://shujinarazaki.gitlab.io/"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
