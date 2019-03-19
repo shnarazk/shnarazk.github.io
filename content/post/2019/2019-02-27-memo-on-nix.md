@@ -44,6 +44,25 @@ By changing the package name to `emacs`, it works.
 
 - https://github.com/NixOS/nixpkgs/issues/4017
 
+### UPDATE
+
+`overrideDerivation` is almost depricated. Here's a better version:
+
+```
+self: super:
+{
+    emacs26 = super.emacs26.overrideAttrs (attrs: rec {
+        name = "emacs-26.1.92";
+        version = "26.1.92";
+        src = super.fetchurl {
+            url = "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.1.92.tar.xz";
+            sha256 = "0aa1dfa39b020feb49b82a388863c8a4b2ee0f1dfc04528f49759dbba4f28d41";
+        };
+        patches = [];
+    });
+}
+```
+
 ### nixファイルの構造
 
 nixファイルはnix式を定義するもの。

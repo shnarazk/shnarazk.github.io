@@ -121,7 +121,7 @@ footer a:hover {
 
 h1 {
 	display: block;
-	font-size: 170%;
+	font-size: 1.5rem;
 	line-height: 1.1;
 	margin-top: 1rem;
 	margin-bottom: 1.5rem;
@@ -131,6 +131,22 @@ h1 {
 	-o-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+}
+
+h2 {
+	font-size: 1.4rem;
+}
+
+h3 {
+	font-size: 1.3rem;
+}
+
+h4 {
+	font-size: 1.2rem;
+}
+
+h5 {
+	font-size: 1.15rem;
 }
 
 aside {
@@ -215,7 +231,7 @@ div.nav a:active div {
 }
 
 a:active { 
-	color: #777; 
+	color: #77f; 
 }
 
 a:hover {
@@ -235,7 +251,7 @@ a:hover {
 }
 
 .content a {
-        text-shadow: 0px 1px 1px #aaa;
+        text-shadow: 0px 1px 1px #aaf;
 }
 
 .content a:link {
