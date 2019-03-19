@@ -44,3 +44,96 @@ By changing the package name to `emacs`, it works.
 
 - https://github.com/NixOS/nixpkgs/issues/4017
 
+### nixファイルの構造
+
+nixファイルはnix式を定義するもの。
+
+- nix-buildはderivationを生成する式を要求する。そしてその環境のシェルを走らせる。
+- config.nixやオーバレイはnixpkgsを更新する関数を定義するもの。
+
+- https://nixos.org/nixos/manual/index.html#sec-nix-syntax-summary
+- https://nixos.org/nixos/manual/index.html#sec-configuration-syntax
+
+### そもそもの関数の構文
+
+- `:`が引数と本体のセパレータ。
+
+```nix
+x : x + 1
+```
+
+例えばletなしで集合型の返値が計算できるなら
+
+```nix
+{ config, pkgs }
+{
+	属性の定義式;
+}
+```
+
+となるし、let文を使いたいなら以下のようになる。
+
+```nix
+{ config, pkgs }
+let
+  x = { ... };
+  y = { ... };
+  ...
+in
+  x
+```
+
+- 複数引数の関数なら引数は{}で括る（カンマ区切り） 
+
+```nix
+{ x, y }: x + y
+```
+
+衝撃的にヘンタイ。
+
+カリー化すれば以下のようにも書けるはず（overlayの例が多用している）:
+
+```nix
+self: super:
+...
+```
+
+- nix-build(shell.nixがconvention?)に与えるべきnixファイルはこんな感じ:
+
+```nix
+with import <nixgkgs> {};
+  ...  # derivationを返すこと
+```
+
+- nix-shell（default.nixがデフォールト）に与えるべきnixファイルはこんな感じ:
+
+```nix
+with import <nixgkgs> {};
+{ ... } # 集合を返す
+```
+
+### モジュールの構文
+
+これは単なる関数。
+
+```nix
+{ 依存するモジュール（カンマ区切り） }: 
+返値
+```
+
+- オーバレイは以下のような構造。
+
+```nix
+self: super:
+{
+}
+```
+
+- ~/.config/nixpkgs/config.nix はこんな感じ。
+
+```nix
+{ pkgs }:
+{
+	...
+}
+```
