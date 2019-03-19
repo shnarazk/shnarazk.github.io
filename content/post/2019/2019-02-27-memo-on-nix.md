@@ -67,8 +67,8 @@ self: super:
 
 nixファイルはnix式を定義するもの。
 
-- nix-buildはderivationを生成する式を要求する。そしてその環境のシェルを走らせる。
-- config.nixやオーバレイはnixpkgsを更新する関数を定義するもの。
+- nix-buildはderivationを生成する式を要求する。そしてその環境のシェルを走らせる。?
+- config.nixやオーバレイはnixpkgsを更新する関数を定義するもの。?
 
 - https://nixos.org/nixos/manual/index.html#sec-nix-syntax-summary
 - https://nixos.org/nixos/manual/index.html#sec-configuration-syntax
@@ -120,9 +120,11 @@ self: super:
 - nix-build(shell.nixがconvention?)に与えるべきnixファイルはこんな感じ:
 
 ```nix
-with import <nixgkgs> {};
+with import <nixgkgs> {};   # この;は文を区切るものではなく、withは次の行まで続いている
   ...  # derivationを返すこと
 ```
+
+a derivationを返すwith式が一つあるだけ。
 
 - nix-shell（default.nixがデフォールト）に与えるべきnixファイルはこんな感じ:
 
@@ -131,9 +133,11 @@ with import <nixgkgs> {};
 { ... } # 集合を返す
 ```
 
+pkgsを更新している？
+
 ### モジュールの構文
 
-これは単なる関数。
+ということで多くのファイルは以下の構造で単一の関数が定義されているだけ。
 
 ```nix
 { 依存するモジュール（カンマ区切り） }:
