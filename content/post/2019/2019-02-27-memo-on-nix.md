@@ -81,17 +81,15 @@ nixファイルはnix式を定義するもの。
 x : x + 1
 ```
 
-- 集合を引数に取り、その中の特定要素を参照する1引数関数なら、引数は{}で表し、セレクタを並べる（カンマ区切り）。
+- 集合を引数に取り、その中の特定要素を参照するならば、セレクタを並べた（カンマ区切り）集合が引数に位置する。
 
 ```nix
 { x, y }: x + y
 ```
 
-従って、これは2引数関数のように見えるがそうではない。
-衝撃的にヘンタイ。
+これは一見、2引数関数のように見えるがコロンの位置からもそうではない。
 
-
-ということで、例えばletなしで集合型の返値が計算できるなら
+ということで、例えばlet構文（式）なしで集合型の返値が計算できるなら
 
 ```nix
 { config, pkgs }:
@@ -100,7 +98,7 @@ x : x + 1
 }
 ```
 
-となるし、let式を使いたいなら以下のようになる。
+となるし、let構文を使いたいなら以下のようになる。
 
 ```nix
 { config, pkgs }:
@@ -119,14 +117,14 @@ self: super:
 ...
 ```
 
-- nix-buildに与えるべきnixファイル(shell.nixがconvention?)はこんな感じ:
+- nix-buildに与えるべきnixファイル(shell.nixという名前がconvention?)はこんな感じ:
 
 ```nix
 with import <nixgkgs> {};   # この;は文を区切るものではなく、withは次の行まで続いている
   ...  # derivationを返すこと
 ```
 
-a derivationを返すwith式が一つあるだけ。with式については後述。
+A derivationを返すwith構文が一つあるだけ。with構文については後述。
 
 - nix-shellに与えるべきnixファイル（default.nixがデフォールト）はこんな感じ:
 
@@ -137,7 +135,7 @@ with import <nixgkgs> {};
 
 pkgsを更新している？
 
-### モジュールの構文
+### モジュールとwith構文
 
 ということで多くのファイルは以下の構造で単一の関数が定義されているだけ。
 
@@ -155,37 +153,39 @@ pkgsを更新している？
 }
 ```
 
-ここで`with import <nixpkgs>`を使っても問題ないはず。
-試してみたところ、下のどちらでも正しく評価できる。
+ここで`with import <nixpkgs>`を先頭に置いても問題ないはず。
+試してみたところ、下のどちらの書き方でも正しく評価できる。
 
 ```nix
 with import <inxpkgs>; self: super:
-...
+  ...
 ```
 
 
 ```nix
 with import <inxpkgs> {}; self: super:
-...
+  ...
 ```
 
 それどころか以下でも問題ない。
 
 ```nix
 with import <inxpkgs> {} {}; self: super:
-...
+  ...
 ```
 
 何故ならば、`import <nixpkgs>`は`関数：集合 -> 集合`。
-なので`import <inxpkgs> {}`は関数適用。もちろん返値は集合を受け付ける関数。
-そして評価が終わった`import <inxpkgs> {} {}`までを環境として、セミコロン以下の本体を評価する。
+なので`(import <inxpkgs>) {}`は関数適用。もちろんその返値は集合を受け付ける関数。なので`{}`を受け付
+ける。
+そして評価が終わった`import <inxpkgs> {} {}`までを環境として、セミコロン以下の本体を評価するのがwith
+構文（式）。
 
 - https://nixos.org/nixos/nix-pills/functions-and-imports.html#idm140737316371552
 
 S式で表せばこういうこと。
 
 ```nix
-with (((import <inxpkgs>) {}) {}) (self: super: ...)
+(with (((import <inxpkgs>) {}) {}) (self: super: ...))
 ```
 
-やはりヘンタイ。
+うーん、ヘンタイ。
