@@ -10,7 +10,7 @@ test:
   except:
   - master
 
-not_pages:
+pages:
   script:
   - hugo
   artifacts:
