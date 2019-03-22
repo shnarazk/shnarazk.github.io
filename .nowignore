@@ -1,11 +1,6 @@
 .git
-content
-resources
-statit
-themes
 zola-test
 .gitignore
 .gitlab-ci.yml
 README.md
-config.toml
 *~
