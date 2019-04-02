@@ -21,3 +21,12 @@ Select it by environment variables.
 OPENSSL_LIB_DIR=/usr/lib/openssl-1.0 OPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0 cargo build
 ```
 
+### On NixOS
+
+```
+nix-shell -p openssl pkg-config
+cargo build
+```
+
+That's it.
+
