@@ -28,5 +28,11 @@ nix-shell -p openssl pkg-config
 cargo build
 ```
 
+If you face 'no Security' error, that occured by 'mongodb with ssl', try:
+
+```
+nix-shell -p openssl_1_1 pkg-config darwin.apple_sdk.frameworks.Security
+```
+
 That's it.
 
