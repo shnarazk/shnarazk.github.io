@@ -9,11 +9,11 @@ tags: ["Rust", "mongoDB", "cloud"]
 
 これを選んだのは、以下の理由：
 
-- [nlp100](http://www.cl.ecei.tohoku.ac.jp/nlp100/)の問題で自前のmongoDBをrustから利用するプログラム
-がある
-- Zeit@nowからも統合できる
+- [nlp100](http://www.cl.ecei.tohoku.ac.jp/nlp100/)の課題で、
+自前のmongoDBをrustから利用するプログラムを作ってた
+- [Zeit@now](https://zeit.co/)からも[統合](https://zeit.co/blog/zeit-now-integrations-platform)できる
 
-セットアップはサクサクできてあとはプログラムにconnectするだけ。
+セットアップはサクサクできて、あとはプログラムにconnectするだけ。
 もちろん、ちゃんと参考例が表示される。
 
 ![](/img/2019-05-31-mongodb-1.png)
@@ -31,7 +31,7 @@ client.connect(err => {
 });
 ```
 
-これを真似すれば、非公式ライブラリ[mongodb=0.3.12](https://crates.io/crates/mongodb)を使ったRustのプログラムでも
+これを真似すれば、非公式ライブラリ[mongodb 0.3.12](https://crates.io/crates/mongodb)を使ったRustのプログラムでも
 簡単に移植できるだろうと思ったら、予想が外れてしまった。
 
 ```
