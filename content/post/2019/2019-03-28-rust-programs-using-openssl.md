@@ -2,7 +2,7 @@
 title: Compiling Rust programs using openssl
 subtitle: 新しいopensslに移行したディストリビューションでopensslを使う
 date: 2019-03-28
-tags: ["Rust", "ArchLinux"]
+tags: ["Rust", "ArchLinux", "macOS"]
 ---
 
 The simplest way is using the old version of openssl.
@@ -28,7 +28,9 @@ nix-shell -p openssl pkg-config
 cargo build
 ```
 
-If you face 'no Security' error, that occured by 'mongodb with ssl', try:
+##### and about macOS
+
+If you face 'no Security' error on darwin (macOS), that occured by 'mongodb with ssl', try:
 
 ```
 nix-shell -p openssl_1_1 pkg-config darwin.apple_sdk.frameworks.Security
