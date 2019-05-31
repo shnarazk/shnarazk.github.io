@@ -46,13 +46,15 @@ note: Run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
 - https://github.com/mongodb-labs/mongo-rust-driver-prototype/issues/291
 - https://github.com/mongodb-labs/mongo-rust-driver-prototype/issues/313
 
+そこで、
+
 - クライアントライブラリは変えたくないなあ。なんとかmongodbで繋ぎたい。
 - しかし、`mongodb+srv://`はまだ実装されてない。
 - とにかく、sshのサポートは必要なのでmongodbのコンパイルに`features="ssl"` が必要
 - そして、認証には`db::auth`メソッドを呼び出すことが必要。
-- さらに、つなぐべきbdは `"auth"` である。ただwebでの管理画面を見ていると正解はどうも `"admin"` らしい。。。
+- さらに、認証時につなぐべきbdは `"auth"` である。ただwebでの管理画面を見ていると正解はどうも `"admin"` らしい。。。
 
-ということがわかって、こういうコードになった：
+となって、こういうコードになった：
 
 ```rust
    let opts = mongodb::ClientOptions::with_unauthenticated_ssl(None, false);
