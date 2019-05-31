@@ -14,11 +14,11 @@ tags: ["Rust", "mongoDB", "cloud"]
 - Zeit@nowからも統合できる
 
 セットアップはサクサクできてあとはプログラムにconnectするだけ。
+もちろん、ちゃんと参考例が表示される。
 
 ![](/img/2019-05-31-mongodb-1.png)
 
-もちろん、ちゃんとセットアップの参考例が表示される。
-例えばjs用のサンプルはこうなっている。
+例えば**Connect Your Application**から辿ったjs用のサンプルはこうなっている。
 
 ```js
 const MongoClient = require(‘mongodb’).MongoClient;
@@ -56,15 +56,16 @@ note: Run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
 
 ```rust
    let opts = mongodb::ClientOptions::with_unauthenticated_ssl(None, false);
-   let mut m = mongodb::Client::with_uri_and_options(<上のURI>, opts).expect("connect");
+   let uri = <上のURI>;
+   let mut m = mongodb::Client::with_uri_and_options(uri, opts).expect("connect");
    client.db("admin").auth("<ADMIN>", "<PASSWORD>").expect("auth");
    let coll = client.db("<DB>").collection("<COLLECTION>");
     ...
 ```
 しかし、これらを反映してもどうやっても最初のエラーが取れない。
 
-いい加減、諦めかけていたのだけど、Mongo ShellからConnectするためのサンプルを見ていて
-Mongo Shellから接続するときのURIはバージョンによって全然違うことに気づいた。
+いい加減、諦めかけていたのだけど、**Connect with the Mongo Shell**の中のサンプルを見ていて
+指定すべきURIがMongo Shellのバージョンによって全然違うことに気づいた。
 具体的には最新版(3.6 or later)だと、
 
 ```
@@ -73,13 +74,12 @@ mongo "mongodb+srv://<CLUSTER>.mongodb.net/test" --username <username>
 
 なのが、3.3 or earlierだとこうなる。
 
-
 ```
 mongo "mongodb://<CLUSTER>-<SHARD0>.mongodb.net:xxx,<CLUSTER>-<SHARD1>.mongodb.net:xxx,<CLUSTER>-<SHARD2>.mongodb.net:xxx/test?...
 ```
 
 問題の `srv` がないじゃん！
 
-なのでrustのプログラム中のURIをこれと入れ替えると、さっくり通ってしまった。
+なので上のrustプログラムの2行目の`uri`の定義をこれと入れ替えたら、さっくり通ってしまった。
 
 めでたし、めでたし。
