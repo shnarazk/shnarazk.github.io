@@ -5,9 +5,9 @@ date: 2019-05-31
 tags: ["Rust", "mongoDB", "cloud"]
 ---
 
-クラウドの勉強をしようと思って無料データベースmongoDB Atlasにアカウントを作ってみた。
+クラウドの勉強をしようと思って無料データベース[mongoDB Atlas](https://cloud.mongodb.com/)にアカウントを作ってみた。
 
-これを選んだのは、以下の理由：
+mongoDBを選んだのは、以下の理由から。
 
 - [nlp100](http://www.cl.ecei.tohoku.ac.jp/nlp100/)の課題で、
 自前のmongoDBをrustから利用するプログラムを作ってた
@@ -31,7 +31,7 @@ client.connect(err => {
 });
 ```
 
-これを真似すれば、非公式ライブラリ[mongodb 0.3.12](https://crates.io/crates/mongodb)を使ったRustのプログラムでも
+これを真似すれば、非公式クライアントライブラリ[mongodb 0.3.12](https://crates.io/crates/mongodb)を使ったRustのプログラムでも
 簡単に移植できるだろうと思ったら、予想が外れてしまった。
 
 ```
