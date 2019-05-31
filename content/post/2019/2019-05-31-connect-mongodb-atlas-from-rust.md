@@ -1,6 +1,6 @@
 ---
 title: Connect mongoDB Atlas from Rust
-subtitle: "mongodb+srv://"がない
+subtitle: "\"mongodb+srv://\"がない"
 date: 2019-05-31
 tags: ["Rust", "mongoDB", "cloud"]
 ---
