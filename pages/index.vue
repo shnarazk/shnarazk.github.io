@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 96%;margin-left: 2%;">
     <div class="container">
       <template v-for="(art, i) in slicedEntries">
         <div :key="i" class="blog-entry">

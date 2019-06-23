@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="width: 96%; margin-left: 2%;">
     <div v-for="(tag, i) in blogTags" :key="i">
       <div class="title">{{ tag[0] }}</div>
       <template v-for="(article, j) in tag[1]">

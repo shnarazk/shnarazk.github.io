@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="width: 96%; margin-left: 2%;">
     <div class="title">{{ targets($route.params.tagname)[0] }}</div>
     <template v-for="(article, j) in targets($route.params.tagname)[1]">
       <div :key="j">

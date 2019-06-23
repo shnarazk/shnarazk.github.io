@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 96%; margin-left: 2%;">
     <div class="container">
       <h1 class="title is-large">{{ article.title }}</h1>
       <div class="subtitle">
@@ -7,10 +7,8 @@
       </div>
       <div class="entry-content" v-html="$md.render(article.bodyContent)" />
     </div>
-    <EntryFooter
-      :tags="article.tags"
-      :timestamp="article.date.substring(0, 10)"
-    />
+    <div>Copyright 2017-2019 Shuji Narazaki. Written on {{ timestamp }}.</div>
+    <EntryFooter :tags="article.tags" />
   </div>
 </template>
 <script>
