@@ -17,7 +17,6 @@
   </section>
 </template>
 <script>
-import path from 'path'
 import { mapState } from 'vuex'
 export default {
   computed: {

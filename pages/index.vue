@@ -107,7 +107,6 @@
 </template>
 
 <script>
-import path from 'path'
 import { mapState } from 'vuex'
 export default {
   data() {
@@ -117,7 +116,7 @@ export default {
         .reverse(),
       page: 1,
       len: 10,
-      last: Math.floor(Object.keys(this.$store.state.articles).length / 10)
+      last: Math.ceil(Object.keys(this.$store.state.articles).length / 10)
     }
   },
   computed: {
