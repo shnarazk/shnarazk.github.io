@@ -1,0 +1,48 @@
+---
+title: How to fix a nuisance by Intero on Emacs?
+subtitle: InteroでEmacsがおかしくなる問題
+date: 2018-07-06
+tags: ["emacs", "haskell"]
+---
+At a directory without stack configuration, emacs is *devastated* by the initialization step of Intero.
+This is a record of my atemps to fix.
+
+### 2018-07-06: Stop it!
+
+```elisp
+(defun auto-revert-notify-add-watch ()
+  "Enable file notification for current buffer's associated file."
+  ;; We can assume that `buffer-file-name' and
+  ;; `auto-revert-use-notify' are non-nil.
+  (if (or (string-match auto-revert-notify-exclude-dir-regexp
+			(expand-file-name (or default-directory "")))
+	  (file-symlink-p (or buffer-file-name default-directory)))
+
+      ;; Fallback to file checks.
+      (setq-local auto-revert-use-notify nil)
+
+    (when (not auto-revert-notify-watch-descriptor)
+      (setq auto-revert-notify-watch-descriptor
+	    (ignore-errors
+	      (if buffer-file-name
+		  (file-notify-add-watch
+		   (expand-file-name buffer-file-name default-directory)
+		   '(change attribute-change)
+		   'auto-revert-notify-handler)
+		(file-notify-add-watch
+		 (expand-file-name default-directory)
+		 '(change)
+		 'auto-revert-notify-handler))))
+      (if auto-revert-notify-watch-descriptor
+	  (progn
+	    (puthash
+	     auto-revert-notify-watch-descriptor
+	     (cons (current-buffer)
+		   (gethash auto-revert-notify-watch-descriptor
+			    auto-revert-notify-watch-descriptor-hash-list))
+	     auto-revert-notify-watch-descriptor-hash-list)
+	    (add-hook 'kill-buffer-hook
+		      #'auto-revert-notify-rm-watch nil t))
+	;; Fallback to file checks.
+	(setq-local auto-revert-use-notify nil)))))
+```
