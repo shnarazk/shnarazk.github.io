@@ -2,9 +2,23 @@
 
 ---
 
-## A Blog powered by GitLab Pages with [Hugo]
+## A Blog powered by GitLab Pages with nuxt.js
 
-Learn more about GitLab Pages at https://pages.gitlab.io and the official
-documentation https://docs.gitlab.com/ce/user/project/pages/.
+### Build Setup
 
-[hugo]: https://gohugo.io
+``` bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm start
+
+# generate static project
+$ npm run generate
+```
+
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).

@@ -1,0 +1,9 @@
+*.txt
+.bash
+*~
+.circleci
+.vscode
+.editorconfig
+.eslintrc.js
+.prettierrc
+README*

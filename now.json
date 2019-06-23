@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "public": false,
+  "name": "note",
+  "alias": "shnarazk",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ]
+}
