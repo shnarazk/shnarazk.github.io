@@ -1,17 +1,38 @@
 <template>
-  <nav class="navbar is-fixed-top site-header" role="navigation">
+  <nav
+    class="navbar is-fixed-top site-header"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-brand">
       <nuxt-link class="navbar-item " to="/">Just a Note</nuxt-link>
+      <a
+        role="button"
+        class="navbar-burger burger"
+        :class="{ 'is-active': navbarMenuOpen }"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+        @click="navbarMenuOpen = !navbarMenuOpen"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <div class="navbar-menu">
-      <div class="navbar-end">
-        <nuxt-link class="navbar-item" to="/about">about</nuxt-link>
+    <div
+      id="navbarBasicExample"
+      class="navbar-menu"
+      :class="{ 'is-active': navbarMenuOpen }"
+    >
+      <div class="navbar-start">
+        <nuxt-link class="navbar-item" to="/about">About</nuxt-link>
         <a class="navbar-item" href="/feed.xml">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-            viewBox="0 0 28 28"
+            width="26"
+            height="26"
+            viewBox="0 -0 28 28"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -29,7 +50,13 @@
   </nav>
 </template>
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      navbarMenuOpen: false
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

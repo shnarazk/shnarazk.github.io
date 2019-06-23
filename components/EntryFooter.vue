@@ -1,25 +1,41 @@
 <template>
   <footer class="content">
-    <nav class="navbar is-fixed-bottom" id="bottombar">
+    <nav id="bottombar" class="navbar is-fixed-bottom">
       <div class="navbar-brand">
-        <div class="navbar-item">
-          Copyright 2017-2019 Shuji Narazaki.
-        </div>
-        <div class="navbar-item">{{ timestamp }}.</div>
+        <a
+          role="button"
+          class="navbar-burger burger"
+          :class="{ 'is-active': navbarBottomMenuOpen }"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarEntryMenu"
+          @click="navbarBottomMenuOpen = !navbarBottomMenuOpen"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
-      <div v-if="tags.length" class="navbar-item">
-        <template v-for="tag in tags">
-          <span :key="tag">
-            #<nuxt-link :to="'/tag/' + tag.toLowerCase()">{{
-              tag.toLowerCase()
-            }}</nuxt-link
-            >,
-          </span>
-        </template>
-      </div>
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <nuxt-link to="/">HOME</nuxt-link>
+      <div
+        id="navbarEntryMenu"
+        class="navbar-menu "
+        :class="{ 'is-active': navbarBottomMenuOpen }"
+      >
+        <div class="navbar-start">
+          <div v-if="tags.length" class="navbar-item">
+            <template v-for="tag in tags">
+              <span :key="tag">
+                #<nuxt-link :to="'/tag/' + tag.toLowerCase()">{{
+                  tag.toLowerCase()
+                }}</nuxt-link
+                >,
+              </span>
+            </template>
+          </div>
+          <div class="navbar-item">
+            Copyright 2017-2019 Shuji Narazaki.
+          </div>
+          <div class="navbar-item">{{ timestamp }}.</div>
         </div>
       </div>
     </nav>
@@ -27,6 +43,11 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      navbarBottomMenuOpen: false
+    }
+  },
   props: {
     timestamp: {
       type: String,
