@@ -8,7 +8,7 @@
           </div>
           <nuxt-link
             class="subtitle entry-title"
-            :to="entryname(art[1])"
+            :to="art[1] | endPoint"
             no-prefetch
             >{{ art[1].title }}</nuxt-link
           >
@@ -132,15 +132,6 @@ export default {
   methods: {
     setPage: function(p) {
       this.page = Math.floor(Math.min(this.last, Math.max(1, p)))
-    },
-    entryname: function(art) {
-      return (
-        '/blog/' +
-        path.basename(art.dir) +
-        '/' +
-        path.basename(art.sourceBase, '.md') +
-        '/'
-      )
     }
   }
 }

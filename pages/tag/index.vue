@@ -7,7 +7,7 @@
           <div class="aside">
             {{ article.date.substring(0, 10) }}
           </div>
-          <nuxt-link class="entry-title" :to="entryname(article)" no-prefetch>{{
+          <nuxt-link class="entry-title" :to="article | endPoint" no-prefetch>{{
             article.title
           }}</nuxt-link>
           <span class="entry-subtitle" if-show="article.subtitle">{{
@@ -24,17 +24,6 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState(['articles', 'blogTags'])
-  },
-  methods: {
-    entryname: function(art) {
-      return (
-        '/blog/' +
-        path.basename(art.dir) +
-        '/' +
-        path.basename(art.sourceBase, '.md') +
-        '/'
-      )
-    }
   }
 }
 </script>

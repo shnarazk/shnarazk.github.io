@@ -21,8 +21,8 @@ module.exports = function() {
       const id = path.basename(entry.sourceBase, '.md')
       feed.addItem({
         title: entry.title,
-        id: `https://shnarazk.now.sh/blog/${year}/${id}`,
-        link: `https://shnarazk.now.sh/blog/${year}/${id}`,
+        id: `https://shnarazk.now.sh/${year}/${id}`,
+        link: `https://shnarazk.now.sh/${year}/${id}`,
         date: new Date(entry.date)
       })
       feed.addContributor({

@@ -6,7 +6,7 @@
         <div class="aside">
           {{ article.date.substring(0, 10) }}
         </div>
-        <nuxt-link class="entry-title" :to="entryname(article)" no-prefetch>{{
+        <nuxt-link class="entry-title" :to="article | endPoint" no-prefetch>{{
           article.title
         }}</nuxt-link>
         <span class="entry-subtitle" if-show="article.subtitle">{{
@@ -26,15 +26,6 @@ export default {
   methods: {
     targets: function(tag) {
       return this.blogTags.find(e => e[0] === tag)
-    },
-    entryname: function(art) {
-      return (
-        '/blog/' +
-        path.basename(art.dir) +
-        '/' +
-        path.basename(art.sourceBase, '.md') +
-        '/'
-      )
     }
   }
 }
