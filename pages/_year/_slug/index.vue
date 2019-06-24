@@ -1,19 +1,15 @@
 <template>
   <div>
     <Header :title="article.title" />
-    <div style="width: 96%; margin-left: 2%;">
-      <div class="container">
-        <h1
-          class="subtitle has-text-info has-text-weight-semibold has-text-right"
-        >
-          {{ article.subtitle }}
-        </h1>
-        <div class="entry-content" v-html="$md.render(article.bodyContent)" />
-      </div>
+    <section class="section">
+      <h1 class="subtitle has-text-info has-text-weight-semibold">
+        {{ article.subtitle }}
+      </h1>
+      <div class="entry-content" v-html="$md.render(article.bodyContent)" />
       <hr />
       <div>Written on {{ article.date }}.</div>
       <EntryFooter :tags="article.tags" />
-    </div>
+    </section>
   </div>
 </template>
 <script>

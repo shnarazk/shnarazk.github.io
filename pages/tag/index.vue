@@ -1,9 +1,11 @@
 <template>
   <div>
     <Header title="All tags" />
-    <section style="width: 96%; margin-left: 2%;">
+    <section class="section">
       <div v-for="(tag, i) in blogTags" :key="i">
-        <div class="title">{{ tag[0] }}</div>
+        <h1 class="title has-text-info has-text-weight-semibold">
+          {{ tag[0] }}
+        </h1>
         <template v-for="(article, j) in tag[1]">
           <ArticleBox :article="article" :key="j" />
         </template>

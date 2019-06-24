@@ -1,8 +1,10 @@
 <template>
   <div>
     <Header title="Just a note about this site and me" />
-    <section class="section" style="width: 96%; margin-left: 2%;">
-      <h2 class="section-title">About</h2>
+    <section class="section">
+      <h1 class="title has-text-info has-text-weight-semibold">
+        About
+      </h1>
       This site collects my notes on
       <nuxt-link to="/tag/">]various topics</nuxt-link>, in particular about:
 
@@ -19,12 +21,14 @@
       </ul>
       <p>
         I won't publish my opinions here. I'll use
-        <a href="https://medium.com/@shnarazk/">Medium</a> for them.
+        <a href="https://medium.com/@shnarazk/">Medium</a> for them. And this
+        site is powered by nuxt.js.
       </p>
-    </section>
-    <div>
+      <h1 class="title has-text-info has-text-weight-semibold">
+        Copyright
+      </h1>
       Copyright 2017-2019 Shuji Narazaki.
-    </div>
+    </section>
   </div>
 </template>
 <script>
@@ -35,3 +39,13 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+@import '~/assets/scss/style.scss';
+h1 {
+  margin-top: 1.4rem;
+}
+ul {
+  list-style-type: disc;
+  margin: 8pt;
+}
+</style>

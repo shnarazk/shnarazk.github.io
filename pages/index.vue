@@ -1,11 +1,14 @@
 <template>
   <div>
-    <Header title="Just a Note TOC" />
-    <div class="container" style="width: 96%;margin-left: 2%;">
+    <Header title="Just a Note" />
+    <section class="section">
+      <h1 class="title has-text-info has-text-weight-semibold">
+        Table Of Contents
+      </h1>
       <template v-for="(art, i) in slicedEntries">
         <ArticleBox :key="i" :article="art[1]" />
       </template>
-    </div>
+    </section>
     <footer>
       <nav id="bottombar" class="navbar is-fixed-bottom is-lighter">
         <div class="navbar-brand">

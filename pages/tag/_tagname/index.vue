@@ -1,8 +1,10 @@
 <template>
   <div>
     <Header :title="'All notes about #' + $route.params.tagname" />
-    <section style="width: 96%; margin-left: 2%;">
-      <div class="title">#{{ targets($route.params.tagname)[0] }}</div>
+    <section class="section">
+      <h1 class="title has-text-info has-text-weight-semibold">
+        #{{ targets($route.params.tagname)[0] }}
+      </h1>
       <template v-for="(article, j) in targets($route.params.tagname)[1]">
         <ArticleBox :key="j" :article="article" />
       </template>

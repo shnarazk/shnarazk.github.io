@@ -1,9 +1,11 @@
 <template>
   <div class="layout-error">
-    <Header title="Just a memo on your error" />
-    <section class="error">
-      <h2>404</h2>
-      <div>
+    <Header title="404 note" />
+    <section class="section error">
+      <h1 class="subtitle has-text-info has-text-weight-semibold">
+        404
+      </h1>
+      <div class="has-text-error">
         アクセスされたページは存在しないか、すでに削除されています。
       </div>
       <div>slug: {{ $route.params.slug }}</div>
