@@ -6,7 +6,7 @@ const { Feed } = require('feed')
 module.exports = function() {
   // generate が終わったタイミングで実行する
   this.nuxt.hook('generate:done', async generator => {
-    const json = await promisify(fs.readFile)('static/db.json', 'utf-8')
+    const json = await promisify(fs.readFile)('article/.json/db.json', 'utf-8')
     const entries = Object.entries(await JSON.parse(json).fileMap)
     entries.sort()
     entries.reverse()
