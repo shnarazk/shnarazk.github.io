@@ -2,7 +2,7 @@
   <div>
     <Header :title="article.title" />
     <section class="section">
-      <h1 class="title has-text-info has-text-weight-semibold">
+      <h1 class="title has-text-primary has-text-weight-semibold">
         {{ article.title }}
       </h1>
       <h1

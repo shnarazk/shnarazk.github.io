@@ -2,13 +2,13 @@
   <div>
     <Header title="Just a note about this site and me" />
     <section class="section">
-      <h1 class="title has-text-info has-text-weight-semibold">
+      <h1 class="title has-text-primary has-text-weight-semibold">
         About
       </h1>
       This site collects my notes on
       <nuxt-link to="/tag/">]various topics</nuxt-link>, in particular about:
 
-      <ul style="padding-left: 20px;">
+      <ul>
         <li>
           <a href="https://gitlab.com/satisfiability01/">Propositional logic</a>
           <nuxt-link to="/tag/sat">(#sat)</nuxt-link>
@@ -24,7 +24,32 @@
         <a href="https://medium.com/@shnarazk/">Medium</a> for them. And this
         site is powered by nuxt.js.
       </p>
-      <h1 class="title has-text-info has-text-weight-semibold">
+      <h1 class="title has-text-primary has-text-weight-semibold">
+        Profile
+      </h1>
+      <ul class="desc is-italic">
+        <li>A programmer using Nuxt.js, Vue.js, NixOS, Rust, MongoDB, GCP.</li>
+        <li>
+          A researcher on the satisfiability problem (SAT solvers), studying
+          logic, category theory.
+        </li>
+        <li>A user of Emacs, Haskell, Latex, Linux, R, macOS, Mendeley.</li>
+        <li>A bicycle rider (bicycle deliverer).</li>
+      </ul>
+      <ul>
+        <li><a href="https://github.com/shnarazk">@github</a></li>
+        <li><a href="https://gitlab.com/shujinarazaki/">@gitlab</a></li>
+        <li><a href="https://medium.com/@shnarazk/">@Medium</a></li>
+        <li><a href="https://pdp11.herokuapp.com">Online PDP11 demo</a></li>
+        <li>
+          <a href="https://check-qiita.shujinarazaki.now.sh/"
+            >Online Qiita checker</a
+          >
+        </li>
+        <li><a href="https://github.com/shnarazk/splr">Splr</a></li>
+        <li><a href="https://github.com/shnarazk/mios">Mios</a></li>
+      </ul>
+      <h1 class="subtitle has-text-info has-text-weight-semibold">
         Copyright
       </h1>
       Copyright 2017-2019 Shuji Narazaki.
@@ -45,7 +70,11 @@ h1 {
   margin-top: 1.4rem;
 }
 ul {
+  list-style-position: inside;
   list-style-type: disc;
   margin: 8pt;
+}
+.desc {
+  list-style-type: none;
 }
 </style>
