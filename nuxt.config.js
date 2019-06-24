@@ -23,6 +23,10 @@ export default {
         rel: 'stylesheet',
         href:
           'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap'
       }
     ],
     htmlAttrs: {
