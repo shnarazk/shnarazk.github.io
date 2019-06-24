@@ -1,17 +1,11 @@
 <template>
   <footer class="content">
-    <nav id="bottombar" class="navbar is-fixed-bottom">
+    <nav id="bottombar" class="navbar is-fixed-bottom" aria-label="navigation">
       <div class="navbar-brand">
-        <nuxt-link class="navbar-item" to="/tag/">TAGS</nuxt-link>
-        <div v-if="tags.length" class="navbar-item">
-          <template v-for="tag in tags">
-            <span :key="tag">
-              #<nuxt-link :to="'/tag/' + tag.toLowerCase()">{{
-                tag.toLowerCase()
-              }}</nuxt-link
-              >,
-            </span>
-          </template>
+        <div :key="tag" class="navbar-item" v-for="tag in tags">
+          <nuxt-link :to="'/tag/' + tag.toLowerCase()"
+            >#{{ tag.toLowerCase() }}</nuxt-link
+          >
         </div>
       </div>
     </nav>
@@ -23,6 +17,11 @@ export default {
     tags: {
       type: Array,
       default: () => []
+    }
+  },
+  data() {
+    return {
+      openBottomMenu: false
     }
   }
 }

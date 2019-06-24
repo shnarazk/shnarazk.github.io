@@ -115,8 +115,8 @@ export default {
         .sort()
         .reverse(),
       page: 1,
-      len: 10,
-      last: Math.ceil(Object.keys(this.$store.state.articles).length / 10)
+      len: 12,
+      last: Math.ceil(Object.keys(this.$store.state.articles).length / 12)
     }
   },
   computed: {

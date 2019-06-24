@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" style="width: 96%; margin-left: 2%;">
     <section class="section">
       <h2 class="section-title">About</h2>
       This site collects my memos on
@@ -21,6 +21,9 @@
         <a href="https://medium.com/@shnarazk/">Medium</a> for them.
       </p>
     </section>
+    <div>
+      Copyright 2017-2019 Shuji Narazaki.
+    </div>
   </div>
 </template>
 <script></script>
