@@ -2,7 +2,7 @@
   <footer class="content">
     <nav id="bottombar" class="navbar is-fixed-bottom" aria-label="navigation">
       <div class="navbar-brand">
-        <div :key="tag" class="navbar-item" v-for="tag in tags">
+        <div v-for="tag in tags" :key="tag" class="navbar-item">
           <nuxt-link :to="'/tag/' + tag.toLowerCase()"
             >#{{ tag.toLowerCase() }}</nuxt-link
           >

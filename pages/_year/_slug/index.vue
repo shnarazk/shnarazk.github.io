@@ -1,6 +1,6 @@
 <template>
   <div>
-    <EntryHeader :title="article.title" />
+    <Header :title="article.title" />
     <div style="width: 96%; margin-left: 2%;">
       <div class="container">
         <h1
@@ -17,16 +17,15 @@
   </div>
 </template>
 <script>
-import EntryHeader from '~/components/EntryHeader'
+import Header from '~/components/TheHeader'
 import EntryFooter from '~/components/EntryFooter'
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    EntryHeader,
+    Header,
     EntryFooter
   },
-  layout: 'entry',
   computed: {
     ...mapState(['articles'])
   },

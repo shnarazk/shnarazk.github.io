@@ -1,8 +1,9 @@
 <template>
-  <div class="content" style="width: 96%; margin-left: 2%;">
-    <section class="section">
+  <div>
+    <Header title="Just a note about this site and me" />
+    <section class="section" style="width: 96%; margin-left: 2%;">
       <h2 class="section-title">About</h2>
-      This site collects my memos on
+      This site collects my notes on
       <nuxt-link to="/tag/">]various topics</nuxt-link>, in particular about:
 
       <ul style="padding-left: 20px;">
@@ -26,4 +27,11 @@
     </div>
   </div>
 </template>
-<script></script>
+<script>
+import Header from '~/components/TheHeader'
+export default {
+  components: {
+    Header
+  }
+}
+</script>

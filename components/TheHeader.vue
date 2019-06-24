@@ -1,11 +1,13 @@
 <template>
   <nav
-    class="navbar is-fixed-top site-header"
+    class="navbar is-fixed-top is-light"
     role="navigation"
     aria-label="main navigation"
   >
     <div class="navbar-brand">
-      <nuxt-link class="navbar-item " to="/">Just a Note</nuxt-link>
+      <div class="navbar-item">
+        <nuxt-link to="/" class="title">{{ title }}</nuxt-link>
+      </div>
       <a
         role="button"
         class="navbar-burger burger"
@@ -26,6 +28,7 @@
       :class="{ 'is-active': navbarMenuOpen }"
     >
       <div class="navbar-start">
+        <nuxt-link class="navbar-item" to="/tag/">Tags</nuxt-link>
         <nuxt-link class="navbar-item" to="/about">About</nuxt-link>
         <a class="navbar-item" href="/feed.xml">
           <svg
@@ -51,6 +54,12 @@
 </template>
 <script>
 export default {
+  props: {
+    title: {
+      type: String,
+      default: () => 'Just a Note'
+    }
+  },
   data() {
     return {
       navbarMenuOpen: false
@@ -61,21 +70,4 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/scss/style.scss';
-.site-header {
-  background-color: $color-bg;
-  font-size: 1.3rem;
-  font-weight: bold;
-  font-family: sans-serif;
-  color: #777;
-}
-.header-link {
-  color: #777;
-}
-.about {
-  float: right;
-  padding-right: 10pt;
-}
-.rss {
-  float: right;
-}
 </style>

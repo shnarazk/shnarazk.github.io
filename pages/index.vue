@@ -1,21 +1,9 @@
 <template>
-  <div style="width: 96%;margin-left: 2%;">
-    <div class="container">
+  <div>
+    <Header title="Just a Note TOC" />
+    <div class="container" style="width: 96%;margin-left: 2%;">
       <template v-for="(art, i) in slicedEntries">
-        <div :key="i" class="blog-entry">
-          <div class="aside">
-            {{ art[1].date.substring(0, 10) }}
-          </div>
-          <nuxt-link
-            class="subtitle entry-title"
-            :to="art[1] | endPoint"
-            no-prefetch
-            >{{ art[1].title }}</nuxt-link
-          >
-          <span class="entry-subtitle" if-show="art.subtitle">{{
-            art[1].subtitle
-          }}</span>
-        </div>
+        <ArticleBox :key="i" :article="art[1]" />
       </template>
     </div>
     <footer>
@@ -107,8 +95,14 @@
 </template>
 
 <script>
+import Header from '~/components/TheHeader'
+import ArticleBox from '~/components/ArticleBox'
 import { mapState } from 'vuex'
 export default {
+  components: {
+    Header,
+    ArticleBox
+  },
   data() {
     return {
       entries: Object.entries(this.$store.state.articles)
@@ -139,25 +133,5 @@ export default {
 @import '~/assets/scss/style.scss';
 #bottombar {
   background-color: $color-bg;
-}
-.aside {
-  font-size: 0.84rem;
-  line-height: 1.4;
-  color: #667;
-}
-.blog-entry {
-  padding-bottom: 0.9rem;
-}
-.aside em {
-  font-size: 0.7rem;
-}
-.a-entry-title {
-  font-size: 1.95rem;
-  color: black;
-}
-.entry-subtitle {
-  font-size: 90%;
-  color: #888;
-  float: right;
 }
 </style>
