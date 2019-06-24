@@ -1,6 +1,6 @@
 <template>
   <div class="blog-entry">
-    <div class="aside">
+    <div class="aside has-text-grey">
       {{ article.date.substring(0, 10) }}
     </div>
     <nuxt-link
@@ -9,9 +9,11 @@
       no-prefetch
       >{{ article.title }}</nuxt-link
     >
-    <span class="entry-subtitle" if-show="article.subtitle">{{
-      article.subtitle
-    }}</span>
+    <span
+      class="entry-subtitle is-pulled-right has-text-grey-dark"
+      if-show="article.subtitle"
+      >{{ article.subtitle }}</span
+    >
   </div>
 </template>
 <script>
@@ -26,24 +28,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '~/assets/scss/style.scss';
-.aside {
-  font-size: 0.84rem;
-  line-height: 1.4;
-  color: #667;
-}
 .blog-entry {
   padding-bottom: 0.9rem;
 }
-.aside em {
-  font-size: 0.7rem;
-}
-.a-entry-title {
-  font-size: 1.95rem;
-  color: black;
-}
-.entry-subtitle {
-  font-size: 90%;
-  color: #888;
-  float: right;
+.entry-title {
+  text-shadow: 0px 1px 1px #aaf;
 }
 </style>
