@@ -2,7 +2,13 @@
   <div>
     <Header :title="article.title" />
     <section class="section">
-      <h1 class="subtitle has-text-info has-text-weight-semibold">
+      <h1 class="title has-text-info has-text-weight-semibold">
+        {{ article.title }}
+      </h1>
+      <h1
+        v-if="article.subtitle"
+        class="subtitle has-text-info has-text-weight-semibold"
+      >
         {{ article.subtitle }}
       </h1>
       <div class="entry-content" v-html="$md.render(article.bodyContent)" />
@@ -39,10 +45,4 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/scss/style.scss';
 @import '~/assets/scss/blog.scss';
-.entry-title {
-  font-size: 24pt;
-}
-.entry-tag {
-  font-family: 'Courier New', Courier, monospace;
-}
 </style>

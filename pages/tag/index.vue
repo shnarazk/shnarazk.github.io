@@ -7,7 +7,7 @@
           {{ tag[0] }}
         </h1>
         <template v-for="(article, j) in tag[1]">
-          <ArticleBox :article="article" :key="j" />
+          <ArticleBox :key="j" :article="article" />
         </template>
       </div>
     </section>
