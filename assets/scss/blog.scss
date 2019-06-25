@@ -41,9 +41,17 @@
     li {
       margin: 0.5rem;
     }
+    pre {
+      margin-top: 0.5rem;
+      margin-left: 0.2rem;
+      padding: 0.1rem;
+    }
     pre > code {
       font-family: 'Roboto Mono', monospace;
       font-stretch: condensed;
+    }
+    img {
+      max-width: 95%;
     }
   }
 }
