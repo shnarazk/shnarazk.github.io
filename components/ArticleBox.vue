@@ -1,7 +1,7 @@
 <template>
   <div class="blog-entry">
     <div class="aside has-text-grey">
-      {{ article.date.substring(0, 10) }}
+      <i class="fas fa-file-alt"></i>&thinsp;{{ article.date.substring(0, 10) }}
     </div>
     <nuxt-link
       class="subtitle entry-title"

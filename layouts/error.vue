@@ -3,7 +3,7 @@
     <Header title="404 note" />
     <section class="section error">
       <h1 class="subtitle has-text-info has-text-weight-semibold">
-        404
+        <i class="fas fa-exclamation-circle"></i>&thinsp;404
       </h1>
       <div class="has-text-error">
         アクセスされたページは存在しないか、すでに削除されています。

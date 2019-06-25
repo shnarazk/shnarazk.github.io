@@ -4,7 +4,7 @@
     <section class="section">
       <div v-for="(tag, i) in blogTags" :key="i">
         <h1 class="title has-text-info has-text-weight-semibold">
-          {{ tag[0] }}
+          <i class="fas fa-tag"></i>&thinsp;#{{ tag[0] }}
         </h1>
         <template v-for="(article, j) in tag[1]">
           <ArticleBox :key="j" :article="article" />

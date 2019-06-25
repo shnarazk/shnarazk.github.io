@@ -37,9 +37,18 @@
         <li>A bicycle rider (bicycle deliverer).</li>
       </ul>
       <ul>
-        <li><a href="https://github.com/shnarazk">@github</a></li>
-        <li><a href="https://gitlab.com/shujinarazaki/">@gitlab</a></li>
-        <li><a href="https://medium.com/@shnarazk/">@Medium</a></li>
+        <li>
+          <i class="fab fa-github"></i
+          ><a href="https://github.com/shnarazk">@github</a>
+        </li>
+        <li>
+          <i class="fab fa-gitlab"></i
+          ><a href="https://gitlab.com/shujinarazaki/">@gitlab</a>
+        </li>
+        <li>
+          <i class="fab fa-medium"></i
+          ><a href="https://medium.com/@shnarazk/">@Medium</a>
+        </li>
         <li><a href="https://pdp11.herokuapp.com">Online PDP11 demo</a></li>
         <li>
           <a href="https://check-qiita.shujinarazaki.now.sh/"

@@ -3,7 +3,9 @@
     <Header :title="'All notes about #' + $route.params.tagname" />
     <section class="section">
       <h1 class="title has-text-info has-text-weight-semibold">
-        #{{ targets($route.params.tagname)[0] }}
+        <i class="fas fa-tag"></i>&thinsp;#{{
+          targets($route.params.tagname)[0]
+        }}
       </h1>
       <template v-for="(article, j) in targets($route.params.tagname)[1]">
         <ArticleBox :key="j" :article="article" />
