@@ -6,7 +6,9 @@
   >
     <div class="navbar-brand">
       <div class="navbar-item">
-        <nuxt-link to="/" class="title">{{ title }}</nuxt-link>
+        <nuxt-link to="/" class="title" title="Back to the top page">{{
+          title
+        }}</nuxt-link>
       </div>
       <a
         role="button"

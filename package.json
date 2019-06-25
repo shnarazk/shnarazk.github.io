@@ -25,7 +25,8 @@
     "bulma": "^0.7.5",
     "markdown-it-highlightjs": "^3.0.0",
     "nuxt": "^2.8.1",
-    "processmd": "^4.4.2"
+    "processmd": "^4.4.2",
+    "vue-scrollto": "^2.15.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

@@ -59,7 +59,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/filters.js' }],
+  plugins: [
+    { src: '~/plugins/filters.js' },
+    { src: '~/plugins/vue-scrollto.js' }
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -71,6 +74,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/bulma',
     '@nuxtjs/style-resources',
+    // 'vue-scrollto/nuxt',
     '~/modules/feed'
   ],
   /*
