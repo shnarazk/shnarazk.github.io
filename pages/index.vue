@@ -3,7 +3,7 @@
     <Header title="Just a Note" />
     <section class="section">
       <h1 class="title has-text-info has-text-weight-semibold">
-        <i class="fas fa-book-open"></i>&thinsp;Table Of Contents
+        <i class="fas fa-book-open"></i>&thinsp;Table of Contents
       </h1>
       <template v-for="(art, i) in slicedEntries">
         <ArticleBox :key="i" :article="art[1]" />
