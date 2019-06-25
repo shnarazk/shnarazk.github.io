@@ -12,8 +12,11 @@
         {{ article.subtitle }}
       </h1>
       <div class="entry-content" v-html="$md.render(article.bodyContent)" />
-      <hr />
-      <div>Written on {{ article.date }}.</div>
+      <section class="section">
+        <div class="is-size-7 is-family-code has-text-grey has-text-right">
+          Written on {{ article.date }}.
+        </div>
+      </section>
       <EntryFooter :tags="article.tags" />
     </section>
   </div>
