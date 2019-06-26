@@ -7,10 +7,9 @@ cache:
   paths:
     - node_modules/
 
-variable:
-  DEPLOY_URL: "https://shujinarazaki.gitlab.io"
-
 pages:
+  variables:
+    DEPLOY_URL: "https://shujinarazaki.gitlab.io"
   script:
     - npm run update
     - npm run generate
