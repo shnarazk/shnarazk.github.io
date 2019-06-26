@@ -13,8 +13,9 @@ pages:
   script:
     - npm run update
     - npm run generate
+    - mv dist public
   artifacts:
     paths:
-      - dist
+      - public
   only:
     - master
