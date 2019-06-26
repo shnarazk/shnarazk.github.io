@@ -4,6 +4,9 @@
 
 ## A Blog powered by GitLab Pages with nuxt.js
 
+- https://shnarazk.now.sh/
+- https://shujinarazaki.gitlab.io/
+
 ### Build Setup
 
 ``` bash
