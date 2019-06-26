@@ -6,6 +6,8 @@ const { Feed } = require('feed')
 module.exports = function() {
   // generate が終わったタイミングで実行する
   this.nuxt.hook('generate:done', async generator => {
+    const deploy_url = process.env.DEPLOY_URL || 'https://shnarazk.now.sh'
+    const options = this.options;
     const json = await promisify(fs.readFile)('article/.json/db.json', 'utf-8')
     const entries = Object.entries(await JSON.parse(json).fileMap)
     entries.sort()
@@ -13,7 +15,8 @@ module.exports = function() {
     const feed = new Feed({
       title: 'Just a Note',
       description: 'a collection of memo',
-      generator: 'nuxtjs/feed'
+      generator: 'nuxtjs/feed',
+      link: deploy_url
     })
     for (let i = 0; i < 20; i++) {
       const entry = entries[i][1]
@@ -21,14 +24,14 @@ module.exports = function() {
       const id = path.basename(entry.sourceBase, '.md')
       feed.addItem({
         title: entry.title,
-        id: `https://shnarazk.now.sh/${year}/${id}`,
-        link: `https://shnarazk.now.sh/${year}/${id}`,
+        id: `${deploy_url}/${year}/${id}`,
+        link: `${deploy_url}/${year}/${id}`,
         date: new Date(entry.date)
       })
       feed.addContributor({
         name: 'Shuji Narazaki',
         email: 'shujinarazaki@protonmail.com',
-        link: 'https://medium.com/@shnarazk'
+	link: deploy_url
       })
     }
 
