@@ -14,7 +14,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "update": "processmd article/**/*.md --stdout --outputDir article/.json > static/db.json",
+    "update": "processmd article/**/*.md --stdout --outputDir article/.json > article/.json/db.json",
     "now-build": "nuxt generate"
   },
   "dependencies": {
