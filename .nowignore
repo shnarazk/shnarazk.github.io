@@ -7,3 +7,5 @@
 .eslintrc.js
 .prettierrc
 README*
+article/.json/db.json
+article/.json/2*

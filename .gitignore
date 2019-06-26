@@ -88,3 +88,4 @@ sw.*
 .DS_Store
 
 article/.json/2*
+article/.json/*.json
