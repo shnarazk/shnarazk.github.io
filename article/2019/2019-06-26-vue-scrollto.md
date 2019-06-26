@@ -1,5 +1,5 @@
 ---
-title: Can't bind an expression to vue-scrollto
+title: Can't bind an expression to v-scroll-to
 subtitle: vue-scrolltoのモンダイ
 date: 2019-06-26
 tags: ['nuxtjs', 'vuejs']
@@ -11,7 +11,7 @@ tags: ['nuxtjs', 'vuejs']
 [vue-schrollto](https://www.npmjs.com/package/vue-scrollto)
 を入れてみた。
 
-もともとのタグ一覧コードはこんな感じ：
+もともとのタグ一覧の生成コードはこんな感じ：
 
 ```javascript
 <div v-for="tag in tags" :key="tag">
