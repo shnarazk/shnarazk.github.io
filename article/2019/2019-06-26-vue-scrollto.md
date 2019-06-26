@@ -1,13 +1,13 @@
 ---
-title: bind an expression to vue-scrollto
+title: Can't bind an expression to vue-scrollto
 subtitle: vue-scrolltoのモンダイ
 date: 2019-06-26
 tags: ['nuxtjs', 'vuejs']
 ---
 
-[vue.js](https://vuejs.org) + [nuxt](https://nuxtjs.org/)で作った
-このblogのtagページでタグ一覧からそのセクションへの
-ページ内ジャンプを実現するために
+[vue.js](https://vuejs.org) + [nuxt.js](https://nuxtjs.org/)で作った
+このblog（実はつい最近hugoから変更しました）のtagページで
+タグ一覧からそのセクションへのページ内ジャンプを実現するために
 [vue-schrollto](https://www.npmjs.com/package/vue-scrollto)
 を入れてみた。
 
@@ -30,9 +30,9 @@ tags: ['nuxtjs', 'vuejs']
 </template>
 ```
 
-よさそうなんだけどは動かないことが判明。
-どうも`v-scroll-to` は真にリテラルしか受け付けないようだ。
-bindもできない。ということで、正解はこうだった。
+よさそうなんだけどこれでは動かないことが判明。
+どうも`v-scroll-to` はbindができない。真にリテラルしか受け付けないようだ。
+ということで正解はこうだった。
 
 ```javascript
 <template v-for="tag in tags">
