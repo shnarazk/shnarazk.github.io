@@ -28,5 +28,8 @@ function buildTags(arts) {
     })
   })
   bag.sort()
+  bag.forEach(entry => {
+    entry[1] = entry[1].sort().reverse()
+  })
   return bag
 }
