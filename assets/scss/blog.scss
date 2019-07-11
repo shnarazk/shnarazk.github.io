@@ -1,0 +1,57 @@
+.entry-content {
+  width: 92%;
+  margin-left: 3%;
+  /deep/ {
+    h1 {
+      font-size: 2rem;
+      font-weight: bolder;
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    h4 {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    h5 {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    h6 {
+      font-size: 1.2rem;
+    }
+    p {
+      margin-top: 1rem;
+    }
+    ul {
+      margin: 0.8rem;
+      list-style-position: outside;
+      list-style-type: disc;
+    }
+    ol {
+      margin: 0.8rem;
+      list-style-position: outside;
+      list-style-type: decimal;
+    }
+    li {
+      margin: 0.5rem;
+    }
+    pre {
+      margin-top: 0.5rem;
+      margin-left: 0.2rem;
+      padding: 0.1rem;
+    }
+    pre > code {
+      font-family: 'Roboto Mono', monospace;
+      font-stretch: condensed;
+    }
+    img {
+      max-width: 95%;
+    }
+  }
+}

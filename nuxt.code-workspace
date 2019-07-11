@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.formatOnSave": true,
+		"html.validate.styles": false,
+		"vetur.trace.server": "messages"
+	}
+}

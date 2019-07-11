@@ -1,6 +1,11 @@
-.git
-zola-test
-.gitignore
-.gitlab-ci.yml
-README.md
+*.txt
+.bash
 *~
+.circleci
+.vscode
+.editorconfig
+.eslintrc.js
+.prettierrc
+README*
+article/.json/db.json
+article/.json/2*

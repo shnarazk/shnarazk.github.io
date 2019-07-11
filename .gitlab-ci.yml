@@ -1,20 +1,21 @@
-# All available Hugo versions are listed here: https://gitlab.com/pages/hugo/container_registry
-image: registry.gitlab.com/pages/hugo:latest
+image: node
 
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
+before_script:
+  - npm install
 
-test:
-  script:
-  - hugo
-  except:
-  - master
+cache:
+  paths:
+    - node_modules/
 
 pages:
+  variables:
+    DEPLOY_URL: "https://shujinarazaki.gitlab.io"
   script:
-  - hugo
+    - npm run update
+    - npm run generate
+    - mv dist public
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master
