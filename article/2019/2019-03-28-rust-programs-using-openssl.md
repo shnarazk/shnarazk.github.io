@@ -3,7 +3,6 @@ title: Compiling Rust programs that use openssl
 subtitle: 新しいopensslに移行したディストリビューションでopensslを使う
 date: 2019-03-28
 tags: ["Rust", "NixOS", "macOS"]
-sing-openssl.md
 ---
 
 The simplest way is using the old version of openssl.
