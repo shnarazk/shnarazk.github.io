@@ -53,5 +53,22 @@
     img {
       max-width: 95%;
     }
+    table {
+      border: solid 1px #338;
+      border-collapse: collapse;
+      margin: 0.8rem;
+      width: 90%;
+    }
+    table > thead {
+      background-color: #aaf;
+      border: solid 1px #338;
+    }
+    table > tbody > tr {
+      background-color: #ddd;
+    }
+    th,
+    td {
+      padding: 2px;
+    }
   }
 }
