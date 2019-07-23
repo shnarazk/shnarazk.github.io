@@ -22,10 +22,9 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import Header from '~/components/TheHeader'
 import EntryFooter from '~/components/EntryFooter'
-import { mapState } from 'vuex'
-
 export default {
   components: {
     Header,
