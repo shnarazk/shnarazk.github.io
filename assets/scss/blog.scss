@@ -1,4 +1,6 @@
 .entry-content {
+  font-family: 'Merriweather', sans-serif, 'Lora', 'Times New Roman';
+  font-size: 1rem;
   width: 92%;
   margin-left: 3%;
   /deep/ {
@@ -54,21 +56,22 @@
       max-width: 95%;
     }
     table {
-      border: solid 1px #338;
+      border: solid 1px #55c;
       border-collapse: collapse;
       margin: 0.8rem;
-      width: 90%;
+      max-width: 95%;
     }
     table > thead {
-      background-color: #aaf;
-      border: solid 1px #338;
+      background-color: #bbf;
+      border: solid 1px #55c;
     }
     table > tbody > tr {
-      background-color: #ddd;
+      background-color: #eeeeee;
     }
     th,
     td {
-      padding: 2px;
+      margin: 2px;
+      padding: 4px;
     }
   }
 }

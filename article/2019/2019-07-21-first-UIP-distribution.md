@@ -1,6 +1,7 @@
 ---
 title: First UIP distribution
-date: 2019-07-21
+subtitle: NP(n) + P(N-n)
+date: 2019-07-24
 tags: ['SAT', 'issue']
 ---
 
