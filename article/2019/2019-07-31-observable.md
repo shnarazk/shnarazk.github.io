@@ -49,3 +49,42 @@ new Runtime().module(notebook, Inspector.into(document.body));
 - https://shnarazk.now.sh/obs/index.html
 
 routerを設定しないといけない？？
+
+
+## 2019-08-01T21:05 上手くいったversion 0.1
+
+```js
+<template>
+  <div>
+    <Header title="Embedded Observable" />
+    <section class="section">
+      <div id="Observed"></div>
+      <EntryFooter tags="['Observable']" />
+    </section>
+    <script type="module">
+      import {
+        Runtime,
+        Inspector
+      } from 'https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js'
+      import notebook from 'https://api.observablehq.com/d/1cbb7a450b192e69.js?v=3'
+      new Runtime().module(notebook, Inspector.into('#Observed'))
+    </script>
+  </div>
+</template>
+<script>
+import Header from '~/components/TheHeader'
+import EntryFooter from '~/components/EntryFooter'
+export default {
+  components: {
+    Header,
+    EntryFooter
+  }
+}
+</script>
+```
+
+## 2019-08-01T21:05 上手くいったversion 0.2
+
+```
+npm i --save @observablehq/runtime@4
+```
