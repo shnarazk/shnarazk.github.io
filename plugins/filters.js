@@ -2,9 +2,7 @@ import path from 'path'
 import Vue from 'vue'
 
 Vue.filter('endPoint', function(art) {
-  if (art.sourceExt === 'observable')
-    return '/' + art.year + '/' + art.notebook + '/obs/'
-  else
+  if (art.notebook == null)
     return (
       '/' +
       path.basename(art.dir) +
@@ -12,4 +10,5 @@ Vue.filter('endPoint', function(art) {
       path.basename(art.sourceBase, '.md') +
       '/'
     )
+  else return '/' + art.year + '/' + art.notebook + '/obs/'
 })

@@ -8,18 +8,6 @@
       <template v-for="(art, i) in slicedEntries">
         <ArticleBox :key="i" :article="art[1]" />
       </template>
-      <ArticleBox
-        key="000"
-        :article="{
-          date: '2019-08-01T10:11:12',
-          title: 'Import from Observable',
-          subtitle: 'Observableの埋め込み実験中',
-          year: '2019',
-          sourceExt: 'observable',
-          notebook: '1cbb7a450b192e69',
-          tags: []
-        }"
-      />
     </section>
     <footer>
       <nav id="bottombar" class="navbar is-fixed-bottom is-lighter">
@@ -119,10 +107,10 @@ export default {
     ArticleBox
   },
   data() {
+    const ents = Object.entries(this.$store.state.articles)
+    ents.sort((a, b) => (a[1].date < b[1].date ? 1 : -1))
     return {
-      entries: Object.entries(this.$store.state.articles)
-        .sort()
-        .reverse(),
+      entries: ents,
       page: 1,
       len: 12,
       last: Math.ceil(Object.keys(this.$store.state.articles).length / 12)

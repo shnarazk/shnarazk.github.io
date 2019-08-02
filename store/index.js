@@ -1,9 +1,10 @@
 import db from '~/article/.json/db.json'
+import ob from '~/article/obs.json'
 
 export const state = () => ({
-  articles: db.fileMap,
+  articles: { ...db.fileMap, ...ob },
   sourceFiles: db.sourceFileArray,
-  blogTags: buildTags(db.fileMap)
+  blogTags: buildTags({ ...db.fileMap, ...ob })
 })
 
 export const mutations = {
