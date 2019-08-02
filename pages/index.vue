@@ -8,6 +8,18 @@
       <template v-for="(art, i) in slicedEntries">
         <ArticleBox :key="i" :article="art[1]" />
       </template>
+      <ArticleBox
+        key="000"
+        :article="{
+          date: '2019-08-01T10:11:12',
+          title: 'Import from Observable',
+          subtitle: 'Observableの埋め込み実験中',
+          year: '2019',
+          sourceExt: 'observable',
+          notebook: '1cbb7a450b192e69',
+          tags: []
+        }"
+      />
     </section>
     <footer>
       <nav id="bottombar" class="navbar is-fixed-bottom is-lighter">
