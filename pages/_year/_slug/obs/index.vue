@@ -3,7 +3,9 @@
     <Header title="Embedded Observable Notebook" />
     <section class="section">
       <h1 class="title has-text-primary has-text-weight-semibold">
-        Id #_{{ $route.params.slug }}
+        <a :href="'https://observablehq.com/d/' + $route.params.slug">
+          Id #_{{ $route.params.slug }}
+        </a>
       </h1>
       <div :id="'_' + $route.params.slug" class="observable-content"></div>
       <EntryFooter :tags="['Observable']" />
