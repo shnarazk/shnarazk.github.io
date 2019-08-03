@@ -5,7 +5,7 @@
       <h1 class="title has-text-primary has-text-weight-semibold">
         Id #_{{ $route.params.slug }}
       </h1>
-      <div :id="'_' + $route.params.slug" class="observablenotebook"></div>
+      <div :id="'_' + $route.params.slug" class="observable-content"></div>
       <EntryFooter :tags="['Observable']" />
     </section>
     <script type="module">
@@ -30,5 +30,5 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '~/assets/scss/style.scss';
-@import '~/assets/scss/blog.scss';
+@import '~/assets/scss/observable.scss';
 </style>
