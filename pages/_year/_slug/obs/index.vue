@@ -1,14 +1,20 @@
 <template>
   <div>
-    <Header title="Embedded Observable Notebook" />
+    <Header :title="article.title" />
     <section class="section">
       <h1 class="title has-text-primary has-text-weight-semibold">
         <a :href="'https://observablehq.com/d/' + $route.params.slug">
-          Id #_{{ $route.params.slug }}
+          Observable notebook: #_{{ $route.params.slug }}
         </a>
       </h1>
+      <h1
+        v-if="article.subtitle"
+        class="subtitle has-text-info has-text-weight-semibold"
+      >
+        {{ article.subtitle }}
+      </h1>
       <div :id="'_' + $route.params.slug" class="observable-content"></div>
-      <EntryFooter :tags="['Observable']" />
+      <EntryFooter :tags="article.tags" />
     </section>
     <script type="module">
       import {
@@ -27,6 +33,11 @@ export default {
   components: {
     Header,
     EntryFooter
+  },
+  asyncData({ store, params }) {
+    const arr = Object.entries(store.state.articles)
+    const art = arr.find(a => a[1].notebook === params.slug)
+    return { article: art[1] }
   }
 }
 </script>

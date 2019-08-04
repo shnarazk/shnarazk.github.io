@@ -1,7 +1,9 @@
 <template>
   <div class="blog-entry">
     <div class="aside has-text-grey">
-      <i class="fas fa-file-alt"></i>&thinsp;{{ article.date.substring(0, 10) }}
+      <i v-if="article.notebook" class="fas fa-file-image"></i>
+      <i v-else class="fas fa-file-alt"></i>
+      &thinsp;{{ article.date.substring(0, 10) }}
     </div>
     <nuxt-link
       class="subtitle entry-title"
