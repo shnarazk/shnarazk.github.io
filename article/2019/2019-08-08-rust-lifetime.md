@@ -48,8 +48,8 @@ error[E0106]: missing lifetime specifier
     |                 ^ help: consider using the named lifetime: `&'a`
 ```
 
-ポインタを渡しているので生存時間が必要らしい。うーむ、メソッド`add`の中ではCopy可能なフィールドを参
-照、変更するだけなので生存時間が問題になることはないと思うのだけど。。。
+ポインタを渡しているので生存時間が必要らしい。
+うーむ、メソッド`add`の中ではCopy可能なフィールドを参照、変更するだけなので生存時間が問題になることはないと思うのだけど。。。
 ともあれ、上記のヘルプに従ってこの引数に生存時間を追加した。
 
 
@@ -70,7 +70,7 @@ error[E0261]: use of undeclared lifetime name `'a`
     |                  ^^ undeclared lifetime
 ```
 
-なので、生存期間`'a`をパラメータとして宣言できる唯一の場所`impl`に追加する（ここが間違い）。
+なので、生存期間`'a`を宣言できる唯一の場所`impl`に追加する（後述）。
 
 ```
 impl<'a> RestartHeuristics for VarSet {
@@ -131,3 +131,17 @@ impl<'a> RestartHeuristics<'a> for VarSet {
     type Item = &'a mut Var;
     fn add(&mut self, item: Self::Item) {...
 ```
+
+ということで
+
+implやtraitキーワードで導入した（型や生存期間）変数は、
+
+- トレイト名（指示詞）
+- Self -- `fn (&'a mut self,...)` ということか 
+- 述語(predicates) -- whereの後の型（生存期間）制約
+
+で使わないといけない。
+
+*参考*
+
+- https://stackoverflow.com/questions/52318662/what-is-a-predicate-in-rust
