@@ -1,10 +1,12 @@
 ---
-title: VIM and Evil cheat sheet
-date: 2019-08-17
+title: Evil (and vim) cheat sheet
+date: 2019-08-18
 tags: ["Emacs"]
 ---
 
-### Basic :: object / mark / register
+## Basic :: object / mark / register
+
+#### object
 
 ```text
 b      - a block by ()
@@ -18,6 +20,8 @@ s{o}   - [Surround] surround object {o} in normal mode
 S{o}   - [Surround] surround object {o} in visual mode
 ```
 
+#### mark (location)
+
 ```text
 .      - last changed position (jump there by ` or ')
 ^      - last insert position
@@ -28,6 +32,8 @@ S{o}   - [Surround] surround object {o} in visual mode
 >      - end of last visual selection
 ```
 
+#### register
+
 ```text
 0 to 9 - latest to 10th yanked text
 "      - latest deleted or yanked text
@@ -36,11 +42,14 @@ S{o}   - [Surround] surround object {o} in visual mode
 :      - latest executed command (f.e. @:)
 %      - current file path
 #      - alternate file path
-=      - expression register
+=      - expression register, taking an elisp expression
 :reg   - list up the contents
 ```
+-----
 
-### Normal Mode :: motion / operator
+## Normal Mode :: motion / operator
+
+#### motion
 
 ```text
 h 	- move left
@@ -70,16 +79,20 @@ gg 	- go to first line
 '{m} 	- jump to the marked line {m}
 ```
 
+#### register operator
+
 ```text
-["{r}]d - delete target [to register {r}]
-c 	- change target
-y 	- yank target [to register]
-ys 	- [Surround] change surrounding
-P 	- put (paste) the clipboard after cursor/current line [from register]
-p 	- put (paste) before cursor/current line [from register]
+["{r}]d 	- delete target [to register {r}]
+["{r}]y 	- yank target [to register]
+["{r}]P 	- put (paste) the clipboard after cursor/current line [from register]
+["{r}]p 	- put (paste) before cursor/current line [from register]
 ```
 
-### Normal Mode Command :: search / editing / movement
+-----
+
+## Normal Mode Command :: search / edit / movement
+
+#### search
 
 ```text
 /pattern 	- search for pattern
@@ -90,6 +103,8 @@ N 		- repeat search in opposite direction
 :%s/old/new/g 	- replace all old with new throughout file
 :%s/old/new/gc 	- replace all old with new throughout file with confirmations
 ```
+
+#### edit
 
 ```text
 i 	- start insert mode at cursor
@@ -113,7 +128,10 @@ J 	- join line below to the current one
 q{m} 	- start recording a macro into {m}
 q 	- end macro recording
 @{m} 	- execute macro {m}
+ys 	- [Surround] change surrounding
 ```
+
+#### movement
 
 ```text
 m{m} 	- mark the current position to {m} (jump there by ` or ')
@@ -126,7 +144,11 @@ zt 	- jump to the top of screen
 zb 	- jump to the bottom of screen
 ```
 
-### Visual Mode :: marking / commands
+-----
+
+## Visual Mode :: mark / commands
+
+#### mark
 
 ```text
 v 	- start visual mode, mark lines, then do command (such as y-yank)
@@ -134,8 +156,9 @@ V 	- start Linewise visual mode
 Ctrl-v 	- start visual block mode
 o 	- move to other end of marked area
 O 	- move to Other corner of block
-S 	- [Surround] insert surrounding
 ```
+
+#### commands
 
 ```text
 > 	- shift right
@@ -146,9 +169,12 @@ d 	- delete (cut) marked text
 ~ 	- switch case
 U 	- upper case of marked area
 v	- exit visual mode
+S 	- [Surround] insert surrounding
 ```
 
-### Insert Mode
+-----
+
+## Insert Mode
 
 ```text
 Esc 		- exit insert mode
@@ -159,7 +185,12 @@ Ctrl-y 		- copy a char in above line
 Ctrl-e 		- copy a char in below line
 ```
 
-### Interface :: files / windows / tab / exit
+-----
+
+## Interface :: buffer / windows / tab / exit
+
+#### buffer
+
 
 ```text
 :edit filename 	- Edit a file in a new buffer
@@ -169,6 +200,8 @@ Ctrl-e 		- copy a char in below line
 :bd   		- delete a buffer (close a file)
 ```
 
+#### window
+
 ```text
 :sp filename 	- Open a file in a new buffer and split window
 Ctrl-w s 	- Split windows
@@ -176,6 +209,8 @@ Ctrl-w w 	- switch between windows
 Ctrl-w q 	- Quit a window
 Ctrl-w v 	- Split windows vertically
 ```
+
+#### tab
 
 ```text
 gt		- next tab
@@ -185,6 +220,8 @@ gT		- previous tab
 :tabe filename 	- Edit a file in a new tab (vim7)
 :tabm [n]	- move current tab after tab n. no n: last. n=0: first.
 ```
+
+#### exit
 
 ```text
 :w		- write (save) the file, but don't exit
@@ -199,7 +236,7 @@ gT		- previous tab
 
 -----
 
-###  Cliche
+##  Cliche
 
 ```text
 xp 		- transpose two letters (delete and paste, technically)
