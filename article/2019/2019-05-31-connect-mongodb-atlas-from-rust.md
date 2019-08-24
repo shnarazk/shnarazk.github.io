@@ -16,7 +16,7 @@ mongoDBを選んだのは、以下の理由から。
 セットアップはサクサクできて、あとはプログラムにconnectするだけ。
 もちろん、ちゃんと参考例が表示される。
 
-![](/img/2019-05-31-mongodb-1.png)
+![](/img/2019/05-31/mongodb-1.png)
 
 例えば**Connect Your Application**から辿ったjs用のサンプルはこうなっている。
 

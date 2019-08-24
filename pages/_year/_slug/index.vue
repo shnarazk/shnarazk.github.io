@@ -14,7 +14,7 @@
       <div class="entry-content" v-html="$md.render(article.bodyContent)" />
       <section class="section">
         <div class="is-size-7 is-family-code has-text-grey has-text-right">
-          Written on {{ article.date }}.
+          Last update: {{ article.date }}.
         </div>
       </section>
       <EntryFooter :tags="article.tags" />
@@ -22,10 +22,9 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import Header from '~/components/TheHeader'
 import EntryFooter from '~/components/EntryFooter'
-import { mapState } from 'vuex'
-
 export default {
   components: {
     Header,

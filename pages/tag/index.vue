@@ -24,9 +24,10 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import Header from '~/components/TheHeader'
 import ArticleBox from '~/components/ArticleBox'
-import { mapState } from 'vuex'
+
 export default {
   components: {
     Header,

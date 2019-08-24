@@ -25,8 +25,8 @@
   </div>
 </template>
 <script>
-import Header from '~/components/TheHeader'
 import { mapState } from 'vuex'
+import Header from '~/components/TheHeader'
 export default {
   components: {
     Header

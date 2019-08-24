@@ -98,26 +98,26 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Header from '~/components/TheHeader'
 import ArticleBox from '~/components/ArticleBox'
-import { mapState } from 'vuex'
 export default {
   components: {
     Header,
     ArticleBox
   },
   data() {
+    const ents = Object.entries(this.$store.state.articles)
+    ents.sort((a, b) => (a[1].date < b[1].date ? 1 : -1))
     return {
-      entries: Object.entries(this.$store.state.articles)
-        .sort()
-        .reverse(),
+      entries: ents,
       page: 1,
       len: 12,
       last: Math.ceil(Object.keys(this.$store.state.articles).length / 12)
     }
   },
   computed: {
-    slicedEntries: function() {
+    slicedEntries() {
       return this.entries.slice(
         (this.page - 1) * this.len,
         this.page * this.len
@@ -126,7 +126,7 @@ export default {
     ...mapState(['articles', 'blogTags'])
   },
   methods: {
-    setPage: function(p) {
+    setPage(p) {
       this.page = Math.floor(Math.min(this.last, Math.max(1, p)))
     }
   }
