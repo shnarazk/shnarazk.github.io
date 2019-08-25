@@ -1,6 +1,6 @@
 ---
 title: Development of Var activities (2019-07-11)
-subtitle: 変数活性度とその他の相関その1
+subtitle: 変数活性度とその他の相関
 date: 2019-07-11
 tags: ["SAT", "issue"]
 ---
