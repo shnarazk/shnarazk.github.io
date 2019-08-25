@@ -1,6 +1,25 @@
+import path from 'path';
+const generateDynamicRoutes = callback => {
+  const { sourceFileArray } = require('./article/.json/db.json');
+  const ob_entries = require('./article/obs.json');
+  const md_urls = sourceFileArray.map(e => {
+    const year = e.substring(8, 12);
+    const target = path.basename(e, '.md');
+    return '/' + year + '/' + target + '/';
+  });
+  const ob_urls = Object.keys(ob_entries).map(k => {
+    const e = ob_entries[k];
+    const year = e.year;
+    const target = e.notebook;
+    return '/' + year + '/' + target + '/obs';
+  });
+  callback(null, [...md_urls, ...ob_urls]);
+};
+
 export default {
   generate: {
-    fallback: true
+    fallback: true,
+    routes: generateDynamicRoutes
   },
   mode: 'universal',
   /*
