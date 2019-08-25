@@ -14,7 +14,7 @@
       <div class="entry-content" v-html="$md.render(article.bodyContent)" />
       <section class="section">
         <div class="is-size-7 is-family-code has-text-grey has-text-right">
-          Last update: {{ article.date }}.
+          Last update: {{ article.date.substring(0, 10) }}.
         </div>
       </section>
       <EntryFooter :tags="article.tags" />
