@@ -22,11 +22,13 @@ module.exports = function() {
       const entry = entries[i][1]
       const year = entry.date.substring(0, 4)
       const id = path.basename(entry.sourceBase, '.md')
+      const article = await promisify(fs.readFile)(entries[i][0], 'utf-8')
       feed.addItem({
         title: entry.title,
         id: `${deploy_url}/${year}/${id}`,
         link: `${deploy_url}/${year}/${id}`,
-        date: new Date(entry.date)
+        date: new Date(entry.date),
+	content: JSON.parse(article).bodyContent.substring(0, 400)
       })
       feed.addContributor({
         name: 'Shuji Narazaki',
