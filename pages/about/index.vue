@@ -27,11 +27,11 @@
         Profile
       </h1>
       <ul class="desc is-italic">
-        <li>A programmer using Nuxt.js, Vue.js, NixOS, Rust, MongoDB, GCP.</li>
         <li>
-          A researcher on the satisfiability problem (SAT solvers), studying
+          A researcher on satisfiability problem (SAT solvers), studying
           logic, category theory.
         </li>
+        <li>A programmer using Nuxt.js, Vue.js, NixOS, Rust, MongoDB, GCP.</li>
         <li>A user of Emacs, Haskell, Latex, Linux, R, macOS, Mendeley.</li>
         <li>A bicycle rider (bicycle deliverer).</li>
       </ul>
@@ -42,8 +42,10 @@
         </li>
         <li>
           <i class="fab fa-gitlab"></i
-          ><a href="https://gitlab.com/shujinarazaki/">@gitlab</a>
+          ><a href="https://gitlab.com/shujinarazaki/">@gitlab</a>,
+	  <a href="https://gitlab.com/shujinarazaki?nav_source=navbar">profile</a>
         </li>
+        <li>nash8192:matrix.org</li>
         <li>
           <i class="fab fa-medium"></i
           ><a href="https://medium.com/@shnarazk/">@Medium</a>
