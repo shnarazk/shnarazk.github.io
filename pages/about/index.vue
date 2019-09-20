@@ -31,8 +31,8 @@
           A researcher on satisfiability problem (SAT solvers), studying
           logic, category theory.
         </li>
-        <li>A programmer using Nuxt.js, Vue.js, NixOS, Rust, MongoDB, GCP.</li>
-        <li>A user of Emacs, Haskell, Latex, Linux, R, macOS, Mendeley.</li>
+        <li>A programmer using Nuxt.js, Vue.js, NixOS, Rust.</li>
+        <li>A user of Emacs, Latex, Linux, macOS, Mendeley, Observable.</li>
         <li>A bicycle rider (bicycle deliverer).</li>
       </ul>
       <ul>
@@ -45,7 +45,6 @@
           ><a href="https://gitlab.com/shujinarazaki/">@gitlab</a>,
 	  <a href="https://gitlab.com/shujinarazaki?nav_source=navbar">profile</a>
         </li>
-        <li>nash8192:matrix.org</li>
         <li>
           <i class="fab fa-medium"></i
           ><a href="https://medium.com/@shnarazk/">@Medium</a>
