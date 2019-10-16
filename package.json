@@ -27,7 +27,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "bulma": "^0.7.5",
     "markdown-it-highlightjs": "^3.0.0",
-    "nuxt": "^2.10.0",
+    "nuxt": "^2.10.1",
     "processmd": "^4.5.0",
     "vue-scrollto": "^2.17.1"
   },
@@ -40,7 +40,7 @@
     "eslint-config-standard": ">=14.1.0",
     "eslint-loader": "^3.0.2",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jest": "^22.19.0",
     "eslint-plugin-node": ">=10.0.0",
     "eslint-plugin-nuxt": ">=0.4.3",
     "eslint-plugin-prettier": "^3.1.1",
@@ -48,7 +48,7 @@
     "eslint-plugin-standard": ">=4.0.1",
     "eslint-plugin-vue": "^5.2.3",
     "node-sass": "^4.12.0",
-    "nodemon": "^1.19.3",
+    "nodemon": "^1.19.4",
     "prettier": "^1.18.2",
     "sass-loader": "^8.0.0",
     "vue-eslint-parser": "^6.0.4"

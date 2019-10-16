@@ -1,7 +1,7 @@
 ---
 title: Using Nix on Catalina
 subtitle: Catalina上でNixを使う
-date: 2019-10-08
+date: 2019-10-17
 tags: ["nixOS", "macOS"]
 ---
 
@@ -73,3 +73,16 @@ curl https://nixos.org/nix/install | sh
 ということでnix由来のプログラムも復活。メインマシンも更新しよう。
 
 しかしCatalinaはinteractive shellをzshに変えよとうるさい。色々設定を変えるはめんどいんじゃあ。
+
+
+### 2019-10-17
+
+リブートしたらNixボリュームが/Volume/Nixにマウントされていた。/nixはあるけど空。
+上記の方法で設定しても、毎回、
+
+```sh
+sudo /usr/sbin/diskutil umount /Volume/Nix
+sudo /usr/sbin/diskutil mount /nix Nix
+```
+
+しないといけないっぽい。
