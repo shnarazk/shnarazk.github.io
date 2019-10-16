@@ -82,7 +82,7 @@ curl https://nixos.org/nix/install | sh
 
 ```sh
 sudo /usr/sbin/diskutil umount /Volume/Nix
-sudo /usr/sbin/diskutil mount /nix Nix
+sudo /usr/sbin/diskutil mount -mountPoint /nix Nix
 ```
 
 しないといけないっぽい。
