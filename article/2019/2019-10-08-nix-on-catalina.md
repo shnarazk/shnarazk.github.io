@@ -5,10 +5,10 @@ date: 2019-10-17
 tags: ["nixOS", "macOS"]
 ---
 
-Catalinaではrootにディレクトリが作れなくなってしまったので
+Catalinaでは'/'にディレクトリが作れなくなってしまったので
 `/nix`がどうにもならんことになってしまった。
 [Discourseのトピック](https://discourse.nixos.org/t/current-status-of-nix-on-macos-catalina/4286/2)によれば、
-パーティションを作ってマウントすることが必要らしい。
+パーティションを作ってマウントすることが必要らしい（[参考](https://github.com/NixOS/nix/issues/2925)）。
 うーむ、どうもこれしかなさそうなんだけど、
 もうちょっとやり方が確定するまでメインマシンのアップグレードはしばらく待ってみようか。
 
@@ -37,7 +37,7 @@ gunpg, nodejsは公式バイナリでもいいか。
 
 # 2019-10-08T19:00:00 STEPS THAT WORK
 
-などと言いつつ、敷居が低い人柱を志願。
+などと言いつつ、敷居が低い人柱を志願してしまった。
 
 1. synthetic.confを作る
 
@@ -78,11 +78,11 @@ curl https://nixos.org/nix/install | sh
 ### 2019-10-17
 
 リブートしたらNixボリュームが/Volume/Nixにマウントされていた。/nixはあるけど空。
-上記の方法で設定しても、毎回、
+ということで上記の方法で設定しても、毎回、
 
 ```sh
 sudo /usr/sbin/diskutil umount /Volume/Nix
 sudo /usr/sbin/diskutil mount -mountPoint /nix Nix
 ```
 
-しないといけないっぽい。
+しないといけないっぽい。マウントポイントは永続的ではないのか。
