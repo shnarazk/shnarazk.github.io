@@ -27,7 +27,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "bulma": "^0.8.0",
     "markdown-it-highlightjs": "^3.0.0",
-    "nuxt": "^2.10.2",
+    "nuxt": "^2.11.0",
     "processmd": "^4.5.0",
     "vue-scrollto": "^2.17.1"
   },
