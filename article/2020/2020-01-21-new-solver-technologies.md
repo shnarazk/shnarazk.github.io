@@ -19,7 +19,10 @@ tags: ["SAT"]
 ## Chronological Backtrack
 
 まだチェックしてないがSC2018以降のトレンドみたい。こんな発想はなかった。
-リスタートの抑制よりもさらに網羅的に探索するということか。
+リスタートの抑制よりもさらに網羅的に探索するということか。原著は以下：
+
+A. Nadel and V. Ryvchin. Chronological backtracking.
+In *Theory and Applications of Satisfiability Testing - SAT 2018. Proceedings*, 2018.
 
 ## Dual Restart Mode
 
