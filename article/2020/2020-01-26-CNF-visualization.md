@@ -1,6 +1,6 @@
 ---
 title: A Visualization tool to analyze logic fomula
-subtitle: I need more intuitive
+subtitle: I need better intuition
 date: 2020-01-26
 tags: ["SAT"]
 ---
