@@ -1,7 +1,7 @@
 ---
 title: A Visualization tool to analyze logic fomula
 subtitle: I need better intuition
-date: 2020-01-26
+date: 2020-01-28
 tags: ["SAT"]
 ---
 論理式がどう変化していくか視覚化したい。
@@ -16,3 +16,19 @@ JavaScript(Vue.js or Observable)で作るか、それともいっそのことPha
 Smalltalk環境の出番のようだがGraphvisの上位互換程度のことはできているのだろうか？）。
 
 ちょっと考え中。というか調査しなければ。
+
+
+## 2020-01-28
+
+数日Pharo 8.0で遊んでみたんだけど
+
+- Icebergが.project の状態を理解できてないのでいつまで経ってもdirtyになる
+- Icebergはコメントも付かずにほったらかしのissuesが多い、エラーへの対応がわからない
+- Iceberg, Metacelloあたりのドキュメントが古い
+- リリース8.0で何がどうなったのか情報なさすぎ
+- wiki情報も古い
+- Baselineが面倒くさそう
+
+というあたりがどうにも我慢できなくて、やはり使うのはやめることにした。
+エラーの発生が多すぎて、やる気が削がれた。
+しょうがない、D3.jsで頑張るしかないか。
