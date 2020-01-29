@@ -36,150 +36,16 @@ JavaScript(Vue.js or Observable)で作るか、それともいっそのことPha
 Pharo 8.0でSystem Browserでプロジェクトを選んでコンテキストメニューからcommitしようとするとエラーになる。
 以下のメソッドがないエラーなので、でっち上げた。
 
-- `IceLibgitRepository >> #hasUnbornProject`
-- `IceLibgitRepository >> #isDetached`
+- `IceLibgitRepository`にvalidatingプロトコルを追加
+- `IceLibgitRepository >> #hasUnbornProject`を定義
+- `IceLibgitRepository >> #isDetached`を定義
 
+```smalltalk
+    isDetached
+	^workingCopy isDetached
 ```
-OmEntry {
-	#tags : {
-		#prior : OmNullReference [  ],
-		#self : OmReference [ '1' ]
-	},
-	#content : EpProtocolAddition {
-		#behavior : RGClassDefinition {
-			#annotations : IdentityDictionary {
-				#definitionSource : 'IceRepository subclass: #IceLibgitRepository\r\tinstanceVariableNames: \'location commitCache handle\'\r\tclassVariableNames: \'DefaultCodeSubdirectory DefaultFileFormatType ShareRepositoriesBetweenImages SharedRepositoriesLocation\'\r\tpoolDictionaries: \'\'\r\tcategory: \'Iceberg-Libgit-Core\'',
-				#superclassName : 'IceRepository',
-				#traitCompositionSource : '{}'
-			},
-			#name : #IceLibgitRepository,
-			#methods : IdentityDictionary { },
-			#protocols : Set [ ],
-			#instanceVariables : OrderedCollection [
-				RGInstanceVariableDefinition {
-					#annotations : IdentityDictionary {
-						#className : #IceLibgitRepository,
-						#isMetaSide : false
-					},
-					#name : #location,
-					#parent : @6
-				},
-				RGInstanceVariableDefinition {
-					#annotations : IdentityDictionary {
-						#className : #IceLibgitRepository,
-						#isMetaSide : false
-					},
-					#name : #commitCache,
-					#parent : @6
-				},
-				RGInstanceVariableDefinition {
-					#annotations : IdentityDictionary {
-						#className : #IceLibgitRepository,
-						#isMetaSide : false
-					},
-					#name : #handle,
-					#parent : @6
-				}
-			],
-			#metaClass : RGMetaclassDefinition {
-				#annotations : IdentityDictionary {
-					#definitionSource : 'IceLibgitRepository class\r\tinstanceVariableNames: \'\'',
-					#traitCompositionSource : '{}'
-				},
-				#name : #'IceLibgitRepository class',
-				#methods : IdentityDictionary { },
-				#protocols : Set [ ],
-				#instanceVariables : OrderedCollection [ ],
-				#baseClass : @6
-			},
-			#comment : RGCommentDefinition {
-				#annotations : IdentityDictionary {
-					#className : #IceLibgitRepository,
-					#isMetaSide : false
-				},
-				#parent : @6,
-				#content : 'I am an iceberg repository that uses libgit as backend.\rI have a handle to a LGitRepository that is lazily initialized on usage, and cleaned up on every shutdown (automatically done by uFFI).\r\rEvery access to the libgit repository should be wrapped with a call to #handleLibgitError: to manage possible libgit errors and transform them to a correct iceberg error.',
-				#stamp : ''
-			},
-			#classVariables : OrderedCollection [
-				RGClassVariableDefinition {
-					#annotations : IdentityDictionary {
-						#className : #IceLibgitRepository,
-						#isMetaSide : false
-					},
-					#name : #DefaultCodeSubdirectory,
-					#parent : @6
-				},
-				RGClassVariableDefinition {
-					#annotations : IdentityDictionary {
-						#className : #IceLibgitRepository,
-						#isMetaSide : false
-					},
-					#name : #DefaultFileFormatType,
-					#parent : @6
-				},
-				RGClassVariableDefinition {
-					#annotations : IdentityDictionary {
-						#className : #IceLibgitRepository,
-						#isMetaSide : false
-					},
-					#name : #ShareRepositoriesBetweenImages,
-					#parent : @6
-				},
-				RGClassVariableDefinition {
-					#annotations : IdentityDictionary {
-						#className : #IceLibgitRepository,
-						#isMetaSide : false
-					},
-					#name : #SharedRepositoriesLocation,
-					#parent : @6
-				}
-			],
-			#category : #Iceberg-Libgit-Core,
-			#package : #Iceberg-Libgit,
-			#sharedPools : OrderedCollection [ ]
-		},
-		#protocol : #validating
-	}
-}
 
-OmEntry {
-	#tags : {
-		#prior : OmReference [ '1' ],
-		#self : OmReference [ '2' ]
-	},
-	#content : EpMethodAddition {
-		#method : RGMethodDefinition {
-			#annotations : IdentityDictionary {
-				#className : #IceLibgitRepository,
-				#isMetaSide : false
-			},
-			#name : #isDetached,
-			#protocol : #validating,
-			#sourceCode : 'isDetached \r  ^workingCopy isDetached',
-			#stamp : 'shnarazk 1/29/2020 22:54',
-			#package : #Iceberg-Libgit
-		}
-	}
-}
-
-OmEntry {
-	#tags : {
-		#prior : OmReference [ '2' ],
-		#self : OmReference [ '3' ]
-	},
-	#content : EpMethodAddition {
-		#method : RGMethodDefinition {
-			#annotations : IdentityDictionary {
-				#className : #IceLibgitRepository,
-				#isMetaSide : false
-			},
-			#name : #hasUnbornProject,
-			#protocol : #validating,
-			#sourceCode : 'hasUnbornProject \r^false',
-			#stamp : 'shnarazk 1/29/2020 22:59',
-			#package : #Iceberg-Libgit
-		}
-	}
-}
+```smalltalk
+    hasUnbornProject
+	^false
 ```
