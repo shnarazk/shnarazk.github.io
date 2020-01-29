@@ -2,7 +2,7 @@
 title: A Visualization tool to analyze logic fomula
 subtitle: I need better intuition
 date: 2020-01-28
-tags: ["SAT"]
+tags: ["SAT", "Pharo"]
 ---
 論理式がどう変化していくか視覚化したい。
 
@@ -19,7 +19,7 @@ JavaScript(Vue.js or Observable)で作るか、それともいっそのことPha
 
 数日Pharo 8.0で遊んでみたんだけど
 
-- Icebergが.project の状態を理解できてないのでいつまで経ってもdirtyになる
+- Icebergがファイル .project の状態を理解できてないのでいつまで経ってもdirtyになる
 - Icebergはコメントも付かずにほったらかしのissuesが多い、エラーへの対応がわからない
 - Iceberg, Metacelloあたりのドキュメントが古い
 - リリース8.0で何がどうなったのか情報なさすぎ
