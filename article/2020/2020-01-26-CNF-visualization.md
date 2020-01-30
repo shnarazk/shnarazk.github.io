@@ -53,11 +53,11 @@ Pharo 8.0でSystem Browserでプロジェクトを選んでコンテキストメ
 - `IceLibgitRepository >> #hasUnbornProject`を定義
 
 ```smalltalk
-    isDetached
+    IceLibgitRepository >> isDetached
 	^workingCopy isDetached
 ```
 
 ```smalltalk
-    hasUnbornProject
+    IceLibgitRepository >> hasUnbornProject
 	^false
 ```
