@@ -1,5 +1,5 @@
 ---
-title: A Visualization tool to analyze logic fomula
+title: A visualization tool to analyze logic fomula
 subtitle: I need better intuition
 date: 2020-01-29
 tags: ["SAT", "Pharo"]
