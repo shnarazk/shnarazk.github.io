@@ -7,6 +7,6 @@ tags: ["emacs"]
 Emacsのコミットログより：
 
 > While add-to-list often works with lexical variables, this is a hack that isn't always effective; better tell the user not to try.
-    
+
 へー、.emacsでよく使っているけど、大域変数だから関係ないと言えば関係ない。
 しかし、習慣として使わないようにしておこうかな。
