@@ -9,10 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Build and Deploy
+    - name: Prepare and Generate
+      run: npm install & npm run generate
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: master
-        BRANCH: github-deploy
         FOLDER: build
-        BUILD_SCRIPT: npm install && npm run generate
