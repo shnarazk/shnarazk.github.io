@@ -11,6 +11,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: Prepare
       run: npm install
+    - name: Build
+      run: npm run build
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        FOLDER: build
     - name: Generate
       run: npm run generate
       env:
