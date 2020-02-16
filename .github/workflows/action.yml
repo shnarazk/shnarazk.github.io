@@ -10,7 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build and Deploy
-      uses: shnarazk/shnarazk.github.io@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: master
