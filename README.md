@@ -1,11 +1,8 @@
-![Build Status](https://gitlab.com/shujinarazaki/shujinarazaki.gitlab.io/badges/master/build.svg)
+![Build Status](https://github.com/shnarazk/note/badges/master/build.svg)
 
 ---
 
-## A Blog powered by GitLab Pages with nuxt.js
-
-- https://shnarazk.now.sh/
-- https://shujinarazaki.gitlab.io/
+# A Blog powered with nuxt.js
 
 ### Build Setup
 
@@ -23,5 +20,3 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
