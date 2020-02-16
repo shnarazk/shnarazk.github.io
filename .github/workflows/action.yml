@@ -12,7 +12,7 @@ jobs:
     - name: Prepare
       run: npm install
     - name: Build
-      run: npm run build
+      run: npm run update
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         FOLDER: build
