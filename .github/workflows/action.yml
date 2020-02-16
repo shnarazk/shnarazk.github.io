@@ -18,6 +18,8 @@ jobs:
         FOLDER: build
     - name: Generate
       run: npm run generate
+      with:
+        publish_dir: ./dist
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         FOLDER: build
