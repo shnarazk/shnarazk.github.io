@@ -9,8 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Prepare and Generate
-      run: npm install & npm run generate
+    - name: Prepare
+      run: npm install
+    - name: Generate
+      run: npm run generate
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         FOLDER: build
