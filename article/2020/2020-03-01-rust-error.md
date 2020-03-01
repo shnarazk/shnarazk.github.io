@@ -33,7 +33,7 @@ error[E0277]: the trait bound `syn::expr::Expr: std::clone::Clone` is not satisf
 とりあえず、古いcargo.lockを持ってきてコンパイルするときには
 
 ```
-cargo install .. --frozen --offline
+cargo install ... --frozen --offline
 ```
 
 とすることで急場を凌ぐことにした。
