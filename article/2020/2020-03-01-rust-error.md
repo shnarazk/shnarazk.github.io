@@ -1,7 +1,7 @@
 ---
 title: A Weird Rust Compile Error
 subtitle: by structopt-derive or proc-macro2
-date: 2020-03-01
+date: 2020-03-02
 tags: ["Rust", "splr"]
 ---
 突然、こんなコンパイルエラーが出るようになった。
@@ -37,4 +37,9 @@ cargo install ... --frozen --offline
 ```
 
 とすることで急場を凌ぐことにした。
+
+## 2020-03-02
+
+`structopt-derive`のバージョンが0.4.4に上がっている。エラーもなくなったようだ。
+
 
