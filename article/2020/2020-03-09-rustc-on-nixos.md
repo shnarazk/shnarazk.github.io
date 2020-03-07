@@ -20,3 +20,9 @@ llvmのリンカがAMDGPUなんたらが見つからないというエラーが�
 1. 生成できたら `nix-env -i path-to-the-derivation`を実行してインストール
 
 これでOK。これまで`NIXPKGS`環境変数とかで指定したつもりだったのだが`nix-build`の利用が正解だったようだ。
+
+
+## 参考
+
+- [https://nixos.wiki/wiki/Nixpkgs](https://nixos.wiki/wiki/Nixpkgs)
+
