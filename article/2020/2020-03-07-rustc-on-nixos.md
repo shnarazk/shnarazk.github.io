@@ -1,7 +1,7 @@
 ---
 title: rustc-1.41.1 on nixOS
 subtitle: especially for macOS
-date: 2020-03-09
+date: 2020-03-07
 tags: ["Rust", "nixOS"]
 ---
 sat-benchのバージョン上げる際にRust 1.41での新しい構文を使ったせいでrustc-1.41が必須になってしまった。
