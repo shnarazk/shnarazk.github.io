@@ -7,7 +7,7 @@ tags: ["Emacs"]
 dired modeでリネームする際にでフォールトとして元ファイル名を使いたい場面が非常に多かったので
 いじってみた。
 
-```elisp
+```lisp
 (eval-after-load "dired-aux"
   '(progn
      (defun dired-mark-read-file-name (prompt dir op-symbol arg files
@@ -21,7 +21,7 @@ dired modeでリネームする際にでフォールトとして元ファイル�
 
 元々は以下の定義です。
 
-```elisp
+```lisp
 ;;; dired-aux.el
 (defun dired-mark-read-file-name (prompt dir op-symbol arg files
                                          &optional default)
