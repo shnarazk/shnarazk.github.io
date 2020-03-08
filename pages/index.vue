@@ -28,11 +28,11 @@
                 >
               </template>
               <template v-if="page == last">
-                <a class="pagination-next" disabled>Next page</a>
+                <a class="pagination-next" disabled>Next</a>
               </template>
               <template v-else>
                 <a class="pagination-next" @click="setPage(page + 1)"
-                  >Next page</a
+                  >Next</a
                 >
               </template>
               <ul class="pagination-list">
