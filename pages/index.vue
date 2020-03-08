@@ -20,19 +20,19 @@
               style="padding-top: 8px;"
             >
               <template v-if="page == 1">
-                <a class="pagination-previous" disabled>Previous</a>
+                <a class="pagination-previous" disabled><i class="fas fa-backward"></i></a>
               </template>
               <template v-else>
                 <a class="pagination-previous" @click="setPage(page - 1)"
-                  >Previous</a
+                  ><i class="fas fa-backward"></i></a
                 >
               </template>
               <template v-if="page == last">
-                <a class="pagination-next" disabled>Next</a>
+                <a class="pagination-next" disabled><i class="fas fa-forward"></i></a>
               </template>
               <template v-else>
                 <a class="pagination-next" @click="setPage(page + 1)"
-                  >Next</a
+                  ><i class="fas fa-forward"></i></a
                 >
               </template>
               <ul class="pagination-list">
