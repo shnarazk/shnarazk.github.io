@@ -7,16 +7,28 @@ tags: ["Emacs"]
 dired modeでリネームする際にでフォールトとして元ファイル名を使いたい場面が非常に多かったので
 いじってみた。
 
-```
+```elisp
 (eval-after-load "dired-aux"
   '(progn
      (defun dired-mark-read-file-name (prompt dir op-symbol arg files
-					      &optional default)
+                                              &optional default)
        (dired-mark-pop-up
-	nil op-symbol files
-	#'read-file-name
-	(format prompt (dired-mark-prompt arg files)) dir default nil
-	(and default (file-name-nondirectory default))))))
+        nil op-symbol files
+        #'read-file-name
+        (format prompt (dired-mark-prompt arg files)) dir default nil
+        (and default (file-name-nondirectory default))))))
 ```
 
-個人的にはかなり快適になった。
+元々は以下の定義です。
+
+```elisp
+;;; dired-aux.el
+(defun dired-mark-read-file-name (prompt dir op-symbol arg files
+                                         &optional default)
+  (dired-mark-pop-up
+   nil op-symbol files
+   #'read-file-name
+   (format prompt (dired-mark-prompt arg files)) dir default))
+```
+
+個人的にはかなり快適になりました。
