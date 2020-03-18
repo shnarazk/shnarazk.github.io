@@ -1,6 +1,6 @@
 ---
 title: Passing args to StructOpt
-subtitle: , that is an arg
+subtitle: which start with '--'
 date: 2020-03-19
 tags: ["Rust"]
 ---
@@ -51,8 +51,8 @@ $ benchm --benchmark "SR19" --solver splr --options \\--without-elim -j 3
 対象文字列が空白文字を含むなら
 
 ```
-	$ benchm --benchmark "SR19" --solver splr --options \\--rt\\ 0.8 -j 3
+ benchm --benchmark "SR19" --solver splr --options \\--rt\\ 0.8 -j 3
 ```
 
-とすることで `--rt 0.8`を渡せるようになるみたいだ。
+とすることで `--rt 0.8` を渡せるようになるみたいだ。
 つまり、 `nix-env -qa` で正規表現を使う場合と同じことでした。
