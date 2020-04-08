@@ -68,8 +68,8 @@ SAT, UNSATに分けてそれぞれ重要度でソートしたものが以下。
 | rephase            |  128.430  |  376.436  | 0.3.3 |
 | stabilize          |  128.038  | *TIMEOUT* | 0.3.3 |
 | reduce             |  127.971  | *TIMEOUT* | 0.1.0 |
-| walknonstable      |  87.557   |  394.616  |       |
 | score              |  88.269   | *TIMEOUT* | 0.1.0 |
+| walknonstable      |  87.557   |  394.616  |       |
 | stabilizephase     |  86.403   |  367.847  |       |
 | phase              |  81.518   |  386.279  | 0.1.0 |
 
