@@ -1,7 +1,7 @@
 ---
 title: Importance of modern techniques in SAT solvers
 subtitle: A case of CaDiCal
-date: 2020-04-08
+date: 2020-04-208
 tags: ["Cadical", "Splr", "SAT"]
 ---
 
@@ -65,22 +65,22 @@ SAT, UNSATに分けてそれぞれ重要度でソートしたものが以下。
 | -----------------  | --------: | --------: | ----- |
 | bump               | *TIMEOUT* | *TIMEOUT* | 0.1.0 |
 | walk               |  130.862  |  386.060  |       |
-| rephase            |  128.430  |  376.436  | 0.3.3 |
-| stabilize          |  128.038  | *TIMEOUT* | 0.3.3 |
+| rephase            |  128.430  |  376.436  | track |
+| stabilize          |  128.038  | *TIMEOUT* | track |
 | reduce             |  127.971  | *TIMEOUT* | 0.1.0 |
 | score              |  88.269   | *TIMEOUT* | 0.1.0 |
 | walknonstable      |  87.557   |  394.616  |       |
-| stabilizephase     |  86.403   |  367.847  |       |
+| stabilizephase     |  86.403   |  367.847  | track |
 | phase              |  81.518   |  386.279  | 0.1.0 |
 
 | Technique          |     ---   |   *UNSAT* |  done |
 | -----------------  | --------: | --------: | ----- |
 | bump               | *TIMEOUT* | *TIMEOUT* | 0.1.0 |
-| stabilize          |  128.038  | *TIMEOUT* | 0.3.3 |
+| stabilize          |  128.038  | *TIMEOUT* | track |
 | reduce             |  127.971  | *TIMEOUT* | 0.1.0 |
 | score              |  88.269   | *TIMEOUT* | 0.1.0 |
 | minimize           |  84.862   | *TIMEOUT* | 0.1.0 |
-| bumpreason         |  73.502   | *TIMEOUT* |       |
+| bumpreason         |  73.502   | *TIMEOUT* | 0.3.1 |
 | restart            |  38.578   | *TIMEOUT* | 0.1.0 |
 
 ということで今後何やるべきかが見えてきた。
@@ -91,6 +91,20 @@ SAT, UNSATに分けてそれぞれ重要度でソートしたものが以下。
 - stabilizeとstabilizephaseは何が違うんだろう。わかってない。
 
 さあ1日1実装だ。
+
+## 2020-04-20
+
+見返していてなんか結論が間違っていることにやっと気づいた。
+大事なのは
+
+- stabilize
+- walk
+- rephase
+
+のあたり。
+**done**が付いているbump, reduce, score, phase, bumpreason, restartは既に実装済み。
+stabilize中はphaseを切り替えるstabilizephaseは特に重要というわけではなかった。
+さて、rephaseとはなんなんだろう。
 
 ## Appendix
 
