@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^3.1.0",
-    "@nuxtjs/axios": "^5.9.7",
+    "@nuxtjs/axios": "^5.10.0",
     "@nuxtjs/bulma": "^1.2.7",
     "@nuxtjs/feed": "^1.1.0",
     "@nuxtjs/markdownit": "^1.2.9",
@@ -29,27 +29,27 @@
     "markdown-it-highlightjs": "^3.1.0",
     "nuxt": "^2.12.2",
     "processmd": "^4.5.0",
-    "vue-scrollto": "^2.18.0"
+    "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.2",
     "@nuxtjs/eslint-module": "^1.1.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": ">=14.1.1",
     "eslint-loader": "^4.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-node": ">=11.1.0",
     "eslint-plugin-nuxt": ">=0.5.2",
-    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-promise": ">=4.2.1",
     "eslint-plugin-standard": ">=4.0.1",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.3",
-    "prettier": "^2.0.4",
+    "prettier": "^2.0.5",
     "sass-loader": "^8.0.2",
     "vue-eslint-parser": "^7.0.0"
   }
