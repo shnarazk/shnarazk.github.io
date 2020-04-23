@@ -1,7 +1,7 @@
 ---
 title: Evil (and vim) cheat sheet
 date: 2019-08-18
-tags: ["Emacs"]
+tags: ["Emacs", "evil", "Vim"]
 ---
 
 ## Basic :: object / mark / register
@@ -246,5 +246,5 @@ guiw 		- make current word lowercase
 ddp 		- swap current line with next
 ddkp 		- swap current line with previous
 :set paste 	- avoid unexpected effects in pasting
-ds(    		- delete the surrounding parens
+ds(    		- [Surround] delete the surrounding parens
 ```
