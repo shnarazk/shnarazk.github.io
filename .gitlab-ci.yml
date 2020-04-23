@@ -11,6 +11,7 @@ pages:
   variables:
     DEPLOY_URL: "https://shujinarazaki.gitlab.io"
   script:
+    - npm rebuild node-sass
     - npm run update
     - npm run generate
     - mv dist public
