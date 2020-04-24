@@ -1,7 +1,7 @@
 ---
 title: Importance of modern techniques in SAT solvers
 subtitle: A case of CaDiCal
-date: 2020-04-208
+date: 2020-04-20
 tags: ["Cadical", "Splr", "SAT"]
 ---
 
