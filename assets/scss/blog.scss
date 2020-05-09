@@ -49,6 +49,9 @@
     li {
       margin: 0.5rem;
     }
+    img {
+      max-width: 95%;
+    }
     pre {
       margin-top: 0.5rem;
       margin-left: 0.2rem;
@@ -58,8 +61,13 @@
       font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, NotoSansCJKjp, 'Roboto Mono', monospace;
       font-stretch: condensed;
     }
-    img {
-      max-width: 95%;
+    blockquote {
+      margin-top: 0.5rem;
+      margin-left: 0.2rem;
+      border-width: 1px 1px 1px 12px;
+      border-color: #bbb;
+      padding: 0.1rem;
+      background-color: #ddd;
     }
     table {
       border: solid 1px #55c;
