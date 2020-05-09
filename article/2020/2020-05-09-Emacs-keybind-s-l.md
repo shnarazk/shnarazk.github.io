@@ -4,7 +4,7 @@ subtitle: used in lsp-mode
 date: 2020-05-09
 tags: ["Emacs"]
 ---
-lsp-modeがプレフィックスとして採用している`'s-l'`とは一体なんなんだ？
+lsp-modeがプレフィックスとして採用している'`s-l`'とは一体なんなんだ？
 
 's'は`Super`かとも思うのだがだったら大文字ではないのか？　いや、それなら`Shift`になる。。。
 `Super`のつもりで`Option`キーを押してみても反応ない。。。
@@ -17,7 +17,7 @@ lsp-modeがプレフィックスとして採用している`'s-l'`とは一体�
 
 https://emacs.stackexchange.com/questions/55199/what-are-these-prefix-commands-that-start-with-s-l
 
-ストローク数はしょうがないが、入力できるのが素晴らしい。ALT(ESC)も当然`C-x @ m`だった(META)。
+ストローク数はしょうがないが、入力できるのが素晴らしい。`ALT`(`ESC`)も当然`C-x @ m`だった(`META`)。
 
 ともかく疑問解決してよかった。
 
