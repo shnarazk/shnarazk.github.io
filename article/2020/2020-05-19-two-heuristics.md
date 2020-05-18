@@ -1,5 +1,5 @@
 ---
-title: What's the difference between EVSIDS and LR
+title: What's the difference between EVSIDS and LR?
 subtitle: a tentative thought
 date: 2020-05-19
 tags: ["SAT"]
