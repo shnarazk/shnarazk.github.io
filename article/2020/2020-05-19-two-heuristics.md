@@ -11,7 +11,12 @@ tags: ["SAT"]
 「タイムアウトを長くした」場合という限定詞付きではあるが、それでも注目すべき技術だろう。
 というわけで最近のSplrでもfeatureで切り替えられるようにした。
 
-LRのアイデアはなんとなくわかる。学習率の最適化により矛盾発生頻度を最大化しようとするものである。
+LRのよさはなんとなくわかる。LRのアイデアは学習率の最適化により矛盾発生頻度を最大化しようとするものである[1]。
+
+> In particular, we model the variable selection optimization problem as an online multi-armed bandit, a special-case of reinforcement learning, to learn branching variables such that the learning rate of the solver is maximized. 
+
+> Since producing learnt clauses is a direct indication of progress, we define our metric to be the variable’s propensity to produce learnt clauses.
+
 これによってSAT問題であれば矛盾を全て解決していけば解に到達するし、UNSAT問題であればUNSATなコアに到達できるのだろう。
 
 で自然な考えに思えるのだが、だとすると、これとは違うEVSIDSは一体何をしていて、
@@ -50,3 +55,7 @@ bi-directional searchはうまくいかないということで決着したよ�
 さらにこう考えていくと、LRにとってリスタートは必要なのだろうか？
 EVSIDSにとってリスタートは必要なのだろうか？
 という疑問も出てくるのだがそれはまた別の話ということで。
+
+## References
+
+[1] J. H. Liang, V. Ganesh, P. Poupart, and K. Czarnecki, “Learning Rate Based Branching Heuristic for SAT Solvers,” Lect. Notes Comput. Sci. (including Subser. Lect. Notes Artif. Intell. Lect. Notes Bioinformatics), vol. 9710, pp. 123–140, 2016.
