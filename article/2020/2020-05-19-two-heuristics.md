@@ -56,6 +56,16 @@ bi-directional searchはうまくいかないということで決着したよ�
 EVSIDSにとってリスタートは必要なのだろうか？
 という疑問も出てくるのだがそれはまた別の話ということで。
 
+## 別の考え
+
+あるいは、もちろんどちらも共通の尺度であって単に計算式が違うだけということもあるかもしれない。
+
+* EVSIDSは直近に矛盾を解消したリテラルに重きを置く
+* LRは平均的に矛盾を導出したリテラルに重きを置く
+* どちらも同じことだから、ウィンドウサイズを制御する変数によって両者を連続的に結合せよ。次に探索状況から制御変数を制御せよ。
+
+実行時間の増加につれてEVSIDSからLRに移行する試みは既にやっているのだが。。。
+
 ## References
 
 [1] J. H. Liang, V. Ganesh, P. Poupart, and K. Czarnecki, “Learning Rate Based Branching Heuristic for SAT Solvers,” Lect. Notes Comput. Sci. (including Subser. Lect. Notes Artif. Intell. Lect. Notes Bioinformatics), vol. 9710, pp. 123–140, 2016.
