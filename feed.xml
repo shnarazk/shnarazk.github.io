@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Just a Note</title>
+        <link>https://shnarazk.now.sh</link>
+        <description>a collection of memo</description>
+        <lastBuildDate>Thu, 21 May 2020 08:16:10 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[LR needs something te explore the world]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-05-20-LR-needs-something</link>
+            <guid>https://shnarazk.now.sh/2020/2020-05-20-LR-needs-something</guid>
+            <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[引き続きよくわかってない人の意見の連投ですが。
+
+## LRのリスタート問題
+
+LR はよさそうなんだけども、そんなにいいならリスタートの立場はどうなる？
+矛盾発生率の最適化を達成していて何故リスタートが必要になるのだろうか。
+
+しかし何かそのようなものが必要なことはすぐわかる。
+以前も書いたような気がするがリスタートはリスタートであって、決してリセットではないのだ。
+EVSIDS も含めた変数選択ヒューリスティックスは割当て後にその使われた変数に値を割り当てるもので、使われてない変数に脚光を当てるものではない。
+従って、リスタートを掛けても優先度が高い変数間の順序が変わるだけと書いてもそれほど言い過ぎというわけではないだろう。
+もちろん順序を入れ替えることによってリスタート後の伝播の方向がこれまでと違う方向へと向かうことはあるけども、いきなり極端に違う変数が選ばれるものではない（という去]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What's the difference between EVSIDS and LR?]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-05-19-two-heuristics</link>
+            <guid>https://shnarazk.now.sh/2020/2020-05-19-two-heuristics</guid>
+            <pubDate>Tue, 19 May 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[よくわかってない人の意見ですが。
+
+最近のSATソルバの注目すべきアイデアの一つにLearning Rate (+ Reason-Side) Rewardingがある。
+長らく続いてきたEVSIDS一強時代に対抗できる成果を残している。と言っても完全に上回るのではなく
+「タイムアウトを長くした」場合という限定詞付きではあるが、それでも注目すべき技術だろう。
+というわけで最近のSplrでもfeatureで切り替えられるようにした。
+
+LRのよさはなんとなくわかる。LRのアイデアは学習率の最適化により矛盾発生頻度を最大化しようとするものである[1]。
+
+> In particular, we model the variable selection optimization problem as an online multi-armed bandit, a special-case of r]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What's 's-l'?]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-05-09-Emacs-keybind-s-l</link>
+            <guid>https://shnarazk.now.sh/2020/2020-05-09-Emacs-keybind-s-l</guid>
+            <pubDate>Sat, 09 May 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[[lsp-mode](https://github.com/emacs-lsp/lsp-mode)がプレフィックスとして採用している'`s-l`'とは一体なんなんだ？
+
+'`s`'は`Super`かとも思うのだがだったら大文字ではないのか？　いや、それなら`Shift`になる。。。
+`Super`のつもりで`Option`キーを押してみても反応ない。。。
+
+ググってわかった。やはり`Super`だった。macのコンソールに入力できてないだけだった。
+と思ったらちゃんと入力方法が用意してあった(https://emacs.stackexchange.com/questions/55199/what-are-these-prefix-commands-that-start-with-s-l)。
+
+> You can simulate these additional keys with som]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2010, Apr.]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-04-22-UNSATlog</link>
+            <guid>https://shnarazk.now.sh/2020/2020-04-22-UNSATlog</guid>
+            <pubDate>Wed, 22 Apr 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# 0.3.3まだまだ
+
+非常事態宣言が発出されて外を出歩かなくなってしまったのでカバーに使えるような写真のストックがなくなっ
+てきました。プログラミングの時間は増えてそれなりに進展あり。
+
+# CaDiCaLにおける重要技術の絞り込み
+
+[CaDiCaL](https://github.com/arminbiere/cadical)の何がいいのかを調べるため[sat-bench](https://github.com/shnarazk/SAT-bench)でオプションを切り替えながら3SATを実行してみました。詳細な結果は[Importance of modern techniques in SAT solvers](/2020/2020-04-08-modern-techniques-of-SAT-solver/) に書きました。
+
+結論として、今のSplrにないものをまとめると、
+
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Building Emacs27.nix on MacOS]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-04-11-emacs27-on-nix</link>
+            <guid>https://shnarazk.now.sh/2020/2020-04-11-emacs27-on-nix</guid>
+            <pubDate>Sat, 11 Apr 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[* `?`を使ったカスタマイズはemacsをオーバーレイする前に解決されてしまっているので`call-process`を呼び
+  出すのでなければ、（`nativeBuildInputs`に対してやっているように）自前で各アトリビュートを上書きするしかない。
+* なんか`rev`が無視されているような気がする -> ちゃんとダミー値を与えて一回失敗させないといけない。
+  これでちゃんと更新されるようになった。
+
+```
+# ~/.config/nixpkgs/overlays/emacs27.nix
+self: super:
+{
+  emacs27 = super.emacs.overrideAttrs (attrs: rec {
+    pname = "emacs27";
+    # srcRepo = true;
+    name = "emacs27-${version}";
+ ]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Importance of modern techniques in SAT solvers]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-04-08-modern-techniques-of-SAT-solver</link>
+            <guid>https://shnarazk.now.sh/2020/2020-04-08-modern-techniques-of-SAT-solver</guid>
+            <pubDate>Mon, 20 Apr 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[さあ[CaDiCaL](https://github.com/arminbiere/cadical)がなぜ速いのか検討しよう。
+CaDiCalのbool型のオプションを一つづつ外して、[SAT-bench](https://github.com/shnarazk/SAT-bench)を使ってUF250とUUF250の実行速度を計測してみた。以下が結果の生データ。
+
+| Technique          |     SAT   |    UNSAT  |
+| -----------------  | --------: | --------: |
+| arena              |  67.276   |  411.603  |
+| arenacompact       |  72.570   |  385.086  |
+| arenasort          |  64.9]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Liveness of nix-store created by 'nix-build']]></title>
+            <link>https://shnarazk.now.sh/2020/2020-04-05-nix-liveness</link>
+            <guid>https://shnarazk.now.sh/2020/2020-04-05-nix-liveness</guid>
+            <pubDate>Sun, 05 Apr 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[昨日、[nixOS](https://nixos.org) に [cadical](https://github.com/arminbiere/cadical) が追加されたけど、それに至るまでは[nixpkgsリポジトリ](https://github.com/NixOS/nixpkgs)のクローンを作って、自分でnix-buildを繰り返していた。
+一旦 `nix-build -A cadical` でパッケージを作成するとnix expressionを変更してもartifactのstoreが更新されないことが多い。
+調べて nix-storeのdeleteオプションで消せることがわかったけど、実行すると死んでないから削除できないというエラーが出る。`nix-env -e cadical` で削除しても同じエラーになる。
+
+deleteオプションには`--ignore-liveness]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[pre.commit hook for Rust project]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-03-27-commit-hook</link>
+            <guid>https://shnarazk.now.sh/2020/2020-03-27-commit-hook</guid>
+            <pubDate>Fri, 27 Mar 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[commitする前にフォーマットをチェックするための `.git/hooks/pre.commit`。
+github gistで拾ったもの。
+
+```shell
+#!/bin/bash
+
+diff=$(cargo fmt -- --check)
+result=$?
+
+if [[ ${result} -ne 0 ]] ; then
+    cat <<\EOF
+There are some code style issues, run `cargo fmt` first.
+EOF
+    exit 1
+fi
+
+exit 0
+```]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2020, Mar.]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-03-21-UNSATlog</link>
+            <guid>https://shnarazk.now.sh/2020/2020-03-21-UNSATlog</guid>
+            <pubDate>Sat, 21 Mar 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[新型コロナウィルスで世間は大変なことになっているけど、確定申告以外はコツコツとSplrの開発を続ける日々。第３号です。
+
+# splr-0.3.1そして0.3.2のリリース
+ようやくChoroBTのバグが取れてSplr-0.3.1がリリースできました。いつものベンチマーク設定においても、どうも一つは多く解けるような感じ。そしてこれによって事実上、deep searchモードの引退になりました。開発は一つ階段を登った感じ。ただベンチマークの結果はそれほどよくない。SAT Competitionに出しても参加賞がもらえる程度だなあ。ということで引き続き0.3.2の開発を開始しました。0.3.1ではなんとGlucose流のヒューリスティック選択が有効に働いていない（設定していない項目があった）ので、その修正を始めたら、またこれが時間を取る作業で、ほぼ毎日ベンチマークを取る羽目に。さらにその途中で]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Passing args to StructOpt]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-03-19-structopt</link>
+            <guid>https://shnarazk.now.sh/2020/2020-03-19-structopt</guid>
+            <pubDate>Thu, 19 Mar 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[[SAT-bench](https://github.com/shnarazk/SAT-bench)はRust製SATソルバ
+[Splr](https://github.com/shnarazk/splr)のベンチマーク支援Rust製ツールです。
+設定を変えてベンチマークを実行するためにSplrへのオプションを受け渡せるように以下のような`Config`になっ
+ています。
+
+```rust
+#[derive(Clone, Debug, StructOpt)]
+#[structopt(name = "sat-bench", about = "A SAT Competition benchmark runner")]
+pub struct Config {
+    /// the problem
+    #[structopt(long = "benchmark", short = "B", ]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Profile Guided Optimization on Rust]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-03-16-Profile-Guided-Optimization-on-Rust</link>
+            <guid>https://shnarazk.now.sh/2020/2020-03-16-Profile-Guided-Optimization-on-Rust</guid>
+            <pubDate>Mon, 16 Mar 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[[The rustc book](https://doc.rust-lang.org/rustc/index.html)に
+[profile guided optimization](https://doc.rust-lang.org/rustc/profile-guided-optimization.html)
+のわかりやすい説明があったのでSplrでやってみた。
+
+```
+DATA=./pgo-data
+MERGED=/tmp/merged.profdata
+
+# STEP 0: Make sure there is no left-over profiling data from previous runs
+rm -rf ${DATA}
+mkdir ${DATA}
+
+# STEP 1: Build the instrumented binaries
+RUSTFLAGS="-Cprof]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[File renaming in dired mode on GNU Emacs]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-03-08-rename-in-dired-mode</link>
+            <guid>https://shnarazk.now.sh/2020/2020-03-08-rename-in-dired-mode</guid>
+            <pubDate>Sun, 08 Mar 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[dired modeでリネームする際にデフォルト値として元ファイル名を使いたい場面が非常に多かったので
+いじってみた。
+
+```lisp
+(eval-after-load "dired-aux"
+  '(progn
+     (defun dired-mark-read-file-name (prompt dir op-symbol arg files
+                                              &optional default)
+       (dired-mark-pop-up
+        nil op-symbol files
+        #'read-file-name
+        (format prompt (dired-mark-prompt arg files)) dir default nil
+        ]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[rustc-1.41.1 on nixOS]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-03-07-rustc-on-nixos</link>
+            <guid>https://shnarazk.now.sh/2020/2020-03-07-rustc-on-nixos</guid>
+            <pubDate>Thu, 19 Mar 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[sat-benchのバージョン上げる際にRust 1.41での新しい構文を使ったせいでrustc-1.41が必須になってしまった。
+そんなことは全然問題ないかと思ったらnixpkgsでの標準のRustPlatformの使用バージョンが1.37だったのでま
+ずrustc-1.41を指定することが必要になった。ところがrustc-1.41がコンパイルできない。
+llvmのリンカがAMDGPUなんたらが見つからないというエラーが出る。時間を作って調べてみた。
+
+結論から言うと、
+
+1. [nixpkgs](https://github.com/NixOS/nixpkgs)をcloneして適当な新しめのブランチ（例えばnixpkgs-unstable）をcheckout。
+1. top directoryで `nix-build -A rustc-1.41` を実行すると問題なく生成できる
+1. ]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Weird Rust Compile Error]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-03-01-rust-error</link>
+            <guid>https://shnarazk.now.sh/2020/2020-03-01-rust-error</guid>
+            <pubDate>Mon, 02 Mar 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[突然、こんなコンパイルエラーが出るようになった。
+
+```
+ cargo install --path . --force
+  Installing splr v0.3.1
+   Compiling structopt-derive v0.4.2
+error[E0277]: the trait bound `syn::expr::Expr: std::clone::Clone` is not satisfied
+  --> ~/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.2/src/attrs
+.rs:28:10
+   |
+28 |     Skip(Option<Expr>),
+   |          ^^^^^^^^^^^^
+   |          |
+   |          ex]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2020, Feb.]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-02-11-UNSATlog</link>
+            <guid>https://shnarazk.now.sh/2020/2020-02-11-UNSATlog</guid>
+            <pubDate>Tue, 11 Feb 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[## はじめに
+
+今期のビッグイベントはなんと言ってもSplr-0.3.0のリリース。めでたい。
+
+## Splr-0.3.0リリース
+
+三ヶ月の開発期間を経て2月10日にようやくSplr-0.3.0をリリースすることができました。その更新内容から大事な部分を拾ってみると、
+
+1. 変数選択機構を最新のLearnt Rate based Branching with Reson Side Rewardingに基づくものに変更したこと。なお更新の単位は矛盾ではなく割当てから未割り当てまでで考えることにした。これは単なるアイデア。
+1. タイムアウト用のスレッドを導入してEliminatorを残り時間を考えて自発的に中断するようにしたこと。こうしないと**大きな問題では何時間でも変数除去をやっていた**ようだ。
+1. 変数活性度の減衰率が意外に重要だということがわかったのでやや小さめにしたこと]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Function name as a 1-argumented closure]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-02-04-function-name-as-closure</link>
+            <guid>https://shnarazk.now.sh/2020/2020-02-04-function-name-as-closure</guid>
+            <pubDate>Tue, 04 Feb 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[rustc 1.41でcargo clippyを走らせて以下が指摘された。
+
+```
+cargo clippy
+    Checking splr v0.3.0 (/Users/nash/Repositories/splr)
+warning: redundant closure found
+   --> src/types.rs:394:69
+    |
+394 |         let fs = File::open(path).map_or(Err(SolverError::IOError), | f | Ok(f))?;
+    |                                                                     ^^^^^^^^^^^ help: remove closure as shown: `Ok`
+    |
+    ]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Don't use add-to-list in Emacs]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-02-02-add-to-list</link>
+            <guid>https://shnarazk.now.sh/2020/2020-02-02-add-to-list</guid>
+            <pubDate>Sun, 02 Feb 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Emacsのコミットログより：
+
+> While add-to-list often works with lexical variables, this is a hack that isn't always effective; better tell the user not to try.
+
+へー、.emacsでよく使っているけど、大域変数だから関係ないと言えば関係ない。
+しかし、習慣として使わないようにしておこうかな。]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A visualization tool to analyze logic fomula]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-01-26-CNF-visualization</link>
+            <guid>https://shnarazk.now.sh/2020/2020-01-26-CNF-visualization</guid>
+            <pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[CNF形式の論理式の特徴ををもっと視覚化できないものだろうか。
+
+ベンチマークで使われている問題の中には3SATみたいに変数数が少ないのだが、どうやっても解けないものもある。
+単に3SATなんだけも相転移点に近くて難しいのか、ランダムではあるが3SATではないのか、3SATではあるけどランダムではないのか（いやだったらむしろやさしくなりそう）、いったいどういう問題を相手にしているのか、ソルバーが何も考えずに取り組む前に人間が分析をしないことには進展はないのではないか？
+
+さらに、SATソルバの中で与えられた論理式がどう変化していくかも可視化したいものだ。
+
+
+というわけで何か統計量だけでなく色々と視覚的に表示してくれるツールが必要かなあという気がしてきた。
+ググって出てくるのはこれくらい。
+
+1. C. Dodaro and A. Previti, "Minipref: A tool fo]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[New technologies for SAT solvers]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-01-21-new-solver-technologies</link>
+            <guid>https://shnarazk.now.sh/2020/2020-01-21-new-solver-technologies</guid>
+            <pubDate>Tue, 21 Jan 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[遅ればせながらSR2019のベンチマークを見てみた。
+
+## CaDiCaL
+
+デフォルト設定のみのエントリーで3位に位置するソルバ。作者を見たらBiere先生だった。
+
+- chronological backtrack
+- dual restart mode
+- improving phase Saving
+
+といったところが主に使っている新技術。
+
+## Chronological Backtrack
+
+まだチェックしてないがSC2018以降のトレンドみたい。こんな発想はなかった。
+リスタートの抑制よりもさらに網羅的に探索するということか。原著は以下：
+
+- A. Nadel and V. Ryvchin. Chronological backtracking. In *Theory and Applications of Satisfiability Testing - SAT 2]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2020, Jan.]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-01-15-SplrDL</link>
+            <guid>https://shnarazk.now.sh/2020/2020-01-15-SplrDL</guid>
+            <pubDate>Wed, 15 Jan 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# 正月も再検討
+
+年末から1月中旬までのSATソルバー開発記録unsatlogです。ひたすら再検討。同じところをグルグル回っているようなもので、今回も特に進展なしでした。
+
+## 極性に関する論文読んだ
+
+インパクトのあるタイトルなので読んでみたが、残念なことに系統的ソルバーではなく統計的ソルバーの話。ランダムウォーク的な精錬過程において極性の分散がすごくいい尺度になるという話。論文には全く系統的ソルバーへの言及がないのはうまくいかなかったからだろうか。すごくわかる気がする。以前phaseを数ビットに拡張する話があったのでEMA→偏差に替えるのはいいかもしれない。
+
+と思ってSplrで実装実験したが、意外に結果が出ないもんだ。偏差が大きいものを優先するのはいいと思うのだが結果が出ない。偏差総和でearly restartをかけるのもありそうだが手をつけてない。
+
+さらにこの考えから派生し]]></content:encoded>
+        </item>
+    </channel>
+</rss>
