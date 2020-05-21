@@ -1,25 +1,31 @@
-name: Build and Deploy
+name: github pages
+
 on:
   push:
     branches:
       - master
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
-    - name: Prepare
-      run: npm install
-    - name: Build
-      run: npm run update
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        FOLDER: build
-    - name: Generate
-      run: npm run generate
-      with:
-        publish_dir: ./dist
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        FOLDER: build
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run generate
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./dist
