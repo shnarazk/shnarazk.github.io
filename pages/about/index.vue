@@ -44,14 +44,11 @@
           <i class="fab fa-medium"></i
           ><a href="https://medium.com/@shnarazk/">@Medium</a>
         </li>
-        <li><a href="https://pdp11.herokuapp.com">Online PDP11 demo</a></li>
-        <li><a href="https://github.com/shnarazk/splr">Splr</a></li>
-        <li><a href="https://github.com/shnarazk/mios">Mios</a></li>
       </ul>
       <h1 class="subtitle has-text-info has-text-weight-semibold">
         Copyright
       </h1>
-      Copyright 2017-2019 Shuji Narazaki.
+      Copyright 2017-2020 Shuji Narazaki.
     </section>
   </div>
 </template>
