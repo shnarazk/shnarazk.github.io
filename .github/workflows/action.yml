@@ -25,6 +25,8 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
+      - run: npm rebuild node-sass
+      - run: npm run update
       - run: npm test
       - run: npm run generate
 
