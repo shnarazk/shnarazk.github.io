@@ -41,20 +41,10 @@
           ><a href="https://github.com/shnarazk">@github</a>
         </li>
         <li>
-          <i class="fab fa-gitlab"></i
-          ><a href="https://gitlab.com/shujinarazaki/">@gitlab</a>,
-	  <a href="https://gitlab.com/shujinarazaki?nav_source=navbar">profile</a>
-        </li>
-        <li>
           <i class="fab fa-medium"></i
           ><a href="https://medium.com/@shnarazk/">@Medium</a>
         </li>
         <li><a href="https://pdp11.herokuapp.com">Online PDP11 demo</a></li>
-        <li>
-          <a href="https://check-qiita.shujinarazaki.now.sh/"
-            >Online Qiita checker</a
-          >
-        </li>
         <li><a href="https://github.com/shnarazk/splr">Splr</a></li>
         <li><a href="https://github.com/shnarazk/mios">Mios</a></li>
       </ul>
