@@ -31,6 +31,40 @@ EVSIDS も含めた変数選択ヒューリスティックスは割当て後に�
 
 というわけでリスタートは実は不十分でさらにexploreのための補助となる仕組みが必要ではなかろうか、という作業仮説でした。
 
+```rust
+#[derive(Eq, Ord, PartialEq, PartialOrd)]
+struct VarTimestamp {
+    timestamp: usize,
+    vi: VarId,
+}
+
+impl VarSelectIF for AssignStack {
+    fn force_select_iter(&mut self, ...) {
+        let mut heap: BinaryHeap<VarTimestamp> = BinaryHeap::new();
+        let size: usize = todo!();
+        for v in self.var.iter().skip(1) {
+            if self.assign[v.index].is_some() || v.is(Flag::ELIMINATED) {
+                continue;
+            }
+            if let Some(top) = heap.peek() {
+                if v.timestamp < top.timestamp {
+                    heap.push(VarTimestamp::from(v));
+                    if size < heap.len() {
+                        heap.pop();
+                    }
+                }
+            }
+        }
+        for v in heap.iter() {
+            let lit = Lit::from_assign(v.vi, self.var[v.vi].is(Flag::PHASE));
+            self.temp_order.push(lit);
+        }
+    }
+```
+
 ## 2020-05-21
 
 うまくいかぬ。exploreの契機はworse LBDではないのかもしれない。
+
+![](https://2.bp.blogspot.com/-hMADLxB1puo/VMIvawjKgWI/AAAAAAAAq8E/2bgLT3inaSk/s400/cooking15_rangiri.png)
+
