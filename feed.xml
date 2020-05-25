@@ -4,14 +4,27 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 22 May 2020 12:34:48 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 May 2020 23:46:18 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[What's Miracle Sudoku]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</link>
+            <guid>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</guid>
+            <pubDate>Tue, 26 May 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[25日のHacker's Newsで初めて知ったMiracle Sudoku。長いビデオを見ずに知るところは
+
+* Normal Sudoku rules apply.
+* ナイトまたはキングが1hopで行ける場所には同じ数は置けない: Any two cells separated by a knight's move or a king's move (in chess) cannot contain the same digit.
+* 近接した対角線には連続する数列は置けない: Any two orthogonally adjacent cells cannot contain consecutive digits.
+
+[The Guardian 2020-05-22](https://www.theguardian.com/lifeandstyle/video/2020/may/2]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[LR needs something te explore the world]]></title>
             <link>https://shnarazk.now.sh/2020/2020-05-20-LR-needs-something</link>
             <guid>https://shnarazk.now.sh/2020/2020-05-20-LR-needs-something</guid>
-            <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
+            <pubDate>Thu, 21 May 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[引き続きよくわかってない人の意見の連投ですが。
 
 ## LRのリスタート問題
@@ -333,23 +346,6 @@ warning: redundant closure found
 リスタートの抑制よりもさらに網羅的に探索するということか。原著は以下：
 
 - A. Nadel and V. Ryvchin. Chronological backtracking. In *Theory and Applications of Satisfiability Testing - SAT 2]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Jan.]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-01-15-SplrDL</link>
-            <guid>https://shnarazk.now.sh/2020/2020-01-15-SplrDL</guid>
-            <pubDate>Wed, 15 Jan 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# 正月も再検討
-
-年末から1月中旬までのSATソルバー開発記録unsatlogです。ひたすら再検討。同じところをグルグル回っているようなもので、今回も特に進展なしでした。
-
-## 極性に関する論文読んだ
-
-インパクトのあるタイトルなので読んでみたが、残念なことに系統的ソルバーではなく統計的ソルバーの話。ランダムウォーク的な精錬過程において極性の分散がすごくいい尺度になるという話。論文には全く系統的ソルバーへの言及がないのはうまくいかなかったからだろうか。すごくわかる気がする。以前phaseを数ビットに拡張する話があったのでEMA→偏差に替えるのはいいかもしれない。
-
-と思ってSplrで実装実験したが、意外に結果が出ないもんだ。偏差が大きいものを優先するのはいいと思うのだが結果が出ない。偏差総和でearly restartをかけるのもありそうだが手をつけてない。
-
-さらにこの考えから派生し]]></content:encoded>
         </item>
     </channel>
 </rss>
