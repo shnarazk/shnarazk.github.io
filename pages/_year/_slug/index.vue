@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header :title="article.title" />
+    <img v-if="article.banner" v-bind:src="article.banner" class="article-banner">
     <section class="section">
       <h1 class="title has-text-primary has-text-weight-semibold">
         {{ article.title }}

@@ -3,7 +3,9 @@ title: What's Miracle Sudoku
 subtitle: for a SAT solver developer
 date: 2020-05-26
 tags: ["SAT", "splr"]
+banner: "https://images.unsplash.com/photo-1511689774932-3aca18459e68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
 ---
+
 25日のHacker's Newsで初めて知ったMiracle Sudoku。長いビデオを見ずに知るところは
 
 * Normal Sudoku rules apply.
