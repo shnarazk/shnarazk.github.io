@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 26 May 2020 01:23:30 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 May 2020 01:23:43 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[What's Miracle Sudoku]]></title>
+            <title><![CDATA[What's Miracle Sudoku?]]></title>
             <link>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</link>
             <guid>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</guid>
             <pubDate>Tue, 26 May 2020 00:00:00 GMT</pubDate>
