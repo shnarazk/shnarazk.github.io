@@ -1,5 +1,5 @@
 ---
-title: What's Miracle Sudoku
+title: What's Miracle Sudoku?
 subtitle: for a SAT solver developer
 date: 2020-05-26
 tags: ["SAT", "splr"]
@@ -17,3 +17,5 @@ banner: "https://images.unsplash.com/photo-1511689774932-3aca18459e68?ixlib=rb-1
 さあSATソルバの出番。
 
 # CNF生成
+
+under construction 土曜日もくもくかな？

@@ -1,13 +1,15 @@
+.article-banner {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  overflow: hidden;
+}
 .entry-content {
   font-family: 'Noto Sans JP', sans-serif, 'Livvic', 'Times New Roman';
   font-size: 1rem;
   width: 92%;
   margin-left: 3%;
   /deep/ {
-    .article-banner {
-      width: 100%;
-      max-height: 60vh;
-    }
     h1 {
       font-size: 1.8rem;
       font-weight: bolder;
