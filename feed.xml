@@ -4,9 +4,35 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 26 May 2020 01:23:43 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 29 May 2020 04:08:15 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2010, May.]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-05-29-UNSATlog</link>
+            <guid>https://shnarazk.now.sh/2020/2020-05-29-UNSATlog</guid>
+            <pubDate>Fri, 29 May 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[## Splr-0.4.1リリースの5月
+今月たてたissue及びブランチは以下の通り：
+
+* No restart for LR and Stabilization
+* 20200514-incremental
+* 20200524-handle
+* 20200502-new-select
+* 20200503-litpointer-on-0.3.1
+* 20200509-new-rephrase
+* 20200510-restart-for-lr
+* 20200514-incremental
+* 20200516-no-restart
+* 20200518-tuning
+* 20200524-dead
+* 20200524-handle
+
+Splr-0.4.0以降の分をまとめると
+
+* incremental SATソルバの実装
+* stabilizationの解釈と変数選択機構の実装]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What's Miracle Sudoku?]]></title>
             <link>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</link>
@@ -322,30 +348,6 @@ warning: redundant closure found
 ググって出てくるのはこれくらい。
 
 1. C. Dodaro and A. Previti, "Minipref: A tool fo]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[New technologies for SAT solvers]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-01-21-new-solver-technologies</link>
-            <guid>https://shnarazk.now.sh/2020/2020-01-21-new-solver-technologies</guid>
-            <pubDate>Tue, 21 Jan 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[遅ればせながらSR2019のベンチマークを見てみた。
-
-## CaDiCaL
-
-デフォルト設定のみのエントリーで3位に位置するソルバ。作者を見たらBiere先生だった。
-
-- chronological backtrack
-- dual restart mode
-- improving phase Saving
-
-といったところが主に使っている新技術。
-
-## Chronological Backtrack
-
-まだチェックしてないがSC2018以降のトレンドみたい。こんな発想はなかった。
-リスタートの抑制よりもさらに網羅的に探索するということか。原著は以下：
-
-- A. Nadel and V. Ryvchin. Chronological backtracking. In *Theory and Applications of Satisfiability Testing - SAT 2]]></content:encoded>
         </item>
     </channel>
 </rss>
