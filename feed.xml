@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 30 May 2020 12:19:16 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 30 May 2020 12:21:04 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -37,7 +37,7 @@ Splr-0.4.0以降の分をまとめると
             <title><![CDATA[What's Miracle Sudoku?]]></title>
             <link>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</link>
             <guid>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</guid>
-            <pubDate>Fri, 29 May 2020 00:00:00 GMT</pubDate>
+            <pubDate>Sat, 30 May 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[25日のHacker Newsで初めて知ったMiracle Sudoku。ビデオの横に書いてあることから判断するに
 
 * Normal Sudoku rules apply.
