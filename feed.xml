@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 29 May 2020 04:29:08 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 30 May 2020 12:19:16 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -37,14 +37,14 @@ Splr-0.4.0以降の分をまとめると
             <title><![CDATA[What's Miracle Sudoku?]]></title>
             <link>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</link>
             <guid>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</guid>
-            <pubDate>Tue, 26 May 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[25日のHacker's Newsで初めて知ったMiracle Sudoku。長いビデオを見ずに知るところは
+            <pubDate>Fri, 29 May 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[25日のHacker Newsで初めて知ったMiracle Sudoku。ビデオの横に書いてあることから判断するに
 
 * Normal Sudoku rules apply.
 * ナイトまたはキングが1hopで行ける場所には同じ数は置けない: Any two cells separated by a knight's move or a king's move (in chess) cannot contain the same digit.
-* 近接した対角線には連続する数列は置けない: Any two orthogonally adjacent cells cannot contain consecutive digits.
+* 近接した4近傍には連続する数列は置けない: Any two orthogonally adjacent cells cannot contain consecutive digits.
 
-[The Guardian 2020-05-22](https://www.theguardian.com/lifeandstyle/video/2020/may/2]]></content:encoded>
+[The Guardian 2020-05-22](https://www.theguardian.com/lifeandstyle/video/2020/ma]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[LR needs something te explore the world]]></title>
