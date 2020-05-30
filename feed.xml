@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 30 May 2020 12:21:04 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 30 May 2020 12:23:59 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -38,13 +38,15 @@ Splr-0.4.0以降の分をまとめると
             <link>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</link>
             <guid>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</guid>
             <pubDate>Sat, 30 May 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[25日のHacker Newsで初めて知ったMiracle Sudoku。ビデオの横に書いてあることから判断するに
+            <content:encoded><![CDATA[25日のHacker Newsで初めて知ったMiracle Sudoku。[ビデオ](https://www.youtube.com/watch?v=cvEq_XkQg8U)の横に書いてあることから判断するに
 
 * Normal Sudoku rules apply.
 * ナイトまたはキングが1hopで行ける場所には同じ数は置けない: Any two cells separated by a knight's move or a king's move (in chess) cannot contain the same digit.
 * 近接した4近傍には連続する数列は置けない: Any two orthogonally adjacent cells cannot contain consecutive digits.
 
-[The Guardian 2020-05-22](https://www.theguardian.com/lifeandstyle/video/2020/ma]]></content:encoded>
+さあSATソルバの出番。
+
+# 2020-05-30 mokumo]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[LR needs something te explore the world]]></title>
