@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 06 Jun 2020 19:11:37 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 06 Jun 2020 23:51:28 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -16,20 +16,14 @@
 
 Linuxに比べてmacOSのなんと不自由なことか。
 しかし、まともなLinuxマシンが手元にないのでなんとかmac上でプロファイリングしなければならない。
-cargo-instrumentsというのがよさそうだ。
-残念だけど、opensshのバージョン問題で単に`cargo install`とするだけではコンパイルできないようだ。
+いくつか調べてみて（そもそも検索でヒットするページが意外なほど少ないのだけど）[cargo-instruments](https://crates.io/crates/cargo-instruments)というのがよさそうだということがわかりました。
+残念だけど、opensshのバージョン問題で単に`cargo install`とするだけではコンパイルできないようです。
+brewを使っているのが前提になっているのだろうか。
 うーん、これはいつものパターンだな。
 
 ## nix-shellでコンパイルしよう
 
-一つ一つ問題を潰して、こうなった。
-
-```plain
-$ nix-shell -p openssl pkg-config libiconv darwin.apple_sdk.frameworks.Security libcurl
-$ cargo install cargo-instruments
-```
-
-これは最後まで走るのだけど、]]></content:encoded>
+sat-benchでの経験を基に、nix-shellで環境作ってcargoを呼び出す方法]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2010, May.]]></title>
