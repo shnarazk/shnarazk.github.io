@@ -4,15 +4,23 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 06 Jun 2020 18:59:27 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 06 Jun 2020 19:05:33 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[How to compile cargo-intruments]]></title>
+            <title><![CDATA[How to compile cargo-instruments]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</guid>
             <pubDate>Sun, 07 Jun 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[## nix-shellでコンパイルしよう
+            <content:encoded><![CDATA[## プロファイリングしたいんじゃあ
+
+Linuxに比べてmacOSのなんと不自由なことか。
+しかし、まともなLinuxマシンが手元にないのでなんとかmac上でプロファイリングしなければならない。
+cargo-instrumentsというのがよさそうだ。
+残念だけど、opensshのバージョン問題で単に`cargo install`とするだけではコンパイルできないようだ。
+うーん、これはいつものパターンだな。
+
+## nix-shellでコンパイルしよう
 
 一つ一つ問題を潰して、こうなった。
 
@@ -21,9 +29,7 @@ $ nix-shell -p openssl pkg-config libiconv darwin.apple_sdk.frameworks.Security 
 $ cargo install cargo-instruments
 ```
 
-これは最後まで走るのだけど、最後の最後で`_CFURLSetResourcePropertyForKey`が見つからないエラーで失敗する。
-どうもこれはnixOS上のrustのコンパイルでよく知られた問題のようで、rust関連のnix expressionにはコメントで出てきて、dirty hackで対応だ、みたいなことが書いてある。
--- `/nixpkgs/pkgs/development/tools/rust/cargo-geiger]]></content:encoded>
+これは最後まで走るのだけど、]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2010, May.]]></title>
