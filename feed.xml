@@ -4,9 +4,28 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 31 May 2020 22:48:55 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 06 Jun 2020 18:49:44 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[How to compile cargo-intruments]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</link>
+            <guid>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</guid>
+            <pubDate>Sun, 07 Jun 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[## nix-shellでコンパイルしよう
+
+一つ一つ問題を潰して、こうなった。
+```
+$ nix-shell -p openssl pkg-config libiconv darwin.apple_sdk.frameworks.Security libcurl
+$ cargo install cargo-instruments
+```
+
+これは最後まで走るのだけど、最後の最後で`_CFURLSetResourcePropertyForKey`が見つからないエラーで失敗する。
+どうもこれはnixOS上のrustのコンパイルでよく知られた問題のようで、rust関連のnix expressionにはコメントで出てきて、dirty hackで対応だ、みたいなことが書いてある。
+
+```
+  # FIXME: Use impure version of CoreFoundation becaus]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2010, May.]]></title>
             <link>https://shnarazk.now.sh/2020/2020-05-29-UNSATlog</link>
@@ -332,24 +351,6 @@ warning: redundant closure found
 
 へー、.emacsでよく使っているけど、大域変数だから関係ないと言えば関係ない。
 しかし、習慣として使わないようにしておこうかな。]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[A visualization tool to analyze logic fomula]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-01-26-CNF-visualization</link>
-            <guid>https://shnarazk.now.sh/2020/2020-01-26-CNF-visualization</guid>
-            <pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[CNF形式の論理式の特徴ををもっと視覚化できないものだろうか。
-
-ベンチマークで使われている問題の中には3SATみたいに変数数が少ないのだが、どうやっても解けないものもある。
-単に3SATなんだけも相転移点に近くて難しいのか、ランダムではあるが3SATではないのか、3SATではあるけどランダムではないのか（いやだったらむしろやさしくなりそう）、いったいどういう問題を相手にしているのか、ソルバーが何も考えずに取り組む前に人間が分析をしないことには進展はないのではないか？
-
-さらに、SATソルバの中で与えられた論理式がどう変化していくかも可視化したいものだ。
-
-
-というわけで何か統計量だけでなく色々と視覚的に表示してくれるツールが必要かなあという気がしてきた。
-ググって出てくるのはこれくらい。
-
-1. C. Dodaro and A. Previti, "Minipref: A tool fo]]></content:encoded>
         </item>
     </channel>
 </rss>
