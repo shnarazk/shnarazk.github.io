@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 06 Jun 2020 23:55:46 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 07 Jun 2020 00:05:22 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -12,18 +12,16 @@
             <link>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</guid>
             <pubDate>Sun, 07 Jun 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[## プロファイリングしたいんじゃあ
+            <content:encoded><![CDATA[## Rustでプロファイリングしたいんじゃあ
 
-Linuxに比べてmacOSのなんと不自由なことか。
-しかし、まともなLinuxマシンが手元にないのでなんとかmac上でプロファイリングしなければならない。
+valgrindは動くけど、perfはない、massive-visualizerもない。
+Linuxに比べてmacOSはRustのプロファイリングが不自由だなあ。
+それでも、まともなLinuxマシンが手元にないのでなんとかmac上でプロファイリングしなければならない。
+何かインストールしなければ。
 いくつか調べてみて（そもそも検索でヒットするページが意外なほど少ないのだけど）[cargo-instruments](https://crates.io/crates/cargo-instruments)というのがよさそうだということがわかりました。
 残念だけど、opensshのバージョン問題で単に`cargo install`とするだけではコンパイルできないようです。
 brewを使っているのが前提になっているのだろうか。
-うーん、これはいつものパターンだな。
-
-## nix-shellでコンパイルしよう
-
-sat-benchでの経験を基に、nix-shellで環境作ってcargoを呼び出す方法]]></content:encoded>
+うーん、これはいつもの]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2010, May.]]></title>
