@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 13 Jun 2020 12:33:11 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 13 Jun 2020 12:40:23 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -14,7 +14,7 @@
             <pubDate>Sat, 13 Jun 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[Clap-3.0だとStructOptが要らなくなるのでclap-3.0.0-beta.1をちょっと試してみた。
 
-## 1. PathBufの取扱いの違い
+### 1. PathBufの取扱いの違い
 
 StructOptでは問題なくオプションになる以下のフィールドは、
 
@@ -23,15 +23,15 @@ StructOptでは問題なくオプションになる以下のフィールドは�
    pub result: PathBuf,
 ```
 
-Clapではは引数が指定されてないエラーを誘発する。
-default_valueを空以外にすれば直るのだが、空でないといけないので、Optionでくるむことにした：
+Clapでは引数が指定されてないエラーを起こしてしまう。
+default_valueを空以外にすれば直るのだが、それは困る、Optionでくるむことにした：
 
 ```rust
     #[clap(long = "result")]
     pub result: Option<PathBuf>,
 ```
 
-これで解決したが、なんかスマート]]></content:encoded>
+これで解決するのだが、なんかスマートで]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[How to compile cargo-instruments]]></title>
