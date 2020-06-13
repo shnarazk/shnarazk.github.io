@@ -4,9 +4,35 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 07 Jun 2020 00:05:22 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 13 Jun 2020 12:33:11 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Clap-3.0.0-beta.1]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-06-13-clap3</link>
+            <guid>https://shnarazk.now.sh/2020/2020-06-13-clap3</guid>
+            <pubDate>Sat, 13 Jun 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Clap-3.0だとStructOptが要らなくなるのでclap-3.0.0-beta.1をちょっと試してみた。
+
+## 1. PathBufの取扱いの違い
+
+StructOptでは問題なくオプションになる以下のフィールドは、
+
+```rust
+   #[structopt(long = "result", default_value = "", parse(from_os_str))]
+   pub result: PathBuf,
+```
+
+Clapではは引数が指定されてないエラーを誘発する。
+default_valueを空以外にすれば直るのだが、空でないといけないので、Optionでくるむことにした：
+
+```rust
+    #[clap(long = "result")]
+    pub result: Option<PathBuf>,
+```
+
+これで解決したが、なんかスマート]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[How to compile cargo-instruments]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</link>
@@ -336,18 +362,6 @@ warning: redundant closure found
     |                                                                     ^^^^^^^^^^^ help: remove closure as shown: `Ok`
     |
     ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Don't use add-to-list in Emacs]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-02-02-add-to-list</link>
-            <guid>https://shnarazk.now.sh/2020/2020-02-02-add-to-list</guid>
-            <pubDate>Sun, 02 Feb 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Emacsのコミットログより：
-
-> While add-to-list often works with lexical variables, this is a hack that isn't always effective; better tell the user not to try.
-
-へー、.emacsでよく使っているけど、大域変数だから関係ないと言えば関係ない。
-しかし、習慣として使わないようにしておこうかな。]]></content:encoded>
         </item>
     </channel>
 </rss>
