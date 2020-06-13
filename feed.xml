@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 13 Jun 2020 12:40:23 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 13 Jun 2020 12:55:16 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -12,7 +12,7 @@
             <link>https://shnarazk.now.sh/2020/2020-06-13-clap3</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-13-clap3</guid>
             <pubDate>Sat, 13 Jun 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Clap-3.0だとStructOptが要らなくなるのでclap-3.0.0-beta.1をちょっと試してみた。
+            <content:encoded><![CDATA[[Clap](https://crates.io/crates/clap)-3.0だと[StructOpt](https://crates.io/crates/structopt)が要らなくなるのでclap-3.0.0-beta.1をちょっと試してみた。
 
 ### 1. PathBufの取扱いの違い
 
@@ -27,11 +27,7 @@ Clapでは引数が指定されてないエラーを起こしてしまう。
 default_valueを空以外にすれば直るのだが、それは困る、Optionでくるむことにした：
 
 ```rust
-    #[clap(long = "result")]
-    pub result: Option<PathBuf>,
-```
-
-これで解決するのだが、なんかスマートで]]></content:encoded>
+    #[clap(long]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[How to compile cargo-instruments]]></title>
