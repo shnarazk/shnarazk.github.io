@@ -4,9 +4,25 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 13 Jun 2020 12:55:16 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 19 Jun 2020 15:34:35 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[井上ひさし、四千万歩の男]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-06-19-40M</link>
+            <guid>https://shnarazk.now.sh/2020/2020-06-19-40M</guid>
+            <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[題材が今ひとつ興味が持てなくて、しかしベストセラーになっていたので、時間ができたら読もうと思っていた
+井上ひさしの長編小説「四千万歩の男」。
+ようやく読了。
+
+なんと、
+
+* 未完！四百万歩くらいで終わった。単行本が出てから作者が亡くなるまで随分と時間があったはずなのでもう当然完結したストーリーだと思っていたのだが。。。
+* 「小説」であった。同時代の有名人が毎回登場して絡んでいく。なんか早坂暁の「天下御免」を思い出した。
+* なので伊能忠敬に関するドラマ化というよりも、アイヌ問題とか、農民の困窮生活とか、学閥間の争いとか、御家騒動とか、大名間の闘争とか、ドロドロした話が一話完結的に展開していく。
+* 主人公が百姓上がりということから、特にその時代の百姓の生活が色々と描かれている。そういう時代を舞台にしたものは米村圭伍、岡本綺堂、半村良、NHK土曜時代劇くらいしか読んだ（り見たりした）こと]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Clap-3.0.0-beta.1]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-13-clap3</link>
@@ -340,24 +356,6 @@ error[E0277]: the trait bound `syn::expr::Expr: std::clone::Clone` is not satisf
 1. 変数選択機構を最新のLearnt Rate based Branching with Reson Side Rewardingに基づくものに変更したこと。なお更新の単位は矛盾ではなく割当てから未割り当てまでで考えることにした。これは単なるアイデア。
 1. タイムアウト用のスレッドを導入してEliminatorを残り時間を考えて自発的に中断するようにしたこと。こうしないと**大きな問題では何時間でも変数除去をやっていた**ようだ。
 1. 変数活性度の減衰率が意外に重要だということがわかったのでやや小さめにしたこと]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Function name as a 1-argumented closure]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-02-04-function-name-as-closure</link>
-            <guid>https://shnarazk.now.sh/2020/2020-02-04-function-name-as-closure</guid>
-            <pubDate>Tue, 04 Feb 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[rustc 1.41でcargo clippyを走らせて以下が指摘された。
-
-```
-cargo clippy
-    Checking splr v0.3.0 (/Users/nash/Repositories/splr)
-warning: redundant closure found
-   --> src/types.rs:394:69
-    |
-394 |         let fs = File::open(path).map_or(Err(SolverError::IOError), | f | Ok(f))?;
-    |                                                                     ^^^^^^^^^^^ help: remove closure as shown: `Ok`
-    |
-    ]]></content:encoded>
         </item>
     </channel>
 </rss>
