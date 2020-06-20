@@ -54,10 +54,6 @@ workbox.precaching.precacheAndRoute([
     "revision": "0eb2dbd33c87b1951da11da42b414b24"
   },
   {
-    "url": "/_nuxt/2282f8535f4357bf48d2.js",
-    "revision": "ee9460bcfc93a8538be44d33419c87c3"
-  },
-  {
     "url": "/_nuxt/288307f5ce441eba791c.js",
     "revision": "44a82866c30a85051c25457f490eedc9"
   },
@@ -74,12 +70,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "342ed63fb655d3741fa3d258d8a98788"
   },
   {
-    "url": "/_nuxt/362e9c5ebf95897500ec.js",
-    "revision": "3e73081df3e671bad3f8225b2942047e"
-  },
-  {
     "url": "/_nuxt/378447b119380d8e0ddf.js",
-    "revision": "a25f2060b50f78e785b45fa052f711d3"
+    "revision": "475c680f6684862acb4a87cacd48c533"
   },
   {
     "url": "/_nuxt/3ef739d6b4d7ecdb4fe4.js",
@@ -88,10 +80,6 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "/_nuxt/401c6d6a19495866b386.js",
     "revision": "b5e4e46ef1d82940a2e3fdc5c79e4155"
-  },
-  {
-    "url": "/_nuxt/44ffea40b6ae617d5e1a.js",
-    "revision": "90dd046bf25baf0cd14750d1f9d34aa1"
   },
   {
     "url": "/_nuxt/4715a6441ed3f341c8f4.js",
@@ -112,6 +100,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "/_nuxt/52f28cec4914bc42e78c.js",
     "revision": "f594c39767230dac187bb7216605a62e"
+  },
+  {
+    "url": "/_nuxt/539f3a4787a446a1848e.js",
+    "revision": "4fade9cfd42005f1fb86b8e5a36bfd8e"
   },
   {
     "url": "/_nuxt/5dcfa7047fd5e99c9851.js",
@@ -230,6 +222,10 @@ workbox.precaching.precacheAndRoute([
     "revision": "287f130b546ac559b8bde6f2efe1d47f"
   },
   {
+    "url": "/_nuxt/a79987942766b80cfa2c.js",
+    "revision": "49eefbe333ab0b98d6471a01d8188807"
+  },
+  {
     "url": "/_nuxt/a9e5434b52f0b9c7dd3a.js",
     "revision": "10d3fd51d26f83faf6f0220168f5ef41"
   },
@@ -272,6 +268,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "/_nuxt/c9bdf15376a51bfe4842.js",
     "revision": "5756dc9d0c7fd37ea5298026e088c8b2"
+  },
+  {
+    "url": "/_nuxt/cfc0d32857968eedc97a.js",
+    "revision": "35ccbf51e5fa89e597158f45a812e103"
   },
   {
     "url": "/_nuxt/d3c99cae44de9ea0a35d.js",
