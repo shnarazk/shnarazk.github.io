@@ -1,5 +1,5 @@
 ---
-title: LR needs something te explore the world
+title: LR needs something to explore the world
 subtitle: I guess so
 date: 2020-05-21
 tags: ["SAT"]
