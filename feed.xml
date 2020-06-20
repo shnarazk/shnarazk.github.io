@@ -4,9 +4,25 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 20 Jun 2020 00:15:06 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 20 Jun 2020 07:49:46 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Vivification]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
+            <guid>https://shnarazk.now.sh/2020/2020-06-20-vivification</guid>
+            <pubDate>Sat, 20 Jun 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Vivification がなんなのか、日本語で探しても出てこないので以下をまとめる。
+（最新の話かと思っていたけど2008年とは。。。）
+
+* C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae,”*Front. Artif. Intell*. Appl., vol. 178, pp. 525–529, 2008.
+
+Splrでいうところの、現在のprocessorが網羅的に節数に対する制約内での全ての変数除去、節包摂(clause
+subsumption)を実行するのに対し、vivificationは（その節に「対応」する割り当てを仮定して）propagateを
+行った結果を用いて節の包摂方針を決めるというもの。その分、不要な複雑さの導入を抑えることができるらし
+い。
+何も考えずにRu]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[井上ひさし、四千万歩の男]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-19-40M-steps</link>
@@ -103,7 +119,7 @@ Splr-0.4.0以降の分をまとめると
 # 2020-05-30 mokumo]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[LR needs something te explore the world]]></title>
+            <title><![CDATA[LR needs something to explore the world]]></title>
             <link>https://shnarazk.now.sh/2020/2020-05-20-LR-needs-something</link>
             <guid>https://shnarazk.now.sh/2020/2020-05-20-LR-needs-something</guid>
             <pubDate>Thu, 21 May 2020 00:00:00 GMT</pubDate>
@@ -339,23 +355,6 @@ error[E0277]: the trait bound `syn::expr::Expr: std::clone::Clone` is not satisf
    |          ^^^^^^^^^^^^
    |          |
    |          ex]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Feb.]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-02-11-UNSATlog</link>
-            <guid>https://shnarazk.now.sh/2020/2020-02-11-UNSATlog</guid>
-            <pubDate>Tue, 11 Feb 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[## はじめに
-
-今期のビッグイベントはなんと言ってもSplr-0.3.0のリリース。めでたい。
-
-## Splr-0.3.0リリース
-
-三ヶ月の開発期間を経て2月10日にようやくSplr-0.3.0をリリースすることができました。その更新内容から大事な部分を拾ってみると、
-
-1. 変数選択機構を最新のLearnt Rate based Branching with Reson Side Rewardingに基づくものに変更したこと。なお更新の単位は矛盾ではなく割当てから未割り当てまでで考えることにした。これは単なるアイデア。
-1. タイムアウト用のスレッドを導入してEliminatorを残り時間を考えて自発的に中断するようにしたこと。こうしないと**大きな問題では何時間でも変数除去をやっていた**ようだ。
-1. 変数活性度の減衰率が意外に重要だということがわかったのでやや小さめにしたこと]]></content:encoded>
         </item>
     </channel>
 </rss>
