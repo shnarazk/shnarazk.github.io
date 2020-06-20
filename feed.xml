@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 20 Jun 2020 07:49:46 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 20 Jun 2020 07:51:23 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -17,10 +17,9 @@
 
 * C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae,”*Front. Artif. Intell*. Appl., vol. 178, pp. 525–529, 2008.
 
-Splrでいうところの、現在のprocessorが網羅的に節数に対する制約内での全ての変数除去、節包摂(clause
-subsumption)を実行するのに対し、vivificationは（その節に「対応」する割り当てを仮定して）propagateを
-行った結果を用いて節の包摂方針を決めるというもの。その分、不要な複雑さの導入を抑えることができるらし
-い。
+Splrでいうところの、現在のprocessorが網羅的に節数に対する制約内での全ての変数除去、節包摂(clause subsumption)を実行するのに対し、vivificationは（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。
+その分、不要な複雑さの導入を抑えることができるらしい。
+
 何も考えずにRu]]></content:encoded>
         </item>
         <item>
