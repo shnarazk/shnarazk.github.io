@@ -27,7 +27,7 @@ fn vivify(mut sigma: &CNF) {
     let mut change: bool = true;
     let mut shortened: bool = true;
     let mut cb: Vec<Lit> = Vec::new();
-	let mut ci: usize;
+    let mut ci: usize;
     while change {
         change = false;
         i = 0;
@@ -71,7 +71,7 @@ fn vivify(mut sigma: &CNF) {
                     }
                 }
                 if shortened {
-					sigma.remove(c);
+                    sigma.remove(c);
                     change = true;
                 }
             }
