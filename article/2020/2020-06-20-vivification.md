@@ -84,7 +84,7 @@ fn vivify(mut sigma: &CNF) {
 つまり
 
 ```rust
-fn vivify(mut sigma: CNF) -> CNF {
+fn vivify(mut sigma: CNF) {
     let mut testing_cnf;
     let mut change: bool = true;                            // 変化したかどうか
     let mut shortened: bool = true;                         // 節cを短い節で置き換えできたかどうか
@@ -96,7 +96,7 @@ fn vivify(mut sigma: CNF) -> CNF {
             cb.clear();
             shortened = false;
             while !shortened && c != cb                     // == until shorten || c == cb { .. }
-                c\cbから適当に選んだリテラルlを割り当ててみて伝播させる
+                c\cbから適当に選んだリテラルlを割当て伝播させる
                 cbにlを追加する
                 if 矛盾してないなら
                     その学習節をclとする
