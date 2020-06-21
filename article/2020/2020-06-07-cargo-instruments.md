@@ -20,7 +20,7 @@ brewを使っているのが前提になっているのだろうか。
 
 sat-benchでの経験を基に、nix-shellで環境作ってcargoを呼び出す方法で、一つ一つ問題を潰していくと、こうなった。
 
-```text
+```shell
 $ nix-shell -p openssl pkg-config libiconv darwin.apple_sdk.frameworks.Security libcurl
 $ cargo install cargo-instruments
 ```
@@ -29,7 +29,7 @@ $ cargo install cargo-instruments
 どうもこれはnixOS上のrustのコンパイルでよく知られた問題のようで、とあるrust関連のnix expressionにはコメントで出てきて、dirty hackで対応だ、みたいなことが書いてある。
 -- `/pkgs/development/tools/rust/cargo-geiger/`
 
-```text
+```nix
   # FIXME: Use impure version of CoreFoundation because of missing symbols.
   # CFURLSetResourcePropertyForKey is defined in the headers but there's no
   # corresponding implementation in the sources from opensource.apple.com.
