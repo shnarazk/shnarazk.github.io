@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 21 Jun 2020 00:30:18 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 21 Jun 2020 01:12:24 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -12,15 +12,14 @@
             <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-20-vivification</guid>
             <pubDate>Sat, 20 Jun 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Vivification がなんなのか、日本語で探しても出てこないので以下をまとめる。
+            <content:encoded><![CDATA[Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
 （最新の話かと思っていたけど2008年とは。。。）
 
 * C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae,” *Front. Artif. Intell*. Appl., vol. 178, pp. 525–529, 2008.
 
-Splrでいうところの、現在のprocessorが網羅的に節数に対する制約内での全ての変数除去、節包摂(clause subsumption)を実行するのに対し、vivificationは（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。
+Splr でいうところの `processor` が節数に対する制約内での網羅的な変数除去と節包摂(clause subsumption)とを実行するのに対し、vivification は（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。
 その分、不要な複雑さの導入を抑えることができるらしい。
-
-### アルゴ]]></content:encoded>
+効果は]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[井上ひさし、四千万歩の男]]></title>
