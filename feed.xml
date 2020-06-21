@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 21 Jun 2020 12:35:06 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 21 Jun 2020 12:43:46 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[Vivification]]></title>
+            <title><![CDATA[Vivification of a CNF formula]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-20-vivification</guid>
             <pubDate>Sat, 20 Jun 2020 00:00:00 GMT</pubDate>
