@@ -4,19 +4,21 @@ subtitle: a CNF preprocessor
 date: 2020-06-20
 tags: ["SAT"]
 ---
-Vivification がなんなのか、日本語で探しても出てこないので以下をまとめる。
+Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
 （最新の話かと思っていたけど2008年とは。。。）
 
 * C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae,” *Front. Artif. Intell*. Appl., vol. 178, pp. 525–529, 2008.
 
-Splrでいうところの、現在のprocessorが網羅的に節数に対する制約内での全ての変数除去、節包摂(clause subsumption)を実行するのに対し、vivificationは（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。
+Splr でいうところの `processor` が節数に対する制約内での網羅的な変数除去と節包摂(clause subsumption)とを実行するのに対し、vivification は（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。
 その分、不要な複雑さの導入を抑えることができるらしい。
+効果は1割程度のようである。
 
-### アルゴリズム
+### アルゴリズム（上記論文より引用）
 
 ![](/img/2020/06-20/algorithm1.jpg)
 
-何も考えずにRustで書いてみるとこんな感じ。
+で何も考えずにRustで書いてみるとこんな感じだろうか。
+Splr だと単位節は `cdb` に入れられないので CNF というよりも`(asg, asg)` を持ち回るとした方が現実的かも。
 
 ```rust
 /// Vivification of a given CNF formula, returning a vivified CNF formula

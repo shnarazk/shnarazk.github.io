@@ -114,7 +114,7 @@ banner: "https://images.unsplash.com/photo-1511689774932-3aca18459e68?ixlib=rb-1
 
 得られる出力は以下の通り。
 
-```plain
+```text
 4 8 3 7 2 6 1 5 9 
 7 2 6 1 5 9 4 8 3 
 1 5 9 4 8 3 7 2 6 
