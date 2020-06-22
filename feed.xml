@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 22 Jun 2020 12:16:40 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Jun 2020 12:37:55 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -18,12 +18,12 @@
 
 duplicateは複数持つのではなく何度でも現れるという意味だ。
 そのような節を削除せずに保持することで求解数が向上する（そういう問題セットが存在する）とのこと。
-論文ではHashを使って再出現を検知しようとしているようだ。
+論文ではHash表を使って再出現を検知しようとしているようだ。
 LBDによる層化は必ずしも正しいとは限らないと。
 
 変数に比べ節の尺度はそれほど注意が払われてなかったかもしれない。
 LBDに依らない尺度を検討するなら、変数活性度の流用だろうか。
-ちょっと試してみるとそれほど悪くないよ]]></content:encoded>
+ちょっと試してみるとそれほど悪くない]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Vivification of a CNF formula]]></title>
