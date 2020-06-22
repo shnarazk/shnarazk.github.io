@@ -4,9 +4,20 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 22 Jun 2020 00:05:16 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Jun 2020 04:05:38 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Duplicate Learnt Clauses]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-06-22-duplicate-learnt-clause</link>
+            <guid>https://shnarazk.now.sh/2020/2020-06-22-duplicate-learnt-clause</guid>
+            <pubDate>Tue, 23 Jun 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Google Sholar alert 発令。今日のお題は「重複した学習節による速度向上」！？
+
+* S. Kochemazov, O. Zaikin, A. Semenov, and V. Kondratiev, “Speeding Up CDCL Inference With Duplicate Learnt Clauses,” 2020.
+
+TBC]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Vivification of a CNF formula]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
@@ -333,26 +344,6 @@ llvmのリンカがAMDGPUなんたらが見つからないというエラーが�
 1. [nixpkgs](https://github.com/NixOS/nixpkgs)をcloneして適当な新しめのブランチ（例えばnixpkgs-unstable）をcheckout。
 1. top directoryで `nix-build -A rustc-1.41` を実行すると問題なく生成できる
 1. ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[A Weird Rust Compile Error]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-03-01-rust-error</link>
-            <guid>https://shnarazk.now.sh/2020/2020-03-01-rust-error</guid>
-            <pubDate>Mon, 02 Mar 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[突然、こんなコンパイルエラーが出るようになった。
-
-```
- cargo install --path . --force
-  Installing splr v0.3.1
-   Compiling structopt-derive v0.4.2
-error[E0277]: the trait bound `syn::expr::Expr: std::clone::Clone` is not satisfied
-  --> ~/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.2/src/attrs
-.rs:28:10
-   |
-28 |     Skip(Option<Expr>),
-   |          ^^^^^^^^^^^^
-   |          |
-   |          ex]]></content:encoded>
         </item>
     </channel>
 </rss>
