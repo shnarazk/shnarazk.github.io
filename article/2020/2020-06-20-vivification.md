@@ -1,7 +1,7 @@
 ---
 title: Vivification of a CNF formula
 subtitle: as a SAT solver's preprocessor
-date: 2020-06-26
+date: 2020-06-27
 tags: ["SAT"]
 ---
 Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
