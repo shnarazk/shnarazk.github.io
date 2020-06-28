@@ -1,9 +1,9 @@
 ---
 title: Vivification of a CNF formula
 subtitle: as a SAT solver's preprocessor
-date: 2020-06-28
+date: 2020-06-29
 tags: ["SAT"]
-banner: "https://images.unsplash.com/photo-1561579537-c2f242b00869?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+banner: "https://images.unsplash.com/photo-1506884403171-cdb32baec15f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format"
 ---
 Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
 （最新の話かと思っていたけど2008年とは。。。）
@@ -14,11 +14,11 @@ Splr でいうところの `processor` が節数に対する制約内での網�
 節長を減らす方向でのみ置換するので、（節数の増加と引き換えに）不要な複雑さの導入を抑えることができるらしい。
 効果は1割程度のようである。
 
-ちなみに 'vivify' とは：
+ちなみに 'vivify' は論文では'shorten existing clauses'の意味で使われているが、辞書で引くと：
 
 > verb: enliven or animate: outings vivify learning for children.
 
-とのことでまあぼやけていた制約を強化する処理のようであるので、日本語のビビッドから想像できる感じなんだろう。
+とのこと。ぼやけていた制約の強化ということで、日本語になっているビビッドからも想像できる感じなんだろう。
 
 # アルゴリズム（上記論文より引用）
 
@@ -248,3 +248,67 @@ vivificationは`propagate`や`cancel_until`など多くの機能を流用して�
 * 変数活性度は取り込むべき。理由はどうであれ伝播の結果わかった統計情報なのだから。
 * ただし変数活性度の計算にはいくつかのカウンタは正しく動いている（更新される）ことが必要なので、計数カウンタを止めたサンドボックスを作るよりもvivify後に増分をキャンセルすることが必要かも。
 
+## 2020-06-29
+
+アルゴリズムの理解進展。いろいろ突っ込みどころを見つけて、反映したバージョンがこちら。
+
+* 23行目と27行目が同時に成立することはない
+* 30行目はwhileの中に入れる必要はない
+* キャッシュは意味がない。多くの場合すぐに`break`しているから。
+
+```rust
+fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
+    let mut changed: bool = true;
+    while changed {
+        changed = false;
+        for c in &clauses {
+            let clits = c.lits.clone();
+            let mut shortened = false;
+            let mut new_clause: Vec<Lit> = Vec::new();
+            cdb.delete_clause(c);
+            for (i, l) in clits.iter().enumerate() {
+                asg.assign_by_decision(!*l);
+                if asg.propagate(cdb) == ⊥ {
+                    let learnt = conflict_analyze_and_learnt(asg, cdb);
+                    if learnt.iter().all(|l| clits.contains(l)) {
+                        new_clause = learnt.clone();
+                        shortened = true;
+                    } else {
+                        if learnt.len() < clits.len() {
+                            asg.cancel_until(asg.root_level);
+                            break;
+                        }
+                        if i < clits.len() - 1 {
+                            new_clause = clits[..=i].to_vec();
+                            shortened = true;
+                        }
+                    }
+                } else if let Some(ls) = clits[i + 1..].iter().find(|l| asg.assigned(**l) == Some(true)) {
+                    if i < clits.len() - 1 {
+                        new_clause = clits[..=i].to_vec();
+                        new_clause.push(*ls);
+                        shortened = true;
+                    }
+                } else if let Some(ls) = clits[i + 1..].iter().find(|l| asg.assigned(!**l) == Some(true)) {
+                    new_clause = clits.iter().copied().filter(|l| l != ls).collect::<Vec<_>>();
+                    shortened = true;
+                }
+                asg.cancel_until(asg.root_level);
+                if shortened {
+                    break;
+                }
+            }
+            if shortened {
+                if new_clause.len() == 1 {
+                    asg.assign_at_rootlevel(new_clause[0]);
+                } else {
+                    cdb.new_clause(asg, new_clause);
+                }
+                changed = true;
+            } else {
+                cdb.new_clause(asg, clits);
+            }
+        }
+    }
+}
+```
