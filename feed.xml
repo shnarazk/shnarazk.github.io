@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 28 Jun 2020 01:03:56 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Jun 2020 00:59:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -27,7 +27,7 @@ LBDによる層化は必ずしも正しいとは限らないと。
             <title><![CDATA[Vivification of a CNF formula]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-20-vivification</guid>
-            <pubDate>Sun, 28 Jun 2020 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 29 Jun 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
 （最新の話かと思っていたけど2008年とは。。。）
 
