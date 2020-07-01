@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 29 Jun 2020 01:36:31 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 01 Jul 2020 04:13:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -27,14 +27,14 @@ LBDによる層化は必ずしも正しいとは限らないと。
             <title><![CDATA[Vivification of a CNF formula]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-20-vivification</guid>
-            <pubDate>Mon, 29 Jun 2020 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
 （最新の話かと思っていたけど2008年とは。。。）
 
 * C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae,” *Front. Artif. Intell*. Appl., vol. 178, pp. 525–529, 2008.
 
-Splr でいうところの `processor` が節数に対する制約内での網羅的な変数除去と節包摂(clause subsumption)とを実行するのに対し、vivification は（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるるというもの。
-節長を減らす方向でのみ置換するので、（節数の増加と引き換えに]]></content:encoded>
+Splr でいうところの `processor` が節数に対する制約内での網羅的な変数除去と節包摂(clause subsumption)とを実行するのに対し、vivification は（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。
+節長を減らす方向でのみ置換するので、（節数の増加と引き換えに）]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[井上ひさし、四千万歩の男]]></title>
