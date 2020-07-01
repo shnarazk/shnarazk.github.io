@@ -1,7 +1,7 @@
 ---
 title: Vivification of a CNF formula
 subtitle: as a SAT solver's preprocessor
-date: 2020-06-29
+date: 2020-07-01
 tags: ["SAT"]
 banner: "https://images.unsplash.com/photo-1506884403171-cdb32baec15f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format"
 ---
@@ -10,7 +10,7 @@ Vivification がなんなのか、日本語で探しても出てこないので�
 
 * C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae,” *Front. Artif. Intell*. Appl., vol. 178, pp. 525–529, 2008.
 
-Splr でいうところの `processor` が節数に対する制約内での網羅的な変数除去と節包摂(clause subsumption)とを実行するのに対し、vivification は（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるるというもの。
+Splr でいうところの `processor` が節数に対する制約内での網羅的な変数除去と節包摂(clause subsumption)とを実行するのに対し、vivification は（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。
 節長を減らす方向でのみ置換するので、（節数の増加と引き換えに）不要な複雑さの導入を抑えることができるらしい。
 効果は1割程度のようである。
 
@@ -312,3 +312,9 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
     }
 }
 ```
+
+## 2020-07-01
+
+やはり、vivification中の活性度修正はしない方がよさそうだ。確かに外乱ではある。
+そして、短くなった節にはrewardを受け継がせなければ。。。
+
