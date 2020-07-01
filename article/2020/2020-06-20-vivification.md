@@ -20,6 +20,8 @@ Splr でいうところの `processor` が節数に対する制約内での網�
 
 とのこと。ぼやけていた制約の強化ということで、日本語になっているビビッドからも想像できる感じなんだろう。
 
+**cover image: https://images.unsplash.com/photo-1506884403171-cdb32baec15f**
+
 # アルゴリズム（上記論文より引用）
 
 ![](/img/2020/06-20/algorithm1.jpg)
