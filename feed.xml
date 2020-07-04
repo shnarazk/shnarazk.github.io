@@ -4,9 +4,27 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Wed, 01 Jul 2020 18:50:44 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 04 Jul 2020 23:12:09 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2010, Jun.]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-07-05-UNSATlog</link>
+            <guid>https://shnarazk.now.sh/2020/2020-07-05-UNSATlog</guid>
+            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# 6月の総括
+
+先月、性能良くなってきたのでなんとかかんとかと書いたのですが、実はGlucose 4.1よりも全然改善されてないことがわかったので、前言撤回。どうしたものか半分途方にくれた6月でした。
+後半は気を取り直して、[vivificationの実装](https://shnarazk.github.io/2020/2020-06-20-vivification/)に取り組みました。
+
+# Vivification
+
+読んだのは2008年の論文。
+
+* C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae," *Front. Artif. Intell. Appl.*, vol. 178, pp. 525–529, 2008.
+
+短い論文だったし、アルゴリズムもそれほど難しいものでは]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Duplicate Learnt Clauses]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-22-duplicate-learnt-clause</link>
@@ -332,22 +350,6 @@ RUSTFLAGS="-Cprof]]></content:encoded>
         #'read-file-name
         (format prompt (dired-mark-prompt arg files)) dir default nil
         ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[rustc-1.41.1 on nixOS]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-03-07-rustc-on-nixos</link>
-            <guid>https://shnarazk.now.sh/2020/2020-03-07-rustc-on-nixos</guid>
-            <pubDate>Thu, 19 Mar 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[sat-benchのバージョン上げる際にRust 1.41での新しい構文を使ったせいでrustc-1.41が必須になってしまった。
-そんなことは全然問題ないかと思ったらnixpkgsでの標準のRustPlatformの使用バージョンが1.37だったのでま
-ずrustc-1.41を指定することが必要になった。ところがrustc-1.41がコンパイルできない。
-llvmのリンカがAMDGPUなんたらが見つからないというエラーが出る。時間を作って調べてみた。
-
-結論から言うと、
-
-1. [nixpkgs](https://github.com/NixOS/nixpkgs)をcloneして適当な新しめのブランチ（例えばnixpkgs-unstable）をcheckout。
-1. top directoryで `nix-build -A rustc-1.41` を実行すると問題なく生成できる
-1. ]]></content:encoded>
         </item>
     </channel>
 </rss>
