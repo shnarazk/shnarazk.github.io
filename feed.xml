@@ -4,9 +4,20 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 05 Jul 2020 06:58:01 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Jul 2020 08:37:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Vivification of a CNF formula]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-07-05-vivification2</link>
+            <guid>https://shnarazk.now.sh/2020/2020-07-05-vivification2</guid>
+            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[cover image: https://unsplash.com/photos/tYs9rjaT8Vc
+
+Vivification についての第2弾、2018年投稿2020年公開（？）の論文をまとめてみた。
+
+* Chu-Min Li *et al.*, "Clause vivification by unit propagation in CDCL SAT solvers,”*Artif. Intell.*, vol. 279, 2020.]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2010, Jun.]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-05-UNSATlog</link>
@@ -45,7 +56,7 @@ LBDによる層化は必ずしも正しいとは限らないと。
             <title><![CDATA[Vivification of a CNF formula]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-20-vivification</guid>
-            <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
+            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
 （最新の話かと思っていたけど2008年とは。。。）
 
@@ -331,25 +342,6 @@ mkdir ${DATA}
 
 # STEP 1: Build the instrumented binaries
 RUSTFLAGS="-Cprof]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[File renaming in dired mode on GNU Emacs]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-03-08-rename-in-dired-mode</link>
-            <guid>https://shnarazk.now.sh/2020/2020-03-08-rename-in-dired-mode</guid>
-            <pubDate>Sun, 08 Mar 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[dired modeでリネームする際にデフォルト値として元ファイル名を使いたい場面が非常に多かったので
-いじってみた。
-
-```lisp
-(eval-after-load "dired-aux"
-  '(progn
-     (defun dired-mark-read-file-name (prompt dir op-symbol arg files
-                                              &optional default)
-       (dired-mark-pop-up
-        nil op-symbol files
-        #'read-file-name
-        (format prompt (dired-mark-prompt arg files)) dir default nil
-        ]]></content:encoded>
         </item>
     </channel>
 </rss>
