@@ -1,8 +1,8 @@
 ---
-title: Clause Vivification updated
-subtitle: vivification part 2
+title: Vivification of a CNF formula
+subtitle: as a SAT solver's preprocessor
 date: 2020-07-05
-tags: ["SAT"]
+tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1506884403171-cdb32baec15f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
 ---
 Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
