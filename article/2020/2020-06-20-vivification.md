@@ -1,7 +1,7 @@
 ---
 title: Vivification of a CNF formula
 subtitle: as a SAT solver's preprocessor
-date: 2020-07-01
+date: 2020-07-05
 tags: ["SAT"]
 banner: "https://images.unsplash.com/photo-1506884403171-cdb32baec15f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
 ---
@@ -320,3 +320,13 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
 やはり、vivification中の活性度修正はしない方がよさそうだ。確かに外乱ではある。
 そして、短くなった節にはrewardを受け継がせなければ。。。
 
+## 2020-07-04
+
+`cancel_until`を呼び出す場所を間違っていた。今のままだと、新しい節は空節から始まってだんだん長くなっていくのではなく、常に単位節ということになる。正しいように修正したら遅くなった。
+まあ確かにヒューリスティックスとして全てのリテラルを確かめるというのはあるかもしれないが、論文通りにすべきではなかろうか。。。
+
+## 2020-07-05
+
+ベンチマークを実行してみると少しは効果がありました。
+しかし、そろそろ新しい論文の方を読んで検討すべき頃合いだろう（もっと早く読めって）。
+長さ的にもいい頃合いなので、[項を改めて](/2020/2020-07-05-vivification2/)検討を続けることにします。
