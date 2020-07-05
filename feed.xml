@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 05 Jul 2020 08:39:16 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Jul 2020 08:44:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[Vivification of a CNF formula]]></title>
+            <title><![CDATA[Clause Vivification updated]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-05-vivification2</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-05-vivification2</guid>
             <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
@@ -53,7 +53,7 @@ LBDによる層化は必ずしも正しいとは限らないと。
 変数に比べ節の尺度はそれほど注意が]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Clause Vivification updated]]></title>
+            <title><![CDATA[Vivification of a CNF formula]]></title>
             <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
             <guid>https://shnarazk.now.sh/2020/2020-06-20-vivification</guid>
             <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
