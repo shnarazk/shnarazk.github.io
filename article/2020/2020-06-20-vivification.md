@@ -1,6 +1,6 @@
 ---
-title: Vivification of a CNF formula
-subtitle: as a SAT solver's preprocessor
+title: Clause Vivification updated
+subtitle: vivification part 2
 date: 2020-07-05
 tags: ["SAT"]
 banner: "https://images.unsplash.com/photo-1506884403171-cdb32baec15f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
