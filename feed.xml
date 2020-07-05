@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 05 Jul 2020 08:44:32 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Jul 2020 10:15:31 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -16,7 +16,14 @@
 
 Vivification についての第2弾、2018年投稿2020年公開（？）の論文をまとめてみた。
 
-* Chu-Min Li *et al.*, "Clause vivification by unit propagation in CDCL SAT solvers,”*Artif. Intell.*, vol. 279, 2020.]]></content:encoded>
+* Chu-Min Li *et al.*, "Clause vivification by unit propagation in CDCL SAT solvers,”*Artif. Intell.*, vol. 279, 2020.
+
+### Outline
+
+主な改善点はどのタイミングで、どの節を、どのリテラルからvivifyするかのチューニングということ。
+さらに以下のようにinprocessor向けに `vivify` のアルゴリズムが変更されている。
+
+![](img/2020/07-05/vivi-algo3.jpg)]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2010, Jun.]]></title>
