@@ -1,7 +1,7 @@
 ---
 title: GTK development on Nix on macOS
 subtitle: これでどこでもgtkでいいじゃん
-date: 2019-03-14
+date: 2020-07-05
 tags: ["gtk", "NixOS", "macOS"]
 ---
 
@@ -22,9 +22,18 @@ gcc `pkg-config --cflags gtk+-3.0` -o example example.c `pkg-config --libs gtk+-
 
 That works.
 
+## Rust (updated at 2020-07-05)
+
+If you need not to install your project as a nix package, just run:
+
+```shell
+$ nix-shell -p gtk3 pkgconfig
+```
+
 ## Rust
 
 - package: https://crates.io/crates/gtk  
+   - Cargo.toml: `gtk = 0.9`
    - Cargo.toml: `gtk = 0.5`  # 0.6 requires unstable channel as of 2019-03-14
    - Cargo.toml: `gtk = 0.6`  # for stable channel as of 2019-07-02
 - sample target: https://github.com/gtk-rs/gtk/blob/master/src/rt.rs
