@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 05 Jul 2020 18:09:38 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Jul 2020 22:37:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[Clause Vivification updated 2020]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-05-vivification2</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-05-vivification2</guid>
-            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 06 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[cover image: https://unsplash.com/photos/tYs9rjaT8Vc
 
 Vivification についての第2弾、2018年投稿2020年公開（？）の論文をまとめてみた。
