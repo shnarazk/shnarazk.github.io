@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 05 Jul 2020 23:37:04 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Jul 2020 00:09:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -12,7 +12,7 @@
             <link>https://shnarazk.now.sh/2020/2020-07-05-vivification2</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-05-vivification2</guid>
             <pubDate>Mon, 06 Jul 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[cover image: https://unsplash.com/photos/tYs9rjaT8Vc
+            <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/tYs9rjaT8Vc**
 
 Vivification についての第2弾、2018年投稿2020年公開（？）の論文をまとめてみた。
 
@@ -20,9 +20,9 @@ Vivification についての第2弾、2018年投稿2020年公開（？）の論�
 
 ### Outline
 
-主な主張はどのタイミングで、どの節を、どのリテラルからvivifyするかについて。
-以前のvivificationは計算量の問題によりSAT competitionに提出されたソルバに導入されてもその後、削除されてきた歴史が語られている。
-さらに以下のようにin-processor向けに `vivify` のアルゴリズム]]></content:encoded>
+Vivificationは魅力的な節削減手法のでSAT competitionに提出されるようなソルバに導入されたもの、その後改善が計算量に見合わないため、取り下げられることが続いてきた。
+この論文はどのタイミングで、どの節を、どのリテラルからvivifyすればよいかについて論じている。
+特に[原論文](/202]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2010, Jun.]]></title>
