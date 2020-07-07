@@ -129,11 +129,9 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
     clauses.sort_by_key(|ci| cdb[*ci].rank);
     for ci in clauses.iter() {
         let c: &mut Clause = &mut cdb[ci];
-        if c.is(Flag::DEAD) { continue; }
-        let clits = c.lits.clone();
         let mut copied: Vec<Lit> = Vec::new();
         let mut flipped = true;
-        'this_clause: for l in clits.iter() {
+        'this_clause: for l in c.lits.iter() {
             match asg.assigned(*l) {
                 Some(false) => continue 'this_clause,         // Rule 1
                 Some(true) => {
@@ -157,7 +155,7 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
                         copied = asg.minimize(cdb, &copied, &r);
                         flipped = false;
                     }
-                    asg.cancel_until_sandbox(asg.root_level);
+                    asg.cancel_until(asg.root_level);
                     if let Some(cj) = cid { cdb.remove_clause(cj); }
                     if cc != ClauseId::default() { break 'this_clause; }
                 }
@@ -169,7 +167,7 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
             1 => asg.assign_at_rootlevel(copied[0]).expect("impossible"),
             _ => cdb.new_clause(asg, &mut copied),
         }
-        cdb.detach(*ci);
+        cdb.remove_clause(*ci);
     }
 }
 ```
