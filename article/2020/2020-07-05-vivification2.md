@@ -118,7 +118,14 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
 
 読了。そして理解した。プログラムを論文に忠実なものにした。
 読む前はその分量に抵抗を感じていたのだけど、意外に素直な読みやすい論文だった。
-permanent clauseは `rank` を変更しないというマイクロチューニングを放棄する日が来るとは。。。
+「permanent clauseは `rank` を変更しない」というマイクロチューニングを放棄する日が来るとは。。。
+
+* Rule 1が正しいものに戻された
+* Rule 2が正しいものに戻された
+* 部分節なのかその否定なのかを変数`flipped`で保持
+* flippedの役割も担っていた変数`vivified`は削除
+* 部分節が空節の場合でも処理を続ける
+* 部分節が単位節の場合の検査は省略
 
 ```rust
 fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
