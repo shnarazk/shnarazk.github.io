@@ -40,7 +40,7 @@ Vivificationは魅力的な節削減手法のでSAT competitionに提出され�
 数学的準備：
 
 * $(\phi, \omega) \models \omega'$は節集合$\phi$と部分割当集合$\omega$から無矛盾な割り当て集合$\omega'$が導出されることを意味する。割当が空でも$\omega$を導出できるなら$\phi \models \omega$とも書く。
-* $(\phi, \omege)$が矛盾を起こしているなら$\bot$で矛盾を表し、$(\phi, \omega) \models \bot$と書くことにする。
+* $(\phi, \omega)$が矛盾を起こしているなら$\bot$で矛盾を表し、$(\phi, \omega) \models \bot$と書くことにする。
 * 節$C$が冗長とは式$\phi$と$\phi\setminus{C}$が論理的に等値であることを意味する。
 * 一般に節$C$に含まれる全てのリテラルを否定した節を$\neg C$と書くと$\forall C: (C \cup \neg C) \models \bot$が成立する。
 * （⭐️）一般に節$C$に対して自身の部分節$C'$の否定節$\neg C'$を加えることで矛盾が生じる（$C \cup \neg C' \models \bot$）なら、節$C$は$C'$に包含される。節$C$はリテラル$l' \in C\setminus{C'}$に対して何の制約にもなっていない。
