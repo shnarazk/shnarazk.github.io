@@ -125,10 +125,10 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
 * 部分節なのかその否定なのかを変数`flipped`で保持
 * flippedの役割も担っていた変数`vivified`は削除
 * 部分節が空節の場合でも処理を続ける
-* 部分節が単位節の場合の検査は省略
+* 部分節が単位節の場合の検査は省略して、そのまま例外を上流に投げる
 
 ```rust
-fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
+fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) -> MaybeInconsistent {
     let mut clauses: Vec<ClauseId> = Vec::new();
     for (i, c) in cdb.iter_mut().enumerate() {
         if c.to_vivify() { clauses.push(ClauseId::from(i)); }
@@ -171,11 +171,12 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
         if flipped { flip(&mut copied); }
         match copied.len() {
             0 => (),
-            1 => asg.assign_at_rootlevel(copied[0]).expect("impossible"),
+            1 => asg.assign_at_rootlevel(copied[0])?,
             _ => cdb.new_clause(asg, &mut copied),
         }
         cdb.remove_clause(*ci);
     }
+	Ok(())
 }
 ```
 
