@@ -1,7 +1,7 @@
 ---
 title: Clause Vivification updated 2020
 subtitle: vivification part 2
-date: 2020-07-06
+date: 2020-07-08
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 ---
@@ -178,3 +178,10 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) {
     }
 }
 ```
+
+### 2020-07-08
+
+ほぼ完成。
+色々とチューニング中。
+途中で答えの充足性が無茶苦茶になってしまってまた大変なデバッグが始まるのかと思いきや、原因を追っていくと決定レベルが0でないところでvivificationをしていただけだった。
+修正しながら、このコードは特に決定レベル0に依存するところはないなあ（lockされた節さえ避ければよい）と気づいたのだが、さて、そうすると、解の近くにきた場合にrandom walkというかbelieve propagationというか、そういうのの代わりに使えないものだろうか。。。。
