@@ -191,3 +191,9 @@ fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) -> MaybeInconsistent {
 それは無理。12行目で割当てを調べているが、この値は現在の部分割当て列に依存している。これは単なる仮説。
 従ってこの結果に基づいてリテラルを削除したり簡略化したりはできない。
 
+### 2020-07-09
+
+L45で追加してL47削除するのは無駄なので対消滅させた。なぜかinconsistent errorが出た。
+`propagate`が矛盾を返す。なぜだろう。
+
+そのうちなくなった。。。
