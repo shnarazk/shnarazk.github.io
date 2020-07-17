@@ -4,9 +4,24 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Wed, 08 Jul 2020 17:09:12 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 17 Jul 2020 15:13:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Restart as An Multi-Armed Bandid Problem]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-07-18-summer-homework</link>
+            <guid>https://shnarazk.now.sh/2020/2020-07-18-summer-homework</guid>
+            <pubDate>Sat, 18 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/UsSfqYdR64Q**
+
+# イントロとベルリンの壁
+
+論文書くのは仕事じゃない。しかし一年に一度くらいは開発ではなくて、文章をまとめる一ヶ月があってもいいかもね。そもそも今年もCompetitionに出しそびれたし。それに夏といえば、宿題やるのが日本の文化。
+9月1日提出に間に合うようになんかしよう。爆音で音楽聴きながらlatex的なことをしよう。
+
+
+*TOBE* **CONT*** **INUE**]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Clause Vivification updated 2020]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-05-vivification2</link>
@@ -328,26 +343,6 @@ exit 0
 pub struct Config {
     /// the problem
     #[structopt(long = "benchmark", short = "B", ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Profile Guided Optimization on Rust]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-03-16-Profile-Guided-Optimization-on-Rust</link>
-            <guid>https://shnarazk.now.sh/2020/2020-03-16-Profile-Guided-Optimization-on-Rust</guid>
-            <pubDate>Mon, 16 Mar 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[[The rustc book](https://doc.rust-lang.org/rustc/index.html)に
-[profile guided optimization](https://doc.rust-lang.org/rustc/profile-guided-optimization.html)
-のわかりやすい説明があったのでSplrでやってみた。
-
-```
-DATA=./pgo-data
-MERGED=/tmp/merged.profdata
-
-# STEP 0: Make sure there is no left-over profiling data from previous runs
-rm -rf ${DATA}
-mkdir ${DATA}
-
-# STEP 1: Build the instrumented binaries
-RUSTFLAGS="-Cprof]]></content:encoded>
         </item>
     </channel>
 </rss>
