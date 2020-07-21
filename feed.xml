@@ -4,9 +4,23 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 17 Jul 2020 15:22:24 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 21 Jul 2020 01:06:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[What's KISSSAT]]></title>
+            <link>https://shnarazk.now.sh/2020/what-is-kissat</link>
+            <guid>https://shnarazk.now.sh/2020/what-is-kissat</guid>
+            <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[SAT Competition 2020の予稿集より。
+
+* 変数のiteratorを使用するようになった
+* なんかWatcherのメモリ使用量が減った
+* ただしtagつけるので変数のインデックスはCPUアーキテクチャギリギリのビット幅ではなく、28ビットで表現できるところまで減少する。これは約2億7000万変数を意味する。
+
+など。
+TBC]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Restart as A Multi-Armed Bandid Problem]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-18-summer-homework</link>
@@ -326,23 +340,6 @@ exit 0
 
 # splr-0.3.1そして0.3.2のリリース
 ようやくChoroBTのバグが取れてSplr-0.3.1がリリースできました。いつものベンチマーク設定においても、どうも一つは多く解けるような感じ。そしてこれによって事実上、deep searchモードの引退になりました。開発は一つ階段を登った感じ。ただベンチマークの結果はそれほどよくない。SAT Competitionに出しても参加賞がもらえる程度だなあ。ということで引き続き0.3.2の開発を開始しました。0.3.1ではなんとGlucose流のヒューリスティック選択が有効に働いていない（設定していない項目があった）ので、その修正を始めたら、またこれが時間を取る作業で、ほぼ毎日ベンチマークを取る羽目に。さらにその途中で]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Passing args to StructOpt]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-03-19-structopt</link>
-            <guid>https://shnarazk.now.sh/2020/2020-03-19-structopt</guid>
-            <pubDate>Thu, 19 Mar 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[[SAT-bench](https://github.com/shnarazk/SAT-bench)はRust製SATソルバ
-[Splr](https://github.com/shnarazk/splr)のベンチマーク支援Rust製ツールです。
-設定を変えてベンチマークを実行するためにSplrへのオプションを受け渡せるように以下のような`Config`になっ
-ています。
-
-```rust
-#[derive(Clone, Debug, StructOpt)]
-#[structopt(name = "sat-bench", about = "A SAT Competition benchmark runner")]
-pub struct Config {
-    /// the problem
-    #[structopt(long = "benchmark", short = "B", ]]></content:encoded>
         </item>
     </channel>
 </rss>
