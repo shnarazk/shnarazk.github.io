@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 21 Jul 2020 01:07:59 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 23 Jul 2020 07:03:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[What's KISSSAT]]></title>
+            <title><![CDATA[What's KISSAT]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-21-what-is-kissat</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-21-what-is-kissat</guid>
             <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
