@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Thu, 23 Jul 2020 07:03:01 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 24 Jul 2020 04:12:18 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -22,7 +22,7 @@
 TBC]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Restart as A Multi-Armed Bandid Problem]]></title>
+            <title><![CDATA[Lives of Clauses]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-18-summer-homework</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-18-summer-homework</guid>
             <pubDate>Sat, 18 Jul 2020 00:00:00 GMT</pubDate>
@@ -33,6 +33,10 @@ TBC]]></content:encoded>
 論文書くのは仕事じゃない。しかし一年に一度くらいは開発ではなくて、文章をまとめる一ヶ月があってもいいかもね。そもそも今年もCompetitionに出しそびれたし。それに夏といえば、宿題やるのが日本の文化。
 9月1日提出に間に合うようになんかしよう。爆音で音楽聴きながらlatex的なことをしよう。
 
+# 2020-07-24
+
+* 旧題: Restart as A Multi-Armed Bandid Problem
+* 新題: Lives of Clauses
 
 *TOBE* ***CONT*** **INUE**]]></content:encoded>
         </item>
