@@ -1,6 +1,6 @@
 ----
-title: Lifetime of trait object type
-subtitle:
+title: まとめて借用
+subtitle: in Rust
 date: 2020-07-27
 tags: ["Rust"]
 ----
@@ -13,8 +13,8 @@ tags: ["Rust"]
 困った時は一旦スタックに持っていく、そのために `Box` を使う、という定石を使ってみるとこうなる。
 
 ```rust
-pub trait ExportBox<'a, T> {
-    fn exports_box(&'a self) -> Box<T>;
+pub trait Export<'a, T> {
+    fn exports(&'a self) -> Box<T>;
 }
 
 impl<'a> ExportBox<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
@@ -31,12 +31,12 @@ impl<'a> ExportBox<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
 タプルに置き換えても問題ない。
 
 ```rust
-pub trait ExportEma<'a, T> {
-    fn exports_ema(&'a self) -> T;
+pub trait Export<'a, T> {
+    fn exports(&'a self) -> T;
 }
 
-impl<'a> ExportEma<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
-    fn exports_ema(&'a self) -> (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2) {
+impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
+    fn exports(&'a self) -> (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2) {
 	    (&self.asg.ema, &self.lbd.ema, &self.mld.ema, &self.mva.ema)
     }
 }
@@ -49,11 +49,11 @@ impl<'a> ExportEma<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
 ```rust
 use std::borrow::Cow;
 
-trait ExportCow<'a> {
+trait Export<'a> {
     fn export(&'a self) -> (Cow<'a, &Ema2>, Cow<'a, &Ema2>);
 }
 
-impl<'a> ExportCow<'a> for Restarter {
+impl<'a> Export<'a> for Restarter {
     fn export(&'a self) -> (Cow<'a, &Ema2>, Cow<'a, &Ema2>) {
         (Cow::Owned(&self.asg.ema), Cow::Owned(&self.lbd.ema))
     }
@@ -65,7 +65,7 @@ impl<'a> ExportCow<'a> for Restarter {
 一般化した問題に戻して、
 
 ```rust
-trait ExportCow<'a, T> {
+trait Export<'a, T> {
     fn export(&'a self) -> T;
 }
 ```
@@ -73,7 +73,7 @@ trait ExportCow<'a, T> {
 とするなら、
 
 ```rust
-impl<'a> ExportCow<'a, (Cow<'a, &'a Ema2>, Cow<'a, &'a Ema2>)> for Restarter {
+impl<'a> Export<'a, (Cow<'a, &'a Ema2>, Cow<'a, &'a Ema2>)> for Restarter {
     fn export(&'a self) -> (Cow<'a, &'a Ema2>, Cow<'a, &'a Ema2>) {
         (Cow::Owned(&self.asg.ema), Cow::Owned(&self.lbd.ema))
     }
@@ -84,7 +84,7 @@ impl<'a> ExportCow<'a, (Cow<'a, &'a Ema2>, Cow<'a, &'a Ema2>)> for Restarter {
 なお、これを
 
 ```rust
-impl<'a> ExportCow<'a, (Cow<'a, &Ema2>, Cow<'a, &Ema2>)> for Restarter
+impl<'a> Export<'a, (Cow<'a, &Ema2>, Cow<'a, &Ema2>)> for Restarter
 ```
 
 などとして、ライフタイム制約が不十分なものに（うっかり）してしまうと、
@@ -122,8 +122,8 @@ note: the lifetime `'_` as defined on the impl at 832:33...
 error: lifetime in trait object type must be followed by `+`
   --> src/types.rs:32:38
    |
-32 |     fn exports_ema(&'a self) -> (CoW('a, Ema), CoW('a, Ema));
-   |                                      ^^
+32 |     fn exports(&'a self) -> (CoW('a, Ema), CoW('a, Ema));
+   |                                  ^^
 ```
 
 ちゃんとライフタイム制約まで目を配りましょうというだけのことでした。
