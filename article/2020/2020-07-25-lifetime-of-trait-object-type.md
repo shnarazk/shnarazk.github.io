@@ -44,7 +44,7 @@ impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
 
 ### CoWs in tuple
 
-さらに一般化して定数データもコピーなしで返すためにCoWでくるんでも全然問題ない。
+さらに一般化して定数データもコピーなしで返すために[CoW](https://doc.rust-lang.org/std/borrow/enum.Cow.html)でくるんでも全然問題ない。
 
 ```rust
 use std::borrow::Cow;
