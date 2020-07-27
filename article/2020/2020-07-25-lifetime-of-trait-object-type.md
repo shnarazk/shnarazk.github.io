@@ -5,7 +5,7 @@ date: 2020-07-27
 tags: ["Rust"]
 ----
 オブジェクトからフィールドを借用したい。
-借用したいオブジェクトの型がいくつもあり、型ごとに借用したい個数が違うので、できるだけgenericなtrait化してみた。
+借用したいオブジェクトの型がいくつもあり、型ごとに借用したい個数が違うので、できるだけgenericなtrait化が望ましい。
 よくわかってないとこの程度のことでもつまづいてしまうのでメモしておく。
 
 ### Box
@@ -17,8 +17,8 @@ pub trait Export<'a, T> {
     fn exports(&'a self) -> Box<T>;
 }
 
-impl<'a> ExportBox<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
-    fn exports_box(&'a self) -> Box<(&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> {
+impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
+    fn exports(&'a self) -> Box<(&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> {
         Box::from((&self.asg.ema, &self.lbd.ema, &self.mld.ema, &self.mva.ema))
     }
 }
