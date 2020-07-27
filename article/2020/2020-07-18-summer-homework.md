@@ -17,4 +17,9 @@ banner: "https://images.unsplash.com/photo-1483528237748-d9d8b5cae06d?ixlib=rb-1
 * 旧題: Restart as A Multi-Armed Bandid Problem
 * 新題: Lives of Clauses
 
+# 2020-07-27
+
+0.4.2がいい結果を出しそうなので、それをリリースしてから、なぜ0.4.2がいいのかを説明できるようなものにしよう。
+"Lives of Clauses"はいいタイトル。
+
 *TOBE* ***CONT*** **INUE**
