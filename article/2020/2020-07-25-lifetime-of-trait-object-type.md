@@ -42,7 +42,7 @@ impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
 }
 ```
 
-### CoW
+### CoWs in tuple
 
 さらに一般化して定数データもコピーなしで返すためにCoWでくるんでも全然問題ない。
 
@@ -81,6 +81,9 @@ impl<'a> Export<'a, (Cow<'a, &'a Ema2>, Cow<'a, &'a Ema2>)> for Restarter {
 ```
 
 とすればいい。どれも全く同じことだった。
+
+# エンバグ
+
 なお、これを
 
 ```rust
