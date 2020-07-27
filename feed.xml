@@ -4,9 +4,30 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 27 Jul 2020 03:30:14 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 27 Jul 2020 10:31:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[まとめて借用]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-07-25-lifetime-of-trait-object-type</link>
+            <guid>https://shnarazk.now.sh/2020/2020-07-25-lifetime-of-trait-object-type</guid>
+            <pubDate>Mon, 27 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[オブジェクトからフィールドを借用したい。
+借用したいオブジェクトの型がいくつもあり、型ごとに借用したい個数が違うので、できるだけgenericなtrait化が望ましい。
+よくわかってないとこの程度のことでもつまづいてしまうのでメモしておく。
+
+### Box
+
+困った時は一旦スタックに持っていく、そのために `Box` を使う、という定石を使ってみるとこうなる。
+
+```rust
+pub trait Export<'a, T> {
+    fn exports(&'a self) -> Box<T>;
+}
+
+impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
+    fn exports(&'a self) -> Box<(&'a Ema2, &'a Ema2, &'a Ema2, &']]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What's KISSAT]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-21-what-is-kissat</link>
@@ -337,16 +358,6 @@ fi
 
 exit 0
 ```]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Mar.]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-03-21-UNSATlog</link>
-            <guid>https://shnarazk.now.sh/2020/2020-03-21-UNSATlog</guid>
-            <pubDate>Sat, 21 Mar 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[新型コロナウィルスで世間は大変なことになっているけど、確定申告以外はコツコツとSplrの開発を続ける日々。第３号です。
-
-# splr-0.3.1そして0.3.2のリリース
-ようやくChoroBTのバグが取れてSplr-0.3.1がリリースできました。いつものベンチマーク設定においても、どうも一つは多く解けるような感じ。そしてこれによって事実上、deep searchモードの引退になりました。開発は一つ階段を登った感じ。ただベンチマークの結果はそれほどよくない。SAT Competitionに出しても参加賞がもらえる程度だなあ。ということで引き続き0.3.2の開発を開始しました。0.3.1ではなんとGlucose流のヒューリスティック選択が有効に働いていない（設定していない項目があった）ので、その修正を始めたら、またこれが時間を取る作業で、ほぼ毎日ベンチマークを取る羽目に。さらにその途中で]]></content:encoded>
         </item>
     </channel>
 </rss>
