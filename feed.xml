@@ -4,9 +4,24 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 27 Jul 2020 10:49:19 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Jul 2020 12:10:58 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[What's new in CryptoMiniSAat 5.8.0]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-07-28-whats-new-in-cryptmitsat580</link>
+            <guid>https://shnarazk.now.sh/2020/2020-07-28-whats-new-in-cryptmitsat580</guid>
+            <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[もう今年のcompetition終わっていた。
+
+https://www.msoos.org/2020/07/cryptominisat-5-8-0-released/
+
+* Guass-Jordan Elimination とは? 変数ペアを作るのだろうか？ XOR制約がわかってないが他のソルバではどうなんだろう
+* CaDiCaL風のtarget phase。やはりやる価値があるのか。読み間違えているかなあ。
+* Local search solver -- ふーむ、ここはまだ全然手を付けてない
+
+どうも、次に手をつけるべきは、うーむlocal search solverかなあ。]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[まとめて借用]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-25-lifetime-of-trait-object-type</link>
@@ -334,30 +349,6 @@ CaDiCalのbool型のオプションを一つづつ外して、[SAT-bench](https:
 調べて nix-storeのdeleteオプションで消せることがわかったけど、実行すると死んでないから削除できないというエラーが出る。`nix-env -e cadical` で削除しても同じエラーになる。
 
 deleteオプションには`--ignore-liveness]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[pre.commit hook for Rust project]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-03-27-commit-hook</link>
-            <guid>https://shnarazk.now.sh/2020/2020-03-27-commit-hook</guid>
-            <pubDate>Fri, 27 Mar 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[commitする前にフォーマットをチェックするための `.git/hooks/pre.commit`。
-github gistで拾ったもの。
-
-```shell
-#!/bin/bash
-
-diff=$(cargo fmt -- --check)
-result=$?
-
-if [[ ${result} -ne 0 ]] ; then
-    cat <<\EOF
-There are some code style issues, run `cargo fmt` first.
-EOF
-    exit 1
-fi
-
-exit 0
-```]]></content:encoded>
         </item>
     </channel>
 </rss>
