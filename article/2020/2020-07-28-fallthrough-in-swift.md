@@ -4,7 +4,7 @@ subtitle: なんてこったい
 date: 2020-07-28
 tags: ["Swift"]
 ---
-The programming Language Swift 5.3beta を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にした。
+*The Swift Programming Language -- Swift 5.3 Edition (beta)* を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にした。
 
 > Program execution continues to the next case even if the patterns of the case label do not match the value of the switch statement’s control expression.
 
