@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 28 Jul 2020 13:25:43 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Jul 2020 13:27:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[What's new in CryptoMiniSAat 5.8.0]]></title>
+            <title><![CDATA[What's new in CryptoMiniSat 5.8.0]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-28-whats-new-in-cryptmitsat580</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-28-whats-new-in-cryptmitsat580</guid>
             <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
