@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 28 Jul 2020 13:22:53 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Jul 2020 13:25:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -27,7 +27,11 @@ https://www.msoos.org/2020/07/cryptominisat-5-8-0-released/
             <link>https://shnarazk.now.sh/2020/2020-07-28-fallthrough-in-swift</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-28-fallthrough-in-swift</guid>
             <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[The programming Language Swift 5.3beta を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にしたのでplaygroundで実行してみた。
+            <content:encoded><![CDATA[The programming Language Swift 5.3beta を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にした。
+
+> rogram execution continues to the next case even if the patterns of the case label do not match the value of the switch statement’s control expression.
+
+playgroundで実行してみた。
 
 ```swift
 var x = 1
@@ -44,10 +48,7 @@ switch x {
 
 ```text
 1
-2
-```
-
-だと。記述は間違ってなかった@_@。]]></content:encoded>
+2]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[まとめて借用]]></title>
