@@ -1,7 +1,7 @@
 ---
 title: What's new in CryptoMiniSAat 5.8.0
-subtitle: another solver in 2020
-date: 2020-07-21
+subtitle: another solver of 2020
+date: 2020-07-28
 tags: ["SAT", "cryptominisat", "cadical"]
 ---
 もう今年のcompetition終わっていた。
