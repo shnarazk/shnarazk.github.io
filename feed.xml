@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 28 Jul 2020 13:31:06 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Jul 2020 13:32:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -27,7 +27,7 @@ https://www.msoos.org/2020/07/cryptominisat-5-8-0-released/
             <link>https://shnarazk.now.sh/2020/2020-07-28-fallthrough-in-swift</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-28-fallthrough-in-swift</guid>
             <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[The programming Language Swift 5.3beta を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にした。
+            <content:encoded><![CDATA[*The Swift Programming Language -- Swift 5.3 Edition (beta)* を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にした。
 
 > Program execution continues to the next case even if the patterns of the case label do not match the value of the switch statement’s control expression.
 
@@ -42,12 +42,6 @@ switch x {
     case 2: print(2)
     default: break
 }
-```
-
-実行すると
-
-```text
-1
 ]]></content:encoded>
         </item>
         <item>
