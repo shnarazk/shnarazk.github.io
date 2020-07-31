@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 31 Jul 2020 00:11:33 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 31 Jul 2020 01:07:56 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[UNSAT LOG, 2010, Jun.]]></title>
+            <title><![CDATA[UNSAT LOG, 2010, Jul.]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-31-UNSATlog</link>
             <guid>https://shnarazk.now.sh/2020/2020-07-31-UNSATlog</guid>
             <pubDate>Fri, 31 Jul 2020 00:00:00 GMT</pubDate>
