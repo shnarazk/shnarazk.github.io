@@ -4,9 +4,28 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 28 Jul 2020 13:32:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 31 Jul 2020 00:10:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2010, Jun.]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-07-31-UNSATlog</link>
+            <guid>https://shnarazk.now.sh/2020/2020-07-31-UNSATlog</guid>
+            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# UNSATlog
+
+## 今月のキーワード
+* Debugging Vivification
+* Restricted Stabilization
+* Maximum LBD of Dependency Graph
+* Duplicated Bin-clause Checking
+* Change of Restart Point
+
+## Vivification update
+ 先月、実装終わったつもりだったvivification。本当に効果あるのかどうかベンチマークを走らせているはずなんだけども、他のアイデアが出てきたりして、なかなかコードがフィックスしない。そして7月も下旬になってから実はエラーを出していたことが判明しました。Splrでは決定による含意での割り当てはエラーを返さないのが原因なので、割り当てチェックを走らせることで対応します（これでいいはず）。
+
+## 節の重複検]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What's new in CryptoMiniSat 5.8.0]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-28-whats-new-in-cryptmitsat580</link>
@@ -346,20 +365,6 @@ self: super:
     # srcRepo = true;
     name = "emacs27-${version}";
  ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Importance of modern techniques in SAT solvers]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-04-08-modern-techniques-of-SAT-solver</link>
-            <guid>https://shnarazk.now.sh/2020/2020-04-08-modern-techniques-of-SAT-solver</guid>
-            <pubDate>Mon, 20 Apr 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[さあ[CaDiCaL](https://github.com/arminbiere/cadical)がなぜ速いのか検討しよう。
-CaDiCalのbool型のオプションを一つづつ外して、[SAT-bench](https://github.com/shnarazk/SAT-bench)を使ってUF250とUUF250の実行速度を計測してみた。以下が結果の生データ。
-
-| Technique          |     SAT   |    UNSAT  |
-| -----------------  | --------: | --------: |
-| arena              |  67.276   |  411.603  |
-| arenacompact       |  72.570   |  385.086  |
-| arenasort          |  64.9]]></content:encoded>
         </item>
     </channel>
 </rss>
