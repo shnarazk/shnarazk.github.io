@@ -1,0 +1,34 @@
+---
+title: NixOS on Big Sur
+subtitle:
+date: 2020-07-31
+tags: ["NixOS", "macOS"]
+banner: /img/2020/08-07/banner.jpg
+---
+# NixOS on Big Sur
+
+### それ以前
+
+/etc/synthetic.conf　に
+
+```
+nix
+```
+
+を追加してmountしていた。
+
+### Big Sur
+
+なんかmountしてくれないので `/nix` をシンボリックリンクに変更して対応。
+そのため、/etc/synthetic.conf を
+
+```
+nix	/Volumes/Nix
+```
+に編集。さらにどこかで
+
+```
+export NIX_IGNORE_SYMLINK_STORE=1
+```
+
+を実行して、リンクを辿ってくれるようにすればいいようだ。

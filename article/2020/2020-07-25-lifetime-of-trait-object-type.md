@@ -1,7 +1,7 @@
 ---
 title: まとめて借用
 subtitle: in Rust
-date: 2020-07-27
+date: 2020-08-05
 tags: ["Rust"]
 ---
 オブジェクトからフィールドを借用したい。
@@ -24,7 +24,11 @@ impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
 }
 ```
 
-問題なくコンパイルできる。
+問題なくコンパイルできる。使うときは一回derefする。
+
+```rust
+    let (rst_asg, rst_lbd, _, _) = *rst.exports();
+```
 
 ### タプル
 
