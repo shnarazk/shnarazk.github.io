@@ -4,9 +4,42 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Wed, 05 Aug 2020 03:34:06 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Aug 2020 00:50:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[NixOS on Big Sur]]></title>
+            <link>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</link>
+            <guid>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</guid>
+            <pubDate>Fri, 31 Jul 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# NixOS on Big Sur
+
+### それ以前
+
+/etc/synthetic.conf　に
+
+```
+nix
+```
+
+を追加してmountしていた。
+
+### Big Sur
+
+なんかmountしてくれないので `/nix` をシンボリックリンクに変更して対応。
+そのため、/etc/synthetic.conf を
+
+```
+nix	/Volumes/Nix
+```
+に編集。さらにどこかで
+
+```
+export NIX_IGNORE_SYMLINK_STORE=1
+```
+
+を実行して、リンクを辿ってくれるようにすればいいようだ。]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Jul.]]></title>
             <link>https://shnarazk.now.sh/2020/2020-07-31-UNSATlog</link>
@@ -345,26 +378,6 @@ LRのよさはなんとなくわかる。LRのアイデアは学習率の最適�
 結論として、今のSplrにないものをまとめると、
 
 ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Building Emacs27.nix on MacOS]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-04-11-emacs27-on-nix</link>
-            <guid>https://shnarazk.now.sh/2020/2020-04-11-emacs27-on-nix</guid>
-            <pubDate>Sat, 11 Apr 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[* `?`を使ったカスタマイズはemacsをオーバーレイする前に解決されてしまっているので`call-process`を呼び
-  出すのでなければ、（`nativeBuildInputs`に対してやっているように）自前で各アトリビュートを上書きするしかない。
-* なんか`rev`が無視されているような気がする -> ちゃんとダミー値を与えて一回失敗させないといけない。
-  これでちゃんと更新されるようになった。
-
-```
-# ~/.config/nixpkgs/overlays/emacs27.nix
-self: super:
-{
-  emacs27 = super.emacs.overrideAttrs (attrs: rec {
-    pname = "emacs27";
-    # srcRepo = true;
-    name = "emacs27-${version}";
- ]]></content:encoded>
         </item>
     </channel>
 </rss>
