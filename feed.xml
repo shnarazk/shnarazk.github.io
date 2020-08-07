@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 07 Aug 2020 00:55:49 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Aug 2020 00:59:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -12,9 +12,7 @@
             <link>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</link>
             <guid>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</guid>
             <pubDate>Fri, 07 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# NixOS on Big Sur
-
-### それ以前
+            <content:encoded><![CDATA[### Big Sur以前
 
 /etc/synthetic.conf　に
 
@@ -26,7 +24,7 @@ nix
 
 ### Big Sur
 
-なんかmountしてくれないので `/nix` をシンボリックリンクに変更して対応。
+なんだかmountしてくれないので `/nix` をシンボリックリンクに変更して対応することにした。
 そのため、/etc/synthetic.conf を
 
 ```
