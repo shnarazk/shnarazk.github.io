@@ -5,9 +5,7 @@ date: 2020-08-07
 tags: ["NixOS", "macOS"]
 banner: /img/2020/08-07/banner.jpg
 ---
-# NixOS on Big Sur
-
-### それ以前
+### Big Sur以前
 
 /etc/synthetic.conf　に
 
@@ -19,7 +17,7 @@ nix
 
 ### Big Sur
 
-なんかmountしてくれないので `/nix` をシンボリックリンクに変更して対応。
+なんだかmountしてくれないので `/nix` をシンボリックリンクに変更して対応することにした。
 そのため、/etc/synthetic.conf を
 
 ```
