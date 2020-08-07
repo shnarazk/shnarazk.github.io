@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 07 Aug 2020 00:50:02 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Aug 2020 00:55:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[NixOS on Big Sur]]></title>
             <link>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</link>
             <guid>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</guid>
-            <pubDate>Fri, 31 Jul 2020 00:00:00 GMT</pubDate>
+            <pubDate>Fri, 07 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# NixOS on Big Sur
 
 ### それ以前
@@ -38,7 +38,9 @@ nix	/Volumes/Nix
 export NIX_IGNORE_SYMLINK_STORE=1
 ```
 
-を実行して、リンクを辿ってくれるようにすればいいようだ。]]></content:encoded>
+を実行して、リンクを辿ってくれるようにすればいいようだ。
+
+それにしてもGnomeだなぁ。。。]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Jul.]]></title>
