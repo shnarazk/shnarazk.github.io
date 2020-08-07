@@ -1,7 +1,7 @@
 ---
 title: NixOS on Big Sur
 subtitle:
-date: 2020-07-31
+date: 2020-08-07
 tags: ["NixOS", "macOS"]
 banner: /img/2020/08-07/banner.jpg
 ---
@@ -32,3 +32,5 @@ export NIX_IGNORE_SYMLINK_STORE=1
 ```
 
 を実行して、リンクを辿ってくれるようにすればいいようだ。
+
+それにしてもGnomeだなぁ。。。
