@@ -31,11 +31,11 @@ import ArticleBox from '~/components/ArticleBox'
 export default {
   components: {
     Header,
-    ArticleBox
+    ArticleBox,
   },
   computed: {
-    ...mapState(['articles', 'blogTags'])
-  }
+    ...mapState(['articles', 'blogTags']),
+  },
 }
 </script>
 <style lang="scss" scoped>

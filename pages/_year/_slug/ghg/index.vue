@@ -12,7 +12,7 @@
         {{ article.subtitle }}
       </h1>
       <div :id="$route.params.slug" class="githubgist-content">
-        <span v-html=article.body></span>
+        <span v-html="article.body"></span>
       </div>
       <EntryFooter :tags="article.tags" />
     </section>
@@ -20,40 +20,45 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import axios from 'axios'
 import Header from '~/components/TheHeader'
 import EntryFooter from '~/components/EntryFooter'
-import axios from "axios"
 
 export default {
   components: {
     Header,
-    EntryFooter
+    EntryFooter,
   },
   computed: {
-    ...mapState(['articles'])
+    ...mapState(['articles']),
   },
   asyncData({ store, params }) {
     const arr = Object.entries(store.state.articles)
-    const articles = arr.find(a => a[1].gistid === params.slug)
-    let art = articles[1]
-    let url = 'https://gist.github.com/' + art.owner + '/' + art.gistid
+    const articles = arr.find((a) => a[1].gistid === params.slug)
+    const art = articles[1]
+    const url = 'https://gist.github.com/' + art.owner + '/' + art.gistid
     axios.defaults.withCredentials = true
-    return axios
-      .get(url + '.json')
-      .then(res => {
-        art["body"] = res.data.div
-        art["url"] = url
-        art["css"] = res.data.stylesheet
+    if (process.server) {
+      return axios.get(url + '.json').then((res) => {
+        art.body = res.data.div
+        art.url = url
+        art.css = res.data.stylesheet
         return { article: art }
       })
-      .catch(e => {
-        error({ statusCode: 404, message: 'Post not found' })
-      })
+    } else {
+      art.body =
+        '<a href="/' +
+        params.year +
+        '/' +
+        params.slug +
+        '/ghg/">Please reload this page manually.</a>'
+      return { article: art }
+    }
   },
   async validate({ params, query, store }) {
     const arr = Object.entries(store.state.articles)
-    return arr.find(a => a[1].gistid === params.slug) != undefined
-  }
+    return arr.find((a) => a[1].gistid === params.slug) !== undefined
+  },
 }
 </script>
 <style lang="scss" scoped>

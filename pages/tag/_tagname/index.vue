@@ -1,7 +1,10 @@
 <template>
   <div>
     <Header :title="'All notes about #' + $route.params.tagname" />
-    <section class="section">
+    <section
+      v-if="targets($route.params.tagname) !== undefined"
+      class="section"
+    >
       <h1 class="title has-text-info has-text-weight-semibold">
         <i class="fas fa-tag"></i>&thinsp;#{{
           targets($route.params.tagname)[0]
@@ -20,16 +23,16 @@ import ArticleBox from '~/components/ArticleBox'
 export default {
   components: {
     Header,
-    ArticleBox
+    ArticleBox,
   },
   computed: {
-    ...mapState(['articles', 'blogTags'])
+    ...mapState(['articles', 'blogTags']),
   },
   methods: {
     targets(tag) {
-      return this.blogTags.find(e => e[0] === tag)
-    }
-  }
+      return this.blogTags.find((e) => e[0] === tag)
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
