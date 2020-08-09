@@ -53,5 +53,4 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/scss/style.scss';
 @import '~/assets/scss/githubgist.scss';
-@import url('https://github.githubassets.com/assets/gist-embed-fd43f22140a6ad2cc9d0aa1f169a01f3.css');
 </style>
