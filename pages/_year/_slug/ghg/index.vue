@@ -45,10 +45,10 @@ export default {
         return { article: art }
     })
   },
-  validate({ params, query, store }) {
-    const arr = Object.entries(store.state.articles)
-    return arr.find(a => a[1].gistid === params.slug) != null
-  }
+//  validate({ params, query, store }) {
+//    const arr = Object.entries(store.state.articles)
+//    return arr.find(a => a[1].gistid === params.slug) != null
+//  }
 }
 </script>
 <style lang="scss" scoped>

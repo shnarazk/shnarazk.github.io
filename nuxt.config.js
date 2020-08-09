@@ -9,12 +9,12 @@ const generateDynamicRoutes = callback => {
   const gist_entries = require('./article/githubgist.json');
   const gist_urls = Object.keys(gist_entries).map(k => {
     const e = gist_entries[k];
-    return '/' + e.year + '/' + e.gistid + '/ghg';
+    return '/' + e.year + '/' + e.gistid + '/ghg/';
   });
   const ob_entries = require('./article/obs.json');
   const ob_urls = Object.keys(ob_entries).map(k => {
     const e = ob_entries[k];
-    return '/' + e.year + '/' + e.notebook + '/obs';
+    return '/' + e.year + '/' + e.notebook + '/obs/';
   });
   callback(null, [...md_urls, ...gist_urls, ...ob_urls]);
 };

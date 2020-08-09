@@ -16,6 +16,7 @@
           fill="currentColor"
         ></path>
       </svg>
+      <i v-if="article.gistid" class="fab fa-github"></i>
       <i v-else class="fas fa-file-alt"></i>
       &thinsp;{{ article.date.substring(0, 10) }}
     </div>

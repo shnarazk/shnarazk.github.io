@@ -43,7 +43,10 @@ export default {
     return { article: json }
   },
   validate({ params, query, store }) {
-    return store.state.sourceFiles.find(a => a.includes(params.slug))
+    if (store.state.sourceFiles.find(a => a.includes(params.slug)) != null)
+      return true
+    const arr = Object.entries(store.state.articles)
+    return arr.find(a => a[1].gistid === params.slug) != null
   }
 }
 </script>
