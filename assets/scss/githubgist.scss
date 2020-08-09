@@ -5,9 +5,7 @@
   min-height: 50%;
   margin-left: 3%;
   /deep/ {
-    @import url(https://cdn.jsdelivr.net/npm/@observablehq/inspector@3/dist/inspector.css);
-    // @import url(https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css);
-    .render-viewer-error, .render-viewer-fatal {
+    .octospinner, .render-viewer-error, .render-viewer-fatal {
       display: hidden;
     }
     .render-viewer {
