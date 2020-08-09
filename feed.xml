@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.now.sh</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 09 Aug 2020 00:43:18 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 Aug 2020 00:44:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[NixOS on Big Sur]]></title>
             <link>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</link>
             <guid>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</guid>
-            <pubDate>Fri, 07 Aug 2020 00:00:00 GMT</pubDate>
+            <pubDate>Sun, 09 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[### Big Sur以前
 
 /etc/synthetic.conf　に
