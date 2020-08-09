@@ -6,6 +6,9 @@
   /deep/ {
     @import url(https://cdn.jsdelivr.net/npm/@observablehq/inspector@3/dist/inspector.css);
     // @import url(https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css);
+    .render-viewer {
+      width: 98%;
+    }
     .Box-body {
       width: 98%;
     }
