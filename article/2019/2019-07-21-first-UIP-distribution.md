@@ -2,7 +2,7 @@
 title: First UIP distribution (2019-07-21)
 subtitle: NP(n) + P(N-n)
 date: 2019-07-24
-tags: ['SAT', 'issue']
+tags: ["SAT", "issue"]
 ---
  
 - [Development of Var activities (2019-07-11)](/2019/2019-07-11-varact-distribution/)

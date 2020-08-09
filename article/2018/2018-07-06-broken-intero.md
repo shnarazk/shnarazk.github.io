@@ -9,7 +9,7 @@ This is a record of my atemps to fix.
 
 ### 2018-07-06: Stop it!
 
-```elisp
+```lisp
 (defun auto-revert-notify-add-watch ()
   "Enable file notification for current buffer's associated file."
   ;; We can assume that `buffer-file-name' and

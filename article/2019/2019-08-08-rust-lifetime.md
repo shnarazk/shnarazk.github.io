@@ -2,7 +2,7 @@
 title: A trait definition with lifetimes
 subtitle: 生存期間もややこしい
 date: 2019-08-08
-tags: ['Rust']
+tags: ["Rust"]
 ---
 
 あるプログラムでアルゴリズムのバリエーションを併用するため、以下のトレイトが必要になったとしよう。
