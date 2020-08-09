@@ -12,10 +12,7 @@
         {{ article.subtitle }}
       </h1>
       <div :id="$route.params.slug" class="githubgist-content">
-        <span style=".octospinner .render-viewer-error, .render-viewer-fatal: hidden;" v-html=article.body></span>
-      </div>
-      <div>
-        {{ 'https://gist.github.com/' + article.owner + '/' + $route.params.slug }}
+        <span v-html=article.body></span>
       </div>
       <EntryFooter :tags="article.tags" />
     </section>
