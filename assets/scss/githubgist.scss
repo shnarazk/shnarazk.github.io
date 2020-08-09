@@ -1,7 +1,7 @@
 .render-viewer {
   display: block;
   width: 98%;
-  height: auto;
+  height: inherit;
   background-color: #adf;
 }
 .githubgist-content {
@@ -19,7 +19,7 @@
     .render-viewer {
       display: block;
       width: 98%;
-      height: auto;
+      height: inherit;
       background-color: #adf;
     }
     .Box-body {
