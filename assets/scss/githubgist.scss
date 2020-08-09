@@ -2,17 +2,19 @@
   font-family: 'Noto Sans JP', sans-serif, 'Livvic', 'Times New Roman';
   font-size: 1rem;
   width: 92%;
-  min-height: 50%;
+  min-height: 80%;
+  height: 80%;
   margin-left: 3%;
   /deep/ {
-    .octospinner, .render-viewer-error, .render-viewer-fatal {
+    .octospinner, .render-viewer-error, .render-viewer-fatal, .render-viewer-invalid {
+      height: 0pt;
       visibility: hidden;
     }
     .render-viewer {
       display: block;
       width: 98%;
-      min-height: 50%;
-      height: 50%;
+      min-height: 90%;
+      height: 90%;
       background-color: #adf;
     }
     .Box-body {
