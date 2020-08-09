@@ -19,6 +19,7 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import Header from '~/components/TheHeader'
 import EntryFooter from '~/components/EntryFooter'
 import axios from "axios"
@@ -27,6 +28,9 @@ export default {
   components: {
     Header,
     EntryFooter
+  },
+  computed: {
+    ...mapState(['articles'])
   },
   asyncData({ store, params }) {
     const arr = Object.entries(store.state.articles)
