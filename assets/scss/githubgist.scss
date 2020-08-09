@@ -6,12 +6,13 @@
   margin-left: 3%;
   /deep/ {
     .octospinner, .render-viewer-error, .render-viewer-fatal {
-      display: hidden;
+      visibility: hidden;
     }
     .render-viewer {
       display: block;
       width: 98%;
       min-height: 50%;
+      height: 50%;
       background-color: #adf;
     }
     .Box-body {
