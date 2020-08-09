@@ -6,20 +6,7 @@
         <i class="fas fa-exclamation-circle"></i>&thinsp;404
       </h1>
       <div class="has-text-error">
-        アクセスされたページは存在しないか、すでに削除されています。
-      </div>
-      <div>slug: {{ $route.params.slug }}</div>
-      <div>store: {{ sourceFiles }}</div>
-      <ul>
-        <li v-for="(f, i) in sourceFiles" :key="i">
-          -- {{ f }}; {{ f.includes($route.params.slug) }}
-        </li>
-      </ul>
-      <div>
-        {{ sourceFiles.find(a => a.contains($route.params.slug)) }}
-      </div>
-      <div>
-        articles.find(a => a.contains($route.params.slug))
+        アクセスされたページ{{ $route.params.slug }}は存在しないか、すでに削除されています。
       </div>
     </section>
   </div>

@@ -6,7 +6,7 @@ const { Feed } = require('feed')
 module.exports = function() {
   // generate が終わったタイミングで実行する
   this.nuxt.hook('generate:done', async generator => {
-    const deploy_url = process.env.DEPLOY_URL || 'https://shnarazk.now.sh'
+    const deploy_url = process.env.DEPLOY_URL || 'https://shnarazk.github.io'
     const options = this.options;
     const json = await promisify(fs.readFile)('article/.json/db.json', 'utf-8')
     const entries = Object.entries(await JSON.parse(json).fileMap)

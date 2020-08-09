@@ -1,19 +1,22 @@
 import path from 'path';
 const generateDynamicRoutes = callback => {
   const { sourceFileArray } = require('./article/.json/db.json');
-  const ob_entries = require('./article/obs.json');
   const md_urls = sourceFileArray.map(e => {
     const year = e.substring(8, 12);
     const target = path.basename(e, '.md');
     return '/' + year + '/' + target + '/';
   });
+  const gist_entries = require('./article/githubgist.json');
+  const gist_urls = Object.keys(gist_entries).map(k => {
+    const e = gist_entries[k];
+    return '/' + e.year + '/' + e.gistid + '/ghg';
+  });
+  const ob_entries = require('./article/obs.json');
   const ob_urls = Object.keys(ob_entries).map(k => {
     const e = ob_entries[k];
-    const year = e.year;
-    const target = e.notebook;
-    return '/' + year + '/' + target + '/obs';
+    return '/' + e.year + '/' + e.notebook + '/obs';
   });
-  callback(null, [...md_urls, ...ob_urls]);
+  callback(null, [...md_urls, ...gist_urls, ...ob_urls]);
 };
 
 export default {

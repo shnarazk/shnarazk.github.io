@@ -1,10 +1,11 @@
 import db from '~/article/.json/db.json'
+import gist from '~/article/githubgist.json'
 import ob from '~/article/obs.json'
 
 export const state = () => ({
-  articles: { ...db.fileMap, ...ob },
-  sourceFiles: db.sourceFileArray,
-  blogTags: buildTags({ ...db.fileMap, ...ob })
+  articles: { ...db.fileMap, ...gist, ...ob },
+  blogTags: buildTags({ ...db.fileMap, ...gist, ...ob }),
+  sourceFiles: db.sourceFileArray
 })
 
 export const mutations = {
