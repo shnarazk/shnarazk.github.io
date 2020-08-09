@@ -2,6 +2,7 @@
   font-family: 'Noto Sans JP', sans-serif, 'Livvic', 'Times New Roman';
   font-size: 1rem;
   width: 92%;
+  min-height: 50%;
   margin-left: 3%;
   /deep/ {
     @import url(https://cdn.jsdelivr.net/npm/@observablehq/inspector@3/dist/inspector.css);
