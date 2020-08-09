@@ -32,3 +32,7 @@ export NIX_IGNORE_SYMLINK_STORE=1
 を実行して、リンクを辿ってくれるようにすればいいようだ。
 
 それにしてもGnomeだなぁ。。。
+
+### 2020-08-09
+
+/usr/lib/system/libcache.dylib がないのでrustプログラムがコンパイルできなくなっている。
