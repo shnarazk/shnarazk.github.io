@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Just a Note</title>
-        <link>https://shnarazk.now.sh</link>
+        <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 09 Aug 2020 00:44:29 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 Aug 2020 10:57:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[NixOS on Big Sur]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</link>
-            <guid>https://shnarazk.now.sh/2020/2020-08-07-NixOS-on-BigSur</guid>
+            <link>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</link>
+            <guid>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</guid>
             <pubDate>Sun, 09 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[### Big Sur以前
 
@@ -46,8 +46,8 @@ export NIX_IGNORE_SYMLINK_STORE=1
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Jul.]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-07-31-UNSATlog</link>
-            <guid>https://shnarazk.now.sh/2020/2020-07-31-UNSATlog</guid>
+            <link>https://shnarazk.github.io/2020/2020-07-31-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2020/2020-07-31-UNSATlog</guid>
             <pubDate>Fri, 31 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# UNSATlog
 
@@ -65,8 +65,8 @@ export NIX_IGNORE_SYMLINK_STORE=1
         </item>
         <item>
             <title><![CDATA[What's new in CryptoMiniSat 5.8.0]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-07-28-whats-new-in-cryptmitsat580</link>
-            <guid>https://shnarazk.now.sh/2020/2020-07-28-whats-new-in-cryptmitsat580</guid>
+            <link>https://shnarazk.github.io/2020/2020-07-28-whats-new-in-cryptmitsat580</link>
+            <guid>https://shnarazk.github.io/2020/2020-07-28-whats-new-in-cryptmitsat580</guid>
             <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[もう今年のcompetition終わっていた。
 
@@ -80,8 +80,8 @@ https://www.msoos.org/2020/07/cryptominisat-5-8-0-released/
         </item>
         <item>
             <title><![CDATA[Swiftのfallthroughについて]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-07-28-fallthrough-in-swift</link>
-            <guid>https://shnarazk.now.sh/2020/2020-07-28-fallthrough-in-swift</guid>
+            <link>https://shnarazk.github.io/2020/2020-07-28-fallthrough-in-swift</link>
+            <guid>https://shnarazk.github.io/2020/2020-07-28-fallthrough-in-swift</guid>
             <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[*The Swift Programming Language -- Swift 5.3 Edition (beta)* を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にした。
 
@@ -102,8 +102,8 @@ switch x {
         </item>
         <item>
             <title><![CDATA[まとめて借用]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-07-25-lifetime-of-trait-object-type</link>
-            <guid>https://shnarazk.now.sh/2020/2020-07-25-lifetime-of-trait-object-type</guid>
+            <link>https://shnarazk.github.io/2020/2020-07-25-lifetime-of-trait-object-type</link>
+            <guid>https://shnarazk.github.io/2020/2020-07-25-lifetime-of-trait-object-type</guid>
             <pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[オブジェクトからフィールドを借用したい。
 借用したいオブジェクトの型がいくつもあり、型ごとに借用したい個数が違うので、できるだけgenericなtrait化が望ましい。
@@ -123,8 +123,8 @@ impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
         </item>
         <item>
             <title><![CDATA[What's KISSAT]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-07-21-what-is-kissat</link>
-            <guid>https://shnarazk.now.sh/2020/2020-07-21-what-is-kissat</guid>
+            <link>https://shnarazk.github.io/2020/2020-07-21-what-is-kissat</link>
+            <guid>https://shnarazk.github.io/2020/2020-07-21-what-is-kissat</guid>
             <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[SAT Competition 2020の予稿集より。
 
@@ -137,8 +137,8 @@ TBC]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Lives of Clauses]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-07-18-summer-homework</link>
-            <guid>https://shnarazk.now.sh/2020/2020-07-18-summer-homework</guid>
+            <link>https://shnarazk.github.io/2020/2020-07-18-summer-homework</link>
+            <guid>https://shnarazk.github.io/2020/2020-07-18-summer-homework</guid>
             <pubDate>Sat, 18 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/UsSfqYdR64Q**
 
@@ -159,8 +159,8 @@ TBC]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Clause Vivification updated 2020]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-07-05-vivification2</link>
-            <guid>https://shnarazk.now.sh/2020/2020-07-05-vivification2</guid>
+            <link>https://shnarazk.github.io/2020/2020-07-05-vivification2</link>
+            <guid>https://shnarazk.github.io/2020/2020-07-05-vivification2</guid>
             <pubDate>Wed, 22 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/tYs9rjaT8Vc**
 
@@ -176,8 +176,8 @@ Vivificationは魅力的な節削減手法のでSAT competitionに提出され�
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Jun.]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-07-05-UNSATlog</link>
-            <guid>https://shnarazk.now.sh/2020/2020-07-05-UNSATlog</guid>
+            <link>https://shnarazk.github.io/2020/2020-07-05-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2020/2020-07-05-UNSATlog</guid>
             <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# 6月の総括
 
@@ -194,8 +194,8 @@ Vivificationは魅力的な節削減手法のでSAT competitionに提出され�
         </item>
         <item>
             <title><![CDATA[Duplicate Learnt Clauses]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-06-22-duplicate-learnt-clause</link>
-            <guid>https://shnarazk.now.sh/2020/2020-06-22-duplicate-learnt-clause</guid>
+            <link>https://shnarazk.github.io/2020/2020-06-22-duplicate-learnt-clause</link>
+            <guid>https://shnarazk.github.io/2020/2020-06-22-duplicate-learnt-clause</guid>
             <pubDate>Tue, 23 Jun 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[Google Scholar alert 発令。今日のお題は「重複した学習節による速度向上」！？
 
@@ -210,8 +210,8 @@ LBDによる層化は必ずしも正しいとは限らないと。
         </item>
         <item>
             <title><![CDATA[Vivification of a CNF formula]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-06-20-vivification</link>
-            <guid>https://shnarazk.now.sh/2020/2020-06-20-vivification</guid>
+            <link>https://shnarazk.github.io/2020/2020-06-20-vivification</link>
+            <guid>https://shnarazk.github.io/2020/2020-06-20-vivification</guid>
             <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
 （最新の話かと思っていたけど2008年とは。。。）
@@ -223,8 +223,8 @@ Splr でいうところの `processor` が節数に対する制約内での網�
         </item>
         <item>
             <title><![CDATA[井上ひさし、四千万歩の男]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-06-19-40M-steps</link>
-            <guid>https://shnarazk.now.sh/2020/2020-06-19-40M-steps</guid>
+            <link>https://shnarazk.github.io/2020/2020-06-19-40M-steps</link>
+            <guid>https://shnarazk.github.io/2020/2020-06-19-40M-steps</guid>
             <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[題材が今ひとつ興味が持てなくて、しかしベストセラーになっていたので、時間ができたら読もうと思っていた
 井上ひさしの長編小説「四千万歩の男」。
@@ -239,8 +239,8 @@ Splr でいうところの `processor` が節数に対する制約内での網�
         </item>
         <item>
             <title><![CDATA[Clap-3.0.0-beta.1]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-06-13-clap3</link>
-            <guid>https://shnarazk.now.sh/2020/2020-06-13-clap3</guid>
+            <link>https://shnarazk.github.io/2020/2020-06-13-clap3</link>
+            <guid>https://shnarazk.github.io/2020/2020-06-13-clap3</guid>
             <pubDate>Sat, 13 Jun 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[[Clap](https://crates.io/crates/clap)-3.0だと[StructOpt](https://crates.io/crates/structopt)が要らなくなるのでclap-3.0.0-beta.1をちょっと試してみた。
 
@@ -261,8 +261,8 @@ default_valueを空以外にすれば直るのだが、それは困る、Option�
         </item>
         <item>
             <title><![CDATA[How to compile cargo-instruments]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</link>
-            <guid>https://shnarazk.now.sh/2020/2020-06-07-cargo-instruments</guid>
+            <link>https://shnarazk.github.io/2020/2020-06-07-cargo-instruments</link>
+            <guid>https://shnarazk.github.io/2020/2020-06-07-cargo-instruments</guid>
             <pubDate>Sun, 07 Jun 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[## Rustでプロファイリングしたいんじゃあ
 
@@ -277,8 +277,8 @@ brewを使っているのが前提になっているのだろうか。
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, May.]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-05-29-UNSATlog</link>
-            <guid>https://shnarazk.now.sh/2020/2020-05-29-UNSATlog</guid>
+            <link>https://shnarazk.github.io/2020/2020-05-29-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2020/2020-05-29-UNSATlog</guid>
             <pubDate>Fri, 29 May 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[## Splr-0.4.1リリースの5月
 今月たてたissue及びブランチは以下の通り：
@@ -303,8 +303,8 @@ Splr-0.4.0以降の分をまとめると
         </item>
         <item>
             <title><![CDATA[What's Miracle Sudoku?]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</link>
-            <guid>https://shnarazk.now.sh/2020/2020-05-26-MiracleSudoku</guid>
+            <link>https://shnarazk.github.io/2020/2020-05-26-MiracleSudoku</link>
+            <guid>https://shnarazk.github.io/2020/2020-05-26-MiracleSudoku</guid>
             <pubDate>Mon, 01 Jun 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[25日のHacker Newsで初めて知ったMiracle Sudoku。[ビデオ](https://www.youtube.com/watch?v=cvEq_XkQg8U)の横に書いてあることから判断するに
 
@@ -318,8 +318,8 @@ Splr-0.4.0以降の分をまとめると
         </item>
         <item>
             <title><![CDATA[LR needs something to explore the world]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-05-20-LR-needs-something</link>
-            <guid>https://shnarazk.now.sh/2020/2020-05-20-LR-needs-something</guid>
+            <link>https://shnarazk.github.io/2020/2020-05-20-LR-needs-something</link>
+            <guid>https://shnarazk.github.io/2020/2020-05-20-LR-needs-something</guid>
             <pubDate>Thu, 21 May 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[引き続きよくわかってない人の意見の連投ですが。
 
@@ -336,8 +336,8 @@ EVSIDS も含めた変数選択ヒューリスティックスは割当て後に�
         </item>
         <item>
             <title><![CDATA[What's the difference between EVSIDS and LR?]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-05-19-two-heuristics</link>
-            <guid>https://shnarazk.now.sh/2020/2020-05-19-two-heuristics</guid>
+            <link>https://shnarazk.github.io/2020/2020-05-19-two-heuristics</link>
+            <guid>https://shnarazk.github.io/2020/2020-05-19-two-heuristics</guid>
             <pubDate>Tue, 19 May 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[よくわかってない人の意見ですが。
 
@@ -352,8 +352,8 @@ LRのよさはなんとなくわかる。LRのアイデアは学習率の最適�
         </item>
         <item>
             <title><![CDATA[What's 's-l'?]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-05-09-Emacs-keybind-s-l</link>
-            <guid>https://shnarazk.now.sh/2020/2020-05-09-Emacs-keybind-s-l</guid>
+            <link>https://shnarazk.github.io/2020/2020-05-09-Emacs-keybind-s-l</link>
+            <guid>https://shnarazk.github.io/2020/2020-05-09-Emacs-keybind-s-l</guid>
             <pubDate>Sat, 09 May 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[[lsp-mode](https://github.com/emacs-lsp/lsp-mode)がプレフィックスとして採用している'`s-l`'とは一体なんなんだ？
 
@@ -367,8 +367,8 @@ LRのよさはなんとなくわかる。LRのアイデアは学習率の最適�
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Apr.]]></title>
-            <link>https://shnarazk.now.sh/2020/2020-04-22-UNSATlog</link>
-            <guid>https://shnarazk.now.sh/2020/2020-04-22-UNSATlog</guid>
+            <link>https://shnarazk.github.io/2020/2020-04-22-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2020/2020-04-22-UNSATlog</guid>
             <pubDate>Wed, 22 Apr 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# 0.3.3まだまだ
 
