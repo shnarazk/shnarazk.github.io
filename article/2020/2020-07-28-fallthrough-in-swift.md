@@ -23,7 +23,7 @@ switch x {
 
 実行すると
 
-```text
+```plaintext
 1
 2
 ```

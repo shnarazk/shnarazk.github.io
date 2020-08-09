@@ -13,7 +13,7 @@ tags: ["latex"]
 - 環境変数`TIMEFORMAT="%2U"`
 - 種々のキャッシュを活かすため１回目の実行結果は対象外
 
-```text
+```plaintext
 $ make clean; time lualatex presen.tex > /dev/null
 18.31
 17.74
@@ -22,7 +22,7 @@ $ make clean; time lualatex presen.tex > /dev/null
 
 ※ make cleanの内容は `rm -f *.pdf *.aux *.log *.nav *.snm *.toc *.vrb`
 
-```text
+```plaintext
 $ make clean;time luajittex --fmt=luajitlatex.fmt presen.tex > /dev/null
 43.91
 44.67
@@ -34,7 +34,7 @@ $ make clean;time luajittex --fmt=luajitlatex.fmt presen.tex > /dev/null
 
 ではもしかしてluatex53は何か期待できる？
 
-```text
+```plaintext
 $ make clean;time luatex53 --fmt=lualatex.fmt presen.tex > /dev/null
 16.34
 16.21

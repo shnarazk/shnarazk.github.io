@@ -8,7 +8,7 @@ tags: ["Emacs", "evil", "Vim"]
 
 #### object
 
-```text
+```plaintext
 b      - a block by ()
 t      - tag
 w      - a small word
@@ -22,7 +22,7 @@ S{o}   - [Surround] surround object {o} in visual mode
 
 #### mark (location)
 
-```text
+```plaintext
 .      - last changed position (jump there by ` or ')
 ^      - last insert position
 -      - latest small delete, which is a delete smaller than 1 line
@@ -34,7 +34,7 @@ S{o}   - [Surround] surround object {o} in visual mode
 
 #### register
 
-```text
+```plaintext
 0 to 9 - latest to 10th yanked text
 "      - latest deleted or yanked text
 .      - latest inserted text
@@ -51,7 +51,7 @@ S{o}   - [Surround] surround object {o} in visual mode
 
 #### motion
 
-```text
+```plaintext
 h 	- move left
 j 	- move down
 k 	- move up
@@ -81,7 +81,7 @@ gg 	- go to first line
 
 #### register operator
 
-```text
+```plaintext
 ["{r}]d 	- delete target [to register {r}]
 ["{r}]y 	- yank target [to register]
 ["{r}]P 	- put (paste) the clipboard after cursor/current line [from register]
@@ -94,7 +94,7 @@ gg 	- go to first line
 
 #### search
 
-```text
+```plaintext
 /pattern 	- search for pattern
 ?pattern 	- search backward for pattern
 n 		- repeat search in same direction
@@ -106,7 +106,7 @@ N 		- repeat search in opposite direction
 
 #### edit
 
-```text
+```plaintext
 i 	- start insert mode at cursor
 I 	- insert at the beginning of the line
 a 	- append after the cursor
@@ -133,7 +133,7 @@ ys 	- [Surround] change surrounding
 
 #### movement
 
-```text
+```plaintext
 m{m} 	- mark the current position to {m} (jump there by ` or ')
 Ctrl-b 	- page up
 Ctrl-f 	- page down
@@ -150,7 +150,7 @@ zb 	- jump to the bottom of screen
 
 #### mark
 
-```text
+```plaintext
 v 	- start visual mode, mark lines, then do command (such as y-yank)
 V 	- start Linewise visual mode
 Ctrl-v 	- start visual block mode
@@ -160,7 +160,7 @@ O 	- move to Other corner of block
 
 #### commands
 
-```text
+```plaintext
 > 	- shift right
 < 	- shift left
 c 	- change (replace) marked text
@@ -176,7 +176,7 @@ S 	- [Surround] insert surrounding
 
 ## Insert Mode
 
-```text
+```plaintext
 Esc 		- exit insert mode
 \ 		- execute an command
 Ctrl-r{r} 	- insert the content in register {r}
@@ -192,7 +192,7 @@ Ctrl-e 		- copy a char in below line
 #### buffer
 
 
-```text
+```plaintext
 :edit filename 	- Edit a file in a new buffer
 :new **/* 	- Open new files
 :bnext		- go to next buffer
@@ -202,7 +202,7 @@ Ctrl-e 		- copy a char in below line
 
 #### window
 
-```text
+```plaintext
 :sp filename 	- Open a file in a new buffer and split window
 Ctrl-w s 	- Split windows
 Ctrl-w w 	- switch between windows
@@ -212,7 +212,7 @@ Ctrl-w v 	- Split windows vertically
 
 #### tab
 
-```text
+```plaintext
 gt		- next tab
 gT		- previous tab
 :tabr		- first tab
@@ -223,7 +223,7 @@ gT		- previous tab
 
 #### exit
 
-```text
+```plaintext
 :w		- write (save) the file, but don't exit
 :wq 		- write (save) and quit
 :x		- same as :wq
@@ -238,7 +238,7 @@ gT		- previous tab
 
 ##  Cliche
 
-```text
+```plaintext
 xp 		- transpose two letters (delete and paste, technically)
 g~iw 		- switch case of current word
 guiw 		- make current word uppercase

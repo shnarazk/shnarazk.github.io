@@ -42,7 +42,7 @@ And here is the same code with line numbers:
 
 In this site it, [chrome](https://gohugo.io/content-management/syntax-highlighting/) is the default highlight engine, activated by ( ``` ) too.
 
-```go-html-template
+```html
 <section id="main">
   <div>
     <h1 id="title">{{ .Title }}</h1>
