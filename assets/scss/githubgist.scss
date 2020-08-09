@@ -1,3 +1,9 @@
+.render-viewer {
+  display: block;
+  width: 98%;
+  height: 1000px;
+  background-color: #adf;
+}
 .githubgist-content {
   font-family: 'Noto Sans JP', sans-serif, 'Livvic', 'Times New Roman';
   font-size: 1rem;
@@ -13,8 +19,7 @@
     .render-viewer {
       display: block;
       width: 98%;
-      min-height: 90%;
-      height: 90%;
+      height: 1000px;
       background-color: #adf;
     }
     .Box-body {
