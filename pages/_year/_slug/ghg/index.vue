@@ -37,6 +37,7 @@ export default {
     const articles = arr.find(a => a[1].gistid === params.slug)
     let art = articles[1]
     let url = 'https://gist.github.com/' + art.owner + '/' + art.gistid
+    axios.defaults.withCredentials = true
     return axios
       .get(url + '.json')
       .then(res => {
