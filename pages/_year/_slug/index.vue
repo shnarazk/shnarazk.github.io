@@ -46,7 +46,7 @@ export default {
     if (store.state.sourceFiles.find(a => a.includes(params.slug)) != null)
       return true
     const arr = Object.entries(store.state.articles)
-    return arr.find(a => a[1].gistid === params.slug) != null
+    return arr.find(a => a[1].gistid === params.slug) != undefined
   }
 }
 </script>

@@ -36,19 +36,22 @@ export default {
     const articles = arr.find(a => a[1].gistid === params.slug)
     let art = articles[1]
     let url = 'https://gist.github.com/' + art.owner + '/' + art.gistid
-    return axios.get(url + '.json')
+    return axios
+      .get(url + '.json')
       .then(res => {
-        // art["title"] = res["description"]
         art["body"] = res.data.div
         art["url"] = url
         art["css"] = res.data.stylesheet
         return { article: art }
-    })
+      })
+      .catch(e => {
+        error({ statusCode: 404, message: 'Post not found' })
+      })
   },
-//  validate({ params, query, store }) {
-//    const arr = Object.entries(store.state.articles)
-//    return arr.find(a => a[1].gistid === params.slug) != null
-//  }
+  async validate({ params, query, store }) {
+    const arr = Object.entries(store.state.articles)
+    return arr.find(a => a[1].gistid === params.slug) != undefined
+  }
 }
 </script>
 <style lang="scss" scoped>
