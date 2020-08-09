@@ -7,6 +7,7 @@
       </h1>
       <div class="has-text-error">
         アクセスされたページ{{ $route.params.slug }}は存在しないか、すでに削除されています。
+        {{ $route.params }}
       </div>
     </section>
   </div>
