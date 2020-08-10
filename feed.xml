@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 10 Aug 2020 23:33:04 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 10 Aug 2020 23:37:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[NixOS on Big Sur]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</link>
             <guid>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</guid>
-            <pubDate>Sun, 09 Aug 2020 00:00:00 GMT</pubDate>
+            <pubDate>Tue, 11 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[### Big Sur以前
 
 /etc/synthetic.conf　に
@@ -42,7 +42,11 @@ export NIX_IGNORE_SYMLINK_STORE=1
 
 ### 2020-08-09
 
-/usr/lib/system/libcache.dylib がないのでrustプログラムがコンパイルできなくなっている。]]></content:encoded>
+/usr/lib/system/libcache.dylib がないのでrustプログラムがコンパイルできなくなっている。
+
+### 2020-08-11
+
+結果としてリンクにするのがNi]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Jul.]]></title>
