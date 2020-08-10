@@ -334,8 +334,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "b261c590efa78ab8f49c3bc2c1aac5c3"
   },
   {
-    "url": "/_nuxt/app.d073060.js",
-    "revision": "314ee7ceaace56d9a684d7956b2e57ee"
+    "url": "/_nuxt/app.2557201.js",
+    "revision": "86828608cf5e4085cbcaf95644e3d73e"
   },
   {
     "url": "/_nuxt/pages/_year/_slug/ghg/index.b540a16.js",
