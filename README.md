@@ -4,7 +4,15 @@
 
 # A Blog powered with nuxt.js
 
-### Build Setup
+### Versions
+
+#### 1.0.2
+- Import GitHubGist
+
+#### 1.0.1
+- Add entry banner image via 'first matter'
+
+# Build Setup
 
 ``` bash
 # install dependencies

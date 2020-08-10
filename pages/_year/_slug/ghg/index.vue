@@ -12,7 +12,15 @@
         {{ article.subtitle }}
       </h1>
       <div :id="$route.params.slug" class="githubgist-content">
-        <span v-html="article.body"></span>
+        <div v-if="$fetchState.pending">
+          Fetching gist from github.com...<br />
+          If you want, just <a v-bind:href="article.url">reload</a> imediately.
+        </div>
+        <div v-else-if="$fetchState.error">
+          Failed to fetch gist: {{ $fetchState.error.message }}.<br />
+          Try again by <a v-bind:href="article.url">reloading.</a>
+        </div>
+        <span v-else v-html="gistFetched"></span>
       </div>
       <EntryFooter :tags="article.tags" />
     </section>
@@ -20,7 +28,6 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import axios from 'axios'
 import Header from '~/components/TheHeader'
 import EntryFooter from '~/components/EntryFooter'
 
@@ -32,28 +39,35 @@ export default {
   computed: {
     ...mapState(['articles']),
   },
-  asyncData({ store, params }) {
+  data() {
+    return {
+      gistFetched: {},
+    }
+  },
+  async fetch() {
+    this.gistFetched = await this.$axios
+      .$get(this.article.source)
+      .then((res) => {
+        return res.div
+      })
+  },
+  //  async fetch() {
+  //    this.$axios
+  //      .$get(this.article.source)
+  //      .then((res) => {
+  //        this.article.content = res.div
+  //      })
+  //      .catch((e) => {
+  //        this.article.content = `<a href="${this.article.url}">Please reload this page manually.</a>; ${e}: ${this.article.source}`
+  //      })
+  //  },
+  asyncData({ store, params, $axios }) {
     const arr = Object.entries(store.state.articles)
     const articles = arr.find((a) => a[1].gistid === params.slug)
-    const art = articles[1]
-    const url = 'https://gist.github.com/' + art.owner + '/' + art.gistid
-    axios.defaults.withCredentials = true
-    if (process.server) {
-      return axios.get(url + '.json').then((res) => {
-        art.body = res.data.div
-        art.url = url
-        art.css = res.data.stylesheet
-        return { article: art }
-      })
-    } else {
-      art.body =
-        '<a href="/' +
-        params.year +
-        '/' +
-        params.slug +
-        '/ghg/">Please reload this page manually.</a>'
-      return { article: art }
-    }
+    const article = articles[1]
+    article.source = `https://gist.github.com/${article.owner}/${article.gistid}.json`
+    article.url = `/${params.year}/${params.slug}/ghg/`
+    return { article }
   },
   async validate({ params, query, store }) {
     const arr = Object.entries(store.state.articles)
