@@ -10,6 +10,7 @@
           title
         }}</nuxt-link>
       </div>
+      &nbsp;
       <a
         role="button"
         class="navbar-burger burger"

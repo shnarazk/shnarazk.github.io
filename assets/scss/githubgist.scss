@@ -1,26 +1,13 @@
-.render-viewer {
-  display: block;
-  width: 98%;
-  height: 1000px;
-  background-color: #adf;
-}
 .githubgist-content {
+  display: block;
   font-family: 'Noto Sans JP', sans-serif, 'Livvic', 'Times New Roman';
   font-size: 1rem;
   width: 92%;
-  min-height: 80%;
-  height: 80%;
   margin-left: 3%;
   /deep/ {
     .octospinner, .render-viewer-error, .render-viewer-fatal, .render-viewer-invalid {
       height: 0pt;
       visibility: hidden;
-    }
-    .render-viewer {
-      display: block;
-      width: 98%;
-      height: 1000px;
-      background-color: #adf;
     }
     .Box-body {
       width: 98%;
@@ -99,6 +86,21 @@
     td {
       margin: 2px;
       padding: 4px;
+    }
+  }
+}
+
+.githubgist-frame {
+  border: solid 1px #36f;
+  height: 1500px;
+  /deep/ {
+    .render-viewer {
+      display: block;
+      width: 98%;
+      min-height: 1480px;
+      height: 98%;
+      overflow: visible;;
+      background-color: #adf;
     }
   }
 }

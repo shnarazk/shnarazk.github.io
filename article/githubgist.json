@@ -1,12 +1,24 @@
 {
+  "39d5f212919fa0434d337df049686e8e": {
+    "date": "2020-08-10T16:00:00.000Z",
+    "title": "Another entry imported from GitHubGist",
+    "subtitle": "rendering ipynb",
+    "gistid": "39d5f212919fa0434d337df049686e8e",
+    "owner": "shnarazk",
+    "tags": ["githubgist", "justanote"],
+    "year": "2020",
+    "frame": true
+  },
   "c3f0ed3098030b5dff22": {
-    "date": "2020-08-10T20:00:00.000Z",
+    "date": "2020-08-10T15:00:00.000Z",
     "title": "Test import from GitHubGist",
     "subtitle": "about keyboard shortcuts for OS",
     "gistid": "c3f0ed3098030b5dff22",
     "owner": "shnarazk",
-    "tags": ["githubgist", "gnome"],
-    "year": "2020"
+    "tags": ["githubgist", "gnome", "justanote"],
+    "year": "2020",
+    "banner": "/img/2020/08-10/banner.jpg",
+    "frame": false
   }
 }
 

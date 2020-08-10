@@ -1,7 +1,7 @@
 ---
 title: NixOS on Big Sur
-subtitle:
-date: 2020-08-09
+subtitle: 毎年右往左往
+date: 2020-08-11
 tags: ["NixOS", "macOS"]
 banner: /img/2020/08-07/banner.jpg
 ---
@@ -36,3 +36,10 @@ export NIX_IGNORE_SYMLINK_STORE=1
 ### 2020-08-09
 
 /usr/lib/system/libcache.dylib がないのでrustプログラムがコンパイルできなくなっている。
+
+Cコンパイラも動かないのでemacs27も作れない。
+
+### 2020-08-11
+
+結果としてリンクにするのがNixOSをインストールするためのベストプラクティスみたいだ。
+以前は/Volumes/Nix をリブートするたびに手で/nixにマウントしなおしていたのが、その必要がなくなった。
