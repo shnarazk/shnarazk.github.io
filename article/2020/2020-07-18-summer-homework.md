@@ -1,7 +1,7 @@
 ---
 title: Lives of Clauses
 subtitle: 夏休み実験室
-date: 2020-07-18
+date: 2020-08-12
 tags: ["SAT", "splr"]
 banner: "https://images.unsplash.com/photo-1483528237748-d9d8b5cae06d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
 ---
