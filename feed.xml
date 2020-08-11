@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 11 Aug 2020 15:06:48 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 11 Aug 2020 15:58:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -143,7 +143,7 @@ TBC]]></content:encoded>
             <title><![CDATA[Lives of Clauses]]></title>
             <link>https://shnarazk.github.io/2020/2020-07-18-summer-homework</link>
             <guid>https://shnarazk.github.io/2020/2020-07-18-summer-homework</guid>
-            <pubDate>Sat, 18 Jul 2020 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 12 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/UsSfqYdR64Q**
 
 # イントロとベルリンの壁
