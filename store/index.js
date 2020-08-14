@@ -21,11 +21,12 @@ export const actions = {
       if (art.gistid !== undefined) {
         art.url = `https://gist.github.com/${art.owner}/${art.gistid}`
         const j = await axios.get(`${art.url}.json`)
-        if (j.div === undefined)
-          art.content = `could not load at server: ${art.url}.json, ${j.owner}`
+        if (j.data === undefined)
+          art.content = `could not load ${art.url}.json`
         else
-          art.content = j.div
-        art.title = "nuxtServerInit"
+          art.content = j.data.div
+          art.description = j.data.description
+          art.created_at = j.data.created_at.substring(0, 10)
       }
     }
     commit('mutations', arr)
