@@ -2,15 +2,16 @@
 
 ---
 
-# A Blog powered with nuxt.js
+# A Blog powered with vue.js + nuxt.js
 
-### Versions
+### History of the Blog generator called *JANG*
 
-#### 1.0.2
-- Import GitHubGist
+#### 1.0.2, 2020-08-14
+- Import entries from [GitHubGist](https://gist.github.com/)
 
 #### 1.0.1
 - Add entry banner image via 'first matter'
+- Import entries from [Observable](https://observablehq.com/)
 
 # Build Setup
 
