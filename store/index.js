@@ -23,10 +23,11 @@ export const actions = {
         const j = await axios.get(`${art.url}.json`)
         if (j.data === undefined)
           art.content = `could not load ${art.url}.json`
-        else
+        else {
           art.content = j.data.div
           art.description = j.data.description
           art.created_at = j.data.created_at.substring(0, 10)
+        }
       }
     }
     commit('mutations', arr)
