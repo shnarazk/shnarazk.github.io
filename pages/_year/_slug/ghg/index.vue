@@ -5,6 +5,7 @@
         <img v-bind:src="article.banner">
     </div>
     <section class="section">
+<!--
       <h1 class="title has-text-primary has-text-weight-semibold" v-if="$fetchState.pending">
         {{ article.description }}
       </h1>
@@ -14,13 +15,19 @@
       <h1 class="title has-text-primary has-text-weight-semibold" v-else>
         {{ gistFetched.description }}
       </h1>
+-->
       <h1
         v-if="article.subtitle"
         class="subtitle has-text-info has-text-weight-semibold"
       >
         {{ article.subtitle }}&nbsp;<i class="fab fa-github"></i>
       </h1>
+       {{ article.url }}
       <div :id="$route.params.slug">
+        <div class="githubgist-content">
+          <span v-html="article.content"></span>
+        </div>
+<!--
         <div v-if="$fetchState.pending">
           Fetching the gist from github.com <i class="fab fa-github"></i>...<br />
           If you want, just <a v-bind:href="article.url">reload</a> imediately.
@@ -35,11 +42,13 @@
         <div v-else class="githubgist-content">
           <span v-html="gistFetched.div"></span>
         </div>
+-->
       </div>
       <section class="section">
         <div class="is-size-7 is-family-code has-text-grey has-text-right">
           Last update: {{ article.date.substring(0, 10) }}.
         </div>
+<!--
         <div class="is-size-7 is-family-code has-text-grey has-text-right" v-if="$fetchState.pending">
           Created: ???.
         </div>
@@ -49,6 +58,7 @@
         <div class="is-size-7 is-family-code has-text-grey has-text-right" v-else>
           Created: {{ gistFetched.created_at.substring(0, 10) }}.
         </div>
+-->
       </section>
       <EntryFooter :tags="article.tags" />
     </section>
@@ -72,13 +82,13 @@ export default {
       gistFetched: {},
     }
   },
-  async fetch() {
-    this.gistFetched = await this.$axios
-      .$get(this.article.source)
-      .then((res) => {
-        return res
-      })
-  },
+//  async fetch() {
+//    this.gistFetched = await this.$axios
+//      .$get(this.article.source)
+//      .then((res) => {
+//        return res
+//      })
+//  },
   asyncData({ store, params, $axios }) {
     const arr = Object.entries(store.state.articles)
     const articles = arr.find((a) => a[1].gistid === params.slug)

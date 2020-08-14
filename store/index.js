@@ -3,8 +3,6 @@ import db from '~/article/.json/db.json'
 import gist from '~/article/githubgist.json'
 import ob from '~/article/obs.json'
 
-// injectGitHubGist(gist)
-
 export const state = () => ({
   articles: {
     ...db.fileMap,
@@ -15,29 +13,23 @@ export const state = () => ({
   sourceFiles: db.sourceFileArray,
 })
 
-export const mutations = {
-  articles_inject(state, payload) {
-    state.articles = payload
-  },
-}
-
-async function injectGitHubGist(arts) {
-  const arr = Object.entries(arts)
-  arr.forEach((val) => {
-    const art = val[1]
-    if (art.gistid !== undefined) {
-      art.url = 'https://gist.github.com/' + art.owner + '/' + art.gistid
-      axios
-        .get(art.url + '.json')
-        .then((res) => {
-          art.content = res.div
-        })
-        .catch(function (e) {
-          art.content = `${e}: ${art.url}.json`
-        })
+export const actions = {
+  async nuxtServerInit({ commit }) {
+    const arr = Object.entries(gist)
+    for(let val of arr) {
+      const art = val[1]
+      if (art.gistid !== undefined) {
+        art.url = `https://gist.github.com/${art.owner}/${art.gistid}`
+        const j = await axios.get(`${art.url}.json`)
+        if (j.div === undefined)
+          art.content = `could not load at server: ${art.url}.json, ${j.owner}`
+        else
+          art.content = j.div
+        art.title = "nuxtServerInit"
+      }
     }
-  })
-  return arr
+    commit('mutations', arr)
+  }
 }
 
 function buildTags(arts) {

@@ -15,7 +15,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "update": "processmd article/**/*.md --stdout --outputDir article/.json > article/.json/db.json",
-    "now": "npm run update && npm run generate && nuxt start"
+    "now": "npm run update && nuxt build && nuxt start"
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.0",
