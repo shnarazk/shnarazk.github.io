@@ -4,22 +4,20 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 14 Aug 2020 03:34:26 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 Aug 2020 03:53:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[JUSTANOTE Version 1.0.2]]></title>
+            <title><![CDATA[JANG version 1.0.2]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-14-justanote-102</link>
             <guid>https://shnarazk.github.io/2020/2020-08-14-justanote-102</guid>
             <pubDate>Fri, 14 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[このブログの静的サイトジェネレータ（名前はまだないとりあえず"JUSTANOTE"にしておきます）をバージョン1.0.2に更新しました。変更点はgithub.comに作ったgistが取り込めるようになったこと。
+            <content:encoded><![CDATA[このブログの静的サイトジェネレータ（名前はまだない。とりあえず'JANG', *Just-A-Note Generator* にしておきます）をバージョン1.0.2に更新しました。変更点はgithub.comに作ったgistが取り込めるようになったこと。
 
+[Observable](https://observablehq.com/)が（結構）簡単に取り込めたので、1時間程度でできるかと思ったら数日がかりになってしまいました。ChangeLog代わりに苦労した点を残しておきます。
 
-[Observable](https://observablehq.com/)が（結構）簡単に取り込めたので、1時間程度でできるかと思ったら数日掛かってしまいました。
-
-* githubが埋め込み用に提供するのはjavascriptまたはjson。ちょっとjavascriptは置いといてjsonを使う方向で計画。
-* ところがjsonを読み込もうとすると `Cross-Access-Allow-Origin` の制約に引っかかってデータがとって来れない。手動でリロードを掛けて、サーバー側のレンダリングされたページを持ってくれば表示はできるけどかっこ悪い。
-* asyncData]]></content:encoded>
+* githubが埋め込み用に提供するのはjavascriptまたはjson形式。ちょっとjavascriptは置いといてjsonを使う方向で計画。
+* ところがjsonを読み込もうとすると `Cross-Access-Allow-Origin` の制約に引っかかってデータがとって来れない。手動でリロードを掛け]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[NixOS on Big Sur]]></title>
