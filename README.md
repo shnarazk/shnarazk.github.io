@@ -1,10 +1,10 @@
-![Build Status](https://github.com/shnarazk/note/badges/master/build.svg)
+![Build Status](https://github.com/shnarazk/shnarazk.github.io/badges/master/build.svg)
 
 ---
 
 # A Blog powered with vue.js + nuxt.js
 
-### History of the Blog generator called *JANG*
+### History of the blog generator called *JANG*
 
 #### 1.0.2, 2020-08-14
 - Import entries from [GitHubGist](https://gist.github.com/)
