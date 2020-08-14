@@ -4,9 +4,23 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 14 Aug 2020 02:12:50 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 Aug 2020 02:47:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[JUSTANOTE Version 1.0.2]]></title>
+            <link>https://shnarazk.github.io/2020/2020-08-14-justanote-102</link>
+            <guid>https://shnarazk.github.io/2020/2020-08-14-justanote-102</guid>
+            <pubDate>Fri, 14 Aug 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[このブログの静的サイトジェネレータ（名前はまだないとりあえず"JUSTANOTE"にしておきます）をバージョン1.0.2に更新しました。変更点はgithub.comに作ったgistが取り込めるようになったこと。
+
+
+[Observable](https://observablehq.com/)が（結構）簡単に取り込めたので、1時間程度でできるかと思ったら数日掛かってしまいました。
+
+* githubが埋め込み用に提供するのはjavascriptまたはjson。ちょっとjavascriptは置いといてjsonを使う方向で計画。
+* ところがjsonを読み込もうとすると `Cross-Access-Allow-Origin` の制約に引っかかってデータがとって来れない。手動でリロードを掛けて、サーバー側のレンダリングされたページを持ってくれば表示はできるけどかっこ悪い。
+* asyncData]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[NixOS on Big Sur]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</link>
@@ -368,24 +382,6 @@ LRのよさはなんとなくわかる。LRのアイデアは学習率の最適�
 と思ったらちゃんと入力方法が用意してあった(https://emacs.stackexchange.com/questions/55199/what-are-these-prefix-commands-that-start-with-s-l)。
 
 > You can simulate these additional keys with som]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Apr.]]></title>
-            <link>https://shnarazk.github.io/2020/2020-04-22-UNSATlog</link>
-            <guid>https://shnarazk.github.io/2020/2020-04-22-UNSATlog</guid>
-            <pubDate>Wed, 22 Apr 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# 0.3.3まだまだ
-
-非常事態宣言が発出されて外を出歩かなくなってしまったのでカバーに使えるような写真のストックがなくなっ
-てきました。プログラミングの時間は増えてそれなりに進展あり。
-
-# CaDiCaLにおける重要技術の絞り込み
-
-[CaDiCaL](https://github.com/arminbiere/cadical)の何がいいのかを調べるため[sat-bench](https://github.com/shnarazk/SAT-bench)でオプションを切り替えながら3SATを実行してみました。詳細な結果は[Importance of modern techniques in SAT solvers](/2020/2020-04-08-modern-techniques-of-SAT-solver/) に書きました。
-
-結論として、今のSplrにないものをまとめると、
-
-]]></content:encoded>
         </item>
     </channel>
 </rss>
