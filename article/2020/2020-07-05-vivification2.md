@@ -1,7 +1,7 @@
 ---
 title: Clause Vivification updated 2020
 subtitle: vivification part 2
-date: 2020-07-22
+date: 2020-08-14
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 ---
@@ -206,4 +206,11 @@ propagate側の関数にはあまり手を入れたくなかったので、27行
 まさか、こんな小さな問題でバグが検出されるとは。
 
 ついでに45行目の前にbiclauseだったら重複検査もすることにした。
+
+
+### 2020-08-14
+
+まだバグが出る。
+やはりL44の`asg.assign_at_rootlevel(copied[0])?`で変数がassertされたら直後に`propagate`しないと、伝播の取りこぼしが起きてしまうようだ。
+vivificationの対象リテラル数を増やすと現れてきたのでおそらくこの解釈でいいんだと思う。
 
