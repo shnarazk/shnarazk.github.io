@@ -338,44 +338,48 @@ workbox.precaching.precacheAndRoute([
     "revision": "804a5be1b66d8ce810e64e79b061354d"
   },
   {
-    "url": "/_nuxt/app.56eb2cb.js",
-    "revision": "80502e5ad2712d3057c85fafe0b9508f"
+    "url": "/_nuxt/95.cb1cc6b.js",
+    "revision": "f9314896e6836bcb15cd36d9ca47c750"
   },
   {
-    "url": "/_nuxt/pages/_year/_slug/ghg/index.698953d.js",
-    "revision": "e5be5a9167e4bd65652980e0725b2054"
+    "url": "/_nuxt/app.597091f.js",
+    "revision": "bdd1d6febbf911f7da2b9915085be619"
   },
   {
-    "url": "/_nuxt/pages/_year/_slug/index.f09adb5.js",
-    "revision": "933f343aefaed4f42ebebe4ac3ff0883"
+    "url": "/_nuxt/pages/_year/_slug/ghg/index.11c0566.js",
+    "revision": "ecdec68e8729273019739d8650ed262d"
   },
   {
-    "url": "/_nuxt/pages/_year/_slug/obs/index.5401706.js",
-    "revision": "0e1bb7b1705efc161b3d404c6bca5baa"
+    "url": "/_nuxt/pages/_year/_slug/index.e367d19.js",
+    "revision": "97a7b975e47d161283b2d6e611cca3d9"
   },
   {
-    "url": "/_nuxt/pages/about/index.31e86a9.js",
-    "revision": "31282ab1c00b533afe3572f9b32d0b0a"
+    "url": "/_nuxt/pages/_year/_slug/obs/index.db99e12.js",
+    "revision": "f60cccf1dfd4128af7f6f37d6410b88f"
   },
   {
-    "url": "/_nuxt/pages/index.e279d72.js",
-    "revision": "d252a74c6228c53a5f6e5e3b15976729"
+    "url": "/_nuxt/pages/about/index.15818b4.js",
+    "revision": "8821776df0f862df3fbd8ba05138e0c7"
   },
   {
-    "url": "/_nuxt/pages/obs/index.7e8eacc.js",
-    "revision": "7f3880d8495182f77bdc82dea561f2ca"
+    "url": "/_nuxt/pages/index.9fe5b08.js",
+    "revision": "7ab08f5cf884f92580008eb1971053aa"
   },
   {
-    "url": "/_nuxt/pages/tag/_tagname/index.0162558.js",
-    "revision": "856d77cb97ac34958cf4ff2473648081"
+    "url": "/_nuxt/pages/obs/index.af8fbe9.js",
+    "revision": "a09efe8be5c513544cc050afc29e5454"
   },
   {
-    "url": "/_nuxt/pages/tag/index.419ff79.js",
-    "revision": "eb6b891129992480fdea608b2ffc9a1b"
+    "url": "/_nuxt/pages/tag/_tagname/index.004d495.js",
+    "revision": "994b0c1da840ed61efd32d05e0a31d9f"
   },
   {
-    "url": "/_nuxt/runtime.9517e74.js",
-    "revision": "651254e2c70f9afcf15c1cca301e140f"
+    "url": "/_nuxt/pages/tag/index.a21928e.js",
+    "revision": "b69d77e26406787baca416c340e8ddfd"
+  },
+  {
+    "url": "/_nuxt/runtime.1b75d16.js",
+    "revision": "4a7ce9670fe1f66fa78010a26e63f4bc"
   }
 ], {
   "cacheId": "just-a-note",
