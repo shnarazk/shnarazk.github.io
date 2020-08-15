@@ -1,7 +1,7 @@
 ---
 title: Clause Vivification updated 2020
 subtitle: vivification part 2
-date: 2020-08-14
+date: 2020-08-15
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 ---
@@ -205,7 +205,7 @@ L45で追加してL47削除するのは無駄なので対消滅させた。な�
 propagate側の関数にはあまり手を入れたくなかったので、27行目の前にチェックを入れることにして対応した（24行目の方は論理的に大丈夫なはず）。
 まさか、こんな小さな問題でバグが検出されるとは。
 
-ついでに45行目の前にbiclauseだったら重複検査もすることにした。
+ついでに45行目の前にbiclauseだったら重複検査もすることにしました。
 
 
 ### 2020-08-14
@@ -213,4 +213,14 @@ propagate側の関数にはあまり手を入れたくなかったので、27行
 まだバグが出る。
 やはりL44の`asg.assign_at_rootlevel(copied[0])?`で変数がassertされたら直後に`propagate`しないと、伝播の取りこぼしが起きてしまうようだ。
 vivificationの対象リテラル数を増やすと現れてきたのでおそらくこの解釈でいいんだと思う。
+
+### 2020-08-15
+
+うーむ、ここではひっかかるまいとちょっとだけ期待していたのだが、天網恢恢疎にして漏らさず、やっぱり上で追加した`propagate`が矛盾を発生させることもあるわいなぁ。
+ちゃんと返値をチェックして`SolverError::Inconsistent`を返すことにしました。
+
+```
+Running on the 204-206th problem ezfact64_8.shuffled-as.sat03-1524-sc2002...SAT/SR19/f10nidw-sc2012.cnf: thread 'main' panicked at 'Vivification found an uncatchable inconsistency.', src/solver/vivify.rs:147:21
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+```
 
