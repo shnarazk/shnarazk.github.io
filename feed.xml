@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 15 Aug 2020 07:38:35 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 15 Aug 2020 07:47:59 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -25,18 +25,16 @@
 
 #### ローカル変数
 
-まず、以下のように関数内のローカルデータとして確保された文字列定数を参照する変数は何型でしょうか。
+まず、以下のように関数内のローカルデータとして確保された文字列定数を参照する変数の型を確認しておきます。
 
 ```rust
+/// コンパイルできる
 fn f() {
   let s = "a fixed string";
   ...
 ```
 
-これは `&str` です。
-
-```rust
-fn f]]></content:encoded>
+これは `&str` で]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[JANG version 1.0.2]]></title>

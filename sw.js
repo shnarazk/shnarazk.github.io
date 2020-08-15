@@ -338,12 +338,12 @@ workbox.precaching.precacheAndRoute([
     "revision": "804a5be1b66d8ce810e64e79b061354d"
   },
   {
-    "url": "/_nuxt/95.fc599e8.js",
-    "revision": "d9375debb81dedd1a052d5d3c1d23edc"
+    "url": "/_nuxt/95.a993969.js",
+    "revision": "408ada2333eeaff92eaafa62faa560c2"
   },
   {
-    "url": "/_nuxt/app.a4f662b.js",
-    "revision": "a248d9051d21fd37e98b2b54fe90b22a"
+    "url": "/_nuxt/app.4c47b42.js",
+    "revision": "531bab6e6c5ffdf09a94599cb4299fda"
   },
   {
     "url": "/_nuxt/pages/_year/_slug/ghg/index.11c0566.js",
@@ -378,8 +378,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "b69d77e26406787baca416c340e8ddfd"
   },
   {
-    "url": "/_nuxt/runtime.3303886.js",
-    "revision": "2e1e478df455c303f45236709adf916a"
+    "url": "/_nuxt/runtime.86acef3.js",
+    "revision": "045c53ac7c6d8e563625cdc57ecaf748"
   }
 ], {
   "cacheId": "just-a-note",
