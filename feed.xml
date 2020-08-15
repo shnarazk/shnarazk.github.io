@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 15 Aug 2020 07:59:27 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 15 Aug 2020 08:06:19 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -12,7 +12,7 @@
             <link>https://shnarazk.github.io/2020/2020-08-15-Cow</link>
             <guid>https://shnarazk.github.io/2020/2020-08-15-Cow</guid>
             <pubDate>Sat, 15 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[自転車本では紹介されてないけれど、Rustならでは必要とされる面白い型、Copy on Writeではなくて、Clone on Writeを意味する`std::borrow::Cow`の紹介です。
+            <content:encoded><![CDATA[自転車本では紹介されてないけれど、Rustならでは必要とされる面白い型、Copy on Writeではなくて、Clone on Writeを意味する[`std::borrow::Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html) の紹介です。
 
 ## 前提知識：`str` と `String`の違い
 
@@ -29,12 +29,7 @@
 
 ```rust
 /// コンパイルできる
-fn f() {
-  let s = "a fixed string";
-  ...
-```
-
-これは `&str` で]]></content:encoded>
+fn f(]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[JANG version 1.0.2]]></title>
