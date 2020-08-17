@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 17 Aug 2020 06:41:17 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 17 Aug 2020 14:13:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -47,7 +47,7 @@ fn f(]]></content:encoded>
             <title><![CDATA[NixOS on Big Sur]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</link>
             <guid>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</guid>
-            <pubDate>Tue, 11 Aug 2020 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 17 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[### Big Sur以前
 
 /etc/synthetic.conf　に
@@ -74,15 +74,13 @@ export NIX_IGNORE_SYMLINK_STORE=1
 
 を実行して、リンクを辿ってくれるようにすればいいようだ。
 
-それにしてもGnomeだなぁ。。。
+それにしても結構Gnomeな見かけだなぁ。。。
 
 ### 2020-08-09
 
 /usr/lib/system/libcache.dylib がないのでrustプログラムがコンパイルできなくなっている。
 
-Cコンパイラも動かないのでemacs27も作れない。
-
-###]]></content:encoded>
+Cコンパイラも動かないのでemacs27も作れない]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Jul.]]></title>
