@@ -2,7 +2,7 @@
 title: About Observable
 subtitle: 強力な可視化機能を手に入れた
 date: 2019-08-04
-tags: ['javascript', 'Observable', 'Nuxt']
+tags: ['javascript', 'Observable', 'Nuxtjs', 'jang']
 ---
 
 Javascript版jupyterのようなものの一つの[Observable](https://observablehq.com/)。
