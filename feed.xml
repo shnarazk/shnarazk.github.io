@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Wed, 19 Aug 2020 01:28:40 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Aug 2020 03:41:31 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -46,11 +46,11 @@ http://labs.timedia.co.jp/2017/07/sat25x2520.html
 fn f(]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[JANG version 1.0.2]]></title>
+            <title><![CDATA[JaNG version 1.0.2]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-14-justanote-102</link>
             <guid>https://shnarazk.github.io/2020/2020-08-14-justanote-102</guid>
             <pubDate>Fri, 14 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[このブログの静的サイトジェネレータ（名前はまだない。とりあえず'JANG', *Just-A-Note Generator* にしておきます）をバージョン1.0.2に更新しました。変更点はgithub.comに作ったgistが取り込めるようになったこと。
+            <content:encoded><![CDATA[このブログの静的サイトジェネレータ（名前はまだない。とりあえず'JaNG', *Just-A-Note Generator* にしておきます）をバージョン1.0.2に更新しました。変更点はgithub.comに作ったgistが取り込めるようになったこと。
 
 [Observable](https://observablehq.com/)が（結構）簡単に取り込めたので、1時間程度でできるかと思ったら数日がかりになってしまいました。ChangeLog代わりに苦労した点を残しておきます。
 
