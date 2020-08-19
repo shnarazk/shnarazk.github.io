@@ -4,9 +4,23 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 17 Aug 2020 14:13:24 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Aug 2020 00:23:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Rust製の「SATソルバーで25x25のナンプレが解けるだろうか」]]></title>
+            <link>https://shnarazk.github.io/2020/2020-08-19-sudoku25</link>
+            <guid>https://shnarazk.github.io/2020/2020-08-19-sudoku25</guid>
+            <pubDate>Wed, 19 Aug 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[何の調べ物をしていたのか忘れましたが、偶然こんなものを見つけました。
+http://labs.timedia.co.jp/2017/07/sat25x2520.html
+
+```text
++--------------+--------------+--------------+--------------+--------------+
+| . 12  .  .  .| .  .  .  .  .| .  .  .  9  .| .  . 15  .  .|22  .  .  .  .|
+| .  .  .  .  .| .  9  . 19  .| .  . 10 11  .| .  .  .  .  .| .  .  .  .  .|
+| .  4  . 22  .| .  .  .  .  .| .  .  .  .  .| .  . 12  .  .|20 15  1  .  .]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[RustのClone on Writeについて]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-15-Cow</link>
@@ -371,22 +385,6 @@ LR はよさそうなんだけども、そんなにいいならリスタート�
 EVSIDS も含めた変数選択ヒューリスティックスは割当て後にその使われた変数に値を割り当てるもので、使われてない変数に脚光を当てるものではない。
 従って、リスタートを掛けても優先度が高い変数間の順序が変わるだけと書いてもそれほど言い過ぎというわけではないだろう。
 もちろん順序を入れ替えることによってリスタート後の伝播の方向がこれまでと違う方向へと向かうことはあるけども、いきなり極端に違う変数が選ばれるものではない（という去]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[What's the difference between EVSIDS and LR?]]></title>
-            <link>https://shnarazk.github.io/2020/2020-05-19-two-heuristics</link>
-            <guid>https://shnarazk.github.io/2020/2020-05-19-two-heuristics</guid>
-            <pubDate>Tue, 19 May 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[よくわかってない人の意見ですが。
-
-最近のSATソルバの注目すべきアイデアの一つにLearning Rate (+ Reason-Side) Rewardingがある。
-長らく続いてきたEVSIDS一強時代に対抗できる成果を残している。と言っても完全に上回るのではなく
-「タイムアウトを長くした」場合という限定詞付きではあるが、それでも注目すべき技術だろう。
-というわけで最近のSplrでもfeatureで切り替えられるようにした。
-
-LRのよさはなんとなくわかる。LRのアイデアは学習率の最適化により矛盾発生頻度を最大化しようとするものである[1]。
-
-> In particular, we model the variable selection optimization problem as an online multi-armed bandit, a special-case of r]]></content:encoded>
         </item>
     </channel>
 </rss>
