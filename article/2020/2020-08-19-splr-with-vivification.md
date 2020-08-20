@@ -27,7 +27,9 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 答え：変数への仮割り当ての前提条件の検査が不十分だった。
 
-## 2020-08-21 記号の読み間違え判明
+## 3. 2020-08-21 記号の読み間違え判明
+
+# 最終版
 
 ```rust
 pub fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) -> MaybeInconsistent {
