@@ -21,17 +21,19 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 うーん、そんなはずはないのだが。。。
 
-答え：節内リテラルの順序とcertificateに書き出されたものでの順序とが一致していなかった。
+理由：節内リテラルの順序とcertificateに書き出されたものでの順序とが一致していなかった。
 
 ## 2. なぜかAssignStack中に未割り当てリテラルが出現する
 
-答え：変数への仮割り当ての前提条件の検査が不十分だった。
+理由：変数への仮割り当ての前提条件の検査が不十分だった。
 
 ## 3. 2020-08-21 記号の読み間違え判明
 
 [Clause Vivification updated 2020](/2020/2020-07-05-vivification2/)に記載の通り。
 
 ## 4. vivify中に決定による割り当てを行っただけでcertificateが不当なものになってしまう
+
+理由：Eliminatorがバグってた！
 
 # 最終版
 
