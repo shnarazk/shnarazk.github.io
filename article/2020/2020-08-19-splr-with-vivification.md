@@ -1,7 +1,7 @@
 ---
-title: Clause Vivification updated 2020
-subtitle: vivification part 2
-date: 2020-08-15
+title: Implementing vivification on Splr
+subtitle: vivification part 3
+date: 2020-08-19
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
 ---
