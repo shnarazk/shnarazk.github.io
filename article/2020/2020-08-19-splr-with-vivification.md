@@ -29,6 +29,10 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 ## 3. 2020-08-21 記号の読み間違え判明
 
+[Clause Vivification updated 2020](/2020/2020-07-05-vivification2/)に記載の通り。
+
+## 4. vivify中に決定による割り当てを行っただけでcertificateが不当なものになってしまう
+
 # 最終版
 
 ```rust
