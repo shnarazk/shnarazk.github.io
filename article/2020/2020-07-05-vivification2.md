@@ -1,7 +1,7 @@
 ---
 title: Clause Vivification updated 2020
 subtitle: vivification part 2
-date: 2020-08-15
+date: 2020-08-21
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 ---
@@ -30,6 +30,7 @@ Vivificationは魅力的な節削減手法のでSAT competitionに提出され�
 
 ![](/img/2020/07-05/vivi-algo3.jpg)
 
+* 節へのリテラルの追加は$\vee$で、節集合および部分割り当てへの、節または割り当ての追加は$\cup$で表され照れている。(**2020-08-21追記**)
 * ~~なんか怪しい。なぜ $\phi \cup \neg C'$ なのだ？ どうして$C$に含まれていたリテラルの否定を集めた節が$\text{vivified} C = C'$ なのだ~~ ここがミソ。
 * 何にせよ最初に存在した節は17行目で必ず削除される。
 * 17行目は一つ内側のループに含まれるはずですけど。
