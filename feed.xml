@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Wed, 19 Aug 2020 03:41:31 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 20 Aug 2020 08:23:14 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -20,6 +20,24 @@ http://labs.timedia.co.jp/2017/07/sat25x2520.html
 | . 12  .  .  .| .  .  .  .  .| .  .  .  9  .| .  . 15  .  .|22  .  .  .  .|
 | .  .  .  .  .| .  9  . 19  .| .  . 10 11  .| .  .  .  .  .| .  .  .  .  .|
 | .  4  . 22  .| .  .  .  .  .| .  .  .  .  .| .  . 12  .  .|20 15  1  .  .]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Clause Vivification updated 2020]]></title>
+            <link>https://shnarazk.github.io/2020/2020-08-19-splr-with-vivification</link>
+            <guid>https://shnarazk.github.io/2020/2020-08-19-splr-with-vivification</guid>
+            <pubDate>Sat, 15 Aug 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/-IMlv9Jlb24**
+
+Version 0.4.2 リリース直前のSplr、性能的には妥協できるものが出来たので次の課題は妥当性。
+SAT問題はいいのだけど、UNSAT問題に対する certification がおかしなものになっているとか。
+vivification を切ると問題が解消するので、vivify時の節の追加削除が正しくcertification に反映されてないようだ。
+
+## 1. gratgenのこういうメッセージがどうやっても解消できない
+
+```text
+c Ignoring deletion of non-existent clause (pos 30441)
+c Ignoring deletion of non-existent clause (pos 30441)
+c I]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[RustのClone on Writeについて]]></title>
@@ -367,24 +385,6 @@ Splr-0.4.0以降の分をまとめると
 さあSATソルバの出番。
 
 # 2020-05-30 mokumo]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[LR needs something to explore the world]]></title>
-            <link>https://shnarazk.github.io/2020/2020-05-20-LR-needs-something</link>
-            <guid>https://shnarazk.github.io/2020/2020-05-20-LR-needs-something</guid>
-            <pubDate>Thu, 21 May 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[引き続きよくわかってない人の意見の連投ですが。
-
-## LRのリスタート問題
-
-LR はよさそうなんだけども、そんなにいいならリスタートの立場はどうなる？
-矛盾発生率の最適化を達成していて何故リスタートが必要になるのだろうか。
-
-しかし何かそのようなものが必要なことはすぐわかる。
-以前も書いたような気がするがリスタートはリスタートであって、決してリセットではないのだ。
-EVSIDS も含めた変数選択ヒューリスティックスは割当て後にその使われた変数に値を割り当てるもので、使われてない変数に脚光を当てるものではない。
-従って、リスタートを掛けても優先度が高い変数間の順序が変わるだけと書いてもそれほど言い過ぎというわけではないだろう。
-もちろん順序を入れ替えることによってリスタート後の伝播の方向がこれまでと違う方向へと向かうことはあるけども、いきなり極端に違う変数が選ばれるものではない（という去]]></content:encoded>
         </item>
     </channel>
 </rss>
