@@ -28,3 +28,75 @@ c Ignoring deletion of non-existent clause (pos 30441)
 答え：変数への仮割り当ての前提条件の検査が不十分だった。
 
 ## 2020-08-21 記号の読み間違え判明
+
+```rust
+pub fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) -> MaybeInconsistent {
+    while let Some(ci) = clauses.pop() {
+        let c: &mut Clause = &mut cdb[ci];
+        let clits = c.lits.clone();
+        let mut copied: Vec<Lit> = Vec::new();
+        let mut flipped = true;
+        'this_clause: for l in clits.iter() {
+            match asg.assigned(*l) {
+                Some(false) => continue 'this_clause, // Rule 1
+                Some(true) => {
+                    copied.push(!*l);
+                    let r = asg.reason_literals(cdb, *l);
+                    let mut v = Vec::new();
+                    for lit in &*r {
+                        if *lit == *l { v.push(!*lit); } else { v.push(*lit); }
+                    }
+                    copied = asg.minimize(cdb, &copied, &v); // Rule 2
+                    flipped = false;
+                    break 'this_clause;
+                }
+                None => {
+                    asg.cancel_until(asg.root_level);
+                    let cid: Option<ClauseId> = match copied.len() {
+                        0 => None,
+                        1 => {
+                            asg.assign_by_decision(copied[0]);
+                            None
+                        }
+                        _ => Some(cdb.new_clause(asg, &mut copied.clone(), true, false)),
+                    };
+                    asg.assign_by_decision(!*l);
+                    let cc = asg.propagate(cdb);
+                    if !cc.is_none() {
+                        let r = cdb[cc].lits.clone(); // Rule 3
+                        copied = asg.minimize(cdb, &copied, &r);
+                        flipped = false;
+                    }
+                    asg.cancel_until(asg.root_level);
+                    if let Some(cj) = cid { cdb.detach(cj); }
+                    if !cc.is_none() { break 'this_clause; }
+                    copied.push(!*l); // Rule 4
+                }
+            }
+        }
+        if flipped { flip(&mut copied); }
+        match copied.len() {
+            0 if flipped => return Err(SolverError::Inconsistent),
+            0 => cdb.detach(ci),
+            1 => {
+                let l0 = copied[0];
+                cdb.certificate_add(&copied);
+                if asg.assigned(l0) == None {
+                    asg.assign_at_rootlevel(l0)?;
+                    if !asg.propagate(cdb).is_none() {
+                        return Err(SolverError::Inconsistent);
+                    }
+                }
+                cdb.detach(ci);
+            }
+            n if n == clits.len() => (),
+            n => {
+                cdb.new_clause(asg, &mut copied);
+                cdb.detach(ci);
+            }
+        }
+        clauses.retain(|ci| !cdb[ci].is(Flag::DEAD));
+    }
+    Ok(())
+}
+```
