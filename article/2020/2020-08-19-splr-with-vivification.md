@@ -1,7 +1,7 @@
 ---
 title: Implementing vivification on Splr
 subtitle: vivification part 3
-date: 2020-08-19
+date: 2020-08-21
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
 ---
@@ -25,5 +25,5 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 ## 2. なぜかAssignStack中に未割り当てリテラルが出現する
 
-
+答え：変数への仮割り当ての前提条件の検査が不十分だった。
 
