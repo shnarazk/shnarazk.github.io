@@ -35,6 +35,10 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 理由：Eliminatorがバグってた！
 
+## 5. Eliminatorを直しても以下省略
+
+理由：`cdb.detach(); cdb.garbage_collect();` が非常に怪しい。
+
 # 最終版
 
 ```rust
