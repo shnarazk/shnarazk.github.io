@@ -1,5 +1,5 @@
 ---
-title: Implementing vivification on Splr
+title: Implementing clause vivification on Splr
 subtitle: vivification part 3
 date: 2020-08-21
 tags: ["SAT", "vivification", "splr"]
@@ -38,6 +38,10 @@ c Ignoring deletion of non-existent clause (pos 30441)
 ## 5. Eliminatorを直しても以下省略
 
 理由：`cdb.detach(); cdb.garbage_collect();` が非常に怪しい。
+
+## 6. `propagate`しなくてもおかしくなる
+
+理由：節の追加削除しか原因はない。
 
 # 最終版
 
