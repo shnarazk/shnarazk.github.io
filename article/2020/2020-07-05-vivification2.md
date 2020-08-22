@@ -1,7 +1,7 @@
 ---
 title: Clause Vivification updated 2020
 subtitle: vivification part 2
-date: 2020-08-21
+date: 2020-08-22
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 ---
@@ -34,7 +34,8 @@ Vivificationは魅力的な節削減手法のでSAT competitionに提出され�
 * ~~なんか怪しい。なぜ $\phi \cup \neg C'$ なのだ？ どうして$C$に含まれていたリテラルの否定を集めた節が$\text{vivified} C = C'$ なのだ~~ ここがミソ。
 * 何にせよ最初に存在した節は17行目で必ず削除される。
 * 17行目は一つ内側のループに含まれるはずですけど。
-
+* この関数は決定レベル0を想定していない。だから`conflictAnalysis`を呼び出している。もし決定レベル0を想定するなら、これは決定変数の否定からなる単位節を返す処理に帰着する。従ってL10は $C' \leftarrow \{l_i\}$と等価だか、そもそも$l_i$は割り当て済みだから何もしないのと同等。L13では、$\neg l_i$が決定変数なので、
+$C' \leftarrow \{l_i\}$と等価。結局矛盾が起きたら$l_i$を割り当てればよい。
 
 ### 節$C$が冗長であることを言う。
 
