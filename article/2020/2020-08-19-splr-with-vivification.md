@@ -51,6 +51,7 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 ![](/img/2020/08-19/Algorithm4_conflAnalysis.jpg)
 
+![](/img/2020/07-05/vivi-algo3.jpg)
 
 # 最終版
 
