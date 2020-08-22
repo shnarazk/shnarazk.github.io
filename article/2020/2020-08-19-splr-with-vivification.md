@@ -43,6 +43,11 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 理由：節の追加削除しか原因はない。
 
+## 7. Rule. 3の解釈が怪しい
+
+> **Rule_3**: If $UP(\phi \cup \{\neg l_1, \ldots, \neg l_i \}) = 2$, then $\phi \cup \{\neg l_1, \ldots, \neg l_i \}$ is unsatisfiable and clause $l1_ \vee \cdots \vee l_i$ is a logical consequence of $\phi$ and could replace $C$. However, as before, let $R$ be the set of literals of the falsified clause, $conflAnalysis(\phi, \neg C' \cup \{\neg l_i \}, R)$, which is a sub-clause of $l_1 \vee \cdots \vee l_i$ .
+
+
 # 最終版
 
 ```rust
