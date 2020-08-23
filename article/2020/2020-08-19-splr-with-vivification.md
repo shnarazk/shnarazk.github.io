@@ -56,7 +56,7 @@ c Ignoring deletion of non-existent clause (pos 30441)
 大丈夫なようだ。矛盾しているリテラルを拾うためにリテラルベースではなく、変数ベースでアクセスしている。
 特に問題はない。例えば節長が1の学習節をcertificateに含めても問題は発生しない。
 
-## 8. 節長2以上の学習節を certificate に含めると証明にならない
+## 8. 生成された節を certificate に含めると証明にならない
 
 理由：**Algorithm 4**は間違い。もし最上位レベルでの含意によって割り当てられるリテラルだけからなる節によって矛盾が発生したとする。この場合**Algorithm 4**では決定変数が学習節に含まれない。なので**Algorithm 4**は以下であるべき。
 
@@ -79,6 +79,8 @@ c Ignoring deletion of non-existent clause (pos 30441)
   }
 ```
 
+**2020-08-23: これでバグが取れた！**
+
 # 最終版
 
 ```rust
@@ -92,18 +94,12 @@ pub fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) -> MaybeInconsistent {
             match asg.assigned(*l) {
                 Some(false) => continue 'this_clause, // Rule 1
                 Some(true) => {
-                    copied.push(!*l);
-                    let r = asg.reason_literals(cdb, *l);
-                    let mut v = Vec::new();
-                    for lit in &*r {
-                        if *lit == *l { v.push(!*lit); } else { v.push(*lit); }
-                    }
-                    copied = asg.minimize(cdb, &copied, &v); // Rule 2
+                    // This path is optimized for the case the decision level is zero.
+                    copied.clear();
                     flipped = false;
                     break 'this_clause;
                 }
                 None => {
-                    asg.cancel_until(asg.root_level);
                     let cid: Option<ClauseId> = match copied.len() {
                         0 => None,
                         1 => {
@@ -116,8 +112,8 @@ pub fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) -> MaybeInconsistent {
                     let cc = asg.propagate(cdb);
                     if !cc.is_none() {
                         let r = cdb[cc].lits.clone(); // Rule 3
-                        copied = asg.minimize(cdb, &copied, &r);
-                        flipped = false;
+                        copied = asg.analyze(cdb, &copied, &r, &mut seen);
+                        if copied.is_empty() { break 'this_clause; }
                     }
                     asg.cancel_until(asg.root_level);
                     if let Some(cj) = cid { cdb.detach(cj); }
