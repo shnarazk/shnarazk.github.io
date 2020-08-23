@@ -56,7 +56,7 @@ c Ignoring deletion of non-existent clause (pos 30441)
 大丈夫なようだ。矛盾しているリテラルを拾うためにリテラルベースではなく、変数ベースでアクセスしている。
 特に問題はない。例えば節長が1の学習節をcertificateに含めても問題は発生しない。
 
-## 8. 生成された節を certificate に含めると証明にならない
+## 8. しかし生成された節を certificate に含めると証明にならない
 
 理由：**Algorithm 4**は間違い。もし最上位レベルでの含意によって割り当てられるリテラルだけからなる節によって矛盾が発生したとする。この場合**Algorithm 4**では決定変数が学習節に含まれない。なので**Algorithm 4**は以下であるべき。
 
@@ -111,9 +111,10 @@ pub fn vivify(asg: &mut AssignStack, cdb: &mut ClauseDB) -> MaybeInconsistent {
                     asg.assign_by_decision(!*l);
                     let cc = asg.propagate(cdb);
                     if !cc.is_none() {
+                        copied.push(!*l);
                         let r = cdb[cc].lits.clone(); // Rule 3
                         copied = asg.analyze(cdb, &copied, &r, &mut seen);
-                        if copied.is_empty() { break 'this_clause; }
+                        if !copied.is_empty() { flipped = false; }
                     }
                     asg.cancel_until(asg.root_level);
                     if let Some(cj) = cid { cdb.detach(cj); }
