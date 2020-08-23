@@ -1,7 +1,7 @@
 ---
 title: Implementing clause vivification on Splr
 subtitle: vivification part 3
-date: 2020-08-22
+date: 2020-08-23
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
 ---
@@ -52,6 +52,14 @@ c Ignoring deletion of non-existent clause (pos 30441)
 ![](/img/2020/08-19/Algorithm4_conflAnalysis.jpg)
 
 ![](/img/2020/07-05/vivi-algo3.jpg)
+
+大丈夫なようだ。矛盾しているリテラルを拾うためにリテラルベースではなく、変数ベースでアクセスしている。
+特に問題はない。例えば節長が1の学習節をcertificateに含めても問題は発生しない。
+
+## 8. 節長2以上の学習節を certificate に含めると証明にならない
+
+さあ問題の所在がはっきりしてきた。
+
 
 # 最終版
 
