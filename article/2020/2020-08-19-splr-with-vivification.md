@@ -58,8 +58,14 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 ## 8. 節長2以上の学習節を certificate に含めると証明にならない
 
-さあ問題の所在がはっきりしてきた。
+問題の所在がはっきりしてきた。
 
+* asserted literal $neg l_i$: $-17178$
+* sub clause $C'$: $\{ 17276, 17378, -17178\}$
+* conflicting clause $R$: $\{-17276, 17378, 17178\}$
+* learnt clause: $\{-17276, 17178\}$
+
+この結論は妥当か。
 
 # 最終版
 
