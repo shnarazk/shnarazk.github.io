@@ -60,21 +60,23 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 理由：*Algorithm 4*は間違い。もし最上位レベルでの含意によって割り当てられるリテラルだけからなる節によって矛盾が発生したとする。この場合*Algorithm 4*では決定変数が学習節に含まれない。*Algorithm 4*は以下であるべき。
 
-```
-fn analyze(asg: &AssignStack, cdb: &ClauseDB, lits: &[Lit], reason: &[Lit], ...) -> Vec<Lit> {
-     let mut res: Vec<Lit> = Vec::new();
-     for l in reason { seen[l.vi()] = key; }
-     for l in asg.stack_iter().rev() {
-         if seen[l.vi()] != key { continue; }
-         if lits.contains(l) {
-             res.push(!*l);
-         } else if lits.contains(&!*l) {
-             res.push(*l);
-         }
-         for r in asg.reason_literals(cdb, *l).iter() { seen[r.vi()] = key; }
-     }
-     res
- }
+```diff
+  fn analyze(asg: &AssignStack, cdb: &ClauseDB, lits: &[Lit], reason: &[Lit], ...) -> Vec<Lit> {
+       let mut res: Vec<Lit> = Vec::new();
+       for l in reason { seen[l.vi()] = key; }
+       for l in asg.stack_iter().rev() {
+           if seen[l.vi()] != key { continue; }
+           if lits.contains(l) {
+               res.push(!*l);
+-              continue;
+           } else if lits.contains(&!*l) {
+               res.push(*l);
+-              continue;
+           }
+           for r in asg.reason_literals(cdb, *l).iter() { seen[r.vi()] = key; }
+       }
+       res
+  }
 ```
 
 # 最終版
