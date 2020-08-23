@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 23 Aug 2020 06:50:05 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 23 Aug 2020 07:47:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -231,18 +231,23 @@ TBC]]></content:encoded>
             <title><![CDATA[Clause Vivification updated 2020]]></title>
             <link>https://shnarazk.github.io/2020/2020-07-05-vivification2</link>
             <guid>https://shnarazk.github.io/2020/2020-07-05-vivification2</guid>
-            <pubDate>Sat, 22 Aug 2020 00:00:00 GMT</pubDate>
+            <pubDate>Sun, 23 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/tYs9rjaT8Vc**
 
 Vivification についての調査第2弾、2018年投稿2019年公開の論文をまとめてみた。
 
 * Chu-Min Li *et al.*, "Clause vivification by unit propagation in CDCL SAT solvers,”*Artif. Intell.*, vol. 279, 2019.
 
+* [part 2](/2020/2020-08-19-splr-with-vivification/)
+
+### Errata
+
+* **Algorithm 3**のL17はforeachの内側
+* **Algorithm 4**のLL.9-10はthen節の中
+
 ### Outline
 
-Vivificationは魅力的な節削減手法のでSAT competitionに提出されるようなソルバに導入されたもの、その後改善が計算量に見合わないため、取り下げられることが続いてきた。
-この論文はどのタイミングで、どの節を、どのリテラルからvivifyすればよいかについて論じている。
-特に[原論文](/2020]]></content:encoded>
+Vivificationは魅力的な節削減手法ので]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Jun.]]></title>
