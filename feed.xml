@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 22 Aug 2020 14:06:40 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 23 Aug 2020 04:44:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -25,7 +25,7 @@ http://labs.timedia.co.jp/2017/07/sat25x2520.html
             <title><![CDATA[Implementing clause vivification on Splr]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-19-splr-with-vivification</link>
             <guid>https://shnarazk.github.io/2020/2020-08-19-splr-with-vivification</guid>
-            <pubDate>Sat, 22 Aug 2020 00:00:00 GMT</pubDate>
+            <pubDate>Sun, 23 Aug 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/-IMlv9Jlb24**
 
 Version 0.4.2 リリース直前のSplr、性能的には妥協できるものが出来たので次の課題は妥当性。
