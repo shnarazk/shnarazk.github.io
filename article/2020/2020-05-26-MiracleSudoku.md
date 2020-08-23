@@ -1,7 +1,7 @@
 ---
 title: What's Miracle Sudoku?
 subtitle: for a SAT solver developer
-date: 2020-06-01
+date: 2020-08-24
 tags: ["SAT", "splr", "sudoku"]
 banner: "https://images.unsplash.com/photo-1511689774932-3aca18459e68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
 ---
@@ -127,3 +127,26 @@ banner: "https://images.unsplash.com/photo-1511689774932-3aca18459e68?ixlib=rb-1
 ```
 
 となって、ビデオの解が唯一解であることも判明しました。
+
+## 2020-08-24
+
+Rust-jp slackでの近隣を辿るイテレータというアイデアがよさそうだったので乗り換えた。
+
+```diff
+    let mut rules = Vec::new();
+    for i in 1..=RANGE {
+        for j in 1..=RANGE {
+            let p = Pos::at(i, j);
+-            for m in moves.iter() {
+-                if let Some(t) = (p + *m).valid() {
+-                    for d in 1..=RANGE as usize {
+-                        rules.push(p.state(d, true).requires(t.state(d, false)));
+-                    }
++            for q in p.neighbors(&moves) {
++                for d in 1..=RANGE as usize {
++                    rules.push(p.state(d, true).requires(q.state(d, false)));
+                 }
+             }
+        }
+    }
+```
