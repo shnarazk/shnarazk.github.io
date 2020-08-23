@@ -58,14 +58,24 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 ## 8. 節長2以上の学習節を certificate に含めると証明にならない
 
-問題の所在がはっきりしてきた。
+理由：*Algorithm 4*は間違い。もし最上位レベルでの含意によって割り当てられるリテラルだけからなる節によって矛盾が発生したとする。この場合*Algorithm 4*では決定変数が学習節に含まれない。*Algorithm 4*は以下であるべき。
 
-* asserted literal $neg l_i$: $-17178$
-* sub clause $C'$: $\{ 17276, 17378, -17178\}$
-* conflicting clause $R$: $\{-17276, 17378, 17178\}$
-* learnt clause: $\{-17276, 17178\}$
-
-この結論は妥当か。
+```
+fn analyze(asg: &AssignStack, cdb: &ClauseDB, lits: &[Lit], reason: &[Lit], ...) -> Vec<Lit> {
+     let mut res: Vec<Lit> = Vec::new();
+     for l in reason { seen[l.vi()] = key; }
+     for l in asg.stack_iter().rev() {
+         if seen[l.vi()] != key { continue; }
+         if lits.contains(l) {
+             res.push(!*l);
+         } else if lits.contains(&!*l) {
+             res.push(*l);
+         }
+         for r in asg.reason_literals(cdb, *l).iter() { seen[r.vi()] = key; }
+     }
+     res
+ }
+```
 
 # 最終版
 
