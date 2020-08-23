@@ -58,7 +58,7 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 ## 8. 節長2以上の学習節を certificate に含めると証明にならない
 
-理由：*Algorithm 4*は間違い。もし最上位レベルでの含意によって割り当てられるリテラルだけからなる節によって矛盾が発生したとする。この場合*Algorithm 4*では決定変数が学習節に含まれない。*Algorithm 4*は以下であるべき。
+理由：**Algorithm 4**は間違い。もし最上位レベルでの含意によって割り当てられるリテラルだけからなる節によって矛盾が発生したとする。この場合**Algorithm 4**では決定変数が学習節に含まれない。なので**Algorithm 4**は以下であるべき。
 
 ```diff
   fn analyze(asg: &AssignStack, cdb: &ClauseDB, lits: &[Lit], reason: &[Lit], ...) -> Vec<Lit> {

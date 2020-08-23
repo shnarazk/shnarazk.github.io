@@ -1,7 +1,7 @@
 ---
 title: Clause Vivification updated 2020
 subtitle: vivification part 2
-date: 2020-08-22
+date: 2020-08-23
 tags: ["SAT", "vivification", "splr"]
 banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 ---
@@ -10,6 +10,13 @@ banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1
 Vivification についての調査第2弾、2018年投稿2019年公開の論文をまとめてみた。
 
 * Chu-Min Li *et al.*, "Clause vivification by unit propagation in CDCL SAT solvers,”*Artif. Intell.*, vol. 279, 2019.
+
+* [part 2](/2020/2020-08-19-splr-with-vivification/)
+
+### Errata
+
+* **Algorithm 3**のL17はforeachの内側
+* **Algorithm 4**のLL.9-10はthen節の中
 
 ### Outline
 
