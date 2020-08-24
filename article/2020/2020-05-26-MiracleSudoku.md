@@ -130,7 +130,7 @@ banner: "https://images.unsplash.com/photo-1511689774932-3aca18459e68?ixlib=rb-1
 
 ## 2020-08-24
 
-Rust-jp slackでの近隣を辿るイテレータというアイデアがよさそうだったので乗り換えた。
+Rust-jp slackでの[近隣を辿るイテレータ](https://github.com/shnarazk/miracle_sudoku/commit/565e09a45074fd13ac414737836cfcc5e92d40ca)というアイデアがよさそうだったので乗り換えました。
 
 ```diff
     let mut rules = Vec::new();
