@@ -4,9 +4,19 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 30 Aug 2020 07:12:24 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 30 Aug 2020 14:18:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Zoomについて]]></title>
+            <link>https://shnarazk.github.io/2020/2020-08-30-zoom</link>
+            <guid>https://shnarazk.github.io/2020/2020-08-30-zoom</guid>
+            <pubDate>Mon, 31 Aug 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[* [Zoom Windows clientがブラウザに保存されたCookieをアンインストール時に操作していることが判明](https://gigazine.net/news/20200828-zoom-read-write-cookie/), 2020-08-28
+* [NASA, ドイツ外務省が使用制限、バンク・オブ・アメリカ、ダイムラー、エリクソンが使用禁止](https://wedge.ismedia.jp/articles/-/19630), シンガポール政府は使用禁止解除
+* [Googleがオンラインビデオ会議アプリ「Zoom」の使用を禁止](https://gigazine.net/news/20200409-google-bans-zoom/), 2020-04-09
+* [台湾行政院が政府機関でのZoom使用を禁止](https://jp.techcrunch.com]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Rust製の「SATソルバーで25x25のナンプレが解けるだろうか」]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-19-sudoku25</link>
@@ -375,21 +385,6 @@ Splr-0.4.0以降の分をまとめると
 
 * incremental SATソルバの実装
 * stabilizationの解釈と変数選択機構の実装]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[What's Miracle Sudoku?]]></title>
-            <link>https://shnarazk.github.io/2020/2020-05-26-MiracleSudoku</link>
-            <guid>https://shnarazk.github.io/2020/2020-05-26-MiracleSudoku</guid>
-            <pubDate>Mon, 24 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[25日のHacker Newsで初めて知ったMiracle Sudoku。[ビデオ](https://www.youtube.com/watch?v=cvEq_XkQg8U)の横に書いてあることから判断するに
-
-* Normal Sudoku rules apply.
-* ナイトまたはキングが1hopで行ける場所には同じ数は置けない: Any two cells separated by a knight's move or a king's move (in chess) cannot contain the same digit.
-* 近接した4近傍には連続する数列は置けない: Any two orthogonally adjacent cells cannot contain consecutive digits.
-
-さあSATソルバの出番。
-
-# 2020-05-30 mokumo]]></content:encoded>
         </item>
     </channel>
 </rss>
