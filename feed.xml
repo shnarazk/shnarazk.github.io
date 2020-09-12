@@ -4,9 +4,22 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 31 Aug 2020 23:09:18 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 12 Sep 2020 00:58:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2020, Aug.]]></title>
+            <link>https://shnarazk.github.io/2020/2020-09-12-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2020/2020-09-12-UNSATlog</guid>
+            <pubDate>Sat, 12 Sep 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[## 8月の目玉
+
+[Splr-0.5.0](https:://crates.io/crates/splr/)をリリースしました。表立ってはclause vilification の導入です。一方裏ではリスタートの尺度がオリジナルなものへ変更されました。これは今のところ充分な評価ができてないのでChangelogではundocumentedで済ませたという代物。宿題です。
+
+## Glucose-4.1との比較
+
+前回, Glucoseと比べて全然遅いという話をしましたが、0.5.0はタイムアウトを100秒に設定するとoutperformできるようになりました。結構早い段階でこの成果は出ていたのですが、タイムアウトを500秒に伸ばすと100秒での求解数が10近くも落ちてしまうため、本当にいいのかどうかなんとも言えない。これはSplrがタイムアウト時間を考慮して{pre, in}-proce]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Zoomについて]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-30-zoom</link>
@@ -359,32 +372,6 @@ Linuxに比べてmacOSはRustのプロファイリングが不自由だなあ。
 残念だけど、opensshのバージョン問題で単に`cargo install`とするだけではコンパイルできないようです。
 brewを使っているのが前提になっているのだろうか。
 うーん、これはいつもの]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, May.]]></title>
-            <link>https://shnarazk.github.io/2020/2020-05-29-UNSATlog</link>
-            <guid>https://shnarazk.github.io/2020/2020-05-29-UNSATlog</guid>
-            <pubDate>Fri, 29 May 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[## Splr-0.4.1リリースの5月
-今月たてたissue及びブランチは以下の通り：
-
-* No restart for LR and Stabilization
-* 20200514-incremental
-* 20200524-handle
-* 20200502-new-select
-* 20200503-litpointer-on-0.3.1
-* 20200509-new-rephrase
-* 20200510-restart-for-lr
-* 20200514-incremental
-* 20200516-no-restart
-* 20200518-tuning
-* 20200524-dead
-* 20200524-handle
-
-Splr-0.4.0以降の分をまとめると
-
-* incremental SATソルバの実装
-* stabilizationの解釈と変数選択機構の実装]]></content:encoded>
         </item>
     </channel>
 </rss>
