@@ -4,9 +4,22 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 12 Sep 2020 00:58:22 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 10 Oct 2020 13:24:07 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2020, Sep.]]></title>
+            <link>https://shnarazk.github.io/2020/2020-10-10-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2020/2020-10-10-UNSATlog</guid>
+            <pubDate>Sat, 10 Oct 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[## 怪我の8〜9月
+
+すっかり遅くなってしまった。あちこち怪我したせいで色々と時間をとられてしまいました。9月はパラメータチューニングだけやって0.5.2をリリースするつもりだったのだけど、実行時間に対して求解可能問題が単調に増えるソルバにしたくてやっている最中にまた脱線してしまいました。ということで特に成果なし。強いて言うなら、
+
+* `StructOpts`への依存を削除。オブジェクトサイズがほぼ半減した！さらに`libc`への依存も実は std::time::{Duration, Instant}　で代替できたのでこれも削除。今やSplrが依存するのは`bitflags`だけ！
+
+* つい昨日気づいたけどリスタート延期の判断を矛盾発生時まで遅延させるのは筋が悪い。タイミングを逸している。作り直すべき。9月に散々試したいろいろなstabilizationの実験結果は全て放棄することに]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Aug.]]></title>
             <link>https://shnarazk.github.io/2020/2020-09-12-UNSATlog</link>
@@ -356,22 +369,6 @@ default_valueを空以外にすれば直るのだが、それは困る、Option�
 
 ```rust
     #[clap(long]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[How to compile cargo-instruments]]></title>
-            <link>https://shnarazk.github.io/2020/2020-06-07-cargo-instruments</link>
-            <guid>https://shnarazk.github.io/2020/2020-06-07-cargo-instruments</guid>
-            <pubDate>Sun, 07 Jun 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[## Rustでプロファイリングしたいんじゃあ
-
-valgrindは動くけど、perfはない、massive-visualizerもない。
-Linuxに比べてmacOSはRustのプロファイリングが不自由だなあ。
-それでも、まともなLinuxマシンが手元にないのでなんとかmac上でプロファイリングしなければならない。
-何かインストールしなければ。
-いくつか調べてみて（そもそも検索でヒットするページが意外なほど少ないのだけど）[cargo-instruments](https://crates.io/crates/cargo-instruments)というのがよさそうだということがわかりました。
-残念だけど、opensshのバージョン問題で単に`cargo install`とするだけではコンパイルできないようです。
-brewを使っているのが前提になっているのだろうか。
-うーん、これはいつもの]]></content:encoded>
         </item>
     </channel>
 </rss>
