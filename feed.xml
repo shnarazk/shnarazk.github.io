@@ -4,9 +4,36 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 13 Oct 2020 23:54:50 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 31 Oct 2020 00:28:46 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2020, Oct.]]></title>
+            <link>https://shnarazk.github.io/2020/2020-10-31-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2020/2020-10-31-UNSATlog</guid>
+            <pubDate>Sat, 31 Oct 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# 相変わらず停滞中
+
+リリースしたり夏休みの宿題をしたりするはずだった9月、10月が過ぎ、相変わらず停滞中です。
+
+## 0.5.1のリリース
+
+Monotonusにするついでのリスタートパラメータの設定が泥沼。それでも、少なくとも
+
+* `block_restart`, `force_restart`の復活
+* `structopt`, `libc`依存性の削除
+
+という内部的なそれなりの変更はコミット済み。
+しかし、あまりに長い膠着状態なので、これ以上色々なアイデアを導入するのは一旦放棄しました。
+
+## Sudoku25
+
+いやー全然ダメだわ。数十秒で解けたというのが信じられない。これもベンチマークの対象に入れて、一ヶ月色々なパラメータで試してみたけど約10040変数からの停滞から脱出できない。
+
+## SAT Competition 2020
+
+試行錯誤に時間を取られていまだにキ]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Sep.]]></title>
             <link>https://shnarazk.github.io/2020/2020-10-10-UNSATlog</link>
@@ -347,28 +374,6 @@ Splr でいうところの `processor` が節数に対する制約内での網�
 * 「小説」であった。同時代の有名人が毎回登場して絡んでいく。なんか早坂暁の「天下御免」を思い出した。
 * なので伊能忠敬に関するドラマ化というよりも、アイヌ問題とか、農民の困窮生活とか、学閥間の争いとか、御家騒動とか、大名間の闘争とか、ドロドロした話が一話完結的に展開していく。
 * 主人公が百姓上がりということから、特にその時代の百姓の生活が色々と描かれている。そういう時代を舞台にしたものは米村圭伍、岡本綺堂、半村良、NHK土曜時代劇くらいしか読んだ（り見たりした）こと]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Clap-3.0.0-beta.1]]></title>
-            <link>https://shnarazk.github.io/2020/2020-06-13-clap3</link>
-            <guid>https://shnarazk.github.io/2020/2020-06-13-clap3</guid>
-            <pubDate>Sat, 13 Jun 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[[Clap](https://crates.io/crates/clap)-3.0だと[StructOpt](https://crates.io/crates/structopt)が要らなくなるのでclap-3.0.0-beta.1をちょっと試してみた。
-
-### 1. PathBufの取扱いの違い
-
-StructOptでは問題なくオプションになる以下のフィールドは、
-
-```rust
-   #[structopt(long = "result", default_value = "", parse(from_os_str))]
-   pub result: PathBuf,
-```
-
-Clapでは引数が指定されてないエラーを起こしてしまう。
-default_valueを空以外にすれば直るのだが、それは困る、Optionでくるむことにした：
-
-```rust
-    #[clap(long]]></content:encoded>
         </item>
     </channel>
 </rss>
