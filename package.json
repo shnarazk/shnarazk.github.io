@@ -18,7 +18,7 @@
     "now": "npm run update && nuxt build && nuxt start"
   },
   "dependencies": {
-    "@iktakahiro/markdown-it-katex": "^4.0.0",
+    "@iktakahiro/markdown-it-katex": "^4.0.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/bulma": "^1.3.0",
     "@nuxtjs/feed": "^2.0.0",
@@ -27,17 +27,17 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "bulma": "^0.9.1",
     "markdown-it-highlightjs": "^3.3.0",
-    "nuxt": "^2.14.6",
-    "processmd": "^4.5.0",
-    "vue-scrollto": "^2.19.1"
+    "nuxt": "^2.14.7",
+    "processmd": "^4.5.3",
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-config": "^4.0.0",
     "@nuxtjs/eslint-module": "^3.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.11.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-config-standard": "^14.1.1",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^16.0.1",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
@@ -45,12 +45,12 @@
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^7.0.1",
+    "eslint-plugin-standard": "^4.0.2",
+    "eslint-plugin-vue": "^7.1.0",
     "node-sass": "^4.14.1",
-    "nodemon": "^2.0.5",
+    "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
-    "sass-loader": "^10.0.3",
+    "sass-loader": "^10.0.4",
     "vue-eslint-parser": "^7.1.1"
   }
 }
