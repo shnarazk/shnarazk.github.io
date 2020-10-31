@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 31 Oct 2020 00:28:46 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 31 Oct 2020 02:44:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -26,13 +26,11 @@ Monotonusにするついでのリスタートパラメータの設定が泥沼�
 という内部的なそれなりの変更はコミット済み。
 しかし、あまりに長い膠着状態なので、これ以上色々なアイデアを導入するのは一旦放棄しました。
 
-## Sudoku25
+## []Sudoku25](/2020/2020-08-19-sudoku25/)
 
 いやー全然ダメだわ。数十秒で解けたというのが信じられない。これもベンチマークの対象に入れて、一ヶ月色々なパラメータで試してみたけど約10040変数からの停滞から脱出できない。
 
-## SAT Competition 2020
-
-試行錯誤に時間を取られていまだにキ]]></content:encoded>
+## ()SAT Co]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Sep.]]></title>
