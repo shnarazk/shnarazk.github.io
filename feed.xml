@@ -4,9 +4,16 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 06 Nov 2020 03:05:36 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 07 Nov 2020 13:50:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[LubyStabilization]]></title>
+            <link>https://shnarazk.github.io/2020/2020-11-07-LubyStabilization</link>
+            <guid>https://shnarazk.github.io/2020/2020-11-07-LubyStabilization</guid>
+            <pubDate>Sat, 07 Nov 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Luby seriesでstabilizationする。まだ結果が出てないだけども、これはいいかも！]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[SATソルバのベンチマークについて]]></title>
             <link>https://shnarazk.github.io/2020/2020-11-03-minimize-the-worst</link>
@@ -353,19 +360,6 @@ duplicateは複数持つのではなく何度でも現れるという意味だ�
 LBDによる層化は必ずしも正しいとは限らないと。
 
 変数に比べ節の尺度はそれほど注意が]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Vivification of a CNF formula]]></title>
-            <link>https://shnarazk.github.io/2020/2020-06-20-vivification</link>
-            <guid>https://shnarazk.github.io/2020/2020-06-20-vivification</guid>
-            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。
-（最新の話かと思っていたけど2008年とは。。。）
-
-* C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae,” *Front. Artif. Intell*. Appl., vol. 178, pp. 525–529, 2008.
-
-Splr でいうところの `processor` が節数に対する制約内での網羅的な変数除去と節包摂(clause subsumption)とを実行するのに対し、vivification は（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。
-節長を減らす方向でのみ置換するので、（節数の増加と引き換えに）]]></content:encoded>
         </item>
     </channel>
 </rss>
