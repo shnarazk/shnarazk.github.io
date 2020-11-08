@@ -4,9 +4,25 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 07 Nov 2020 13:50:17 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 08 Nov 2020 02:51:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[JSONファイルをドラッグ&ドロップする]]></title>
+            <link>https://shnarazk.github.io/2020/2020-11-08-Drop-a-JSON-file</link>
+            <guid>https://shnarazk.github.io/2020/2020-11-08-Drop-a-JSON-file</guid>
+            <pubDate>Sun, 08 Nov 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[画像ファイルとかURLとかをドロップする話はそこそこ見つかるけど、JSONファイルをドロップするのに手こずったのでメモ。
+
+```swift
+  NavigationView { ... }
+  .onDrop(of: ["public.json"], isTargeted: nil) { providers, location in
+       if let item = providers.first {
+           item.loadItem(forTypeIdentifier: "public.json", options: nil) { (urlData, error) in
+               if let url = urlData as? URL {
+                   self.json = loadJson(url: url)
+ ]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[LubyStabilization]]></title>
             <link>https://shnarazk.github.io/2020/2020-11-07-LubyStabilization</link>
@@ -344,22 +360,6 @@ Vivificationは魅力的な節削減手法ので]]></content:encoded>
 * C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae," *Front. Artif. Intell. Appl.*, vol. 178, pp. 525–529, 2008.
 
 短い論文だったし、アルゴリズムもそれほど難しいものでは]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Duplicate Learnt Clauses]]></title>
-            <link>https://shnarazk.github.io/2020/2020-06-22-duplicate-learnt-clause</link>
-            <guid>https://shnarazk.github.io/2020/2020-06-22-duplicate-learnt-clause</guid>
-            <pubDate>Tue, 23 Jun 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Google Scholar alert 発令。今日のお題は「重複した学習節による速度向上」！？
-
-* S. Kochemazov, O. Zaikin, A. Semenov, and V. Kondratiev, "Speeding Up CDCL Inference With Duplicate Learnt Clauses," *24th European Conference on Artificial Intelligence - ECAI2020*, 2020.
-
-duplicateは複数持つのではなく何度でも現れるという意味だ。
-そのような節を削除せずに保持することで求解数が向上する（そういう問題セットが存在する）とのこと。
-論文ではHash表を使って再出現を検知しようとしているようだ。
-LBDによる層化は必ずしも正しいとは限らないと。
-
-変数に比べ節の尺度はそれほど注意が]]></content:encoded>
         </item>
     </channel>
 </rss>
