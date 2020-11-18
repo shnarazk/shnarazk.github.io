@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 17 Nov 2020 23:59:25 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Nov 2020 01:56:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -27,8 +27,12 @@
             <title><![CDATA[LubyStabilization]]></title>
             <link>https://shnarazk.github.io/2020/2020-11-07-LubyStabilization</link>
             <guid>https://shnarazk.github.io/2020/2020-11-07-LubyStabilization</guid>
-            <pubDate>Sat, 07 Nov 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Luby seriesでstabilizationする。まだ結果が出てないだけども、これはいいかも！]]></content:encoded>
+            <pubDate>Wed, 18 Nov 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Luby seriesでstabilizationする。まだ結果が出てないだけども、これはいいかも！
+
+### 2020-11-18
+
+Luby Stabilization だかLuby Un-stabilization だか。]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[SATソルバのベンチマークについて]]></title>
