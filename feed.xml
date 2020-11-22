@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 21 Nov 2020 02:54:58 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 22 Nov 2020 12:41:16 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -113,7 +113,7 @@ Monotonusにするついでのリスタートパラメータの設定が泥沼�
             <title><![CDATA[Rust製の「SATソルバーで25x25のナンプレが解けるだろうか」]]></title>
             <link>https://shnarazk.github.io/2020/2020-08-19-sudoku25</link>
             <guid>https://shnarazk.github.io/2020/2020-08-19-sudoku25</guid>
-            <pubDate>Wed, 18 Nov 2020 00:00:00 GMT</pubDate>
+            <pubDate>Sun, 22 Nov 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[何の調べ物をしていたのか忘れましたが、偶然こんなものを見つけました。
 http://labs.timedia.co.jp/2017/07/sat25x2520.html
 
