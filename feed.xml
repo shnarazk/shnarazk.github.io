@@ -4,9 +4,25 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Wed, 25 Nov 2020 01:17:55 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 04 Dec 2020 03:44:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2020, Nov.]]></title>
+            <link>https://shnarazk.github.io/2020/2020-12-04-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2020/2020-12-04-UNSATlog</guid>
+            <pubDate>Fri, 04 Dec 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# 冬眠への道
+
+今年もいよいよあと一ヶ月となってきました。夏からずっと取り組んでいるSplrのバージョン0.5.1はおそらく0.6.0としてリリースすることになると思うけどもう少し時間かかりそう。Splrの新版がリリースできたら今年の残りは勉強と研究に当てようと思う。絶対、論文読んだ方がいいよなあ。読みかけの専門書も溜まっているし。おっと、その前に夏休みの宿題を終わらせねば。節の有効性と取得環境の関係についてというテーマでいいはずだけど。積み残しが山のようだ。これではとても一ヶ月で終わりそうにないな。
+
+# Sudoku25
+
+今月はSudoku25に振り回された一ヶ月でした。実はSAT符合化に問題があったのでCNFファイルを作り直したら一瞬で解けるようになったものの、それ以前は1日CPUをぶん回しても解けなかったので色々とソルバーに手を入れてました。
+
+```text
+$ cargo ]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[JSONファイルをドラッグ&ドロップする]]></title>
             <link>https://shnarazk.github.io/2020/2020-11-08-Drop-a-JSON-file</link>
@@ -350,24 +366,6 @@ Vivification についての調査第2弾、2018年投稿2019年公開の論文�
 ### Outline
 
 Vivificationは魅力的な節削減手法ので]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Jun.]]></title>
-            <link>https://shnarazk.github.io/2020/2020-07-05-UNSATlog</link>
-            <guid>https://shnarazk.github.io/2020/2020-07-05-UNSATlog</guid>
-            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# 6月の総括
-
-先月、性能良くなってきたのでなんとかかんとかと書いたのですが、実はGlucose 4.1よりも全然改善されてないことがわかったので、前言撤回。どうしたものか半分途方にくれた6月でした。
-後半は気を取り直して、[vivificationの実装](https://shnarazk.github.io/2020/2020-06-20-vivification/)に取り組みました。
-
-# Vivification
-
-読んだのは2008年の論文。
-
-* C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae," *Front. Artif. Intell. Appl.*, vol. 178, pp. 525–529, 2008.
-
-短い論文だったし、アルゴリズムもそれほど難しいものでは]]></content:encoded>
         </item>
     </channel>
 </rss>
