@@ -4,9 +4,26 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 13 Dec 2020 13:39:16 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Dec 2020 06:51:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Rust製のSATソルバーで64x64のSudokuが解けるだろうか]]></title>
+            <link>https://shnarazk.github.io/2020/2020-12-18-sudoku64</link>
+            <guid>https://shnarazk.github.io/2020/2020-12-18-sudoku64</guid>
+            <pubDate>Fri, 18 Dec 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Splr-0.6.0のリリース直前のベンチマークをしながら、息抜きでもっと大きなSudokuを探してみました。
+
+http://www.sudoku-download.net/sudoku_64x64.php
+
+さあこの問題を[Splrで解いてみよう](https://github.com/shnarazk/miracle_sudoku/blob/master/src/bin/sudoku64.rs)。
+
+元データがpdfしかないので人手で取り込み、変換、間違いの修正に3時間掛かって、ようやくSplrの出番。20秒で正解でした。
+
+大きさの割に空欄が少ないのでN=25と比べてそんなに計算量は増えないだろうと思ったのが2桁近く増えてしまった。なかなか勘はあたらないものだなあ。
+
+ということで今日も5時間ほど遊んでしまった。はやく年賀状描かねば。。。]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Nov.]]></title>
             <link>https://shnarazk.github.io/2020/2020-12-04-UNSATlog</link>
@@ -344,28 +361,6 @@ TBC]]></content:encoded>
 
 0.4.2がいい結果を出しそうなので、それをリリースしてから、なぜ0.4.2がいいのかを説明できるようなものにしよう。
 "Lives of Clauses"は]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Clause Vivification updated 2020]]></title>
-            <link>https://shnarazk.github.io/2020/2020-07-05-vivification2</link>
-            <guid>https://shnarazk.github.io/2020/2020-07-05-vivification2</guid>
-            <pubDate>Sun, 23 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/tYs9rjaT8Vc**
-
-Vivification についての調査第2弾、2018年投稿2019年公開の論文をまとめてみた。
-
-* Chu-Min Li *et al.*, "Clause vivification by unit propagation in CDCL SAT solvers,”*Artif. Intell.*, vol. 279, 2019.
-
-* [part 2](/2020/2020-08-19-splr-with-vivification/)
-
-### Errata
-
-* **Algorithm 3**のL17はforeachの内側
-* **Algorithm 4**のLL.9-10はthen節の中
-
-### Outline
-
-Vivificationは魅力的な節削減手法ので]]></content:encoded>
         </item>
     </channel>
 </rss>
