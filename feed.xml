@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 18 Dec 2020 07:27:02 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Dec 2020 07:34:36 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -21,10 +21,9 @@ http://www.sudoku-download.net/sudoku_64x64.php
 元データがpdfしかないので人手で取り込み、変換、間違いの修正に3時間掛かって、ようやくSplrの出番。20秒で正解でした。
 
 大きさの割に空欄が少ないのでN=25と比べてそんなに計算量は増えないだろうと思ったのが2桁近く増えてしまった。なかなか勘はあたらないものだなあ。
-ちなみに生成されるCNFの大きさはこんな感じ。コミットしなくてよかった。
+ちなみに生成されるCNFの大きさはこんな感じ。
 
-```
-$ head -4 sudoku]]></content:encoded>
+* 変数数: 262144 = (2^6)^3 = 1M * 2^]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2020, Nov.]]></title>
