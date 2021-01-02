@@ -4,9 +4,32 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 18 Dec 2020 07:34:36 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 02 Jan 2021 06:25:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2020, Dec.]]></title>
+            <link>https://shnarazk.github.io/2021/2021-01-02-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-01-02-UNSATlog</guid>
+            <pubDate>Sat, 02 Jan 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# UNSATlog
+
+## 2020年振り返り
+
+結局0.5.1はリリースできませんでした。12月にやったことは
+
+- リフェーズ(re-phasing to best phase)に関するチューニング
+- Sudoku 64への応用
+- Advent of Code 2020への応用
+
+というあたり。
+個人的には、初めてVec以外のデータ構造(HashMap)を導入したことが大きいです。
+やはりリリース直前のベンチマークに時間を取られてしまったものの、ドキュメントの更新は終わっているので、ベンチマークさえいい結果、いやよくなくてもいいのでそこそこの結果が出ればリリースするつもりなので、最速で2021年元旦に出せるはず。
+
+## Best Phase Rewarding
+
+Rephasingの実現手法として変数のrewardに反映させてみた。活性度に反映させるのではなく独立した項目にして]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Rust製のSATソルバーで64x64のSudokuが解けるだろうか]]></title>
             <link>https://shnarazk.github.io/2020/2020-12-18-sudoku64</link>
@@ -340,28 +363,6 @@ impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
 
 など。
 TBC]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Lives of Clauses]]></title>
-            <link>https://shnarazk.github.io/2020/2020-07-18-summer-homework</link>
-            <guid>https://shnarazk.github.io/2020/2020-07-18-summer-homework</guid>
-            <pubDate>Mon, 24 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/UsSfqYdR64Q**
-
-# イントロとベルリンの壁
-
-論文書くのは仕事じゃない。しかし一年に一度くらいは開発ではなくて、文章をまとめる一ヶ月があってもいいかもね。そもそも今年もCompetitionに出しそびれたし。それに夏といえば、宿題やるのが日本の文化。
-9月1日提出に間に合うようになんかしよう。爆音で音楽聴きながらlatex的なことをしよう。
-
-# 2020-07-24
-
-* 旧題: Restart as A Multi-Armed Bandid Problem
-* 新題: Lives of Clauses
-
-# 2020-07-27
-
-0.4.2がいい結果を出しそうなので、それをリリースしてから、なぜ0.4.2がいいのかを説明できるようなものにしよう。
-"Lives of Clauses"は]]></content:encoded>
         </item>
     </channel>
 </rss>
