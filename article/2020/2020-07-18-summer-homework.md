@@ -1,7 +1,7 @@
 ---
 title: Lives of Clauses
 subtitle: 夏休み実験室
-date: 2021-01-13
+date: 2021-01-14
 tags: ["SAT", "splr"]
 banner: "https://images.unsplash.com/photo-1483528237748-d9d8b5cae06d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
 ---
@@ -47,3 +47,7 @@ Splr-0.4.2のリリースがずるずると延びてしまっていまだにと�
 ずっと案1のつもりだったけど、今日急に案2もいいかもと思い出した。
 どちらにしろ今週中には始めよう。
 夏休みの宿題を1月に始めるという意味で非常事態を宣言するのだ。
+
+# 2021-01-14
+
+[Splr-0.6.0](https://github.com/shnarazk/splr/commit/55c6161a17b18752d8c33f9a5de9ae8e25cc88fc) リリースした。夏休み開始。 
