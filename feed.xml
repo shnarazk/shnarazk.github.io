@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 17 Jan 2021 12:41:44 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 17 Jan 2021 12:51:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[Rust製のSATソルバーで144x144のSudokuを解こう]]></title>
-            <link>https://shnarazk.github.io/2020/2021-01-17-sudoku144</link>
-            <guid>https://shnarazk.github.io/2020/2021-01-17-sudoku144</guid>
-            <pubDate>Wed, 25 Nov 2020 00:00:00 GMT</pubDate>
+            <link>https://shnarazk.github.io/2021/2021-01-17-sudoku144</link>
+            <guid>https://shnarazk.github.io/2021/2021-01-17-sudoku144</guid>
+            <pubDate>Sun, 17 Jan 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[着々と巨大なSudokuが解けるようになったのでどんどん行きましょう。
 largeとかgiantとかを追加キーワードにして検索してとてもよさそうな[サイト](https://sudokugeant.cabanova.com/noflash.html)を見つけたけど、そのサイトはflushで書いてあって
 一切見れない。なんという時代（技術）の断絶！
