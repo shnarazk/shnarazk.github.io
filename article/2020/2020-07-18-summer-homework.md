@@ -1,7 +1,7 @@
 ---
-title: Lives of Clauses
+title: Similarity of Clauses
 subtitle: 夏休み実験室
-date: 2021-01-14
+date: 2021-01-18
 tags: ["SAT", "splr"]
 banner: "https://images.unsplash.com/photo-1483528237748-d9d8b5cae06d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
 ---
@@ -51,3 +51,7 @@ Splr-0.4.2のリリースがずるずると延びてしまっていまだにと�
 # 2021-01-14
 
 [Splr-0.6.0](https://github.com/shnarazk/splr/commit/55c6161a17b18752d8c33f9a5de9ae8e25cc88fc) リリースした。夏休み開始。 
+
+# 2021-01-18
+
+0.6.0はリリースしたけどどうせなら0.6.2をリリースしてから開始しよう。明日の予定。テーマはマルコフ性。
