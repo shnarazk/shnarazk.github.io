@@ -33,12 +33,11 @@ $ 適当にプロット
 
 ![](/img/2021/01-26/UUF250-cDL-ave.png)
 
+![](/img/2021/01-26/UUF250-cDL-heatmap.png)
 
-![](/img/2021/01-26/UUF250-cDL-LBD-heatmap.png)
+![](/img/2021/01-26/UUF250-rlt0-heatmap.png)
 
-![](/img/2021/01-26/UUF250-cDL-cDL-heatmap.png)
-
-![](/img/2021/01-26/UUF250-cDL-norestart-heatmap.png)
+![](/img/2021/01-26/UUF250-norestart-heatmap.png)
 
 
 UNDER CONSTRUCTION ここから先は全部取り替え。
