@@ -19,13 +19,13 @@
   },
   "dependencies": {
     "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/axios": "^5.13.0",
     "@nuxtjs/bulma": "^1.3.0",
     "@nuxtjs/feed": "^2.0.0",
-    "@nuxtjs/markdownit": "^1.2.10",
-    "@nuxtjs/pwa": "^3.3.4",
+    "@nuxtjs/markdownit": "^2.0.0",
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/style-resources": "^1.0.0",
-    "bulma": "^0.9.1",
+    "bulma": "^0.9.2",
     "markdown-it-highlightjs": "^3.4.0",
     "nuxt": "^2.14.12",
     "processmd": "^4.6.0",
@@ -35,8 +35,8 @@
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.18.0",
-    "eslint-config-prettier": "^7.1.0",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
@@ -46,11 +46,11 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.1.0",
-    "eslint-plugin-vue": "^7.4.1",
+    "eslint-plugin-vue": "^7.5.0",
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "sass-loader": "^10.1.1",
-    "vue-eslint-parser": "^7.3.0"
+    "vue-eslint-parser": "^7.4.1"
   }
 }
