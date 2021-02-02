@@ -4,9 +4,29 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 31 Jan 2021 13:16:21 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Feb 2021 08:25:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2021, Jan.]]></title>
+            <link>https://shnarazk.github.io/2021/2021-02-02-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-02-02-UNSATlog</guid>
+            <pubDate>Tue, 02 Feb 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# UNSATlog
+
+
+## 202101
+
+あけまして[Splr-0.6.0](https://github.com/shnarazk/splr/releases/tag/splr-0.6.0)出ました。
+それどころか[0.6.1](https://github.com/shnarazk/splr/releases/tag/splr-0.6.1)も[0.6.2](https://github.com/shnarazk/splr/releases/tag/Splr-0.6.2)も出ました。
+いやあ長かった。
+その割にはむしろ圧倒的に性能劣化してしまってますが十分にベンチマークを回すだけのリソースがないんだからしょうがない。
+どうでもいい「やってみたらよくなった」的な高速化は捨てる方向に舵を取ったのは長期的にはいい判断だと思いたい。
+
+## What’s Splr-0.6.0?
+
+Splr]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Rust製のSATソルバーで144x144のSudokuを解こう]]></title>
             <link>https://shnarazk.github.io/2021/2021-01-17-sudoku144</link>
@@ -341,27 +361,6 @@ switch x {
     default: break
 }
 ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[まとめて借用]]></title>
-            <link>https://shnarazk.github.io/2020/2020-07-25-lifetime-of-trait-object-type</link>
-            <guid>https://shnarazk.github.io/2020/2020-07-25-lifetime-of-trait-object-type</guid>
-            <pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[オブジェクトからフィールドを借用したい。
-借用したいオブジェクトの型がいくつもあり、型ごとに借用したい個数が違うので、できるだけgenericなtrait化が望ましい。
-よくわかってないとこの程度のことでもつまづいてしまうのでメモしておく。
-
-### Box
-
-困った時は一旦スタックに持っていく、そのために `Box` を使う、という定石を使ってみるとこうなる。
-
-```rust
-pub trait Export<'a, T> {
-    fn exports(&'a self) -> Box<T>;
-}
-
-impl<'a> Export<'a, (&'a Ema2, &'a Ema2, &'a Ema2, &'a Ema2)> for Restarter {
-    fn exports(&'a self) -> Box<(&'a Ema2, &'a Ema2, &'a Ema2, &']]></content:encoded>
         </item>
     </channel>
 </rss>
