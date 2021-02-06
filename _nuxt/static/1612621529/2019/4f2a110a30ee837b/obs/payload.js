@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/2019/4f2a110a30ee837b/obs", {data:[{article:{date:"2019-08-04T20:00:00.000Z",title:"Some Stats about Partial Restart",subtitle:"リスタートの2重化はその価値があるか",year:"2019",notebook:"4f2a110a30ee837b",tags:["SAT"]}}],fetch:[],mutations:[]});
