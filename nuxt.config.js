@@ -24,7 +24,7 @@ export default {
     fallback: true,
     routes: generateDynamicRoutes
   },
-  mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
