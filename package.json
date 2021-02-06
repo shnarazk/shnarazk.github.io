@@ -50,7 +50,7 @@
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "sass-loader": "^10.1.1",
+    "sass-loader": "^11.0.0",
     "vue-eslint-parser": "^7.4.1"
   }
 }
