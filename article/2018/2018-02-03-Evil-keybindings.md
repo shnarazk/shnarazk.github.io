@@ -1,7 +1,7 @@
 ---
 title: Evil (and vim) cheat sheet
 date: 2019-08-18
-tags: ["Emacs", "evil", "Vim"]
+tags: ['Emacs', 'evil', 'Vim']
 ---
 
 ## Basic :: object / mark / register
@@ -45,7 +45,8 @@ S{o}   - [Surround] surround object {o} in visual mode
 =      - expression register, taking an elisp expression
 :reg   - list up the contents
 ```
------
+
+---
 
 ## Normal Mode :: motion / operator
 
@@ -88,7 +89,7 @@ gg 	- go to first line
 ["{r}]p 	- put (paste) before cursor/current line [from register]
 ```
 
------
+---
 
 ## Normal Mode Command :: search / edit / movement
 
@@ -144,7 +145,7 @@ zt 	- jump to the top of screen
 zb 	- jump to the bottom of screen
 ```
 
------
+---
 
 ## Visual Mode :: mark / commands
 
@@ -172,7 +173,7 @@ v	- exit visual mode
 S 	- [Surround] insert surrounding
 ```
 
------
+---
 
 ## Insert Mode
 
@@ -185,12 +186,11 @@ Ctrl-y 		- copy a char in above line
 Ctrl-e 		- copy a char in below line
 ```
 
------
+---
 
 ## Interface :: buffer / windows / tab / exit
 
 #### buffer
-
 
 ```plaintext
 :edit filename 	- Edit a file in a new buffer
@@ -234,9 +234,9 @@ gT		- previous tab
 :help
 ```
 
------
+---
 
-##  Cliche
+## Cliche
 
 ```plaintext
 xp 		- transpose two letters (delete and paste, technically)
