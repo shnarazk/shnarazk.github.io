@@ -129,7 +129,6 @@ J 	- join line below to the current one
 q{m} 	- start recording a macro into {m}
 q 	- end macro recording
 @{m} 	- execute macro {m}
-ys 	- [Surround] change surrounding
 ```
 
 #### movement
@@ -239,6 +238,7 @@ gT		- previous tab
 ## Cliche
 
 ```plaintext
+cs({    - [Surround] change surrounding parens to curly braces
 xp 		- transpose two letters (delete and paste, technically)
 g~iw 		- switch case of current word
 guiw 		- make current word uppercase
