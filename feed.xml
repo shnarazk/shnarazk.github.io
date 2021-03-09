@@ -4,9 +4,30 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 09 Feb 2021 00:01:06 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 09 Mar 2021 14:41:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2021, Feb.]]></title>
+            <link>https://shnarazk.github.io/2021/2021-03-09-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-03-09-UNSATlog</guid>
+            <pubDate>Tue, 09 Mar 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# UNSAT log
+
+## 2月の振り返り
+
+2月はSplr-0.6シリーズのポイントリリースを2つ。
+まあ大したものではないのだけど、内部的にはイオンという考え方について色々試してみた。
+そして3月になってからリリースされた0.7.0で結局削除ということになりました。
+これも含め0.7.0はうまくいかないアイデアを結構整理して削除するようなリリースとなりました。
+
+## イオン
+
+非常に単純化してSAT求解過程のモデルを作るなら、無矛盾なリテラル集合を大きくしていく過程をイメージするのがいいだろう。
+この集合には変数活性度が高いものから組み込まれていく。
+なので、ここに含まれていない変数は大きな活性度は持っていないはずである。
+逆にこの条件を満足しない変数はそれ自身がある種のブロッカーすなわち「求解の妨げとなる変数」になっていると思われるので、（導入したステージベースのvar boo]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Jan.]]></title>
             <link>https://shnarazk.github.io/2021/2021-02-02-UNSATlog</link>
@@ -339,28 +360,6 @@ https://www.msoos.org/2020/07/cryptominisat-5-8-0-released/
 * Local search solver -- ふーむ、ここはまだ全然手を付けてない
 
 どうも、次に手をつけるべきは、うーむlocal search solverかなあ。]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Swiftのfallthroughについて]]></title>
-            <link>https://shnarazk.github.io/2020/2020-07-28-fallthrough-in-swift</link>
-            <guid>https://shnarazk.github.io/2020/2020-07-28-fallthrough-in-swift</guid>
-            <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[*The Swift Programming Language -- Swift 5.3 Edition (beta)* を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にした。
-
-> Program execution continues to the next case even if the patterns of the case label do not match the value of the switch statement’s control expression.
-
-playgroundで実行してみた。
-
-```swift
-var x = 1
-
-switch x {
-    case 1: print(1)
-            fallthrough
-    case 2: print(2)
-    default: break
-}
-]]></content:encoded>
         </item>
     </channel>
 </rss>
