@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 09 Mar 2021 14:41:41 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 12 Mar 2021 15:28:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Feb.]]></title>
             <link>https://shnarazk.github.io/2021/2021-03-09-UNSATlog</link>
             <guid>https://shnarazk.github.io/2021/2021-03-09-UNSATlog</guid>
-            <pubDate>Tue, 09 Mar 2021 00:00:00 GMT</pubDate>
+            <pubDate>Fri, 12 Mar 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# UNSAT log
 
 ## 2月の振り返り
