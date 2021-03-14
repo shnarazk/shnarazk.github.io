@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tag/gitlab", {data:[{}],fetch:[],mutations:[]});
