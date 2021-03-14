@@ -20,7 +20,7 @@ tags: ["NixOS"]
 
 ということで、多分12月頃からこうすればよかったようだ。
 
-```
+```shell
 $ nix flake init --impure
 $ nix build --impure
 ```
@@ -71,13 +71,13 @@ $ nix build --impure
 
 これを真似すればよさそうだが、この例ではsystemが `x86_64-linux` に限定されている。
 いや `darwin` メインだし将来的には `aarm7` も期待したいのでもっとスマートな方法はないかと探すと、
-Nix Wikiで使われているutilsがよさそうである。このパッケージは
+Nix Wikiで使われている[flake-utils](https://github.com/numtide/flake-utils)がよさそうである。このパッケージは
 
 ```nix
 eachDefaultSystem -> (<system> -> attrs)
 ```
 
-を提供している。ええと、これは返値がないのであるけど多分こういうこと：
+を提供している。ええと、これは返値がないように見えるけどこういうこと：
 
 ```haskell
 eachDefaultSystem : (<system> -> attrs) -> attrs
@@ -85,7 +85,7 @@ eachDefaultSystem : (<system> -> attrs) -> attrs
 
 ただし、使い方は微妙である。
 よくわからないまま使うと、例えば`defaultPackege.x86-64-darwin`がエクスポートされていないというエラーが出てしまった。
-でこの関数のサンプルをよく見る：
+でこれによく似た関数`eachSystem`の[サンプル](https://github.com/numtide/flake-utils#eachsystem---system---system---attrs)をよく見る：
 
 ```nix
 eachSystem allSystems (system: { hello = 42; })
@@ -95,7 +95,8 @@ eachSystem allSystems (system: { hello = 42; })
 }
 ```
 
-引数になっているclosureの中で`hello`を使うと最終的に`hello.${system}`にpopulateされるのだから、`defaultPackege.x86-64-色々なシステム`をpopulateするにはclosureの中では`defaultPackage`にderivationを束縛すればいいようなので：
+引数closureの中で`hello`を使うと最終的に`hello.${system}`にpopulateされるのだから、`defaultPackege.色々なシステム`をpopulateするにはclosureの中では`defaultPackage`にderivationを束縛すればいい。
+ということで
 
 ```nix
 {
@@ -110,7 +111,7 @@ eachSystem allSystems (system: { hello = 42; })
 ```
 
 とするのが正解。
-実際のコードは[これ](https://github.com/shnarazk/splr/blob/f34a664f0f031a9ffe0c4c63558f33ab6b90eec1/flake.nix)。
+[実際のコード](https://github.com/shnarazk/splr/blob/f34a664f0f031a9ffe0c4c63558f33ab6b90eec1/flake.nix)はこれ:
 
 ```nix
 {
@@ -136,5 +137,6 @@ eachSystem allSystems (system: { hello = 42; })
 これでgit cloneしてnix buildでインストールできるようになりました。
 うむ。簡単。
 オーバレイでnixパッケージ化するよりもお手軽なので、[SAT-bench](https://github.com/shnarazk/SAT-bench)も乗り換えるかも。
+
 初めてFlakesを知ってから半年というか約1年。
 長い道のりでした。
