@@ -4,9 +4,27 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 12 Mar 2021 15:28:41 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Mar 2021 04:59:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Nix flakeの作り方]]></title>
+            <link>https://shnarazk.github.io/2021/2021-03-14-nix-flakes</link>
+            <guid>https://shnarazk.github.io/2021/2021-03-14-nix-flakes</guid>
+            <pubDate>Sun, 14 Mar 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# Nix flake
+
+2021-03-08にnixのベータ版？が三ヶ月ぶりに更新されて、ようやくnixを置き換えてもエラーなく使えるようになりました。
+なので早速Splrで使ってみたのでいくつかメモ。
+
+## restricted modeとは
+
+`nix-env -u`でエラーはなくなったものの、flake.nixを作ろうとすると相変わらずrestricted modeではxxxxにアクセスできないというようなエラーが出る。これは`--impure`フラグを渡してやるといい。
+
+```text
+      When the --expr option is given, all installables are interpreted as  Nix  expressions.  You
+         may need to specify --impure if the exp]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Feb.]]></title>
             <link>https://shnarazk.github.io/2021/2021-03-09-UNSATlog</link>
@@ -345,21 +363,6 @@ Cコンパイラも動かないのでemacs27も作れない]]></content:encoded>
  先月、実装終わったつもりだったvivification。本当に効果あるのかどうかベンチマークを走らせているはずなんだけども、他のアイデアが出てきたりして、なかなかコードがフィックスしない。そして7月も下旬になってから実はエラーを出していたことが判明しました。Splrでは決定による含意での割り当てはエラーを返さないのが原因なので、割り当てチェックを走らせることで対応します（これでいいはず）。
 
 ## 節の重複検]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[What's new in CryptoMiniSat 5.8.0]]></title>
-            <link>https://shnarazk.github.io/2020/2020-07-28-whats-new-in-cryptmitsat580</link>
-            <guid>https://shnarazk.github.io/2020/2020-07-28-whats-new-in-cryptmitsat580</guid>
-            <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[もう今年のcompetition終わっていた。
-
-https://www.msoos.org/2020/07/cryptominisat-5-8-0-released/
-
-* Guass-Jordan Elimination とは? 変数ペアを作るのだろうか？ XOR制約がわかってないが他のソルバではどうなんだろう
-* CaDiCaL風のtarget phase。やはりやる価値があるのか。読み間違えているかなあ。
-* Local search solver -- ふーむ、ここはまだ全然手を付けてない
-
-どうも、次に手をつけるべきは、うーむlocal search solverかなあ。]]></content:encoded>
         </item>
     </channel>
 </rss>
