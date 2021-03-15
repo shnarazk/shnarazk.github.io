@@ -1,6 +1,6 @@
 ---
 title: Nix flakeの作り方
-subtitle: さあ来いnix-4.0
+subtitle: さあ来いnix-2.4
 date: 2021-03-14
 tags: ["NixOS"]
 banner: "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2400"
