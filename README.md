@@ -6,6 +6,9 @@
 
 ### History of the blog generator called *JANG*
 
+#### 1.0.3, 2021-03-16
+- add entry `banner_caption` in 'first matter'
+
 #### 1.0.2, 2020-08-14
 - Import entries from [GitHubGist](https://gist.github.com/)
 

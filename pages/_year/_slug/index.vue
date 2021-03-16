@@ -3,6 +3,9 @@
     <Header :title="article.title" />
     <div class="article-banner" v-if="article.banner">
         <img v-bind:src="article.banner">
+        <div v-if="article.banner-caption">
+          <i>{{ article.banner_caption }}</i>
+        </div>
     </div>
     <section class="section">
       <h1 class="title has-text-primary has-text-weight-semibold">

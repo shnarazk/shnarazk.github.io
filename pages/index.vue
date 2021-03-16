@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="Just a Note (version 1.0.2)" />
+    <Header title="Just a Note (version 1.0.3)" />
     <section class="section">
       <h1 class="title has-text-info has-text-weight-semibold">
         <i class="fas fa-book-open"></i>&thinsp;Table of Contents
