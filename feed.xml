@@ -4,9 +4,26 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 16 Mar 2021 04:47:49 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Mar 2021 12:26:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[衝撃の320変数3-SAT]]></title>
+            <link>https://shnarazk.github.io/2021/2021-03-16-3SAT-SC20-170058143</link>
+            <guid>https://shnarazk.github.io/2021/2021-03-16-3SAT-SC20-170058143</guid>
+            <pubDate>Tue, 16 Mar 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[まともなSAT solverなら250変数の3-SATなんて1秒程度で解け、その求解速度なんてなんの尺度にもならないものだろう。
+なので最近のSplrの開発は360変数の3-SATをマイクロベンチマークに使っている。
+最近はまあ「そこそこ待ち遠しくない時間」でSAT問題、UNSAT問題どちらも解けるようになってきていた。
+で、やっとSAT competition 2021での問題をつまみ食いし始めたのだけど、ある問題に衝撃を受けてしまった。
+
+それはSATな320変数3-SAT問題170058143.cnf。解けて当然だと思ってたのだが、5000秒タイムアウトで解けない。
+色々設定変えて、やっと解けたらこんな感じ：
+
+```
+$ splr ~/Library/SAT/SC20/170058143.cnf
+170058143.cnf                              ]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Nix flakeの作り方]]></title>
             <link>https://shnarazk.github.io/2021/2021-03-14-nix-flakes</link>
@@ -341,25 +358,6 @@ export NIX_IGNORE_SYMLINK_STORE=1
 /usr/lib/system/libcache.dylib がないのでrustプログラムがコンパイルできなくなっている。
 
 Cコンパイラも動かないのでemacs27も作れない]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Jul.]]></title>
-            <link>https://shnarazk.github.io/2020/2020-07-31-UNSATlog</link>
-            <guid>https://shnarazk.github.io/2020/2020-07-31-UNSATlog</guid>
-            <pubDate>Fri, 31 Jul 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# UNSATlog
-
-## 今月のキーワード
-* Debugging Vivification
-* Restricted Stabilization
-* Maximum LBD of Dependency Graph
-* Duplicated Bin-clause Checking
-* Change of Restart Point
-
-## Vivification update
- 先月、実装終わったつもりだったvivification。本当に効果あるのかどうかベンチマークを走らせているはずなんだけども、他のアイデアが出てきたりして、なかなかコードがフィックスしない。そして7月も下旬になってから実はエラーを出していたことが判明しました。Splrでは決定による含意での割り当てはエラーを返さないのが原因なので、割り当てチェックを走らせることで対応します（これでいいはず）。
-
-## 節の重複検]]></content:encoded>
         </item>
     </channel>
 </rss>
