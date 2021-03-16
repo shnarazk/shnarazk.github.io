@@ -7,7 +7,7 @@ banner: "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1
 banner_caption: https://unsplash.com/photos/U2L0qbBw9Jo
 ---
 
-2021-03-08にnixのベータ版？が三ヶ月ぶりに更新されて、ようやくnixを置き換えてもエラーなく使えるようになりました。
+2021-03-08にnixのベータ版？が三ヶ月ぶりに更新されて、ようやくnixを置き換えてもエラーなく使えるようになりました。（いやそうでもないみたいだぞ。。。@2021-03-16）
 なので早速Splrで使ってみたのでいくつかメモ。
 
 ## restricted modeとは
