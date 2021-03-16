@@ -16,10 +16,8 @@ banner: "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1
 
 `nix-env -u`でエラーはなくなったものの、flake.nixを作ろうとすると相変わらずrestricted modeではxxxxにアクセスできないというようなエラーが出る。これは`--impure`フラグを渡してやるといい。`nix --help`によると、
 
-```text
-When the --expr option is given, all installables are interpreted as Nix expressions. You
-   may need to specify --impure if the expression references impure inputs (such as <nixpkgs>).
-```
+> When the --expr option is given, all installables are interpreted as Nix expressions.
+> You may need to specify --impure if the expression references impure inputs (such as <nixpkgs>).
 
 ということで、多分12月頃からこうすればよかったようだ。
 
@@ -83,7 +81,7 @@ eachDefaultSystem -> (<system> -> attrs)
 を提供している。ええと、これは返値がないように見えるけどこういうこと：
 
 ```haskell
-eachDefaultSystem : (<system> -> attrs) -> attrs
+eachDefaultSystem :: (<system> -> attrs) -> attrs
 ```
 
 ただし、使い方は微妙である。
