@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 16 Mar 2021 12:26:28 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Mar 2021 23:10:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[衝撃の320変数3-SAT]]></title>
             <link>https://shnarazk.github.io/2021/2021-03-16-3SAT-SC20-170058143</link>
             <guid>https://shnarazk.github.io/2021/2021-03-16-3SAT-SC20-170058143</guid>
-            <pubDate>Tue, 16 Mar 2021 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 17 Mar 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[まともなSAT solverなら250変数の3-SATなんて1秒程度で解け、その求解速度なんてなんの尺度にもならないものだろう。
 なので最近のSplrの開発は360変数の3-SATをマイクロベンチマークに使っている。
 最近はまあ「そこそこ待ち遠しくない時間」でSAT問題、UNSAT問題どちらも解けるようになってきていた。
