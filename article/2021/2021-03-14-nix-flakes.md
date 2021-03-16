@@ -1,7 +1,7 @@
 ---
 title: Nix flakeの作り方
 subtitle: さあ来いnix-2.4
-date: 2021-03-14
+date: 2021-03-16
 tags: ["NixOS"]
 banner: "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2400"
 ---
@@ -141,3 +141,24 @@ eachSystem allSystems (system: { hello = 42; })
 
 初めてFlakesを知ってから半年というか約1年。
 長い道のりでした。
+
+### MacOSでRustのプログラムがコンパイルできない
+
+`framework Security`がないとか言われるなら、それはnixパッケージ化した時と同じような環境を作ってやらなければ。
+ということでwebまわりの機能を使うSAT-benchの場合は以下の修正が必要だった。
+
+```
+1 file changed, 1 insertion(+), 1 deletion(-)
+flake.nix | 2 +-
+
+modified   flake.nix
+@@ -8,7 +8,7 @@
+         stdenv.mkDerivation {
+           name = "SAT-bench";
+           src = self;
+-          buildInputs = [ cargo rustc ];
++          buildInputs = rustc.buildInputs ++ [ cargo rustc libiconv openssl pkgconfig ];
+           buildPhase = "cargo build --release";
+           installPhase = "mkdir -p $out/bin; install -t $out/bin target/release/sat-bench target/release/benchm";
+         }
+```
