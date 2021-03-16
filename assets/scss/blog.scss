@@ -4,14 +4,13 @@
   width: 100%;
   max-height: 60vh;
   overflow: hidden;
-  .article-banner-caption {
-    font-size: 0.8rem;
-    font-style: oblique;
-    text-align: center;
-    color: blue;
-  }
 }
-
+.article-banner-caption {
+  font-size: 0.8rem;
+  font-style: oblique;
+  text-align: center;
+  color: blue;
+}
 .entry-content {
   font-family: 'Noto Sans JP', sans-serif, 'Livvic', 'Times New Roman';
   font-size: 1rem;
