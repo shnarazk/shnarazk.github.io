@@ -4,7 +4,12 @@
   width: 100%;
   max-height: 60vh;
   overflow: hidden;
+  .article-banner_caption {
+    font-style: italic;
+    text-align: centr;
+  }
 }
+
 .entry-content {
   font-family: 'Noto Sans JP', sans-serif, 'Livvic', 'Times New Roman';
   font-size: 1rem;

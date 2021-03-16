@@ -3,7 +3,7 @@
     <Header :title="article.title" />
     <div class="article-banner" v-if="article.banner">
         <img v-bind:src="article.banner">
-        <div v-if="article.banner-caption">
+        <div class="article-banner-caption" v-if="article.banner-caption">
           <i>{{ article.banner_caption }}</i>
         </div>
     </div>
