@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 16 Mar 2021 01:03:43 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Mar 2021 04:12:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[Nix flakeの作り方]]></title>
             <link>https://shnarazk.github.io/2021/2021-03-14-nix-flakes</link>
             <guid>https://shnarazk.github.io/2021/2021-03-14-nix-flakes</guid>
-            <pubDate>Sun, 14 Mar 2021 00:00:00 GMT</pubDate>
+            <pubDate>Tue, 16 Mar 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# Nix flakes
 
 **cover image: https://unsplash.com/photos/U2L0qbBw9Jo**
