@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 16 Mar 2021 04:46:58 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Mar 2021 04:47:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -12,7 +12,7 @@
             <link>https://shnarazk.github.io/2021/2021-03-14-nix-flakes</link>
             <guid>https://shnarazk.github.io/2021/2021-03-14-nix-flakes</guid>
             <pubDate>Tue, 16 Mar 2021 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[2021-03-08にnixのベータ版？が三ヶ月ぶりに更新されて、ようやくnixを置き換えてもエラーなく使えるようになりました。（いやそうでもないみたいだぞ。。。@2021-03-16）
+            <content:encoded><![CDATA[2021-03-08にnix-2.4のpre-release版が三ヶ月ぶりに更新されて、ようやくnixを置き換えてもエラーなく使えるようになりました。（いやそうでもないみたいだぞ。。。@2021-03-16）
 なので早速Splrで使ってみたのでいくつかメモ。
 
 ## restricted modeとは
@@ -20,7 +20,7 @@
 `nix-env -u`でエラーはなくなったものの、flake.nixを作ろうとすると相変わらずrestricted modeではxxxxにアクセスできないというようなエラーが出る。これは`--impure`フラグを渡してやるといい。`nix --help`によると、
 
 > When the --expr option is given, all installables are interpreted as Nix expressions.
-> You may need to specify --impure]]></content:encoded>
+> You may need to speci]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Feb.]]></title>
