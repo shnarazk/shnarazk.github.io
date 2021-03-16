@@ -14,11 +14,11 @@ banner: "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1
 
 ## restricted modeとは
 
-`nix-env -u`でエラーはなくなったものの、flake.nixを作ろうとすると相変わらずrestricted modeではxxxxにアクセスできないというようなエラーが出る。これは`--impure`フラグを渡してやるといい。
+`nix-env -u`でエラーはなくなったものの、flake.nixを作ろうとすると相変わらずrestricted modeではxxxxにアクセスできないというようなエラーが出る。これは`--impure`フラグを渡してやるといい。`nix --help`によると、
 
 ```text
-      When the --expr option is given, all installables are interpreted as  Nix  expressions.  You
-         may need to specify --impure if the expression references impure inputs (such as <nixpkgs>).
+When the --expr option is given, all installables are interpreted as Nix expressions. You
+   may need to specify --impure if the expression references impure inputs (such as <nixpkgs>).
 ```
 
 ということで、多分12月頃からこうすればよかったようだ。
@@ -73,7 +73,7 @@ $ nix build --impure
 ```
 
 これを真似すればよさそうだが、この例ではsystemが `x86_64-linux` に限定されている。
-いや `darwin` メインだし将来的には `aarm7` も期待したいのでもっとスマートな方法はないかと探すと、
+いや `darwin` メインだし将来的には `aarch65` も期待したいのでもっとスマートな方法はないかと探すと、
 Nix Wikiで使われている[flake-utils](https://github.com/numtide/flake-utils)がよさそうである。このパッケージは
 
 ```nix
