@@ -4,9 +4,26 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Thu, 18 Mar 2021 03:39:55 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 28 Mar 2021 14:05:31 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2021, Mar.]]></title>
+            <link>https://shnarazk.github.io/2021/2021-03-28-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-03-28-UNSATlog</guid>
+            <pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# UNSATlog
+
+## Splr-0.7.1リリースのはずが
+
+前号を出したのが12日でそれから2週間足らずなので、Splr-0.7.1をリリースしたことしか書くことないよなあと思っていたら、リリース前のルーチンワークのベンチマークの検証中にエラーが発見されてしまった。
+
+まさか、UNSAT問題をSATと答えるなんて！
+それも、原因モジュールの同定に数時間かかることになってしまって、半日経っても何が問題なのかすら判明できていない有様。
+ちょっとこのバグはキツい。リリースは（楽観的にみて）1週間ほど延期になりそうだ。
+
+という以上の内容だけでvol.3を出して、Splr-0.7.1のリリースのタイミングで次の号を出し、そこで UNSAT logの号数を実暦に合わせよう。ああ、それだけが楽しみ。]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[衝撃の320変数3-SAT]]></title>
             <link>https://shnarazk.github.io/2021/2021-03-16-3SAT-SC20-170058143</link>
@@ -319,45 +336,6 @@ fn f(]]></content:encoded>
 
 * githubが埋め込み用に提供するのはjavascriptまたはjson形式。ちょっとjavascriptは置いといてjsonを使う方向で計画。
 * ところがjsonを読み込もうとすると `Cross-Access-Allow-Origin` の制約に引っかかってデータがとって来れない。手動でリロードを掛け]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[NixOS on Big Sur]]></title>
-            <link>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</link>
-            <guid>https://shnarazk.github.io/2020/2020-08-07-NixOS-on-BigSur</guid>
-            <pubDate>Mon, 17 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[### Big Sur以前
-
-/etc/synthetic.conf　に
-
-```
-nix
-```
-
-を追加してmountしていた。
-
-### Big Sur
-
-なんだかmountしてくれないので `/nix` をシンボリックリンクに変更して対応することにした。
-そのため、/etc/synthetic.conf を
-
-```
-nix	/Volumes/Nix
-```
-に編集。さらにどこかで
-
-```
-export NIX_IGNORE_SYMLINK_STORE=1
-```
-
-を実行して、リンクを辿ってくれるようにすればいいようだ。
-
-それにしても結構Gnomeな見かけだなぁ。。。
-
-### 2020-08-09
-
-/usr/lib/system/libcache.dylib がないのでrustプログラムがコンパイルできなくなっている。
-
-Cコンパイラも動かないのでemacs27も作れない]]></content:encoded>
         </item>
     </channel>
 </rss>
