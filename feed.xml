@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 28 Mar 2021 14:05:31 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 01 Apr 2021 23:50:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -22,7 +22,11 @@
 それも、原因モジュールの同定に数時間かかることになってしまって、半日経っても何が問題なのかすら判明できていない有様。
 ちょっとこのバグはキツい。リリースは（楽観的にみて）1週間ほど延期になりそうだ。
 
-という以上の内容だけでvol.3を出して、Splr-0.7.1のリリースのタイミングで次の号を出し、そこで UNSAT logの号数を実暦に合わせよう。ああ、それだけが楽しみ。]]></content:encoded>
+という以上の内容だけでvol.3を出して、Splr-0.7.1のリリースのタイミングで次の号を出し、そこで UNSAT logの号数を実暦に合わせよう。ああ、それだけが楽しみ。
+
+## 2021-04-02
+
+やっと、やっと、原因の節が特定できそう。`watch`が適切]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[衝撃の320変数3-SAT]]></title>
