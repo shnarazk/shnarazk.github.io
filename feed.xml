@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 03 Apr 2021 00:14:19 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 05 Apr 2021 12:10:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Mar.]]></title>
             <link>https://shnarazk.github.io/2021/2021-03-28-UNSATlog</link>
             <guid>https://shnarazk.github.io/2021/2021-03-28-UNSATlog</guid>
-            <pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 05 Apr 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# UNSATlog
 
 ## Splr-0.7.1リリースのはずが
