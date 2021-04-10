@@ -4,9 +4,27 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 05 Apr 2021 12:10:28 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 10 Apr 2021 03:00:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2021, Apr.]]></title>
+            <link>https://shnarazk.github.io/2021/2021-04-10-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-04-10-UNSATlog</guid>
+            <pubDate>Sat, 10 Apr 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# 充足性判定誤りの3月
+
+Splr-0.7シリーズのポイントリリース0.7.1をサクサク公開して、いよいよ並列化という大物に取り掛かるつもりだったのが、ベンチマークの結果の検証で論理バグが検出されて、思いも掛けない終わりのないデバッグに突入してしまいました。
+なんと0.7.1でエンバグしたのではなく、0.7.0が既におかしい。
+いやもしかするとそれ以前からあったのかもしれない。
+SATソルバーを名乗れないものをリリースしてしまっていた！
+
+その上このことに気づいてから1週間経ってもバグが取れない！
+時間がかかってしまう理由が簡単な問題では再現しないバグであること。
+ベンチマークを走らせて検証スクリプトを走らせるとただ1問だけ不適切な充足解を生成している。
+その問題は0.7.1RCで初めて解けるようになって、それ以前のソルバーではタイムアウトしてしまう問題。
+なので色々なフィーチャーを切っ]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Mar.]]></title>
             <link>https://shnarazk.github.io/2021/2021-03-28-UNSATlog</link>
@@ -328,18 +346,6 @@ c I]]></content:encoded>
 ```rust
 /// コンパイルできる
 fn f(]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[JaNG version 1.0.2]]></title>
-            <link>https://shnarazk.github.io/2020/2020-08-14-justanote-102</link>
-            <guid>https://shnarazk.github.io/2020/2020-08-14-justanote-102</guid>
-            <pubDate>Fri, 14 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[このブログの静的サイトジェネレータ（名前はまだない。とりあえず'JaNG', *Just-A-Note Generator* にしておきます）をバージョン1.0.2に更新しました。変更点はgithub.comに作ったgistが取り込めるようになったこと。
-
-[Observable](https://observablehq.com/)が（結構）簡単に取り込めたので、1時間程度でできるかと思ったら数日がかりになってしまいました。ChangeLog代わりに苦労した点を残しておきます。
-
-* githubが埋め込み用に提供するのはjavascriptまたはjson形式。ちょっとjavascriptは置いといてjsonを使う方向で計画。
-* ところがjsonを読み込もうとすると `Cross-Access-Allow-Origin` の制約に引っかかってデータがとって来れない。手動でリロードを掛け]]></content:encoded>
         </item>
     </channel>
 </rss>
