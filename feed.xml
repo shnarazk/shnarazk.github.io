@@ -4,9 +4,31 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 10 Apr 2021 03:00:26 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 10 Apr 2021 11:56:40 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[New Implementation of vivification on Splr]]></title>
+            <link>https://shnarazk.github.io/2021/2021-04-10-splr-vivification</link>
+            <guid>https://shnarazk.github.io/2021/2021-04-10-splr-vivification</guid>
+            <pubDate>Sat, 10 Apr 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificationにあるようなので、徹底的に見直してみた。
+その結果、バグ修正の副産物として大変更に至りました。
+
+これまではひたすら論文のオリジナル疑似コードに忠実な実装を心がけていた。
+
+![](/img/2020/07-05/vivi-algo3.jpg)
+
+見ての通り、節を追加して伝播させて、節を削除して、ということを繰り返している。
+そのためsandboxなんてものをサブモジュールに追加したりしていたのだけど、この"clause vivification"とは
+
+- 節に含まれるリテラルを順に否定して行った時に、いくつ目のリテラルで（この節ひいては式が）矛盾するかを考え、それ以上のリテラルはあっても無駄なので省きましょう
+
+というだけのこと。だったらこの通りに実装すればいいんじゃない？
+
+```rust
+  let]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Apr.]]></title>
             <link>https://shnarazk.github.io/2021/2021-04-10-UNSATlog</link>
@@ -322,30 +344,6 @@ vivification を切ると問題が解消するので、vivify時の節の追加�
 c Ignoring deletion of non-existent clause (pos 30441)
 c Ignoring deletion of non-existent clause (pos 30441)
 c I]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[RustのClone on Writeについて]]></title>
-            <link>https://shnarazk.github.io/2020/2020-08-15-Cow</link>
-            <guid>https://shnarazk.github.io/2020/2020-08-15-Cow</guid>
-            <pubDate>Sat, 15 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[自転車本では紹介されてないけれど、Rustならでは必要とされる面白い型、Copy on Writeではなくて、Clone on Writeを意味する[`std::borrow::Cow`](https://doc.rust-lang.org/std/borrow/enum.Cow.html) の紹介です。
-
-## 前提知識：`str` と `String`の違い
-
-* `str` -- （固定長の）UTF-8文字のスライス
-* `&str` -- UTF-8文字のスライスへのポインタ
-* `String` -- ヒープ上に置かれた、追加を含めた変更ができる文字列
-
-
-## 前提知識：文字列定数とその参照
-
-#### ローカル変数
-
-まず、以下のように関数内のローカルデータとして確保された文字列定数を参照する変数の型を確認しておきます。
-
-```rust
-/// コンパイルできる
-fn f(]]></content:encoded>
         </item>
     </channel>
 </rss>
