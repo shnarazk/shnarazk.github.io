@@ -3,7 +3,8 @@ title: New Implementation of vivification on Splr
 subtitle: vivification part 4
 date: 2021-04-10
 tags: ["SAT", "vivification", "splr"]
-banner_caption: **cover image: ?
+banner: https://unsplash.com/photos/GWtOJTUyDfc/download?force=true&w=2400
+banner_caption: cover image: https://unsplash.com/photos/GWtOJTUyDfc
 ---
 Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificationにあるようなので、徹底的に見直してみた。
 その結果、バグ修正の副産物として大変更に至りました。
