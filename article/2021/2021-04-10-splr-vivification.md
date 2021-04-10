@@ -1,0 +1,39 @@
+---
+title: New Implementation of vivification on Splr
+subtitle: vivification part 4
+date: 2021-04-10
+tags: ["SAT", "vivification", "splr"]
+banner_caption: **cover image: ?
+---
+Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificationにあるようなので、徹底的に見直してみた。
+その結果、バグ修正の副産物として大変更に至りました。
+
+これまではひたすら論文のオリジナル疑似コードに忠実な実装を心がけていた。
+
+![](/img/2020/07-05/vivi-algo3.jpg)
+
+見ての通り、節を追加して伝播させて、節を削除して、ということを繰り返している。
+そのためsandboxなんてものをサブモジュールに追加したりしていたのだけど、この"clause vivification"とは
+
+- 節に含まれるリテラルを順に否定して行った時に、いくつ目のリテラルで（この節ひいては式が）矛盾するかを考え、それ以上のリテラルはあっても無駄なので省きましょう
+
+というだけのこと。だったらこの通りに実装すればいいんじゃない？
+
+```rust
+  let c = cdb.clause[cid];
+  for lit in c.lits.iter() {  // 準備に
+    vivified.push(lit);
+    asg.assign_by_decision(!lit); // 否定してみて
+    let cc = asg.propagate();
+    if cc.is_some() && vivified.len() < c.lits.len() {   // 短くなっていたら
+      cdb.new_clause(vivified);  // 新しい節に置き換え
+      cdb.detach(cid);
+      break;
+    }
+  }
+  asg.cancel_until(self.root_level); // クリーンアップ
+```
+
+節の出し入れが一切なくなってclauseDB的な負荷が一切消えてしまった!
+これで決まり。
+
