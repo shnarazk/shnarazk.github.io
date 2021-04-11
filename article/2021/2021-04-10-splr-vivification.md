@@ -23,13 +23,13 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 
 ```rust
   let c = cdb.clause[cid];
-  for lit in c.lits.iter() {  // 準備に
-    vivified.push(lit);
+  for (i, lit) in c.lits.iter().enumerate() {  // 順番に
     asg.assign_by_decision(!lit); // 否定してみて
-    let cc = asg.propagate();
-    if cc.is_some() && vivified.len() < c.lits.len() {   // 短くなっていたら
-      cdb.new_clause(vivified);  // 新しい節に置き換え
-      cdb.detach(cid);
+    if asg.propagate().is_some()  // 矛盾した時に
+       && i < c.lits.len() // 短くなっていたら
+    {
+      cdb.new_clause(&c.lits[..=i]);  // 新しい節を追加
+      cdb.detach(cid); // 古い節を削除
       break;
     }
   }
@@ -37,5 +37,5 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 ```
 
 節の出し入れが一切なくなってclauseDB的な負荷が一切消えてしまった!
-これで決まり。
+これで決まりだな。
 
