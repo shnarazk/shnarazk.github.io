@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tag/privary", {data:[{}],fetch:[],mutations:[]});
