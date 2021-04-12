@@ -28,8 +28,7 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
     if asg.propagate().is_some()  // 矛盾した時に
        && i < c.lits.len() // 短くなっていたら
     {
-      cdb.new_clause(&c.lits[..=i]);  // 新しい節を追加
-      cdb.detach(cid); // 古い節を削除
+      cdb.strengthen_by_vivification(cid, i);  // iまでのリテラルに縮退
       break;
     }
   }
@@ -38,4 +37,3 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 
 節の出し入れが一切なくなってclauseDB的な負荷が一切消えてしまった!
 これで決まりだな。
-
