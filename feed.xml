@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Thu, 15 Apr 2021 23:00:33 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 25 Apr 2021 04:27:55 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -19,15 +19,16 @@
 
 ![](/img/2020/07-05/vivi-algo3.jpg)
 
+ここで`confilctAnalysis`の引数は
+
+1. $\phi$ -- 論理式式
+1. $D$ -- 仮定されたリテラル列（なぜtrailではいけないのだろう）
+1. $R$ - 矛盾節
+
 見ての通り、節を追加して伝播させて、節を削除して、ということを繰り返している。
 そのためsandboxなんてものをサブモジュールに追加したりしていたのだけど、この"clause vivification"とは
 
-- 節に含まれるリテラルを順に否定して行った時に、いくつ目のリテラルで（この節ひいては式が）矛盾するかを考え、それ以上のリテラルはあっても無駄なので省きましょう
-
-というだけのこと。だったらこの通りに実装すればいいんじゃない？
-
-```rust
-  let]]></content:encoded>
+- 節に含まれるリテラルを順に否定して行った時に、いくつ目]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Apr.]]></title>
