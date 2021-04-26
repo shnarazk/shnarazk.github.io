@@ -10,7 +10,7 @@ banner_caption: https://unsplash.com/photos/GWtOJTUyDfc
 Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificationにあるようなので、徹底的に見直してみた。
 その結果、バグ修正の副産物として大変更に至りました。
 
-これまではひたすら論文のオリジナル疑似コードに忠実な実装を心がけていた。
+これまではひたすら論文[1]のオリジナル疑似コードに忠実な実装を心がけていた:
 
 ![](/img/2020/07-05/vivi-algo3.jpg)
 
@@ -48,3 +48,8 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 
 そしてこれがSplr-0.7.1がさらに1週間リリースできなかった原因になってしまった。
 うん、全くダメな考えだった。論外だった。
+
+
+## References
+
+[1] C.-M. Li, F. Xiao, M. Luo, F. Manyà, Z. Lü, and Y. Li, “Clause Vivification by Unit Propagation in CDCL SAT Solvers,” Artif. Intell., vol. 279, Jul. 2019.
