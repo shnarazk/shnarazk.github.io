@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 01 May 2021 13:51:04 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 01 May 2021 13:51:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -21,10 +21,10 @@ UNSAT certificateの問題だけではなく、時々充足性判定すら間違
 しかし、これの解決して先に進むこともままならないわけで。というわけでこれ以上今月は言うことなし。
 強いて言うなら自分のメモも兼ねて、片っ端からbugをissue化していったくらい。まあこれはいいgithubの使い方なんだろう。まさに日記代わり。
 
-https://github.com/shnarazk/splr/issues/96
-https://github.com/shnarazk/splr/issues/104
-https://github.com/shnarazk/splr/issues/105
-https:/]]></content:encoded>
+- https://github.com/shnarazk/splr/issues/96
+- https://github.com/shnarazk/splr/issues/104
+- https://github.com/shnarazk/splr/issues/105
+-]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[New Implementation of vivification on Splr]]></title>
