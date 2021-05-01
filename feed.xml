@@ -4,9 +4,28 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 26 Apr 2021 11:33:32 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 01 May 2021 12:54:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2021, May]]></title>
+            <link>https://shnarazk.github.io/2021/2021-05-01-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-05-01-UNSATlog</guid>
+            <pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[## vivificationの4月
+Clause vivificationのバグが取れない4月でした。
+ほぼこれに尽きる。
+一体何が起きているのやら。
+
+UNSAT certificateの問題だけではなく、時々充足性判定すら間違うという状況が一ヶ月続いても改善見られぬ。
+しかし、これの解決して先に進むこともままならないわけで。というわけでこれ以上今月は言うことなし。
+強いて言うなら自分のメモも兼ねて、片っ端からbugをissue化していったくらい。まあこれはいいgithubの使い方なんだろう。まさに日記代わり。
+
+https://github.com/shnarazk/splr/issues/96
+https://github.com/shnarazk/splr/issues/104
+https://github.com/shnarazk/splr/issues/105
+https:/]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[New Implementation of vivification on Splr]]></title>
             <link>https://shnarazk.github.io/2021/2021-04-10-splr-vivification</link>
@@ -327,24 +346,6 @@ http://labs.timedia.co.jp/2017/07/sat25x2520.html
 | . 12  .  .  .| .  .  .  .  .| .  .  .  9  .| .  . 15  .  .|22  .  .  .  .|
 | .  .  .  .  .| .  9  . 19  .| .  . 10 11  .| .  .  .  .  .| .  .  .  .  .|
 | .  4  . 22  .| .  .  .  .  .| .  .  .  .  .| .  . 12  .  .|20 15  1  .  .]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Implementing clause vivification on Splr]]></title>
-            <link>https://shnarazk.github.io/2020/2020-08-19-splr-with-vivification</link>
-            <guid>https://shnarazk.github.io/2020/2020-08-19-splr-with-vivification</guid>
-            <pubDate>Sun, 23 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[**cover image: https://unsplash.com/photos/-IMlv9Jlb24**
-
-Version 0.4.2 リリース直前のSplr、性能的には妥協できるものが出来たので次の課題は妥当性。
-SAT問題はいいのだけど、UNSAT問題に対する certification がおかしなものになっているとか。
-vivification を切ると問題が解消するので、vivify時の節の追加削除が正しくcertification に反映されてないようだ。
-
-## 1. gratgenのこういうメッセージがどうやっても解消できない
-
-```text
-c Ignoring deletion of non-existent clause (pos 30441)
-c Ignoring deletion of non-existent clause (pos 30441)
-c I]]></content:encoded>
         </item>
     </channel>
 </rss>
