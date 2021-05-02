@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tag/discord", {data:[{}],fetch:[],mutations:[]});
