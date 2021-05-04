@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 02 May 2021 01:56:14 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 04 May 2021 02:51:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -30,8 +30,10 @@ UNSAT certificateの問題だけではなく、時々充足性判定すら間違
             <title><![CDATA[New Implementation of vivification on Splr]]></title>
             <link>https://shnarazk.github.io/2021/2021-04-10-splr-vivification</link>
             <guid>https://shnarazk.github.io/2021/2021-04-10-splr-vivification</guid>
-            <pubDate>Sat, 10 Apr 2021 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificationにあるようなので、徹底的に見直してみた。
+            <pubDate>Tue, 04 May 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[### 2021-04-10
+
+Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificationにあるようなので、徹底的に見直してみた。
 その結果、バグ修正の副産物として大変更に至りました。
 
 これまではひたすら論文[1]のオリジナル疑似コードに忠実な実装を心がけていた:
@@ -47,7 +49,7 @@ UNSAT certificateの問題だけではなく、時々充足性判定すら間違
 見ての通り、節を追加して伝播させて、節を削除して、ということを繰り返している。
 そのためsandboxなんてものをサブモジュールに追加したりしていたのだけど、この"clause vivification"とは
 
-- 節に含まれるリテラルを順に否定して行った時に、い]]></content:encoded>
+- 節に含まれるリテ]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Apr.]]></title>
