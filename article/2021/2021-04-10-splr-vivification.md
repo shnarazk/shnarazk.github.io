@@ -1,11 +1,12 @@
 ---
 title: New Implementation of vivification on Splr
 subtitle: vivification part 4
-date: 2021-04-10
+date: 2021-05-04
 tags: ["SAT", "vivification", "splr"]
 banner: https://unsplash.com/photos/GWtOJTUyDfc/download?force=true&w=2400
 banner_caption: https://unsplash.com/photos/GWtOJTUyDfc
 ---
+### 2021-04-10
 
 Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificationにあるようなので、徹底的に見直してみた。
 その結果、バグ修正の副産物として大変更に至りました。
@@ -48,6 +49,10 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 
 そしてこれがSplr-0.7.1がさらに1週間リリースできなかった原因になってしまった。
 うん、全くダメな考えだった。論外だった。
+
+### 2021-05-04
+
+だめじゃない。ダメなのは矛盾解析の部分で、決定リテラルを積み重ねるこの方法はずっとスマートな気がしてきた。少なくとも、これがSplr-0.7.1におけるvivificationの決定性間違いの原因ではない。
 
 
 ## References
