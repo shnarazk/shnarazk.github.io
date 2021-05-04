@@ -58,7 +58,7 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 
 ```rust
   let c = cdb.clause[cid];
-  for (i, lit) in c.lits.iter().take(c.lits.len() - 1).enumerate() {  // 順番に
+  for lit in c.lits.iter().take(c.lits.len() - 1) {  // 順番に
     asg.assign_by_decision(!lit);       // 否定してみて
     if let Some(cc) = asg.propagate() { // 矛盾した時に
       if cc == cid {                    // それが対象節なら、
@@ -66,7 +66,6 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
         cdb.new_clause(vec);            // 学習節を追加
         cdb.remove_clause(cid);         // 対象節を削除
       }
-      asg.backtrack(root_level);
       break;
     }
   }
