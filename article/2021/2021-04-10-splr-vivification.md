@@ -74,4 +74,4 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 
 ## References
 
-[1] C.-M. Li, F. Xiao, M. Luo, F. Manyà, Z. Lü, and Y. Li, “Clause Vivification by Unit Propagation in CDCL SAT Solvers,”* Artif. Intell*., vol. 279, Jul. 2019.
+[1] C.-M. Li, F. Xiao, M. Luo, F. Manyà, Z. Lü, and Y. Li, “Clause Vivification by Unit Propagation in CDCL SAT Solvers," *Artif. Intell.*, vol. 279, Jul. 2019.
