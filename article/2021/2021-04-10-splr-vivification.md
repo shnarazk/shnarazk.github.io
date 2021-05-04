@@ -61,9 +61,9 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
   for lit in c.lits.iter().take(c.lits.len() - 1) {  // 順番に
     asg.assign_by_decision(!lit);       // 否定してみて
     if let Some(cc) = asg.propagate() { // 矛盾した時に
+      let vec = conflict_analyze(cc);   // 矛盾解析して
+      cdb.new_clause(vec);              // 学習節を追加
       if cc == cid {                    // それが対象節なら、
-        let vec = conflict_analyze(cc); // 矛盾解析して
-        cdb.new_clause(vec);            // 学習節を追加
         cdb.remove_clause(cid);         // 対象節を削除
       }
       break;
