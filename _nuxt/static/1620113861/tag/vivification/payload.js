@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tag/vivification", {data:[{}],fetch:[],mutations:[]});
