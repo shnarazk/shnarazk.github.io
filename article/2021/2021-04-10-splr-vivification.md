@@ -54,6 +54,24 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 
 だめじゃない。ダメなのは矛盾解析の部分で、決定リテラルを積み重ねるこの方法はずっとスマートな気がしてきた。少なくとも、これがSplr-0.7.1におけるvivificationの決定性判定間違いの原因ではない。
 
+というわけでこれで行こう：
+
+```rust
+  let c = cdb.clause[cid];
+  for (i, lit) in c.lits.iter().take(c.lits.len() - 1).enumerate() {  // 順番に
+    asg.assign_by_decision(!lit);       // 否定してみて
+    if let Some(cc) = asg.propagate() { // 矛盾した時に
+      if cc == cid {                    // それが対象節なら、
+        let vec = conflict_analyze(cc); // 矛盾解析して
+        cdb.new_clause(vec);            // 学習節を追加
+        cdb.remove_clause(cid);         // 対象節を削除
+      }
+      asg.backtrack(root_level);
+      break;
+    }
+  }
+  asg.cancel_until(self.root_level); // クリーンアップ
+```
 
 ## References
 
