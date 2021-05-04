@@ -52,9 +52,9 @@ Splr-0.7.1で発見された決定性誤りバグの一因がどうもvivificati
 
 ### 2021-05-04
 
-だめじゃない。ダメなのは矛盾解析の部分で、決定リテラルを積み重ねるこの方法はずっとスマートな気がしてきた。少なくとも、これがSplr-0.7.1におけるvivificationの決定性間違いの原因ではない。
+だめじゃない。ダメなのは矛盾解析の部分で、決定リテラルを積み重ねるこの方法はずっとスマートな気がしてきた。少なくとも、これがSplr-0.7.1におけるvivificationの決定性判定間違いの原因ではない。
 
 
 ## References
 
-[1] C.-M. Li, F. Xiao, M. Luo, F. Manyà, Z. Lü, and Y. Li, “Clause Vivification by Unit Propagation in CDCL SAT Solvers,” Artif. Intell., vol. 279, Jul. 2019.
+[1] C.-M. Li, F. Xiao, M. Luo, F. Manyà, Z. Lü, and Y. Li, “Clause Vivification by Unit Propagation in CDCL SAT Solvers,”* Artif. Intell*., vol. 279, Jul. 2019.
