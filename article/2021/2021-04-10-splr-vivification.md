@@ -1,5 +1,5 @@
 ---
-title: New Implementation of vivification on Splr
+title: New Implementation of clause vivifier on Splr-0.8
 subtitle: vivification part 4
 date: 2021-05-04
 tags: ["SAT", "vivification", "splr"]
