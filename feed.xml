@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 04 May 2021 12:24:57 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 05 May 2021 09:22:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -27,7 +27,7 @@ UNSAT certificateの問題だけではなく、時々充足性判定すら間違
 - https://github.com/shnarazk/splr/is]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[New Implementation of vivification on Splr]]></title>
+            <title><![CDATA[New Implementation of clause vivifier on Splr-0.8]]></title>
             <link>https://shnarazk.github.io/2021/2021-04-10-splr-vivification</link>
             <guid>https://shnarazk.github.io/2021/2021-04-10-splr-vivification</guid>
             <pubDate>Tue, 04 May 2021 00:00:00 GMT</pubDate>

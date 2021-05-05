@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tag/zoom", {data:[{}],fetch:[],mutations:[]});
