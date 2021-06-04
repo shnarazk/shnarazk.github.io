@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 04 Jun 2021 15:13:43 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 04 Jun 2021 15:27:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Jun.]]></title>
             <link>https://shnarazk.github.io/2021/2021-06-05-UNSATlog</link>
             <guid>https://shnarazk.github.io/2021/2021-06-05-UNSATlog</guid>
-            <pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate>
+            <pubDate>Sat, 05 Jun 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# 進歩と停滞の5月
 
 5月はとうとう充足性判定問題のバグが（おそらく）取れたという大きな進展がありました。
