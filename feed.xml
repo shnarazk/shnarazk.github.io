@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 11 Jun 2021 14:56:21 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 11 Jun 2021 15:15:09 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[JIS配列のMacbookの右commandで日本語入力モードのトグル]]></title>
+            <title><![CDATA[JIS配列のMacbookのかなキーで日本語入力モードのトグルしたい]]></title>
             <link>https://shnarazk.github.io/2021/2021-06-11-mac-keylayout</link>
             <guid>https://shnarazk.github.io/2021/2021-06-11-mac-keylayout</guid>
             <pubDate>Fri, 11 Jun 2021 00:00:00 GMT</pubDate>
