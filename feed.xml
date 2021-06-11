@@ -4,9 +4,28 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 04 Jun 2021 15:27:50 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 11 Jun 2021 14:56:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[JIS配列のMacbookの右commandで日本語入力モードのトグル]]></title>
+            <link>https://shnarazk.github.io/2021/2021-06-11-mac-keylayout</link>
+            <guid>https://shnarazk.github.io/2021/2021-06-11-mac-keylayout</guid>
+            <pubDate>Fri, 11 Jun 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[## hidutilでなんとかしよう
+
+US配列だと基本は(macbookでは)、こういうので日本語入力モードを切り替えることができる。
+
+```
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e7,"HIDKeyboardModifierMappingDst":0x700000068}]}'
+```
+
+いや、もしかしてこれはbluetooth接続のmagic keyboardようかもしれない（最近OSのバージョンが上がって依然と変わってしまった。）
+
+これと同じことをJIS配列のmacbook（支給品）でもやりたいのだが、世の中に逆行しているので、自分で検証しなければならなかったのでメモ。
+
+まずは一次資料： https://developer.apple.com/]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Jun.]]></title>
             <link>https://shnarazk.github.io/2021/2021-06-05-UNSATlog</link>
@@ -344,16 +363,6 @@ Monotonusにするついでのリスタートパラメータの設定が泥沼�
 ## Glucose-4.1との比較
 
 前回, Glucoseと比べて全然遅いという話をしましたが、0.5.0はタイムアウトを100秒に設定するとoutperformできるようになりました。結構早い段階でこの成果は出ていたのですが、タイムアウトを500秒に伸ばすと100秒での求解数が10近くも落ちてしまうため、本当にいいのかどうかなんとも言えない。これはSplrがタイムアウト時間を考慮して{pre, in}-proce]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Zoomについて]]></title>
-            <link>https://shnarazk.github.io/2020/2020-08-30-zoom</link>
-            <guid>https://shnarazk.github.io/2020/2020-08-30-zoom</guid>
-            <pubDate>Mon, 31 Aug 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[* **NEW** [Zoom Windows clientがブラウザに保存されたCookieをアンインストール時に操作していることが判明](https://gigazine.net/news/20200828-zoom-read-write-cookie/), 2020-08-28
-* [NASA, ドイツ外務省が使用制限、バンク・オブ・アメリカ、ダイムラー、エリクソンが使用禁止](https://wedge.ismedia.jp/articles/-/19630), シンガポール政府は使用禁止解除
-* [Googleがオンラインビデオ会議アプリ「Zoom」の使用を禁止](https://gigazine.net/news/20200409-google-bans-zoom/), 2020-04-09
-* [台湾行政院が政府機関でのZoom使用を禁止](https://jp.techcr]]></content:encoded>
         </item>
     </channel>
 </rss>

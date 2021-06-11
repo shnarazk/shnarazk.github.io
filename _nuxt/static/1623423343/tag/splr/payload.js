@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tag/splr", {data:[{}],fetch:[],mutations:[]});
