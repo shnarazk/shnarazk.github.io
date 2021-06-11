@@ -1,5 +1,5 @@
 ---
-title: JIS配列のMacbookの右commandで日本語入力モードのトグル
+title: JIS配列のMacbookのかなキーで日本語入力モードのトグルしたい
 subtitle:
 date: 2021-06-11
 tags: ["macOS"]
@@ -38,10 +38,10 @@ hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x70
 |   39 |  Keyboard Caps Lock |
 
 これは特に設定のいらない入力切り替えキーの一つCaps Lockに割り当てている。
-これはそのまま使えたので、スペースキーの隣の隣は入力ソースの切り替えに使えるようになった。
+これはそのまま使えたので、簡単にスペースキーの隣の隣は入力ソースの切り替えに使えるようになった。
 
 
-それでは「かな」のcodeが分かれば念願のスペースキーの隣で切り替えできるのだが、これを調べるのが大変。
+あとは「かな」のcodeが分かれば念願のスペースキーの隣で切り替えできるのだが、これを調べるのが大変だった。
 全部調べたと言っておきながら「かな」がない日本語記事のなんと多いことか。
 なんとか[それらしいの](https://qiita.com/nariya/items/0065c630653573ae7268)を探し出してきた。
 
@@ -50,7 +50,7 @@ hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x70
 |   90 |       Japanese Kana |
 |   91 |                英数 |
 
-ドンピシャ。
+やってみるとドンピシャ。
 
 ```
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000090,"HIDKeyboardModifierMappingDst":0x700000039 }]}'
