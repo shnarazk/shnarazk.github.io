@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 14 Jun 2021 17:46:43 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 14 Jun 2021 17:47:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -12,8 +12,9 @@
             <link>https://shnarazk.github.io/2021/2021-06-15-copy-and-paste-in-scratch</link>
             <guid>https://shnarazk.github.io/2021/2021-06-15-copy-and-paste-in-scratch</guid>
             <pubDate>Tue, 15 Jun 2021 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Scratchのコンテキストメニューに複製というのがあるのだけどどうしても別スプライトに持っていけない。
+            <content:encoded><![CDATA[Scratchのコンテキストメニューに「複製」というのがあるのだけど、どうしても別スプライトに持っていけない。
 なんか反応してそうな画面フィードバックはあるのだけど、あれは持っていけないよのグレイアウトだったようだ。
+
 裏技ないかしらんと探していたら、なんとOSのコピペのショートカットが生きていた。
 MacOSなら`コマンド-C`で最後にクリックしたブロックがコピーされ、
 スプライト切り替えて`コマンド-V`でペーストできる。
