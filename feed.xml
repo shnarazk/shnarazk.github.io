@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 11 Jun 2021 15:15:09 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 14 Jun 2021 05:48:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -20,11 +20,10 @@ US配列だと基本は(macbookでは)、こういうので日本語入力モー
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e7,"HIDKeyboardModifierMappingDst":0x700000068}]}'
 ```
 
-いや、もしかしてこれはbluetooth接続のmagic keyboardようかもしれない（最近OSのバージョンが上がって依然と変わってしまった。）
+あるいは、最近だとmagic keyboardが対象だと下のようになる（OSのバージョンが上がって何かが以前と変わってしまったようだ）。
 
-これと同じことをJIS配列のmacbook（支給品）でもやりたいのだが、世の中に逆行しているので、自分で検証しなければならなかったのでメモ。
-
-まずは一次資料： https://developer.apple.com/]]></content:encoded>
+```
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e7,"HIDKeyboardModifierMap]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Jun.]]></title>
