@@ -12,34 +12,26 @@ US配列だと基本は(macbookでは)、こういうので日本語入力モー
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e7,"HIDKeyboardModifierMappingDst":0x700000068}]}'
 ```
 
-いや、もしかしてこれはbluetooth接続のmagic keyboardようかもしれない（最近OSのバージョンが上がって依然と変わってしまった。）
-
-これと同じことをJIS配列のmacbook（支給品）でもやりたいのだが、世の中に逆行しているので、自分で検証しなければならなかったのでメモ。
-
-まずは一次資料： https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES
-
-上に出てきたキーから解釈していくと：
-
-| code |                 key |
-|-----:|--------------------:|
-|   e7 |  Keyboard Right GUI |
-|   68 |  Keyboard F13       |
-
-なんとコマンドキーとはGUIキーなのか。
-
-次にどこかで使ったことがある別の設定：
+あるいは、最近だとmagic keyboardが対象だと下のようになる（OSのバージョンが上がって何かが以前と変わってしまったようだ）。
 
 ```
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e7,"HIDKeyboardModifierMappingDst":0x700000039 }]}'
 ```
 
+これと同じことをJIS配列のmacbook（支給品）でもやりたいのだが、世の中に逆行しているので、自分で検証しなければならなかったのでメモ。
+
+まずは[一次資料](https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES)で上に出てきたキーを解釈していく：
+
 | code |                 key |
 |-----:|--------------------:|
-|   39 |  Keyboard Caps Lock |
+|   39 |           Caps Lock |
+|   68 |                 F13 |
+|   e7 |  Keyboard Right GUI |
 
-これは特に設定のいらない入力切り替えキーの一つCaps Lockに割り当てている。
-これはそのまま使えたので、簡単にスペースキーの隣の隣は入力ソースの切り替えに使えるようになった。
+なんとコマンドキーとはGUIキーなのか。
+39は特に設定のいらない入力切り替えキーCaps Lockに割り当てているだけだ。
 
+e7を39に割り当てる方法はそのまま使えたので、スペースキーの隣の隣を入力ソースの切り替えに使えるようにするのは簡単だった。
 
 あとは「かな」のcodeが分かれば念願のスペースキーの隣で切り替えできるのだが、これを調べるのが大変だった。
 全部調べたと言っておきながら「かな」がない日本語記事のなんと多いことか。
