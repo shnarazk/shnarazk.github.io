@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 14 Jun 2021 05:48:44 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 14 Jun 2021 16:15:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[JIS配列のMacbookのかなキーで日本語入力モードのトグルしたい]]></title>
+            <title><![CDATA[JIS配列のMacbookのかなキーで日本語入力モードをトグルしたい]]></title>
             <link>https://shnarazk.github.io/2021/2021-06-11-mac-keylayout</link>
             <guid>https://shnarazk.github.io/2021/2021-06-11-mac-keylayout</guid>
             <pubDate>Fri, 11 Jun 2021 00:00:00 GMT</pubDate>
@@ -20,10 +20,10 @@ US配列だと基本は(macbookでは)、こういうので日本語入力モー
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e7,"HIDKeyboardModifierMappingDst":0x700000068}]}'
 ```
 
-あるいは、最近だとmagic keyboardが対象だと下のようになる（OSのバージョンが上がって何かが以前と変わってしまったようだ）。
+あるいは、最近だとmagic keyboardが対象だと下のようになる（以前は上ので問題なかったのだけど、OSのバージョンが上がって何か変わってしまったようだ）。
 
 ```
-hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e7,"HIDKeyboardModifierMap]]></content:encoded>
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e7,"HIDKeyboa]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Jun.]]></title>
