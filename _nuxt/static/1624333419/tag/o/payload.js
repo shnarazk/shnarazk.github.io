@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tag/o", {data:[{}],fetch:[],mutations:[]});

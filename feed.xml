@@ -4,9 +4,26 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Mon, 14 Jun 2021 17:47:17 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 22 Jun 2021 03:44:23 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[ChoroBT再実装]]></title>
+            <link>https://shnarazk.github.io/2021/2021-06-22-chronoBT</link>
+            <guid>https://shnarazk.github.io/2021/2021-06-22-chronoBT</guid>
+            <pubDate>Tue, 22 Jun 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[どうもChronoBTの実装が間違っていたらしい。
+散々バグを取ってきたはずのコードなんだけど今見直してみると、これでいいのか自信が持てない。
+一旦機能削除するつもりで論文[1]に忠実に再実装することにした。
+
+![The idea](/img/2021/06-22/Fig1.png)
+
+
+![The modified CDCL](/img/2021/06-22/CDCL.png)
+
+
+[1] A. Nadel and V. Ryvchin, “Chronological Backtracking,” in Theory and Applications of Satisfiability Testing - SAT 2018, no. June 2018, 2018, pp. 111–121.]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Scratchでスプライト間コピペ]]></title>
             <link>https://shnarazk.github.io/2021/2021-06-15-copy-and-paste-in-scratch</link>
@@ -350,19 +367,6 @@ Monotonusにするついでのリスタートパラメータの設定が泥沼�
 いやー全然ダメだわ。数十秒で解けたというのが信じられない。これもベンチマークの対象に入れて、一ヶ月色々なパラメータで試してみたけど約10040変数からの停滞から脱出できない。
 
 ## [SAT Comp]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Sep.]]></title>
-            <link>https://shnarazk.github.io/2020/2020-10-10-UNSATlog</link>
-            <guid>https://shnarazk.github.io/2020/2020-10-10-UNSATlog</guid>
-            <pubDate>Sat, 10 Oct 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[## 怪我の8〜9月
-
-すっかり遅くなってしまった。あちこち怪我したせいで色々と時間をとられてしまいました。9月はパラメータチューニングだけやって0.5.2をリリースするつもりだったのだけど、実行時間に対して求解可能問題が単調に増えるソルバにしたくてやっている最中にまた脱線してしまいました。ということで特に成果なし。強いて言うなら、
-
-* `StructOpts`への依存を削除。オブジェクトサイズがほぼ半減した！さらに`libc`への依存も実は std::time::{Duration, Instant}　で代替できたのでこれも削除。今やSplrが依存するのは`bitflags`だけ！
-
-* つい昨日気づいたけどリスタート延期の判断を矛盾発生時まで遅延させるのは筋が悪い。タイミングを逸している。作り直すべき。9月に散々試したいろいろなstabilizationの実験結果は全て放棄することに]]></content:encoded>
         </item>
     </channel>
 </rss>
