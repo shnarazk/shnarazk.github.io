@@ -4,9 +4,29 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 22 Jun 2021 03:44:31 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 22 Jun 2021 09:16:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Scratchでの変数のスコープ]]></title>
+            <link>https://shnarazk.github.io/2021/2021-06-22-scope-of-vars-in-Scratch</link>
+            <guid>https://shnarazk.github.io/2021/2021-06-22-scope-of-vars-in-Scratch</guid>
+            <pubDate>Tue, 22 Jun 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Scratchはイベント発火やメッセージベースで同期を取るマルチスレッドシステムとしてコーディングするのが簡単。
+これだとあまり変数の必要性を感じない。
+ただし、高度なことをするためには関数や変数による状態管理をせざるを得ない。
+
+で、変数を定義するのだけども、定義時にのみ共有レベルが指定できる。
+ここでグローバルを選ばないと、その変数は他スプライトからは見えないのだろうが、ではクローンされたスレッド間ではどうなるのだろう。その理解が必要となる。
+
+## 結論
+
+- 全てのスプライト用 -- 全てのスプライト、全てのクローンで共有。完全にglobal。
+- このスプライトのみ -- スコープはこのスプライトのみ、スプライトのクローンにより変数もクローンされる。従ってthread local storageに対応。
+
+
+従って、各スプライトが3次元座標を持ち、2次元投影関数で表示を行うなら、]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[ChoroBT再実装]]></title>
             <link>https://shnarazk.github.io/2021/2021-06-22-chronoBT</link>
@@ -342,31 +362,6 @@ Luby Stabilization だかLuby Un-stabilization だか。
 しかしその評価は膨大な計算機リソースを必要とし、正直なところ個人ベースでは現実的でない。なので、これまでは外挿可能だろうという楽観的な見通しの下、極めて短いタイムアウトを設定して実験を繰り返してきた。さらにその前段のスクリーニングとして `SAT-bench` による3-SAT問題中心のマイクロベンチマークを実行して、合計実行時間の短縮と短いタイムアウト時間内での求解数の向上とを改善指針にしてきた。
 
 しかしこれは過学習の危険性が避けられない。これまではこの問題は敢えて無視してきたけど、泥沼のようなパラメータチューニングはそれでも避けられないため、[ちょっとしたパラメータチューニングのつもりで始めた改良ですら二ヶ月が経ってしまう](/2020/2020-10-3]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Oct.]]></title>
-            <link>https://shnarazk.github.io/2020/2020-10-31-UNSATlog</link>
-            <guid>https://shnarazk.github.io/2020/2020-10-31-UNSATlog</guid>
-            <pubDate>Sat, 31 Oct 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# 相変わらず停滞中
-
-リリースしたり夏休みの宿題をしたりするはずだった9月、10月が過ぎ、相変わらず停滞中です。
-
-## 0.5.1のリリース
-
-Monotonusにするついでのリスタートパラメータの設定が泥沼。それでも、少なくとも
-
-* `block_restart`, `force_restart`の復活
-* `structopt`, `libc`依存性の削除
-
-という内部的なそれなりの変更はコミット済み。
-しかし、あまりに長い膠着状態なので、これ以上色々なアイデアを導入するのは一旦放棄しました。
-
-## [Sudoku25](/2020/2020-08-19-sudoku25/)
-
-いやー全然ダメだわ。数十秒で解けたというのが信じられない。これもベンチマークの対象に入れて、一ヶ月色々なパラメータで試してみたけど約10040変数からの停滞から脱出できない。
-
-## [SAT Comp]]></content:encoded>
         </item>
     </channel>
 </rss>
