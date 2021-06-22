@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 22 Jun 2021 09:16:10 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 22 Jun 2021 09:23:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -14,18 +14,18 @@
             <pubDate>Tue, 22 Jun 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[Scratchはイベント発火やメッセージベースで同期を取るマルチスレッドシステムとしてコーディングするのが簡単。
 これだとあまり変数の必要性を感じない。
-ただし、高度なことをするためには関数や変数による状態管理をせざるを得ない。
+ただし、高度なことをするためにはもちろん関数や変数による状態管理をせざるを得ない。
 
 で、変数を定義するのだけども、定義時にのみ共有レベルが指定できる。
+
+![](/img/2021/06-22-scratch/define-var.png)
+
 ここでグローバルを選ばないと、その変数は他スプライトからは見えないのだろうが、ではクローンされたスレッド間ではどうなるのだろう。その理解が必要となる。
 
 ## 結論
 
-- 全てのスプライト用 -- 全てのスプライト、全てのクローンで共有。完全にglobal。
-- このスプライトのみ -- スコープはこのスプライトのみ、スプライトのクローンにより変数もクローンされる。従ってthread local storageに対応。
-
-
-従って、各スプライトが3次元座標を持ち、2次元投影関数で表示を行うなら、]]></content:encoded>
+- `すべてのスプライト用` -- 全てのスプライト、全てのクローンで共有。完全にglobal。
+- `このスプライトのみ` -- スコープはこのスプライトのみ、スプライトのクローンにより変数もクローンされる。従ってthread l]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[ChoroBT再実装]]></title>
