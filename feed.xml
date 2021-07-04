@@ -4,9 +4,28 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Wed, 23 Jun 2021 12:49:23 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 04 Jul 2021 11:23:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2021, Jul.]]></title>
+            <link>https://shnarazk.github.io/2021/2021-07-04-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-07-04-UNSATlog</guid>
+            <pubDate>Sun, 04 Jul 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# 亀の2021年6月
+
+相変わらず0.10のリリースができない一ヶ月でした。
+ということで今月も短信です。
+
+# 問題点
+
+色々と直してはいるのだけど、最後のピースまでは行きつかない。
+transitionにおける論理バグを見つけたり、除去された変数を戻す部分を完全にRust的なコードに書き換えたり、少しづつは進展している。
+監視リテラルを正しくセットしているにも関わらず単位節が無視されるという不可解なバグはchrono-BTによるものではないかと思う。
+これも最後まで追い詰めきれてないのだが、今のところこの方向でちょっとづつ進めていくのが正解のようだ。
+
+これは監視リテラルが待つ対リテラルキャッシュが現在の決定レベルよりも高いレベルで充足していた時には監視リテラルの更新は行われないのだが、より高いレベルで充足リテラルが否定された場合、このリテラルをこの節は監視していないのでBCPの対象]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Scratchでの変数のスコープ]]></title>
             <link>https://shnarazk.github.io/2021/2021-06-22-scope-of-vars-in-Scratch</link>
@@ -352,16 +371,6 @@ Luby Stabilization だかLuby Un-stabilization だか。
 ### 2020-11-20
 
 今やろうとしていることはrandom walkの導入に類することかも知れぬ。]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[SATソルバのベンチマークについて]]></title>
-            <link>https://shnarazk.github.io/2020/2020-11-03-minimize-the-worst</link>
-            <guid>https://shnarazk.github.io/2020/2020-11-03-minimize-the-worst</guid>
-            <pubDate>Tue, 03 Nov 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[SATソルバの性能を議論する唯一の指標はSAT competition で使われている400問のベンチマークの求解数だけだろう。
-しかしその評価は膨大な計算機リソースを必要とし、正直なところ個人ベースでは現実的でない。なので、これまでは外挿可能だろうという楽観的な見通しの下、極めて短いタイムアウトを設定して実験を繰り返してきた。さらにその前段のスクリーニングとして `SAT-bench` による3-SAT問題中心のマイクロベンチマークを実行して、合計実行時間の短縮と短いタイムアウト時間内での求解数の向上とを改善指針にしてきた。
-
-しかしこれは過学習の危険性が避けられない。これまではこの問題は敢えて無視してきたけど、泥沼のようなパラメータチューニングはそれでも避けられないため、[ちょっとしたパラメータチューニングのつもりで始めた改良ですら二ヶ月が経ってしまう](/2020/2020-10-3]]></content:encoded>
         </item>
     </channel>
 </rss>
