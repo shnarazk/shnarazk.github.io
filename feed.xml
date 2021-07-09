@@ -4,14 +4,14 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 04 Jul 2021 11:23:35 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 09 Jul 2021 16:06:09 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Jul.]]></title>
             <link>https://shnarazk.github.io/2021/2021-07-04-UNSATlog</link>
             <guid>https://shnarazk.github.io/2021/2021-07-04-UNSATlog</guid>
-            <pubDate>Sun, 04 Jul 2021 00:00:00 GMT</pubDate>
+            <pubDate>Sat, 10 Jul 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[# 亀の2021年6月
 
 相変わらず0.10のリリースができない一ヶ月でした。
