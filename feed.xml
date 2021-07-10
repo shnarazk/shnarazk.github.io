@@ -4,9 +4,19 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Fri, 09 Jul 2021 16:06:09 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 10 Jul 2021 13:36:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[Swiftでcrawling]]></title>
+            <link>https://shnarazk.github.io/2021/2021-07-10-crawler-in-swift</link>
+            <guid>https://shnarazk.github.io/2021/2021-07-10-crawler-in-swift</guid>
+            <pubDate>Sat, 10 Jul 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[福岡市の[COVID19オープンデータ](https://ckan.open-governmentdata.org/dataset/401000_pref_fukuoka_covid19_patients)は更新されるたびにURLが更新される（そして古いURLは削除される）という意味不明な[運用](https://ckan.open-governmentdata.org/dataset/activity/401000_pref_fukuoka_covid19_patients)なので、毎日swiftプログラムを書き換えるという馬鹿なことをしていたのだけど、半年たってようやくcrawlingしようという気になりました。
+
+適当なサイトでそのやり方を調べるとそれなりに簡単みたいだっただけど、コピペで動かない。
+そもそもこの正規表現は何?というレベルでコードに不信感を抱いたのでplaygroun]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Jul.]]></title>
             <link>https://shnarazk.github.io/2021/2021-07-04-UNSATlog</link>
@@ -356,21 +366,6 @@ $ cargo ]]></content:encoded>
                if let url = urlData as? URL {
                    self.json = loadJson(url: url)
  ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[LubyStabilization]]></title>
-            <link>https://shnarazk.github.io/2020/2020-11-07-LubyStabilization</link>
-            <guid>https://shnarazk.github.io/2020/2020-11-07-LubyStabilization</guid>
-            <pubDate>Wed, 18 Nov 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Luby seriesでstabilizationする。まだ結果が出てないだけども、これはいいかも！
-
-### 2020-11-18
-
-Luby Stabilization だかLuby Un-stabilization だか。
-
-### 2020-11-20
-
-今やろうとしていることはrandom walkの導入に類することかも知れぬ。]]></content:encoded>
         </item>
     </channel>
 </rss>
