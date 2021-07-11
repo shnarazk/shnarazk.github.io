@@ -6,18 +6,16 @@ tags: ["Swift", "Covid19"]
 ---
 福岡市の[COVID19オープンデータ](https://ckan.open-governmentdata.org/dataset/401000_pref_fukuoka_covid19_patients)は更新されるたびにURLが更新される（そして古いURLは削除される）という意味不明な[運用](https://ckan.open-governmentdata.org/dataset/activity/401000_pref_fukuoka_covid19_patients)なので、毎日swiftプログラムを書き換えるという馬鹿なことをしていたのだけど、半年たってようやくcrawlingしようという気になりました。
 
-適当なサイトでそのやり方を調べるとそれなりに簡単みたいだっただけど、コピペで動かない。
+[やり方を紹介しているサイト](https://www.fivestars.blog/articles/build-web-crawler-swift/)のコードはそれなりに簡単なんだけど、コピペしても動かない。
 そもそもこの正規表現は何?というレベルでコードに不信感を抱いたのでplaygroundで色々修正して正解を探した。
 
-結局こうなった。`parse`の中身をほぼ作り直し。
-しかし、それにしても正規表現を使うのに`NSなんとか`を使うというあたりが、言語が「閉じてない」感。ちょっとねえ。
+結局こうなった。
 
 ```swift
 import Foundation
 
 // Input your parameters here
 let startUrl = URL(string: "https://ckan.open-governmentdata.org/dataset/401000_pref_fukuoka_covid19_patients")!
-let wordToSearch = "Swift"
 let maximumPagesToVisit = 10
 
 // Crawler Parameters
@@ -28,12 +26,10 @@ var pagesToVisit: Set<URL> = [startUrl]
 // Crawler Core
 func crawl() {
     guard visitedPages.count <= maximumPagesToVisit else {
-        print("🏁 Reached max number of pages to visit")
         semaphore.signal()
         return
     }
     guard let pageToVisit = pagesToVisit.popFirst() else {
-        print("🏁 No more pages to visit")
         semaphore.signal()
         return
     }
@@ -55,8 +51,6 @@ func visit(page url: URL) {
             let document = String(data: data, encoding: .utf8) else { return }
         parse(document: document, url: url)
     }
-    
-    print("🔎 Visiting page: \(url)")
     task.resume()
 }
 
@@ -74,3 +68,6 @@ func parse(document: String, url: URL) {
 crawl()
 //semaphore.wait()
 ```
+
+`parse`の中身をほぼ作り直し。
+しかし、それにしても正規表現を使うのに`NSなんとか`を使うというあたりが、言語が「閉じてない」感。ちょっとねえ。
