@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tag/latex", {data:[{}],fetch:[],mutations:[]});
