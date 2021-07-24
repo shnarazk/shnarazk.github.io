@@ -27,9 +27,6 @@ lualatexの個人共通設定ファイルでゴシック系の文章に対して
     SlantedFeatures={FakeSlant=0.2},
     BoldItalicFeatures={FakeSlant=0.2},
     BoldSlantedFeatures={FakeSlant=0.2}]
-    %BoldItalicFont={NotoMono-BoldItalic},
-    %BoldSlantedFont={NotoMono-BoldItalic},
-    %SlantedFont={NotoMono-Italic}]
  {NotoMono-Regular}
 ```
 
@@ -55,9 +52,6 @@ luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "NotoMon
     SlantedFeatures={FakeSlant=0.2},
     BoldItalicFeatures={FakeSlant=0.2},
     BoldSlantedFeatures={FakeSlant=0.2}]
-    %BoldItalicFont={NotoMono-BoldItalic},
-    %BoldSlantedFont={NotoMono-BoldItalic},
-    %SlantedFont={NotoMono-Italic}]
  {NotoMono-Regular.ttf}
 ```
 
