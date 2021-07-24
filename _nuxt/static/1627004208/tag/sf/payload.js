@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tag/sf", {data:[{}],fetch:[],mutations:[]});
