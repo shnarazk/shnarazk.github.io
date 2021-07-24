@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tag/rust", {data:[{}],fetch:[],mutations:[]});
