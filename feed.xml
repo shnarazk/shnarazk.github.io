@@ -4,9 +4,35 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 24 Jul 2021 02:26:43 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 24 Jul 2021 16:13:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[luaLatex-jpでNotoMono-Regular.ttfを使いたい]]></title>
+            <link>https://shnarazk.github.io/2021/2021-07-25-NotoMono-Regular</link>
+            <guid>https://shnarazk.github.io/2021/2021-07-25-NotoMono-Regular</guid>
+            <pubDate>Sun, 25 Jul 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[lualatexの個人共通設定ファイルでゴシック系の文章に対して以下の設定をしています。
+
+```latex
+\setmainjfont[
+    BoldFont={NotoSansCJKjp-Bold},
+    YokoFeatures={JFM=prop,Kerning=On},
+    AutoFakeSlant=0.2,
+    SlantedFeatures={FakeSlant=0.2},
+    BoldItalicFeatures={FakeSlant=0.2},
+    BoldSlantedFeatures={FakeSlant=0.2}]
+  {NotoSansCJKjp-Regular}
+```
+
+で、等幅フォントに関してはこちら。
+
+
+```latex
+\setmonofont[
+    BoldFont={NotoSansMono-Bold},
+    Au]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Peter Watts, Blindsight]]></title>
             <link>https://shnarazk.github.io/2021/2021-07-11-Blindsight</link>
@@ -349,22 +375,6 @@ http://www.sudoku-download.net/sudoku_64x64.php
 ちなみに生成されるCNFの大きさはこんな感じ。
 
 * 変数数: 262144 = (2^6)^3 = 1M * 2^(-2)]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2020, Nov.]]></title>
-            <link>https://shnarazk.github.io/2020/2020-12-04-UNSATlog</link>
-            <guid>https://shnarazk.github.io/2020/2020-12-04-UNSATlog</guid>
-            <pubDate>Fri, 04 Dec 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# 冬眠への道
-
-今年もいよいよあと一ヶ月となってきました。夏からずっと取り組んでいるSplrのバージョン0.5.1はおそらく0.6.0としてリリースすることになると思うけどもう少し時間かかりそう。Splrの新版がリリースできたら今年の残りは勉強と研究に当てようと思う。絶対、論文読んだ方がいいよなあ。読みかけの専門書も溜まっているし。おっと、その前に夏休みの宿題を終わらせねば。節の有効性と取得環境の関係についてというテーマでいいはずだけど。積み残しが山のようだ。これではとても一ヶ月で終わりそうにないな。
-
-# Sudoku25
-
-今月はSudoku25に振り回された一ヶ月でした。実はSAT符合化に問題があったのでCNFファイルを作り直したら一瞬で解けるようになったものの、それ以前は1日CPUをぶん回しても解けなかったので色々とソルバーに手を入れてました。
-
-```text
-$ cargo ]]></content:encoded>
         </item>
     </channel>
 </rss>
