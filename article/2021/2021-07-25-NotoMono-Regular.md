@@ -1,5 +1,5 @@
 ---
-title: luaLatex-jpでNotoMono-Regular.ttfを使いたい
+title: luaLatex-jpでNotoMono-Regularを使いたい
 subtitle: それもttfなやつを
 date: 2021-07-25
 tags: ["font", "latex"]
@@ -56,4 +56,3 @@ luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "NotoMon
 ```
 
 これで気持ちよくTUG2021に参加できる（それは関係ない）。
-
