@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tag/covid19", {data:[{}],fetch:[],mutations:[]});

@@ -4,11 +4,11 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 24 Jul 2021 16:19:46 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 25 Jul 2021 04:34:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[luaLatex-jpでNotoMono-Regularを使いたい]]></title>
+            <title><![CDATA[luaLatex-jaでNotoMono-Regularを使いたい]]></title>
             <link>https://shnarazk.github.io/2021/2021-07-25-NotoMono-Regular</link>
             <guid>https://shnarazk.github.io/2021/2021-07-25-NotoMono-Regular</guid>
             <pubDate>Sun, 25 Jul 2021 00:00:00 GMT</pubDate>

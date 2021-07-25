@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tag/javascript", {data:[{}],fetch:[],mutations:[]});
