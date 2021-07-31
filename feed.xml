@@ -4,9 +4,25 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sun, 25 Jul 2021 04:34:41 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 31 Jul 2021 12:50:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2021, Aug.]]></title>
+            <link>https://shnarazk.github.io/2021/2021-08-01-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-08-01-UNSATlog</guid>
+            <pubDate>Sun, 01 Aug 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# Finally Bugs Fixed in July
+ようやくバグフィックス終わった。7月に[0.10.0リリース](https://github.com/shnarazk/splr/releases/tag/Splr-0.10.0)できました。
+
+# なんだったのか
+Splrの開発史上最大最長の難問になった今回の不整合バグがどうやって発生したのか振り返っておきたい。現れたバグは様々だった。
+
+- UNSAT certificateがおかしい — https://github.com/shnarazk/splr/issues/122
+- 単位節が伝播を起こさない — https://github.com/shnarazk/splr/issues/119
+- 割り当てられても伝播されない — https://github.com/shnarazk/splr/issues/117
+- 依存]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[luaLatex-jaでNotoMono-Regularを使いたい]]></title>
             <link>https://shnarazk.github.io/2021/2021-07-25-NotoMono-Regular</link>
@@ -357,24 +373,6 @@ largeとかgiantとかを追加キーワードにして検索してとてもよ�
 ## Best Phase Rewarding
 
 Rephasingの実現手法として変数のrewardに反映させてみた。活性度に反映させるのではなく独立した項目にして]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Rust製のSATソルバーで64x64のSudokuが解けるだろうか]]></title>
-            <link>https://shnarazk.github.io/2020/2020-12-18-sudoku64</link>
-            <guid>https://shnarazk.github.io/2020/2020-12-18-sudoku64</guid>
-            <pubDate>Fri, 18 Dec 2020 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[Splr-0.6.0のリリース直前のベンチマークをしながら、息抜きでもっと大きなSudokuを探してみました。
-
-http://www.sudoku-download.net/sudoku_64x64.php
-
-さあこの問題を[Splrで解いてみよう](https://github.com/shnarazk/sudoku_sat/blob/master/src/bin/sudoku64.rs)。
-
-元データがpdfしかないので人手で取り込み、変換、間違いの修正に3時間掛かって、ようやくSplrの出番。20秒で正解でした。
-
-大きさの割に空欄が少ないのでN=25と比べてそんなに計算量は増えないだろうと思ったのが2桁近く増えてしまった。なかなか勘はあたらないものだなあ。
-ちなみに生成されるCNFの大きさはこんな感じ。
-
-* 変数数: 262144 = (2^6)^3 = 1M * 2^(-2)]]></content:encoded>
         </item>
     </channel>
 </rss>
