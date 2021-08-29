@@ -1,13 +1,9 @@
 ---
-title: Klala and the Sun
+title: Klara and the Sun
 subtitle: by Kazuo Ishiguro
 date: 2021-08-29
 tags: ["小説"]
 ---
-# Kazuo Ishiguro, Klara and the Sun
-
-Klara and the Sun
-
 小学生ではなく、大学受験前のティーンエイジャーが主登場人物ではあるが、
 おんぶされたり、
 知的レベルが高いにも関わらず太陽を擬人化するクララという登場人物の描写、
