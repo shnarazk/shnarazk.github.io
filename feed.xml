@@ -4,19 +4,15 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Sat, 28 Aug 2021 15:50:47 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 29 Aug 2021 14:04:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
-            <title><![CDATA[Klala and the Sun]]></title>
+            <title><![CDATA[Klara and the Sun]]></title>
             <link>https://shnarazk.github.io/2021/2021-09-XX-KlaraAndTheSun</link>
             <guid>https://shnarazk.github.io/2021/2021-09-XX-KlaraAndTheSun</guid>
             <pubDate>Sun, 29 Aug 2021 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# Kazuo Ishiguro, Klara and the Sun
-
-Klara and the Sun
-
-小学生ではなく、大学受験前のティーンエイジャーが主登場人物ではあるが、
+            <content:encoded><![CDATA[小学生ではなく、大学受験前のティーンエイジャーが主登場人物ではあるが、
 おんぶされたり、
 知的レベルが高いにも関わらず太陽を擬人化するクララという登場人物の描写、
 それらロボットを受け入れた社会の描きようから、
@@ -27,7 +23,7 @@ Klara and the Sun
 それは放棄して、チラシの裏、小学生の感想文以下の短文羅列でお茶を濁すw。
 
 - 擬人化能力はなんなのだろう。これによって演繹された結論がそれほど頑健、「健全かつ完全」、なのだろうか。うーむ。
-- さらにそのプランニングに対する影響力の大きいこと。人間が]]></content:encoded>
+- さらにそのプランニングに対する影響力の大きいこと。人間が一様に算術的記号処理能力を持っているように、AFの中でも飛び抜けたレベルの超知性には神の存在とその根拠の発見能力]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[UNSAT LOG, 2021, Aug.]]></title>
