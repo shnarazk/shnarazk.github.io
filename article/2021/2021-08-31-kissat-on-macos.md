@@ -4,6 +4,8 @@ subtitle: Abort!
 date: 2021-08-31
 tags: ["SAT"]
 ---
+KissatをNix package化しようとして、OSの違いに阻まれてしまった。
+こりゃ手に負えない。
 
 ```
 $ ./result/bin/kissat ../SAT/kissat/test/cnf/add128.cnf proof                 
