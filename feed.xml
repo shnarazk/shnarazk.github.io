@@ -4,7 +4,7 @@
         <title>Just a Note</title>
         <link>https://shnarazk.github.io</link>
         <description>a collection of memo</description>
-        <lastBuildDate>Tue, 31 Aug 2021 00:11:43 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 03 Sep 2021 00:34:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nuxtjs/feed</generator>
         <item>
@@ -24,6 +24,30 @@
 
 - 擬人化能力はなんなのだろう。これによって演繹された結論がそれほど頑健、「健全かつ完全」、なのだろうか。うーむ。
 - さらにそのプランニングに対する影響力の大きいこと。人間が一様に算術的記号処理能力を持っているように、AFの中でも飛び抜けたレベルの超知性には神の存在とその根拠の発見能力]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[UNSAT LOG, 2021, Sep.]]></title>
+            <link>https://shnarazk.github.io/2021/2021-09-01-UNSATlog</link>
+            <guid>https://shnarazk.github.io/2021/2021-09-01-UNSATlog</guid>
+            <pubDate>Fri, 03 Sep 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[# 順調な8月
+
+0.10のリリースから一ヶ月。この間に0.11もリリースできました。現在0.12の準備中。
+
+# 0.11リリース
+
+正しいことが売りの0.10をリリースするために、ちょっと後回しにしていた、Luby stabilizationのタイミングの調整をしました。
+これは結構性能に影響するものでした。
+あとはどうでもいいマイクロなチューニングの削除として、vivifierの対象節選択部を簡略化。
+
+大物はないけど、ベンチマークの結果はそこそこ改善。
+ベストではないにしろ今年リリースしたバージョンでもたらされた壊滅的な速度低下がかなり解消しました。
+
+# その他
+
+SAT-benchをSAT Competition 2021対応にして、2018年のベンチマーク問題を削除。
+2019年の問題も近々削除の予定。
+というわけで、長らく愛用してきたT56.2.cnfともいよいよおさらば。]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Kissat on macOS]]></title>
@@ -350,26 +374,6 @@ $ splr ~/Library/SAT/SC20/170058143.cnf
 この集合には変数活性度が高いものから組み込まれていく。
 なので、ここに含まれていない変数は大きな活性度は持っていないはずである。
 逆にこの条件を満足しない変数はそれ自身がある種のブロッカーすなわち「求解の妨げとなる変数」になっていると思われるので、（導入したステージベースのvar boo]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[UNSAT LOG, 2021, Jan.]]></title>
-            <link>https://shnarazk.github.io/2021/2021-02-02-UNSATlog</link>
-            <guid>https://shnarazk.github.io/2021/2021-02-02-UNSATlog</guid>
-            <pubDate>Tue, 02 Feb 2021 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[# UNSATlog
-
-
-## 202101
-
-あけまして[Splr-0.6.0](https://github.com/shnarazk/splr/releases/tag/splr-0.6.0)出ました。
-それどころか[0.6.1](https://github.com/shnarazk/splr/releases/tag/splr-0.6.1)も[0.6.2](https://github.com/shnarazk/splr/releases/tag/Splr-0.6.2)も出ました。
-いやあ長かった。
-その割にはむしろ圧倒的に性能劣化してしまってますが十分にベンチマークを回すだけのリソースがないんだからしょうがない。
-どうでもいい「やってみたらよくなった」的な高速化は捨てる方向に舵を取ったのは長期的にはいい判断だと思いたい。
-
-## What’s Splr-0.6.0?
-
-Splr]]></content:encoded>
         </item>
     </channel>
 </rss>

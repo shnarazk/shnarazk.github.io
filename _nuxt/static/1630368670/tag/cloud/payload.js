@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/tag/cloud", {data:[{}],fetch:[],mutations:[]});
