@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tag/docker", {data:[{}],fetch:[],mutations:[]});
