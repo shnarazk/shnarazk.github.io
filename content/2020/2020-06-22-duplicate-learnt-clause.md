@@ -1,8 +1,10 @@
 ---
 title: Duplicate Learnt Clauses
-subtitle: ECAI 2020
 date: 2020-06-23
-tags: ["SAT"]
+extra:
+  subtitle: ECAI 2020
+taxonomies:
+  tags: ["SAT"]
 ---
 Google Scholar alert 発令。今日のお題は「重複した学習節による速度向上」！？
 

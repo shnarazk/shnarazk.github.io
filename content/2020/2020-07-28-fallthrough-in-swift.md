@@ -1,8 +1,10 @@
 ---
 title: Swiftのfallthroughについて
-subtitle: なんてこったい
 date: 2020-07-28
-tags: ["Swift"]
+extra:
+  subtitle: なんてこったい
+taxonomies:
+  tags: ["Swift"]
 ---
 *The Swift Programming Language -- Swift 5.3 Edition (beta)* を読んでいて、`fallthrough` に関するちょっと信じられない記述を目にした。
 

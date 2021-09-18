@@ -1,9 +1,11 @@
 ---
 title: NixOS on Big Sur
-subtitle: 毎年右往左往
 date: 2020-08-17
-tags: ["NixOS", "macOS"]
-banner: /img/2020/08-07/banner.jpg
+extra:
+  banner: /2020/2020-08-07-banner.jpg
+  subtitle: 毎年右往左往
+taxonomies:
+  tags: ["NixOS", "macOS"]
 ---
 ### Big Sur以前
 

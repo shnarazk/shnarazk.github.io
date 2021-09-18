@@ -1,8 +1,10 @@
 ---
 title: まとめて借用
-subtitle: in Rust
 date: 2020-08-05
-tags: ["Rust"]
+extra:
+  subtitle: in Rust
+taxonomies:
+  tags: ["Rust"]
 ---
 オブジェクトからフィールドを借用したい。
 借用したいオブジェクトの型がいくつもあり、型ごとに借用したい個数が違うので、できるだけgenericなtrait化が望ましい。

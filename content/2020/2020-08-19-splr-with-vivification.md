@@ -1,12 +1,13 @@
 ---
 title: Implementing clause vivification on Splr
-subtitle: vivification part 3
 date: 2020-08-23
-tags: ["SAT", "vivification", "splr"]
-banner: "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+extra:
+  banner: "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+  banner_caption: cover image https://unsplash.com/photos/-IMlv9Jlb24**
+  subtitle: vivification part 3
+taxonomies:
+  tags: ["SAT", "vivification", "splr"]
 ---
-**cover image: https://unsplash.com/photos/-IMlv9Jlb24**
-
 Version 0.4.2 リリース直前のSplr、性能的には妥協できるものが出来たので次の課題は妥当性。
 SAT問題はいいのだけど、UNSAT問題に対する certification がおかしなものになっているとか。
 vivification を切ると問題が解消するので、vivify時の節の追加削除が正しくcertification に反映されてないようだ。
@@ -49,9 +50,9 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 そもそも`conflict_analysis`の引数の解釈は大丈夫だろうか。なぜ3引数なのか。ということで論文より引用し直し。
 
-![](/img/2020/08-19/Algorithm4_conflAnalysis.jpg)
+![](/2020/2020-08-19-Algorithm4_conflAnalysis.jpg)
 
-![](/img/2020/07-05/vivi-algo3.jpg)
+![](/2020/07-05/vivi-algo3.jpg)
 
 大丈夫なようだ。矛盾しているリテラルを拾うためにリテラルベースではなく、変数ベースでアクセスしている。
 特に問題はない。例えば節長が1の学習節をcertificateに含めても問題は発生しない。

@@ -1,8 +1,10 @@
 ---
 title: What's KISSAT
-subtitle: the latest product by Armin Biere
 date: 2020-07-21
-tags: ["SAT", "kissat"]
+extra:
+  subtitle: the latest product by Armin Biere
+taxonomies:
+  tags: ["SAT", "kissat"]
 ---
 SAT Competition 2020の予稿集より。
 

@@ -1,9 +1,11 @@
 ---
 title: Clause Vivification updated 2020
-subtitle: vivification part 2
 date: 2020-08-23
-tags: ["SAT", "vivification", "splr"]
-banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+extra:
+  banner: "https://images.unsplash.com/photo-1586508217007-6e8b3151a6f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+  subtitle: vivification part 2
+taxonomies:
+  tags: ["SAT", "vivification", "splr"]
 ---
 **cover image: https://unsplash.com/photos/tYs9rjaT8Vc**
 
