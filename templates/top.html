@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="table-of-contents">
+<section class="table-of-contents">
   <h1 id="toc-heading" class="title has-text-info has-text-weight-semibold">
     <i class="fas fa-book-open"></i>&thinsp;Table of Contents
   </h1>
-  <section>
+
   {% for article in paginator.pages %}
   <div class="top-entry">
     <div class="aside has-text-grey">
@@ -39,7 +39,7 @@
     </div>
   </div>
   {% endfor %}
-  </section>
+
   <footer>
      <nav id="bottombar" class="navbar is-fixed-bottom is-lighter">
        <div class="navbar-brand">
@@ -112,5 +112,5 @@
        </div>
      </nav>
    </footer>
-</div>
+</section>
 {% endblock content %}

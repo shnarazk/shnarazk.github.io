@@ -1,9 +1,9 @@
 body {
-  width: 96%;
-  margin-left: 1%;
   font-family: sans-serif, 'Lora', 'Times New Roman';
   font-size: 18px;
   .table-of-contents {
+    width: 96%;
+    margin-left: 1%;
     margin-top: 10px;
     font-family: 'Noto Sans JP', sans-serif, 'Livvic', 'Times New Roman';
     font-size: 1rem;
@@ -16,10 +16,9 @@ body {
       padding-bottom: 1.2rem;
     }
   }
-  .entry-title {
-    text-shadow: 0px 1px 1px #aaf;
-  }
   section {
+    width: 96%;
+    margin-left: 1%;
     margin-top: 0.5rem;
     margin-botton: 1rem;
   }
@@ -40,6 +39,8 @@ body {
     }
   }
   .copyright {
+      margin-top: 3rem;
+      margin-left: 1rem;
       padding-bottom: 1rem;
   }
 }
