@@ -7,7 +7,7 @@
   </h1>
 
   {% for article in paginator.pages %}
-  <div class="top-entry">
+  <div class="toc-entry">
     <div class="aside has-text-grey">
       {% if article.notebook %}
       <svg
@@ -30,8 +30,8 @@
       <i class="fas fa-file-alt"></i>
       {% endif %}
       &thinsp;{{ article.date }}
-      <div>
-        <a class="subtitle entry-title" href="{{ article.permalink | safe }}">{{ article.title }}</a>
+      <div class="entry-title">
+        <a class="subtitle" href="{{ article.permalink | safe }}">{{ article.title }}</a>
       </div>
       {% if article.extra.subtitle %}
         <span class="entry-subtitle is-pulled-right has-text-grey-dark">{{ article.extra.subtitle }}</span>
