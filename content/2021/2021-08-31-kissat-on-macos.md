@@ -1,8 +1,10 @@
 ---
 title: Kissat on macOS
-subtitle: Abort!
 date: 2021-08-31
-tags: ["SAT"]
+extra:
+    subtitle: Abort! No!
+taxonomies:
+    tags: ["SAT", "maxOS"]
 ---
 KissatをNix package化しようとして、OSの違いに阻まれてしまった。
 こりゃ手に負えない。
@@ -61,3 +63,7 @@ c
 手に負えないと思ったけど、ちょっとだけコードを追ってみると単なる境界条件の判定ミスだ。
 丁寧な表現でissue立てたけど返事がこん。
 今週返事がなければ修正パッチ込みでNixパッケージ化しよう！
+
+## 2021-09-18
+
+Biere先生にissue送って、修正してもらった。2.0.1でパッケージできるようになった。

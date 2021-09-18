@@ -1,8 +1,10 @@
 ---
 title: Klara and the Sun
-subtitle: by Kazuo Ishiguro
 date: 2021-08-29
-tags: ["小説"]
+extra:
+  subtitle: by Kazuo Ishiguro
+taxonomies:
+  tags: ["小説"]
 ---
 小学生ではなく、大学受験前のティーンエイジャーが主登場人物ではあるが、
 おんぶされたり、
