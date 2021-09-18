@@ -84,7 +84,7 @@ eachDefaultSystem :: (<system> -> attrs) -> attrs
 
 ただし、使い方は微妙である。
 よくわからないまま使うと、例えば`defaultPackege.x86-64-darwin`がエクスポートされていないというエラーが出てしまった。
-でこれによく似た関数`eachSystem`の[サンプル](https://github.com/numtide/flake-utils#eachsystem---system---system---attrs)をよく見る：
+でこれによく似た関数`eachSystem`の[サンプル](https://github.com/numtide/flake-utils#user-content-eachsystem---system---system---attrs)をよく見る：
 
 ```nix
 eachSystem allSystems (system: { hello = 42; })

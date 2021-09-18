@@ -7,7 +7,7 @@ tags: ['javascript', 'Observable', 'Nuxtjs', 'jang']
 
 Javascript版jupyterのようなものの一つの[Observable](https://observablehq.com/)。
 可視化の結果を貼り付けられるように、Nuxtベースのこのブログに組み込めないか現在考え中。
-とりあえず[こういうこと](https://observablehq.com/d/1cbb7a450b192e69)ができるなら、
+とりあえず[こういうこと](dead link https://observablehq.com/d/1cbb7a450b192e69)ができるなら、
 やる価値はありそうだ。
 
 まず、以下のコードでObservableのノートは一つのJavascriptにexportできるらしい。

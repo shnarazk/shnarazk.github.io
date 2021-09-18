@@ -13,7 +13,7 @@ tags: ["nextcloud"]
 ウェブページのソースからブロックのidを見つけてソースで検索すると、
 settings/templates/settings/personal/personal.info.php が引っかかる。
 検索ボックスをhiddenにしているのは`lookupServerUploadEnabled`らしい。
-このキーワードでさらに検索すると、[server/lib/private/Personal/PersonalInfo.php](https://github.com/nextcloud/server/blob/master/lib/private/Settings/Personal/PersonalInfo.php)中で
+このキーワードでさらに検索すると、server/lib/private/Personal/PersonalInfo.php(dead link https://github.com/nextcloud/server/blob/master/lib/private/Settings/Personal/PersonalInfo.php)中で
 `federated`かどうかを調べている。
 
 ```
