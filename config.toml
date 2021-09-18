@@ -1,6 +1,6 @@
 # The URL the site will be built for
 base_url = "https://shnarazk.github.io/"
-title = "Just a note (version 2.0.0-RC4)"
+title = "Just a note (version 2.0.0-RC5)"
 description = "I think that should be worth being recorded"
 
 # Whether to automatically compile all Sass files in the sass directory

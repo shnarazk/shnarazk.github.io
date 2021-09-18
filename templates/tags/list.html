@@ -20,9 +20,8 @@
     <h2 id="{{ term.slug }}" style="margin-top: 1.5rem;" class="subtitle">
       <strong>#{{ term.slug }}</strong>
     </h2>
-    <ul>
     {% for page in term.pages %}
-      <div class="top-entry" style="margin-bottom: 0.5rem;">
+      <div class="top-entry" style="margin: 0.5rem 0.5rem 0.5rem 1rem;">
         <div class="aside has-text-grey">
           <i class="fas fa-file-alt"></i>
           &thinsp;{{ page.date }}
@@ -35,7 +34,6 @@
         </div>
       </div>
     {% endfor %}
-    </ul>
     </section>
   {% endfor %}
 </section>
