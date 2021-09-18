@@ -28,7 +28,7 @@ All sub directories under /content/note/ should have it as `_index.md`.
 ---
 title: test
 template: index.html
-page_template: entry.html
+page_template: page.html
 transparent: true
 ---
 ```
