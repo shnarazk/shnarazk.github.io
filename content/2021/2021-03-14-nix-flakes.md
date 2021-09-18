@@ -17,7 +17,7 @@ taxonomies:
 `nix-env -u`でエラーはなくなったものの、flake.nixを作ろうとすると相変わらずrestricted modeではxxxxにアクセスできないというようなエラーが出る。これは`--impure`フラグを渡してやるといい。`nix --help`によると、
 
 > When the --expr option is given, all installables are interpreted as Nix expressions.
-> You may need to specify --impure if the expression references impure inputs (such as <nixpkgs>).
+> You may need to specify --impure if the expression references impure inputs (such as `<nixpkgs>`).
 
 ということで、多分12月頃からこうすればよかったようだ。
 
