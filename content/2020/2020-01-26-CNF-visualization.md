@@ -1,8 +1,10 @@
 ---
 title: A visualization tool to analyze logic fomula
-subtitle: I need better intuition
 date: 2020-01-29
-tags: ["SAT", "Pharo"]
+extra:
+  subtitle: I need better intuition
+taxonomies:
+  tags: ["SAT", "Pharo"]
 ---
 CNF形式の論理式の特徴ををもっと視覚化できないものだろうか。
 

@@ -1,8 +1,10 @@
 ---
 title: Importance of modern techniques in SAT solvers
-subtitle: A case of CaDiCal
 date: 2020-04-20
-tags: ["Cadical", "Splr", "SAT"]
+extra:
+  subtitle: A case of CaDiCal
+taxonomies:
+  tags: ["Cadical", "Splr", "SAT"]
 ---
 
 さあ[CaDiCaL](https://github.com/arminbiere/cadical)がなぜ速いのか検討しよう。

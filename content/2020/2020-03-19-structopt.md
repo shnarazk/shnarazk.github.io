@@ -1,8 +1,10 @@
 ---
 title: Passing args to StructOpt
-subtitle: which start with '--'
 date: 2020-03-19
-tags: ["Rust"]
+extra:
+  subtitle: which start with '--'
+taxonomies:
+  tags: ["Rust"]
 ---
 
 [SAT-bench](https://github.com/shnarazk/SAT-bench)はRust製SATソルバ

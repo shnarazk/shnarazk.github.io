@@ -1,8 +1,10 @@
 ---
 title: pre.commit hook for Rust project
-subtitle: check with 'cargo fmt'
 date: 2020-03-27
-tags: ["Rust"]
+extra:
+  subtitle: check with 'cargo fmt'
+taxonomies:
+  tags: ["Rust"]
 ---
 commitする前にフォーマットをチェックするための `.git/hooks/pre.commit`。
 github gistで拾ったもの。

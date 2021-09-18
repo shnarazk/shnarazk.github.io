@@ -1,7 +1,9 @@
 ---
 title: Liveness of nix-store created by 'nix-build'
-subtitle: No 'nix-store --delete --ignore-liveness'
 date: 2020-04-05
+extra:
+  subtitle: No 'nix-store --delete --ignore-liveness'
+taxonomies:
 tags: ["NixOS"]
 ---
 昨日、[nixOS](https://nixos.org) に [cadical](https://github.com/arminbiere/cadical) が追加されたけど、それに至るまでは[nixpkgsリポジトリ](https://github.com/NixOS/nixpkgs)のクローンを作って、自分でnix-buildを繰り返していた。

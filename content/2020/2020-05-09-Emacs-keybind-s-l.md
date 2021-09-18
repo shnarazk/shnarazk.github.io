@@ -1,8 +1,10 @@
 ---
 title: What's 's-l'?
-subtitle: used in lsp-mode
 date: 2020-05-09
-tags: ["Emacs"]
+extra:
+  subtitle: used in lsp-mode
+taxonomies:
+  tags: ["Emacs"]
 ---
 [lsp-mode](https://github.com/emacs-lsp/lsp-mode)がプレフィックスとして採用している'`s-l`'とは一体なんなんだ？
 

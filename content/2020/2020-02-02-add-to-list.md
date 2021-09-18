@@ -1,8 +1,10 @@
 ---
 title: Don't use add-to-list in Emacs
-subtitle: let's update emacs.el
 date: 2020-02-02
-tags: ["emacs"]
+extra:
+  subtitle: let's update emacs.el
+taxonomies:
+  tags: ["emacs"]
 ---
 Emacsのコミットログより：
 

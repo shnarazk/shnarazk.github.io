@@ -1,8 +1,10 @@
 ---
 title: Profile Guided Optimization on Rust
-subtitle: (rustc-1.42.0)
 date: 2020-03-16
-tags: ["Rust"]
+extra:
+  subtitle: (rustc-1.42.0)
+taxonomies:
+  tags: ["Rust"]
 ---
 [The rustc book](https://doc.rust-lang.org/rustc/index.html)に
 [profile guided optimization](https://doc.rust-lang.org/rustc/profile-guided-optimization.html)

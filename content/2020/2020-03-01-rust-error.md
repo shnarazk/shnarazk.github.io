@@ -1,8 +1,10 @@
 ---
 title: A Weird Rust Compile Error
-subtitle: by structopt-derive or proc-macro2
 date: 2020-03-02
-tags: ["Rust", "splr"]
+extra:
+  subtitle: by structopt-derive or proc-macro2
+taxonomies:
+  tags: ["Rust", "splr"]
 ---
 突然、こんなコンパイルエラーが出るようになった。
 

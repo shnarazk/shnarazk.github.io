@@ -1,9 +1,11 @@
 ---
 title: How to compile cargo-instruments
-subtitle: on NixOS on MacOS
 date: 2020-06-07
-tags: ["Rust", "macOS", "nixOS"]
-banner: /img/2020/06-07/banner.jpg
+extra:
+  banner: /2020/2020-06-07-banner.jpg
+  subtitle: on NixOS on MacOS
+taxonomies:
+  tags: ["Rust", "macOS", "nixOS"]
 ---
 ## Rustでプロファイリングしたいんじゃあ
 

@@ -1,8 +1,10 @@
 ---
 title: File renaming in dired mode on GNU Emacs
-subtitle: with default filename
 date: 2020-03-08
-tags: ["Emacs"]
+extra:
+  subtitle: with default filename
+taxonomies:
+  tags: ["Emacs"]
 ---
 dired modeでリネームする際にデフォルト値として元ファイル名を使いたい場面が非常に多かったので
 いじってみた。

@@ -1,8 +1,10 @@
 ---
 title: New technologies for SAT solvers
-subtitle: from SR2019
 date: 2020-01-21
-tags: ["SAT"]
+extra:
+  subtitle: from SR2019
+taxonomies:
+  tags: ["SAT"]
 ---
 遅ればせながらSR2019のベンチマークを見てみた。
 

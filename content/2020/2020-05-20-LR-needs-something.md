@@ -1,8 +1,11 @@
 ---
 title: LR needs something to explore the world
-subtitle: I guess so
-date: 2020-05-21
-tags: ["SAT"]
+date: 2020-05-20
+updated: 2020-05-21
+extra:
+  subtitle: I guess so
+taxonomies:
+  tags: ["SAT"]
 ---
 引き続きよくわかってない人の意見の連投ですが。
 

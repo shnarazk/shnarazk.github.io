@@ -1,8 +1,10 @@
 ---
 title: Function name as a 1-argumented closure
-subtitle: more functional style
 date: 2020-02-04
-tags: ["rust"]
+extra:
+  subtitle: more functional style
+taxonomies:
+  tags: ["rust"]
 ---
 rustc 1.41でcargo clippyを走らせて以下が指摘された。
 

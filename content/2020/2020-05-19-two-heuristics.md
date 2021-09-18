@@ -1,8 +1,10 @@
 ---
 title: What's the difference between EVSIDS and LR?
-subtitle: a tentative thought
 date: 2020-05-19
-tags: ["SAT"]
+extra:
+  subtitle: a tentative thought
+taxonomies:
+  tags: ["SAT"]
 ---
 よくわかってない人の意見ですが。
 
