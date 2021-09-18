@@ -21,11 +21,11 @@
   {% endif %}
  {{ page.content | safe }}
 
-  <div class="date-footer is-size-7 is-family-code has-text-grey has-text-right">
+  <div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style="margin-top: 2rem;">
     {% if page.date %}
       Published at {{ page.date }}
     {% endif %}
-    {% if page.update %}
+    {% if page.updated %}
       &thinsp; Last updated {{ page.updated }}&thinsp;
     {% endif %}
   </div>
