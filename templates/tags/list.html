@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+  <section>
+    {% for term in terms %}
+      <a href="#{{ term.slug }}"><strong>#{{ term.slug }}</strong></a>, 
+    {% endfor %}
+  </section>
+  <section>
+    <ul>
+    {% for term in terms %}
+      <li id="{{ term.slug }}" style="margin-top: 1.5rem;">
+        <strong>#{{ term.slug }}</strong>
+        <ul>
+        {% for page in term.pages %}
+          <div class="top-entry" style="margin-bottom: 0.5rem;">
+            <div class="aside has-text-grey">
+              <i class="fas fa-file-alt"></i>
+              &thinsp;{{ page.date }}
+              <div>
+                <a class="subtitle entry-title" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+              </div>
+              {% if page.subtitle %}
+                <span class="entry-subtitle is-pulled-right has-text-grey-dark">{{ page.subtitle }}</span>
+              {% else %}
+                <span class="entry-subtitle is-pulled-right has-text-grey-dark">FIXME</span>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+        </ul>
+      <li>
+    {% endfor %}
+    <ul>
+  </section>
+</section>
+{% endblock content %}
