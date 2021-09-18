@@ -53,15 +53,18 @@
              {% if paginator.number_pagers == 1 %}
                <a class="pagination-previous" disabled><i class="fas fa-backward"></i></a>
              {% else %}
-               <a class="pagination-previous" href="{{ paginator.first }}"><i class="fas fa-backward"></i></a>
+               <a class="pagination-previous" href="{{ paginator.first }}">
+                 1&ensp; <i class="fas fa-backward"></i>
+               </a>
              {% endif %}
              {% if paginator.current_index == paginator.number_pagers %}
                <a class="pagination-next" disabled><i class="fas fa-forward"></i></a>
              {% else %}
-               <a class="pagination-next" href="{{ paginator.last }}"><i class="fas fa-forward"></i></a>
+               <a class="pagination-next" href="{{ paginator.last }}">
+                 <i class="fas fa-forward"></i>&ensp;{{ paginator.number_pagers }}
+               </a>
              {% endif %}
              <ul class="pagination-list">
-               <li><a class="pagination-link" href="{{ paginator.first }}">1</a></li>
                <li><span class="pagination-ellipsis">&hellip;</span></li>
                {% if 2 < paginator.current_index %}
                  <li>
@@ -97,15 +100,6 @@
                  </li>
                {% endif %}
                <li><span class="pagination-ellipsis">&hellip;</span></li>
-               <li>
-                 <a
-                   class="pagination-link"
-                   href="{{ paginator.last }}"
-                   aria-label="Goto the page"
-                 >
-                   {{ paginator.number_pagers }}
-                 </a>
-               </li>
              </ul>
            </nav>
          </div>
