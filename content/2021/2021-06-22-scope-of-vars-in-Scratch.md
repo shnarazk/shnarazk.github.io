@@ -3,7 +3,7 @@ title: Scratchでの変数のスコープ
 date: 2021-06-22
 extra:
   subtitle: as a concurrent programming language
-  banner: /img/2021/06-22-scratch/shared-var.png
+  banner: /2021/06-22-scratch/shared-var.png
 taxonomies:
   tags: ["Scratch"]
 ---
@@ -13,7 +13,7 @@ Scratchはイベント発火やメッセージベースで同期を取るマル�
 
 で、変数を定義するのだけども、定義時にのみ共有レベルが指定できる。
 
-![](/img/2021/06-22-scratch/define-var.png)
+![](/2021/06-22-scratch/define-var.png)
 
 ここでグローバルを選ばないと、その変数は他スプライトからは見えないのだろうが、ではクローンされたスレッド間ではどうなるのだろう。その理解が必要となる。
 
@@ -31,7 +31,7 @@ Scratchはイベント発火やメッセージベースで同期を取るマル�
 ということになる。
 問題は関数内ローカル変数なのだが、このままだとスプライトが変わるたびに再定義しなければならない。
 
-![](/img/2021/06-22-scratch/func1.png)
+![](/2021/06-22-scratch/func1.png)
 
 うーん。
 誰もスプライトはアクセスしないとみなして、この関数のみがworking areaとして使う大域変数
@@ -51,6 +51,6 @@ fn swap(a: &mut usize, b: &mut usize, mut c: &mut usize) {
 }
 ```
 
-![](/img/2021/06-22-scratch/func2.png)
+![](/2021/06-22-scratch/func2.png)
 
 あ、代入文で選択できない！引数はimmutableに決定か。
