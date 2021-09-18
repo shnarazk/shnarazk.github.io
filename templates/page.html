@@ -6,7 +6,6 @@
     {% if page.extra.banner %}
       <div class="article-banner">
         <img src="{{ page.extra.banner | safe}}" />
-        {{ page.extra.banner }}
       </div>
       {% if page.extra.banner_caption %}
         <div class="article-banner-caption">
@@ -16,11 +15,9 @@
     {% endif %}
 
     {% if page.extra.subtitle %}
-      <section class="section">
-        <h1 class="subtitle has-text-info has-text-weight-semibold">
-          {{ page.extra.subtitle }}
-        </h1>
-      </section>
+      <h1 class="subtitle has-text-info has-text-weight-semibold">
+        {{ page.extra.subtitle }}
+      </h1>
     {% endif %}
 
     {{ page.content | safe }}

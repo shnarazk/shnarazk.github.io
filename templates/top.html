@@ -33,10 +33,8 @@
       <div>
         <a class="subtitle entry-title" href="{{ article.permalink | safe }}">{{ article.title }}</a>
       </div>
-      {% if article.subtitle %}
-      <span class="entry-subtitle is-pulled-right has-text-grey-dark">{{ article.subtitle }}</span>
-      {% else %}
-      <span class="entry-subtitle is-pulled-right has-text-grey-dark">FIXME</span>
+      {% if article.extra.subtitle %}
+        <span class="entry-subtitle is-pulled-right has-text-grey-dark">{{ article.extra.subtitle }}</span>
       {% endif %}
     </div>
   </div>
