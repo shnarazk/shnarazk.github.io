@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="padding-top: 2rem;"/>
+<div style="padding-top: 3rem;"/>
 {% if page.extra.banner %}
   <div class="article-banner">
     <img src="{{ page.extra.banner | safe}}" />
@@ -36,7 +36,7 @@
       {% if page.taxonomies.tags %}
         {% for tag in page.taxonomies.tags %}
         <div class="navbar-item">
-          <a href="/tag/{{ tag }}" class="tagword">{{ tag }}</a>
+          <a href="/tags#{{ tag | lower }}" class="tagword">{{ tag }}</a>
         </div>
         {% endfor %}
       {% endif %}
