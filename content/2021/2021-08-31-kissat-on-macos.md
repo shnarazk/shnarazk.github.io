@@ -4,7 +4,7 @@ date: 2021-08-31
 extra:
     subtitle: Abort! No!
 taxonomies:
-    tags: ["SAT", "maxOS"]
+    tags: ["kissat", "SAT", "maxOS"]
 ---
 KissatをNix package化しようとして、OSの違いに阻まれてしまった。
 こりゃ手に負えない。
