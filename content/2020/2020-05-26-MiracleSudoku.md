@@ -1,9 +1,12 @@
 ---
 title: What's Miracle Sudoku?
-subtitle: for a SAT solver developer
 date: 2020-08-24
-tags: ["SAT", "splr", "sudoku"]
-banner: "https://images.unsplash.com/photo-1511689774932-3aca18459e68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
+extra:
+  banner: "https://images.unsplash.com/photo-1511689774932-3aca18459e68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
+  banner_caption: source https://images.unsplash.com/photo-1511689774932-3aca18459e68
+  subtitle: for a SAT solver developer
+taxonomies:
+  tags: ["SAT", "splr", "sudoku"]
 ---
 25日のHacker Newsで初めて知ったMiracle Sudoku。[ビデオ](https://www.youtube.com/watch?v=cvEq_XkQg8U)の横に書いてあることから判断するに
 

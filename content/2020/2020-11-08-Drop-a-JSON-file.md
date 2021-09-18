@@ -1,8 +1,10 @@
 ---
 title: JSONファイルをドラッグ&ドロップする
-subtitle: SwiftUIの話
 date: 2020-11-08
-tags: ["Swift"]
+extra:
+  subtitle: SwiftUIの話
+taxonomies:
+  tags: ["Swift"]
 ---
 
 画像ファイルとかURLとかをドロップする話はそこそこ見つかるけど、JSONファイルをドロップするのに手こずったのでメモ。

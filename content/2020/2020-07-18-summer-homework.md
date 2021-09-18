@@ -1,11 +1,13 @@
 ---
 title: Similarity of Clauses
-subtitle: 夏休み実験室
 date: 2021-01-26
-tags: ["SAT", "splr"]
-banner: "https://images.unsplash.com/photo-1483528237748-d9d8b5cae06d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+extra:
+  banner: "https://images.unsplash.com/photo-1483528237748-d9d8b5cae06d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+  banner_caption: cover image https://unsplash.com/photos/UsSfqYdR64Q**
+  subtitle: 夏休み実験室
+taxonomies:
+  tags: ["SAT", "splr"]
 ---
-**cover image: https://unsplash.com/photos/UsSfqYdR64Q**
 
 動的なリスタートは本当に有効なのだろうか？
 自分がやってきた種々の実験結果からはLubyリスタートとの差は（有意）にあるように思うが、
