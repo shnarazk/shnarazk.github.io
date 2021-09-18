@@ -36,7 +36,7 @@
       {% if page.taxonomies.tags %}
         {% for tag in page.taxonomies.tags %}
         <div class="navbar-item">
-          <a href="/tags#{{ tag | lower }}" class="tagword">{{ tag }}</a>
+          <a href="/tags#{{ tag | slugify }}" class="tagword">{{ tag }}</a>
         </div>
         {% endfor %}
       {% endif %}
