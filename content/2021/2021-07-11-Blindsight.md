@@ -2,7 +2,7 @@
 title: Peter Watts, Blindsight
 subtitle: 英語ならタダ
 date: 2021-07-11
-tags: ["SF", "小説"]
+tags: ["SF", "novel"]
 ---
 Blenderのマニュアルを通して読んだりしたせいで、Apple booksでの連続読書日数が100日を超えたので、記録を切らずに何か読みづけたいものだと思って本を選んでました。
 

@@ -4,7 +4,7 @@ date: 2021-08-29
 extra:
   subtitle: by Kazuo Ishiguro
 taxonomies:
-  tags: ["小説"]
+  tags: ["novel"]
 ---
 小学生ではなく、大学受験前のティーンエイジャーが主登場人物ではあるが、
 おんぶされたり、
