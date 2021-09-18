@@ -1,10 +1,12 @@
 ---
 title: New Implementation of clause vivifier on Splr-0.8
-subtitle: vivification part 4
 date: 2021-05-04
-tags: ["SAT", "vivification", "splr"]
-banner: https://unsplash.com/photos/GWtOJTUyDfc/download?force=true&w=2400
-banner_caption: https://unsplash.com/photos/GWtOJTUyDfc
+extra:
+  banner: https://unsplash.com/photos/GWtOJTUyDfc/download?force=true&w=2400
+  banner_caption: https://unsplash.com/photos/GWtOJTUyDfc
+  subtitle: vivification part 4
+taxonomies:
+  tags: ["SAT", "vivification", "splr"]
 ---
 ### 2021-04-10
 

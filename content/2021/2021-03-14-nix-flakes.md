@@ -1,10 +1,12 @@
 ---
 title: Nix flakeの作り方
-subtitle: さあ来いnix-2.4
 date: 2021-03-16
-tags: ["NixOS"]
-banner: "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2400"
-banner_caption: https://unsplash.com/photos/U2L0qbBw9Jo
+extra:
+  banner: "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2400"
+  banner_caption: https://unsplash.com/photos/U2L0qbBw9Jo
+  subtitle: さあ来いnix-2.4
+taxonomies:
+  tags: ["NixOS"]
 ---
 
 2021-03-08にnix-2.4のpre-release版が三ヶ月ぶりに更新されて、ようやくnixを置き換えてもエラーなく使えるようになりました。（いやそうでもないみたいだぞ。。。@2021-03-16）

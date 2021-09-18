@@ -1,9 +1,11 @@
 ---
 title: Scratchでスプライト間コピペ
-subtitle:
 date: 2021-06-15
-tags: ["Scratch"]
-banner: /img/2021/06-15/3d-scratch.png
+extra:
+  subtitle: 見えなくても機能は存在
+  banner: /img/2021/06-15/3d-scratch.png
+taxonomies:
+  tags: ["Scratch"]
 ---
 Scratchのコンテキストメニューに「複製」というのがあるのだけど、どうしても別スプライトに持っていけない。
 なんか反応してそうな画面フィードバックはあるのだけど、あれは持っていけないよのグレイアウトだったようだ。

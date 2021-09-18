@@ -1,8 +1,10 @@
 ---
 title: JIS配列のMacbookのかなキーで日本語入力モードをトグルしたい
-subtitle:
 date: 2021-06-11
-tags: ["macOS"]
+extra:
+  subtitle: 少しでもLinuxのカスタムキーボードに近づけたい
+taxonomies:
+  tags: ["macOS"]
 ---
 ## hidutilでなんとかしよう
 

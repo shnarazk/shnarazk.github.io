@@ -1,8 +1,10 @@
 ---
 title: luaLatex-jaでNotoMono-Regularを使いたい
-subtitle: それもttfなやつを
 date: 2021-07-25
-tags: ["font", "latex"]
+extra:
+  subtitle: それもttfなやつを
+taxonomies:
+  tags: ["font", "latex"]
 ---
 lualatexの個人共通設定ファイルでゴシック系の文章に対して以下の設定をしています。
 

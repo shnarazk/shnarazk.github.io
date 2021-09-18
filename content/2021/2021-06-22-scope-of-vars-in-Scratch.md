@@ -1,9 +1,11 @@
 ---
 title: Scratchでの変数のスコープ
-subtitle:
 date: 2021-06-22
-tags: ["Scratch"]
-banner: /img/2021/06-22-scratch/shared-var.png
+extra:
+  subtitle: as a concurrent programming language
+  banner: /img/2021/06-22-scratch/shared-var.png
+taxonomies:
+  tags: ["Scratch"]
 ---
 Scratchはイベント発火やメッセージベースで同期を取るマルチスレッドシステムとしてコーディングするのが簡単。
 これだとあまり変数の必要性を感じない。

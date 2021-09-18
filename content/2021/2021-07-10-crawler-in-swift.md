@@ -1,8 +1,10 @@
 ---
 title: Swiftでcrawling
-subtitle: 
 date: 2021-07-10
-tags: ["Swift", "Covid19"]
+extra:
+  subtitle: どれでも同じようなもの
+taxonomies:
+  tags: ["Swift", "Covid19"]
 ---
 福岡市の[COVID19オープンデータ](https://ckan.open-governmentdata.org/dataset/401000_pref_fukuoka_covid19_patients)は更新されるたびにURLが更新される（そして古いURLは削除される）という意味不明な[運用](https://ckan.open-governmentdata.org/dataset/activity/401000_pref_fukuoka_covid19_patients)なので、毎日swiftプログラムを書き換えるという馬鹿なことをしていたのだけど、半年たってようやくcrawlingしようという気になりました。
 
