@@ -3,7 +3,7 @@ title: Scratchでスプライト間コピペ
 date: 2021-06-15
 extra:
   subtitle: 見えなくても機能は存在
-  banner: /img/2021/06-15/3d-scratch.png
+  banner: /2021/2021-06-15-3d-scratch.png
 taxonomies:
   tags: ["Scratch"]
 ---
