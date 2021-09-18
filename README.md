@@ -6,6 +6,10 @@
 
 ### History of the blog generator called *JANG*
 
+#### 2.0.0 beta, 2021-09-18
+
+- Switch to Zola from node.js-based in-house generator
+
 #### 1.0.3, 2021-03-16
 - add entry `banner_caption` in 'first matter'
 
@@ -18,17 +22,13 @@
 
 # Build Setup
 
-``` bash
-# install dependencies
-$ npm install
+All sub directories under /content/note/ should have it as `_index.md`.
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
+```
+---
+title: test
+template: index.html
+page_template: entry.html
+transparent: true
+---
 ```
