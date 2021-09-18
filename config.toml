@@ -1,14 +1,16 @@
 # The URL the site will be built for
 base_url = "https://shnarazk.github.io/"
-title = "Just a note (version 2.0.0-β2)"
+title = "Just a note (version 2.0.0-β3)"
 description = "I think that should be worth being recorded"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
+minify_html = true
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
-
+build_search_index = false
+generate_feed = true
+feed_filename = "atom.xml"
 taxonomies = [ {name = "tags", feed = false} ]
 
 [markdown]
