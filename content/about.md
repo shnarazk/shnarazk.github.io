@@ -1,5 +1,6 @@
 ---
 title: Just a note about this site and me
+date: 2021-09-19
 taxonomies:
   tags: ["hugo", "jang", "zola"]
 ---
@@ -27,3 +28,4 @@ This site collects my notes on [various topics](/tags), in particular about:
 - 2.0 since 2021-09-17 -- Zola
 - 1.0 since 2018 -- jang, a home-made static site generator using Node.js
 - 2016 -- Hugo
+- ?? -- Ghost
