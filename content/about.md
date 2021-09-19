@@ -20,3 +20,8 @@ This site collects my notes on [various topics](/tags), in particular about:
 - <i class="fab fa-github"></i><a href="https://github.com/shnarazk">@github</a>
 - <i class="fab fa-medium"></i><a href="https://medium.com/@shnarazk/">@Medium</a>
 
+## History of build tool
+
+- 2021-09-17 -- Zola
+- 2018 -- homemade builder using Node.js
+- 2016 -- Hugo
