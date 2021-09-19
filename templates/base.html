@@ -25,6 +25,21 @@
 			});">
   </script>
   {% endif %}
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach( el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+  </script>
   <title>Just a note</title>
 </head>
 <body>
@@ -37,20 +52,35 @@
           <a href="/" class="title">{{ config.title }}</a>
         {% endif %}
       </div>
-      &nbsp;
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navigation-bar"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <div class="navbar-menu">
+    <div id="navigation-bar" class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="/tags">
-          <i class="fas fa-tags"></i>&thinsp;Tags
-        </a>
-        <a class="navbar-item" href="/about">
-          <i class="fas fa-question-circle"></i>&thinsp;About
-        </a>
-        <a class="navbar-item" href="/atom.xml">
-          <i class="fas fa-rss-square"></i>
-          &thinsp;RSS
-        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">More</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/tags">
+              <i class="fas fa-tags"></i>&thinsp;Tags
+            </a>
+            <a class="navbar-item" href="/about">
+              <i class="fas fa-question-circle"></i>&thinsp;About
+            </a>
+            <a class="navbar-item" href="/atom.xml">
+              <i class="fas fa-rss-square"></i>
+              &thinsp;RSS
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
