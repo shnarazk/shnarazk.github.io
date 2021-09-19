@@ -6,12 +6,12 @@ taxonomies:
 ---
 This site collects my notes on [various topics](/tags), in particular about:
 
-- Propositional logic <nuxt-link to="/tag/sat/">(#sat)</nuxt-link>
-- NixOS <nuxt-link to="/tag/nixos/">(#nixos)</nuxt-link>
-- GNU Emacs <nuxt-link to="/tag/emacs/">(#emacs)</nuxt-link>
-- LaTeX <nuxt-link to="/tag/latex/">(#latex)</nuxt-link>
-- Linux <nuxt-link to="/tag/archlinux/">(#archlinx))</nuxt-link>
-- Rust <nuxt-link to="/tag/rust/">(#rust)</nuxt-link>
+- Propositional logic (#sat)[/tags/#sat]
+- NixOS (#nixos)[/tags/#nixos]
+- GNU Emacs (#emacs)[/tags/#emacs]
+- LaTeX (#latex)[/tags/#latex]
+- Linux (#archlinx)[/tags/#archlinux]
+- Rust (#rust)[/tags/#rust]
 
 ##  Profile
 
