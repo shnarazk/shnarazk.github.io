@@ -1,6 +1,6 @@
 ---
 title: LubyStabilization
-date: 2020-11-18
+updated: 2020-11-18
 extra:
   subtitle: 0.5.1のリリースさらに遠のく
 taxonomies:
