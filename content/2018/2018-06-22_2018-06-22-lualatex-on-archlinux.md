@@ -1,8 +1,9 @@
 ---
 title: lualatex-ja on ArchLinux
-subtitle: lualatex-jaが動かなくなった
-date: 2018-06-22
-tags: ["latex", "archlinux"]
+extra:
+  subtitle: lualatex-jaが動かなくなった
+taxonomies:
+  tags: ["latex", "archlinux"]
 ---
 
 

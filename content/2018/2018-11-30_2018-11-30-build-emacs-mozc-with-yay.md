@@ -1,8 +1,9 @@
 ---
 title: Building emacs-mozc with yay
-subtitle: yayで"aura --hotedit"に相当するオプションは?
-date: 2018-11-30
-tags: ["archlinux", "emacs"]
+extra:
+  subtitle: yayで"aura --hotedit"に相当するオプションは?
+taxonomies:
+  tags: ["archlinux", "emacs"]
 ---
 
 Arch linuxでemacs-mozcを生成するにはmozcのPKGBUILDを修正する必要がある．

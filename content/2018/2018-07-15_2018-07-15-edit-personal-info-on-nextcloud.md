@@ -1,10 +1,10 @@
 ---
 title: Re-edit personal information on NextCloud
-subtitle: NextCloudの個人情報が編集できなくなった
-date: 2018-07-15
-tags: ["nextcloud"]
+extra:
+  subtitle: NextCloudの個人情報が編集できなくなった
+taxonomies:
+  tags: ["nextcloud"]
 ---
-
 なにやら色々やっていたら、入力した電話番号やウェブサイトの情報が表示されているものの、
 編集できなくなってしまった。
 

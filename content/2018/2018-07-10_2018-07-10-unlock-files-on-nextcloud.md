@@ -1,7 +1,7 @@
 ---
 title: Unlock files on NextCloud
-date: 2018-07-10
-tags: ["nextcloud","archlinux"]
+taxonomies:
+  tags: ["nextcloud","archlinux"]
 ---
 
 まず，/etc/webapps/nextcloud/config/config.phpでmaintenanceをtrueに一時変更．

@@ -1,8 +1,9 @@
 ---
 title: Upgrade PostgreSQL DB
-subtitle: moodleで使用しているPostgreSQLのメジャーアップグレード
-date: 2018-02-04
-tags: ["PostgreSQL", "moodle", "ArchLinux"]
+extra:
+  subtitle: moodleで使用しているPostgreSQLのメジャーアップグレード
+taxonomies:
+  tags: ["PostgreSQL", "moodle", "ArchLinux"]
 ---
 
 -  https://wiki.archlinux.org/index.php/PostgreSQL#Upgrading_PostgreSQL
