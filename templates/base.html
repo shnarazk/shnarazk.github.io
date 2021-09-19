@@ -25,11 +25,11 @@
 			});">
   </script>
   {% endif %}
-  <script defer>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
       if ($navbarBurgers.length > 0) {
-        $navbarBurgers.forEach( el => {
+        $navbarBurgers.forEach(el => {
           el.addEventListener('click', () => {
             const target = el.dataset.target;
             const $target = document.getElementById(target);
@@ -43,7 +43,7 @@
   <title>Just a note</title>
 </head>
 <body>
-  <nav class="navbar is-fixed-top is-light" role="navigation">
+  <nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <div class="navbar-item">
         {% if page.title %}
@@ -66,9 +66,9 @@
     </div>
     <div id="navigation-bar" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">More</a>
-          <div class="navbar-dropdown">
+        <div id="navigation-dropdown" class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')">More</a>
+          <div class="navbar-dropdown is-right">
             <a class="navbar-item" href="/tags">
               <i class="fas fa-tags"></i>&thinsp;Tags
             </a>
