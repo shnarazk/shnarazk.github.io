@@ -22,8 +22,9 @@
  {{ page.content | safe }}
 
   <div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style="margin-top: 2rem;">
-    {% if page.date %}
-      Published at {{ page.date }}
+    Published at {{ page.date }}
+    {% if page.extra.published %}
+      (1st edition: {{ page.extra.published }})
     {% endif %}
     {% if page.updated %}
       &thinsp; Last updated {{ page.updated }}&thinsp;
