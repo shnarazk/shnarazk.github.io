@@ -1,8 +1,9 @@
 ---
 title: SAT solvers in crates.io
-subtitle: Rust製SATソルバー一覧
-date: 2019-02-16
-tags: ["sat", "rust"]
+extra:
+  subtitle: Rust製SATソルバー一覧
+taxonomies:
+  tags: ["sat", "rust"]
 ---
 
 Here's the list of SAT solvers in [crates.io](https://crates.io).

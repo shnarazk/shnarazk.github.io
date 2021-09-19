@@ -1,12 +1,13 @@
 ---
 title: Development of Var activities (2019-07-11)
-subtitle: 変数活性度と変数割当て量の相関
-date: 2019-08-25
-tags: ["SAT", "issue"]
+extra:
+  subtitle: 変数活性度と変数割当て量の相関
+taxonomies:
+  tags: ["SAT", "issue"]
 ---
 以下は変数活性度の分散（青色の線）と変数割当量のEMA（緑色の線）の時間変化である。
 
-![](/img/2019/07-11/vadist-fixedvars.png)
+![](/2019/2019-07-11_vadist-fixedvars.png)
 
 どうもこの両者には負の相関があるらしい。変数割当てが減ると分散は高くなる。
 これは、

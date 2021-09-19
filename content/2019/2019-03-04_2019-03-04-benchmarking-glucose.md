@@ -1,8 +1,9 @@
 ---
 title: Running Glucose in benchmark mode
-subtitle: Glucoseのベンチマークがしたい
-date: 2019-03-04
-tags: ["glucose", "SAT"]
+extra:
+  subtitle: Glucoseのベンチマークがしたい
+taxonomies:
+  tags: ["glucose", "SAT"]
 ---
 
 Using my [patched](https://gitlab.com/satisfiability01/glucose/tree/v.4.1) glucose, we can get more useful result.

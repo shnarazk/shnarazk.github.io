@@ -1,7 +1,8 @@
 ---
 title: Install Rust programs with resources on NixOS
-subtitle: リソース付きRustプログラムのNixOSへのインストール
-date: 2019-03-22
+extra:
+  subtitle: リソース付きRustプログラムのNixOSへのインストール
+  taxonomies:
 tags: ["NixOS", "Rust"]
 ---
 

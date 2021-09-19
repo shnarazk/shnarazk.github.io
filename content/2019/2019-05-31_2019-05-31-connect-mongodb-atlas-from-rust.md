@@ -1,8 +1,9 @@
 ---
 title: Connect mongoDB Atlas from Rust
-subtitle: "\"mongodb+srv://\"がない"
-date: 2019-05-31
-tags: ["Rust", "mongoDB", "cloud"]
+extra:
+  subtitle: "\"mongodb+srv://\"がない"
+taxonomies:
+  tags: ["Rust", "mongoDB", "cloud"]
 ---
 
 クラウドの勉強をしようと思って無料データベース[mongoDB Atlas](https://cloud.mongodb.com/)にアカウントを作ってみた。
@@ -16,7 +17,7 @@ mongoDBを選んだのは、以下の理由から。
 セットアップはサクサクできて、あとはプログラムにconnectするだけ。
 もちろん、ちゃんと参考例が表示される。
 
-![](/img/2019/05-31/mongodb-1.png)
+![](/2019/2019-05-31_mongodb-1.png)
 
 例えば**Connect Your Application**から辿ったjs用のサンプルはこうなっている。
 

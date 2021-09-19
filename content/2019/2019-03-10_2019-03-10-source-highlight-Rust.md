@@ -1,8 +1,9 @@
 ---
 title: Build GNU Source-highlight supporting Rust for NixOS
-subtitle: NixOS的にlessをRust対応にしよう
-date: 2019-03-10
-tags: ["Rust", "NixOS"]
+extra:
+  subtitle: NixOS的にlessをRust対応にしよう
+taxonomies:
+  tags: ["Rust", "NixOS"]
 ---
 
 Let's Rust syntax highlighten in less!

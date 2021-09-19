@@ -1,8 +1,9 @@
 ---
 title: NixOS administration
-subtitle: NixOSのメモ
-date: 2019-03-06
-tags: ["NixOS"]
+extra:
+  subtitle: NixOSのメモ
+taxonomies:
+  tags: ["NixOS"]
 ---
 
 - Where's configuration: /etc/nixos/configuration.nix
