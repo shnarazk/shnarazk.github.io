@@ -1,6 +1,5 @@
 ---
 title: Scratchでの変数のスコープ
-date: 2021-06-22
 extra:
   subtitle: as a concurrent programming language
   banner: /2021/06-22-scratch/shared-var.png
