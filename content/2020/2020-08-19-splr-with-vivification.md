@@ -52,7 +52,7 @@ c Ignoring deletion of non-existent clause (pos 30441)
 
 ![](/2020/2020-08-19-Algorithm4_conflAnalysis.jpg)
 
-![](/2020/07-05/vivi-algo3.jpg)
+![](/2020/2020-07-05_vivi-algo3.jpg)
 
 大丈夫なようだ。矛盾しているリテラルを拾うためにリテラルベースではなく、変数ベースでアクセスしている。
 特に問題はない。例えば節長が1の学習節をcertificateに含めても問題は発生しない。
