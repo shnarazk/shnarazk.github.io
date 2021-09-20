@@ -1,6 +1,7 @@
 ---
 title: Just a note about this site and me
 date: 2021-09-19
+updated: 2021-09-20
 taxonomies:
   tags: ["hugo", "jang", "zola"]
 ---
@@ -16,12 +17,11 @@ This site collects my notes on [various topics](/tags), in particular about:
 ##  Profile
 
 - A researcher on satisfiability problem (SAT solvers), studying logic, category theory.
-- A programmer using Nuxt.js, Vue.js, NixOS, Rust.
-- A user of Emacs, Latex, Linux, macOS, Mendeley, Observable.
-- A bicycle rider (bicycle deliverer).
+- A programmer using Nuxt.js, Vue.js, NixOS, Rust, Swift.
+- A user of Emacs, Latex, Linux, macOS, Mendeley, ~~Observable~~.
+- Used to be a bicycle rider (bicycle deliverer).
 
 - <i class="fab fa-github"></i><a href="https://github.com/shnarazk">@github</a>
-- <i class="fab fa-medium"></i><a href="https://medium.com/@shnarazk/">@Medium</a>
 
 ## History of build tool
 
