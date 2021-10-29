@@ -1,5 +1,5 @@
 ---
-title: MacOSでのNix2.4に対応した/Nixの作り方
+title: MacOSでのNix2.4に対応した/nixの作り方
 updated: 2021-03-16
 extra:
   subtitle: No more synthetic approach
@@ -14,5 +14,5 @@ Nix 2.4のalphaリリースがnixpkgs unstableに入った当初の頃は2.4に�
 あれ、`NIX_IGNORE_SYMLINK_STORE`で対応できるのはなかったのかと思い、Nixのマニュアルを読み返してみると、一番お手軽だった/etc/synthetic.confで/nixにmountしている方法は全く推奨されていなかった。
 実装が変わって2.4ではとうとうこの方法はサポート外になってしまったようだ。
 
-ということで1台目のmacではpartitionぶっ飛ばして再インストールが必要になったりしたけど、全部のmacで/etc/fstabを編集する1番おすすめの方法で/nixを用意することになりました。
+ということで1台目のmacではpartitionぶっ飛ばして再インストールが必要になったりしたけど、全部のmacで/etc/fstabを編集する1番おすすめの方法で/nixを用意することになりました。（セキュリティ的な脆弱性も問題ないようだ。）
 これでやっとflakeが使えるようになった。
