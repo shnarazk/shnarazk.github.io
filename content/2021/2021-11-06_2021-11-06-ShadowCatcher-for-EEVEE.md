@@ -1,5 +1,7 @@
 ---
 title: Shadow catcher for EEVEE
+extra:
+  banner: /2021/2021-11-06_banner.jpg
 taxonomies:
     tags: ["Blender"]
 ---
