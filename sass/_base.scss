@@ -19,19 +19,6 @@ body {
       }
     }
   }
-  a {
-      color: blue;
-      text-shadow: 0px 1px 2px #99f;
-      border-bottom: 2px solid #ddf;
-      &:visited {
-          color: #228;
-      }
-      &:hover {
-          color: blue;
-          border-bottom: 2px solid #66f;
-          text-shadow: unset;
-      }
-  }
   section {
     width: 96%;
     margin-left: 1%;

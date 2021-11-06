@@ -26,6 +26,19 @@
   font-size: 1rem;
   width: 92%;
   margin-left: 3%;
+  a {
+      color: blue;
+      text-shadow: 0px 1px 2px #99f;
+      border-bottom: 2px solid #ddf;
+      &:visited {
+          color: #228;
+      }
+      &:hover {
+          color: blue;
+          border-bottom: 2px solid #66f;
+          text-shadow: unset;
+      }
+  }
   h1 {
     font-size: 1.8rem;
     font-weight: bolder;
