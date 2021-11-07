@@ -29,7 +29,7 @@ Cycle(X)だと、holdoutはShadowの画像においても真っ黒なものと�
 - Object Properties - Visibility - Mask -- Shadow Catcherを有効化
 
 するとレンダリングされるべき濃さの影のマスクが生成されるので、
-これをNo Catcher layerのレンダリング画像Combinedのvalueに流し込めばよい。
+これを適当にスケーリングしてNo Catcher layerのレンダリング画像Combinedのvalueに流し込めばよいだろう。
 
 ![](/2021/2021-11-07_cycle.png)
 
