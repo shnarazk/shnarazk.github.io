@@ -2,7 +2,7 @@
 title: Shadow catcher for EEVEE
 extra:
   banner: /2021/2021-11-06_banner.jpg
-  subtitle: これも広い意味で飯の種
+  subtitle: 影重要
 taxonomies:
     tags: ["Blender"]
 ---
