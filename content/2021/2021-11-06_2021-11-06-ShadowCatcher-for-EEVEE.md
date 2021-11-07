@@ -2,6 +2,7 @@
 title: Shadow catcher for EEVEE
 extra:
   banner: /2021/2021-11-06_banner.jpg
+  subtitle: これも広い意味で飯の種
 taxonomies:
     tags: ["Blender"]
 ---
@@ -28,7 +29,7 @@ Cycle(X)だと、holdoutはShadowの画像においても真っ黒なものと�
 - Object Properties - Visibility - Mask -- Shadow Catcherを有効化
 
 するとレンダリングされるべき濃さの影のマスクが生成されるので、
-これをNo Catcher layerのvalueに流し込めばよい。
+これをNo Catcher layerのレンダリング画像Combinedのvalueに流し込めばよい。
 
 ![](/2021/2021-11-07_cycle.png)
 
