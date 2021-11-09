@@ -9,7 +9,16 @@ taxonomies:
 ---
 # 2021-11-09
 
-### EEVEE version 3
+### EEVEE version 2.1
+
+> 否定を3回ならde Morganの出番のはずなんだが、うーむ、画像アプリの世界ではなんだか。。。
+
+なんか[0, 1]への正規化という点で難があると思うのだが、clampとか意味のないはずのスケーリングとかで手当てをするなら、
+3回のInvertとMultiplyはAddに置き換えられるので、de Morgan。
+
+![](2021-11-06_eevee-2.1.png)
+
+### EEVEE version 2
 
 EEVEEでも素直にマスクが使えるのでノード数は増えるけど、2021-11-07の前半部よりもこちらの方が直感的かも。
 
@@ -35,7 +44,7 @@ composerで組み立て。
 
 # 2021-11-07
 
-### EEVEE version 2
+### EEVEE version 1
 
 いやもっと便利なのはcompositing treeだろう。
 影を落とすメッシュを`shadow receiver`とする。surface materialはholdout。collection `shadow catch`に入れておく。
@@ -52,7 +61,7 @@ Catching LayerのShadowをalphaに使って、No Catcher layerの画像の上に
 
 EEVEEはこれでOK。
 
-### Cycles version 1
+### Cycles version 0
 
 Cyclesだと、holdoutはShadowの画像においても真っ黒なものとして表現されるので併用はできない。影だけでなくshadow catcherのあったところ全体が影になってしまう。
 
