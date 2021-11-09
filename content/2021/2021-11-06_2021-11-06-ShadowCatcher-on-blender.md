@@ -16,7 +16,7 @@ taxonomies:
 なんか[0, 1]への正規化という点で難があると思うのだが、clampとか意味のないはずのスケーリングとかで手当てをするなら、
 3回のInvertとMultiplyはAddに置き換えられるので、de Morgan。
 
-![](2021-11-06_eevee-2.1.png)
+![](2021-11-06_eevee2.1.png)
 
 ### EEVEE version 2
 
