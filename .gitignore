@@ -2,3 +2,4 @@ public
 .shell
 .DS_Store
 *.blend*
+cache_fluid_*
