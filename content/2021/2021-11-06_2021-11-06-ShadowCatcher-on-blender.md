@@ -1,12 +1,23 @@
 ---
 title: Shadow catcher on Blender
-updated: 2021-11-09
+updated: 2021-11-20
 extra:
   banner: /2021/2021-11-06_banner.jpg
   subtitle: 影重要
 taxonomies:
     tags: ["Blender"]
 ---
+# 2021-11-20
+
+3.0のShadow Catcherのコンポジションツリーがこのページのやり方と違うことに気がついた。
+
+- https://wiki.blender.org/wiki/Reference/Release_Notes/3.0/Cycles
+- https://wiki.blender.org/wiki/File:Cycles_3.0_shadow_catcher_compositing.png
+
+> デフォルトでは、シャドウキャッチャーは結合パスのアルファチャンネルにのみ影響します。ただし、色付きの間接光と放出を完全に処理するには、新しいシャドウキャッチャーパスを使用する必要があります。背景にシャドウキャッチャーパスを掛ける必要があり、その後、結合パスをアルファオーバーで合成することができます。
+
+試してみた。なるほど、コレクションは増やさず、Scene collectionをオフにした新規レイヤーで背景だけ描画したものに基レイヤーをOver alphaで合成するのか。こっちの方が簡単そうだ。
+
 # 2021-11-09
 
 ### EEVEE version 2.1
