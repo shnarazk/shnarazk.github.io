@@ -3,7 +3,7 @@ title: 未踏の蒼穹
 extra:
   subtitle: by James P. Hogan
 taxonomies:
-  tags: ["novel"]
+  tags: ["novel", "SF"]
 ---
 # 未踏の蒼穹
 
