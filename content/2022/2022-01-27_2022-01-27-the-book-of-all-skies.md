@@ -1,6 +1,8 @@
 ---
 title: The Book of All Skies
 extra:
+  banner: /2022/2022-01-27_banner.jpg
+  banner_caption: BlenderネタだがGeometry Nodeで雷を作るビデオが面白かったので貼り付けてみる。不穏な空繋がりということで。
   subtitle: by Greg Egan
 taxonomies:
   tags: ["novel", "SF"]
