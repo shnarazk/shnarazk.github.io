@@ -144,8 +144,11 @@
     background-color: #bbf;
     border: solid 1px #55c;
   }
-  table > tbody > tr {
+  table > tbody > tr:nth-child(even) {
     background-color: #eeeeee;
+  }
+  table > tbody > tr:nth-child(odd) {
+    background-color: #f6f6f6;
   }
   th,
   td {
