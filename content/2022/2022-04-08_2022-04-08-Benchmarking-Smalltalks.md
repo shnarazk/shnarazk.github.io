@@ -49,7 +49,7 @@ Spec2とかFluidとかだから何なのか？
 
 ### ついでにRustも-- 2022-04-08
 
-見ての通りGMPを呼び出しているRust版だとまあ10倍速い。
+GMPをwrapしたライブラリで有理数を実装したRust版だとまあ10倍速い。
 
 ```rust
 use rug::Rational;
