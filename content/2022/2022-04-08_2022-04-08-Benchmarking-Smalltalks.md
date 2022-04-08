@@ -10,9 +10,9 @@ taxonomies:
 全くつまらないPHPでのプログラミングなどというようなものをやらされているので、そんなもん使うくらいならSmalltalkの方がマシ。
 とイライラが募り続けたせいで数年ぶりにSmalltalkをインストールしてチュートリアルをやりたい病にかかりました。
 
-今回はCuis Smalltalkを試してみたのが新しいところ。
-と思っていたらちょうどPharo 10が出たのでそっちも試してみた。
-さらにオープンソースがforkすると大抵本家はダメになっていくものだけど(X-Window Systems, Owncloud, LibreOffice, ...)、では現状一体どうなっているのか日本語の情報が全く途絶えてしまったSqueakもついでにインストールして久しぶりにいじってみました。
+今回は[Cuis Smalltalk](http://www.cuis-smalltalk.org)を試してみたのが新しいところ。
+と思っていたらちょうど[Pharo 10](https://pharo.org/news/pharo10-released)が出たのでそっちも試してみた。
+さらにオープンソースがforkすると大抵本家はダメになっていくものだけど(X-Window Systems, Owncloud, LibreOffice, ...)、では現状一体どうなっているのか日本語の情報が全く途絶えてしまった[Squeak](https://squeak.org)もついでにインストールして久しぶりにいじってみました。
 
 結論から言うと個人的にはやっぱり型リッチな静的型付け関数型プログラミング全面支援言語をemacsかhelixでnixpkgsの基で作って使うのが一番だなあという結論なのだが、でもそれなりにSmalltalkは面白い。
 実際のところどれ使ってもそれなりに面白いと言って過言ではない。
