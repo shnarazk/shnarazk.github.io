@@ -3,7 +3,7 @@ title: Benchmarking Squeak, Pharo and Cuis
 extra:
   subtitle: Let's pi
 taxonomies:
-  tags: ["Squeak", "Cuis", "Pharo", "Smalltalk"]
+  tags: ["Squeak", "Cuis", "Pharo", "Smalltalk", "Rust"]
 ---
 # They depend on opensmalltalk-vm, of course.
 
@@ -31,7 +31,7 @@ PHPよりはるかに楽しい。PHPよりはるかに楽しい。PHPよりは�
 |                                   | 200000 | 3.1415976535647934 |  129213 | 129213      |
 | Cuis6.0-5069.image                | 100000 | 3.141602653489794  |   17571 | 37985       |
 |                                   | 200000 | 3.1415976535647934 |   77079 | 150123      |
-|-----------------------------------|-------:|:-------------------|--------:|------------:|
+|                                   |        |                    |         |             |
 | Rust [Rug-1.15.0](https://crates.io/crates/rug) on [GMP](https://gmplib.org/) | 100000 | 3.1416026534897936 |      -- | 2.38 x 10^3 |
 |                                   | 200000 | 3.141597653564793  |      -- | 9.78 x 10^3 |
 
