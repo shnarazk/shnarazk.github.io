@@ -1,5 +1,5 @@
 ---
-title: MacOS->Nixpkgs->Alacritty->Tmux->truecolor
+title: MacOS -> Nixpkgs -> Alacritty -> Tmux -> truecolor
 extra:
   subtitle: terminal-overridesが有効になるまで
 taxonomies:
