@@ -46,6 +46,6 @@ test: arg
 
 なお、cargo artifactsの置き場は共通、OSはMacOSを想定。
 
-細かいことは https://wiki.squeak.org/squeak/2426 を参照のこと。
+細かいことは [https://wiki.squeak.org/squeak/2426](https://wiki.squeak.org/squeak/2426) を参照のこと。
 
 あっという間にできちゃった。
