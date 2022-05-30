@@ -2,7 +2,7 @@
 title: Calling Rust functions from Cuis-Smalltalk
 extra:
   subtitle: FFI!
-  banner: /2022/2022-05-03_engram.jpg
+  banner: /2022/2022-05-30_banner.jpg
 taxonomies:
   tags: ["Rust", "Smalltalk", "CuisSmalltalk"]
 ---
