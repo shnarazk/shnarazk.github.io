@@ -10,7 +10,7 @@ taxonomies:
 pkg-configとopenssl-devが必要。さらにpkg-configにopensslの情報を渡してやることが必要。
 なので以下のようになる（なぜか私の環境では相変わらずnix-shellが追加した環境をprofileに渡せないままなのだ）。
 
-```nix
+```sh
 $ nix shell nixpkgs#pkg-config nixpkgs#openssl
 $ PKG_CONFIG_PATH=/nix/store/${OPENSSL_DEV}/lib PATH=/nix/store/${PKG_CONFIG}/bin cargo build
 ```
