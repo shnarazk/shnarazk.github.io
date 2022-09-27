@@ -1,5 +1,6 @@
 ---
 title: Overlaying Rustic Nixpkgs
+updated: 2022-09-28
 extra:
   subtitle: how to fix openssl problem
 taxonomies:
@@ -31,3 +32,9 @@ cargoDeps = PACKAGE.cargoDeps.overrideAttrs (lib.const {
 ```
 
 `cargoSha256`は評価されてしまって`cargoDeps.outputHash`なる内部データになってしまっているそうだ。
+
+## 2022-09-28:「私の環境では相変わらずnix-shellが追加した環境をprofileに渡せない」理由
+
+アホのような原因だった。.bashrc, .zshrcの中でPATHをリセットしていたからだった。
+SHELLを/bin/shに切り替えるとちゃんと動作することから判明しました。
+
