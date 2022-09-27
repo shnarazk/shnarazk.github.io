@@ -5,20 +5,24 @@ extra:
 taxonomies:
   tags: ["nix", "rust"]
 ---
-# ちょっと試したいcrateがopensslを要求する場合
+# Rust crateをNix flakeにしたい場合のあれこれ
+
+## ちょっと試したいcrateがopensslを要求する場合
 
 pkg-configとopenssl-devが必要。さらにpkg-configにopensslの情報を渡してやることが必要。
-なので以下のようになる（なぜか私の環境では相変わらずnix-shellが追加した環境をprofileに渡せないままなのだ）。
+なので以下のようになる
+（なぜか私の環境では相変わらずnix-shellが追加した環境をprofileに渡せないままなのだ）。
 
 ```sh
 $ nix shell nixpkgs#pkg-config nixpkgs#openssl
 $ PKG_CONFIG_PATH=/nix/store/${OPENSSL_DEV}/lib PATH=/nix/store/${PKG_CONFIG}/bin cargo build
 ```
 
-# バージョンを上げるために`cargoSha256`を変更する必要がある場合
+## crateのバージョンを上げるために`cargoSha256`を変更する必要がある場合
+
+- https://discourse.nixos.org/t/is-it-possible-to-override-cargosha256-in-buildrustpackage/4393
 
 ```nix
-# https://discourse.nixos.org/t/is-it-possible-to-override-cargosha256-in-buildrustpackage/4393
 cargoDeps = PACKAGE.cargoDeps.overrideAttrs (lib.const {
   name = "${pname}-vendor.tar.gz";
   inherit src;
@@ -26,4 +30,4 @@ cargoDeps = PACKAGE.cargoDeps.overrideAttrs (lib.const {
 });
 ```
 
-`cargoSha256`は評価されてしまって内部データになってしまっているらしい。
+`cargoSha256`は評価されてしまって`cargoDeps.outputHash`なる内部データになってしまっているそうだ。
