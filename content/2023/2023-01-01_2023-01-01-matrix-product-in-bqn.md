@@ -2,10 +2,9 @@
 title: Matrix product in BQN
 updated: 2021-01-01
 extra:
-  subtitle: 今時の行列指向言語とは
-extra:
   banner: /2023/learn-bqn.png
   banner_caption: Let's learn BQN
+  subtitle: 今時の行列指向言語とは
 taxonomies:
   tags: ["bqn"]
 ---
