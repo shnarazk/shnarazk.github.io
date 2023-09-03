@@ -1,0 +1,64 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>A trait definition with lifetimes</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">生存期間もややこしい</h1><p>あるプログラムでアルゴリズムのバリエーションを併用するため、以下のトレイトが必要になったとしよう。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>pub trait </span><span>RestartHeuristics {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>type </span><span>Item;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>add</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, item: </span><span style=font-weight:700;color:#a71d5d>Self::</span><span>Item);
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>...
+</span></code></pre><p>ここで、実装ごとにメソッド<code>add</code>に渡す引数を変えたいので、関連型<code>Item</code>を引数の型としてもたせた。 例えば、以下のような実装を実現したい。<ul><li>単なる数値(<code>f64</code>)を受け取って計算する<code>add</code><li>何か構造体へのmut pointer(<code>&mut Var</code>)をもらってそれに対して変更を加えながら計算する<code>add</code></ul><p>それぞれ以下のような定義になった。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>impl </span><span>RestartHeuristics </span><span style=font-weight:700;color:#a71d5d>for </span><span>RestartByLBD {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>type </span><span>Item </span><span style=font-weight:700;color:#a71d5d>= usize</span><span>;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>add</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, item: </span><span style=font-weight:700;color:#a71d5d>Self::</span><span>Item) {</span><span style=font-weight:700;color:#a71d5d>...
+</span></code></pre><p>そして問題となる二つ目の定義：<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>impl </span><span>RestartHeuristics </span><span style=font-weight:700;color:#a71d5d>for </span><span>VarSet {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>type </span><span>Item </span><span style=font-weight:700;color:#a71d5d>= &mut</span><span> Var;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>add</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, v: </span><span style=font-weight:700;color:#a71d5d>Self::</span><span>Item) {</span><span style=font-weight:700;color:#a71d5d>...
+</span></code></pre><p>これで <code>r.add(4);</code> とか <code>r.add(&mut v);</code> とか自由に書けてスマート。 つまり、意味もなく<code>r.add(&mut 4)</code>なんてことを強制されずに済んだ。 ところが、これはコンパイルエラーになる。<pre style=background:#fff;color:#323232><code><span>error[E0106]: missing lifetime specifier
+</span><span>   --> src/var.rs:114:17
+</span><span>    |
+</span><span>114 |     type Item = &mut Var;
+</span><span>    |                 ^ help: consider using the named lifetime: `&'a`
+</span></code></pre><p>ポインタを渡しているので生存時間が必要らしい。 うーむ、メソッド<code>add</code>の中ではCopy可能なフィールドを参照、変更するだけなので生存時間が問題になることはないと思うのだけど。。。 ともあれ、上記のヘルプに従ってこの引数に生存時間を追加した。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>impl </span><span>RestartHeuristics </span><span style=font-weight:700;color:#a71d5d>for </span><span>VarSet {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>type </span><span>Memory </span><span style=font-weight:700;color:#a71d5d>=</span><span> Ema2;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>type </span><span>Item </span><span style=font-weight:700;color:#a71d5d>= &'a mut</span><span> Var;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>add</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, v: </span><span style=font-weight:700;color:#a71d5d>Self::</span><span>Item) {
+</span></code></pre><p>すると以下のエラー。<pre style=background:#fff;color:#323232><code><span>error[E0261]: use of undeclared lifetime name `'a`
+</span><span>   --> src/var.rs:114:18
+</span><span>    |
+</span><span>114 |     type Item = &'a mut Var;
+</span><span>    |                  ^^ undeclared lifetime
+</span></code></pre><p>なので、生存期間<code>'a</code>を宣言できる唯一の場所<code>impl</code>に追加する（後述）。<pre style=background:#fff;color:#323232><code><span>impl<'a> RestartHeuristics for VarSet {
+</span><span>    type Memory = Ema2;
+</span><span>    type Item = &'a mut Var;
+</span><span>    fn add(&mut self, v: Self::Item) {
+</span></code></pre><p>すると今度は以下のエラー。<pre style=background:#fff;color:#323232><code><span>error[E0207]: the lifetime parameter `'a` is not constrained by the impl trait, self type, or predicates
+</span><span>   --> src/var.rs:112:6
+</span><span>    |
+</span><span>112 | impl<'a> RestartHeuristics for VarSet {
+</span><span>    |      ^^ unconstrained lifetime parameter
+</span></code></pre><p>定義したものはトレイト（指示詞）かself型か述語(predicates)中で使え、だそうなので、 トレイトに追加してみる。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>pub trait </span><span>RestartHeuristics<'a> {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>type </span><span>Item;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>add</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, item: </span><span style=font-weight:700;color:#a71d5d>Self::</span><span>Item);
+</span></code></pre><p>ここで、この生存期間パラメータの追加を各実装に反映させないと以下のエラーになる。<pre style=background:#fff;color:#323232><code><span>error[E0726]: implicit elided lifetime not allowed here
+</span><span>   --> src/restart.rs:100:6
+</span><span>    |
+</span><span>100 | impl RestartHeuristics for RestartByLBD {
+</span><span>    |      ^^^^^^^^^^^^^^^^^- help: indicate the anonymous lifetime: `<'_>`
+</span><span>
+</span><span>error[E0726]: implicit elided lifetime not allowed here
+</span><span>   --> src/var.rs:112:10
+</span><span>    |
+</span><span>112 | impl<'a> RestartHeuristics for VarSet {
+</span><span>    |          ^^^^^^^^^^^^^^^^^- help: indicate the anonymous lifetime: `<'_>`
+</span></code></pre><p>以下のように各実装に追加して、これで解決。<ul><li>ポインタが出てくるのでトレイトには生存期間パラメータが必要<li><code>usize</code>に対してはワイルドカードでOK<li>構造体へのポインタに対しては、それをトレイトのパラメータに反映</ul><pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>impl </span><span>RestartHeuristics<'</span><span style=font-weight:700;color:#a71d5d>_</span><span>> </span><span style=font-weight:700;color:#a71d5d>for </span><span>RestartByLBD {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>type </span><span>Item </span><span style=font-weight:700;color:#a71d5d>= usize</span><span>;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>add</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, item: </span><span style=font-weight:700;color:#a71d5d>Self::</span><span>Item) {</span><span style=font-weight:700;color:#a71d5d>...
+</span><span>```	
+</span><span>	
+</span><span>```rust
+</span><span style=font-weight:700;color:#a71d5d>impl</span><span><</span><span style=font-weight:700;color:#a71d5d>'a</span><span>> RestartHeuristics<</span><span style=font-weight:700;color:#a71d5d>'a</span><span>> </span><span style=font-weight:700;color:#a71d5d>for </span><span>VarSet {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>type </span><span>Item </span><span style=font-weight:700;color:#a71d5d>= &'a mut</span><span> Var;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>add</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, item: </span><span style=font-weight:700;color:#a71d5d>Self::</span><span>Item) {</span><span style=font-weight:700;color:#a71d5d>...
+</span></code></pre><p>ということで<p>implやtraitキーワードで導入した（型や生存期間）変数は、<ul><li>トレイト名（指示詞）<li>Self -- <code>fn (&'a mut self,...)</code> ということか<li>述語(predicates) -- whereの後の型（生存期間）制約</ul><p>で使わないといけない。<p><em>参考</em><ul><li>https://stackoverflow.com/questions/52318662/what-is-a-predicate-in-rust</ul><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2019-08-08</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#rust>#Rust</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

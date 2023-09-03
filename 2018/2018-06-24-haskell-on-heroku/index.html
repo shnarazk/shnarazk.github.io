@@ -1,0 +1,112 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Deploy a Servant program to Heroku with Docker</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">HaskellプログラムをHerokuで動かそう（2018年私家版）</h1><p>stackのテンプレートを使って <a href=https://haskell.jp/blog/posts/2017/02-haskell-on-heroku.html>Dockerを使ってHaskellアプリをHerokuにデプロイする</a> と同じことをやってみます．<h3 id=下準備（オプショナル）>下準備（オプショナル）</h3><p>stackに警告を出されないように，~/.stack/config.yml に以下のような情報を追加しておくといいかも．<pre class=language-yaml data-lang=yaml style=background:#fff;color:#323232><code class=language-yaml data-lang=yaml><span style=color:#63a35c>templates</span><span>:
+</span><span>  </span><span style=color:#63a35c>params</span><span>:
+</span><span>    </span><span style=color:#63a35c>author-email</span><span>: </span><span style=color:#183691>EMAIL
+</span><span>    </span><span style=color:#63a35c>author-name</span><span>:  </span><span style=color:#183691>NAME
+</span></code></pre><h3 id=プロジェクトの生成>プロジェクトの生成</h3><p>stackのテンプレート <code>servant-docker</code> を使ってプロジェクトの雛形を作らせます．<pre style=background:#fff;color:#323232><code><span>stack new PROJECT [--bare] servant-docker [--solver SOLVER]
+</span></code></pre><p>雛形なのでこれでデプロイまでできるはずなのですが，いくつか問題があるので修正します．<h3 id=heroku用にプログラムを変更>heroku用にプログラムを変更</h3><p>まず，herokuの環境でlistenすべきポート番号は環境変数で取得しないといけないのでそれを反映させます：<pre class=language-diff data-lang=diff style=background:#fff;color:#323232><code class=language-diff data-lang=diff><span>diff --git a/src/Lib.hs b/src/Lib.hs
+</span><span>index 46ba8bc..c800dc5 100644
+</span><span style=background:#ffecec;font-weight:700;font-style:italic;color:#bd2c00>---</span><span style=font-style:italic;color:#969896> a/src/Lib.hs
+</span><span style=background:#eaffea;font-weight:700;font-style:italic;color:#55a532>+++</span><span style=font-style:italic;color:#969896> b/src/Lib.hs
+</span><span style=font-weight:700;font-style:italic;color:#969896>@@ -10,6 +10,7 @@ import Data.Aeson.TH
+</span><span> import Network.Wai
+</span><span> import Network.Wai.Handler.Warp
+</span><span> import Servant
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>import System.ReadEnvVar (readEnvDef)
+</span><span>
+</span><span> data User = User
+</span><span>   { userId        :: Int
+</span><span style=font-weight:700;font-style:italic;color:#969896>@@ -22,7 +23,10 @@ $(deriveJSON defaultOptions ''User)
+</span><span> type API = "users" :> Get '[JSON] [User]
+</span><span>
+</span><span> startApp :: IO ()
+</span><span style=background:#ffecec;color:#323232>-startApp = run 1234 app
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>startApp = do
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>  port &LT- readEnvDef "PORT" 8080
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>  putStrLn $ ";;; start server at " ++ show port
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>  run port app
+</span><span>
+</span><span> app :: Application
+</span><span> app = serve api server
+</span></code></pre><p><a href=https://github.com/cdepillabout/read-env-var>ReadEnvVar</a>パッケージを追加したのでcabalファイルにも追加：<pre class=language-diff data-lang=diff style=background:#fff;color:#323232><code class=language-diff data-lang=diff><span>diff --git a/appname.cabal b/appname.cabal
+</span><span>index b977aa5..e654f60 100644
+</span><span style=background:#ffecec;font-weight:700;font-style:italic;color:#bd2c00>---</span><span style=font-style:italic;color:#969896> a/PROJECT.cabal
+</span><span style=background:#eaffea;font-weight:700;font-style:italic;color:#55a532>+++</span><span style=font-style:italic;color:#969896> b/PROJECT.cabal
+</span><span style=font-weight:700;font-style:italic;color:#969896>@@ -18,6 +18,7 @@ library
+</span><span>   exposed-modules:     Lib
+</span><span>   build-depends:       base >= 4.7 && < 5
+</span><span>                      , aeson
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>                     , read-env-var
+</span><span>                      , servant-server
+</span><span>                      , wai
+</span><span>                      , warp
+</span></code></pre><h3 id=手動で確認>手動で確認</h3><p>ここでコンパイルしてエラーがないことを確認します．<pre class=language-bash data-lang=bash style=background:#fff;color:#323232><code class=language-bash data-lang=bash><span>$ stack build
+</span></code></pre><p>動作確認は<pre class=language-bash data-lang=bash style=background:#fff;color:#323232><code class=language-bash data-lang=bash><span>$ export PORT=8080</span><span style=font-weight:700;color:#a71d5d>; </span><span>APP </span><span style=font-weight:700;color:#a71d5d>&
+</span><span>$ wget http://localhost:8080/
+</span></code></pre><h3 id=Dockerイメージの作成>Dockerイメージの作成</h3><p>まずdockerのイメージでプログラムが自動で実行されるようにDockerfile（ついでにstack.yml）を変更します． ．<pre class=language-diff data-lang=diff style=background:#fff;color:#323232><code class=language-diff data-lang=diff><span style=background:#ffecec;font-weight:700;font-style:italic;color:#bd2c00>---</span><span style=font-style:italic;color:#969896> a/Dockerfile
+</span><span style=background:#eaffea;font-weight:700;font-style:italic;color:#55a532>+++</span><span style=font-style:italic;color:#969896> b/Dockerfile
+</span><span style=font-weight:700;font-style:italic;color:#969896>@@ -9,3 +9,4 @@
+</span><span>
+</span><span> COPY . /app/user
+</span><span> RUN stack install
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>CMD APP.EXE
+</span></code></pre><pre class=language-diff data-lang=diff style=background:#fff;color:#323232><code class=language-diff data-lang=diff><span>modified   stack.yaml
+</span><span style=font-weight:700;font-style:italic;color:#969896>@@ -66,6 +66,15 @@ allow-newer: true
+</span><span> # Allow a newer minor version of GHC than the snapshot specifies
+</span><span> # compiler-check: newer-minor
+</span><span>
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>image:
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>  containers:
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>    -
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>      base: "haskell:8.4.3"
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>      executables:
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>        - APP.EXE
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>      entrypoints:
+</span><span style=background:#eaffea;font-weight:700;color:#55a532>+</span><span style=background:#eaffea;color:#323232>        - APP.EXE
+</span></code></pre><p>以下を実行してイメージを作ります：<pre style=background:#fff;color:#323232><code><span>docker build -t APPNAME .
+</span></code></pre><p>動作確認は<pre class=language-bash data-lang=bash style=background:#fff;color:#323232><code class=language-bash data-lang=bash><span>$ docker run -p 8080:8080 --publish-all APPNAME
+</span><span>$ wget http://localhost:8080/
+</span></code></pre><h3 id=herokuへのデプロイ>herokuへのデプロイ</h3><h4 id=初期設定>初期設定</h4><ol><li>アカウントを作る<li>heroku dashboardでアプリの登録</ol><pre class=language-sh data-lang=sh style=background:#fff;color:#323232><code class=language-sh data-lang=sh><span>heroku login
+</span><span>heroku apps:create APPNAME
+</span></code></pre><h4 id=ビルドからデプロイ>ビルドからデプロイ</h4><ol><li>ログインする<li>コンテナ環境での作業</ol><pre class=language-sh data-lang=sh style=background:#fff;color:#323232><code class=language-sh data-lang=sh><span>$ heroku container:login
+</span><span>$ heroku container:push web </span><span style=font-weight:700;color:#a71d5d>[</span><span>-</span><span style=font-weight:700;color:#a71d5d>-</span><span>app APPNAME</span><span style=font-weight:700;color:#a71d5d>]
+</span><span>$ heroku container:release web </span><span style=font-weight:700;color:#a71d5d>[</span><span>-</span><span style=font-weight:700;color:#a71d5d>-</span><span>app APPNAME</span><span style=font-weight:700;color:#a71d5d>]
+</span></code></pre><h3 id=gitlab-ci.ymlに登録>gitlab-ci.ymlに登録</h3><p>うまく行ったなら自動化させます．当然gitlab用に <code>.gitlab-ci.yml</code> を作成：<pre style=background:#fff;color:#323232><code><span>build:
+</span><span>  stage: build
+</span><span>  script:
+</span><span>    - docker build -t APPNAME .
+</span><span>
+</span><span>deploy heroku:
+</span><span>  stage: deploy
+</span><span>  script:
+</span><span>    - heroku container:login
+</span><span>    - heroku container:push web --app APPNAME
+</span><span>    - heroku container:release web --app APPNAME
+</span></code></pre><p>（さらにherokuへのデプロイ用のキーを登録する必要があるかも）<p>That's it.<h2 id=だったらstack_templateにしてしまおう>だったらstack templateにしてしまおう</h2><p>ということで以上の変更をしたテンプレート https://gitlab.com/snippets/1728485/raw を作りました． テンプレートはurl指定で使えるので，以下のようにするのが一番速いでしょう．<pre style=background:#fff;color:#323232><code><span>stack new projectname https://gitlab.com/snippets/1728485/raw
+</span></code></pre><p>ということで結論<ol><li>プロジェクト生成： <code>stack new PROJECT https://gitlab.com/snippets/1728485/raw</code><li>dockerで確認： <code>docker build -t PROJECT .</code><li>herokuにログイン： <code>heroku container:login</code><li>プッシュ: <code>heroku container:push web --app PROJECT</code><li>実行開始: <code>heroku container:release web --app PROJECT</code></ol><h2 id=PostgreSQLにつないでみよう>PostgreSQLにつないでみよう</h2><p>このプログラムはPostgreSQLを使うために外部プログラムを呼び出していません。 対応するのは簡単で以下の通り：<ul><li>Dockerのベースイメージを <code>nixos:2.0.4</code> に変更<li>servantのプログラムはtutorialの<a href=http://haskell-servant.readthedocs.io/en/stable/cookbook/db-postgres-pool/PostgresPool.html>Cookbook PostgreSQL connection pool</a>をそのまま流用</ul><p>あとはherokuでpostgreSQLを有効にすればOK。 Dockerfileはこのようになりました。<pre style=background:#fff;color:#323232><code><span>FROM nixos/nix:2.0.4
+</span><span>ENV LANG C.UTF-8
+</span><span>
+</span><span>RUN nix-channel --update
+</span><span>RUN nix-env -u
+</span><span>RUN nix-env -f "&LTnixpkgs>" -iA haskell.compiler.ghc843
+</span><span>RUN nix-env -i stack
+</span><span>
+</span><span>WORKDIR /opt/PROJECT/src
+</span><span>ENV PATH "/opt/PROJECT/bin:$PATH"
+</span><span>
+</span><span># Build and install application binaries to /opt/PROJECT/bin.
+</span><span>COPY *.yaml /opt/PROJECT/src/
+</span><span>RUN stack --no-terminal build --only-dependencies
+</span><span>COPY . /opt/PROJECT/src
+</span><span>RUN stack --no-terminal --local-bin-path /opt/PROJECT/bin install
+</span><span>
+</span><span># clean up and run
+</span><span>RUN rm -rf /opt/PROJECT/src
+</span><span>CMD /opt/PROJECT/bin/PROJECT
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2018-06-24</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#haskell>#haskell</a></div><div class=navbar-item><a class=tagword href=/tags/#servant>#servant</a></div><div class=navbar-item><a class=tagword href=/tags/#heroku>#heroku</a></div><div class=navbar-item><a class=tagword href=/tags/#docker>#docker</a></div><div class=navbar-item><a class=tagword href=/tags/#gitlab>#gitlab</a></div><div class=navbar-item><a class=tagword href=/tags/#nixos>#nixos</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

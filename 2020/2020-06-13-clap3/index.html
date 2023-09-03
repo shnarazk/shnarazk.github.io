@@ -1,0 +1,33 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Clap-3.0.0-beta.1</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><p><a href=https://crates.io/crates/clap>Clap</a>-3.0だと<a href=https://crates.io/crates/structopt>StructOpt</a>が要らなくなるのでclap-3.0.0-beta.1をちょっと試してみた。<h3 id=1._PathBufの取扱いの違い>1. PathBufの取扱いの違い</h3><p>StructOptでは問題なくオプションになる以下のフィールドは、<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span>   #[structopt(long </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"result"</span><span>, default_value </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>""</span><span>, parse(from_os_str))]
+</span><span>   </span><span style=font-weight:700;color:#a71d5d>pub</span><span> result: PathBuf,
+</span></code></pre><p>Clapでは引数が指定されてないエラーを起こしてしまう。 default_valueを空以外にすれば直るのだが、それは困る、Optionでくるむことにした：<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span>    #[clap(long </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"result"</span><span>)]
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>pub</span><span> result: </span><span style=color:#0086b3>Option</span><span>&LTPathBuf>,
+</span></code></pre><p>これで解決するのだが、なんかスマートではない。<h3 id=2._StructOpt::from_iterがない>2. StructOpt::from_iterがない</h3><p>これはClap::prase_fromに置き換えることが必要（そもそも、これを内部で呼び出しているだけ）。 もう一つ書き替えがあったのでまとめると、以下の通り。<ul><li><code>StructOpt::from_args</code> -> <code>Clap::parse</code><li><code>StructOpt::from_iter</code> -> <code>Clap::parse_from</code></ul><h2 id=依存関係>依存関係</h2><p>clapがstructoptを取り込んだようなものなので、基本は変化がないはず。 しかし、開発時期の違いだろうか、依存クレートにバージョンの違いが見られる。 またclapのメジャーバージョンアップということでcurses的なものに変化があった（共通部は省略）：<ul><li>structopt</ul><pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>$ cargo tree 
+</span><span>splr v0.4.2-dev.1
+</span><span>└── structopt v0.3.14
+</span><span>    ├── clap v2.33.1
+</span><span>    │   ├── ansi_term v0.11.0
+</span><span>    │   └── strsim v0.8.0
+</span><span>    └── structopt-derive v0.4.7
+</span><span>        └── proc-macro-error v1.0.2
+</span><span>            └── proc-macro-error-attr v1.0.2
+</span></code></pre><ul><li>clap-3.0.0</ul><pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>$ cargo tree 
+</span><span>splr v0.4.2-dev.0
+</span><span>└── clap v3.0.0-beta.1
+</span><span>    ├── clap_derive v3.0.0-beta.1
+</span><span>    │   └── proc-macro-error v0.4.12
+</span><span>    │       └── proc-macro-error-attr v0.4.12
+</span><span>    ├── indexmap v1.4.0
+</span><span>    │   [build-dependencies]
+</span><span>    │   └── autocfg v1.0.0
+</span><span>    ├── os_str_bytes v2.3.1
+</span><span>    ├── strsim v0.10.0
+</span><span>    └── termcolor v1.1.0
+</span></code></pre><p>でコンパイルしてみるとclapを使った方が（strip後のサイズで）70KBほど大きくなってしまう。 うーん、それはどうなのか。。。<p>コンパイル時間や実行時間に関しては見ていない。多分大きな差はないだろう。<div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2020-06-13</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

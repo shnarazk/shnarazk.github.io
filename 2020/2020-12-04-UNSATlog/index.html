@@ -1,0 +1,46 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>UNSAT LOG, 2020, Nov.</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-banner><img src=/2020/2020-12-04_banner.jpg></div><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">Vol.1, No.11.</h1><h1 id=冬眠への道>冬眠への道</h1><p>今年もいよいよあと一ヶ月となってきました。夏からずっと取り組んでいるSplrのバージョン0.5.1はおそらく0.6.0としてリリースすることになると思うけどもう少し時間かかりそう。Splrの新版がリリースできたら今年の残りは勉強と研究に当てようと思う。絶対、論文読んだ方がいいよなあ。読みかけの専門書も溜まっているし。おっと、その前に夏休みの宿題を終わらせねば。節の有効性と取得環境の関係についてというテーマでいいはずだけど。積み残しが山のようだ。これではとても一ヶ月で終わりそうにないな。<h1 id=Sudoku25>Sudoku25</h1><p>今月はSudoku25に振り回された一ヶ月でした。実はSAT符合化に問題があったのでCNFファイルを作り直したら一瞬で解けるようになったものの、それ以前は1日CPUをぶん回しても解けなかったので色々とソルバーに手を入れてました。<pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>$ cargo run --bin sudoku25 --release
+</span><span>    Finished release [optimized] target(s) in 0.02s
+</span><span>     Running `target/release/sudoku25`
+</span><span>(embedded 925000 element vector)               15625,925000 |time:     0.71
+</span><span> #conflict:        411, #decision:         4381, #propagate:           4786 
+</span><span>  Assignment|#rem:     1733, #ass:    13892, #elm:        0, prg%:  88.9088 
+</span><span>      Clause|Remv:      350, LBD2:       38, Binc:   922540, Perm:   924410 
+</span><span>     Restart|#RST:       30, #BLK:        1, #STB:        0, #CNC:        0 
+</span><span>         EMA|tLBD:  28.4606, tASG:  39.8419, eMLD:   4.0016, eCCC:   0.1080 
+</span><span>    Conflict|eLBD:     7.07, cnfl:     3.42, bjmp:     2.76, /ppc:    11.64 
+</span><span>        misc|elim:        1, cviv:        0, #vbv:        0, /cpr:    13.70 
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>found!
+</span><span> 8 12 11 10 18 14 25  4 16 24 20 17  1  9 21 19  5 15  6  2 22 23  7  3 13 
+</span><span> 2 23 13  7 25 22  9 15 19 20 12 24 10 11  4 17 16 18  1  3  8  6  5 14 21 
+</span><span> 9  4 19 22 21 13  3 18 17  5 16  6 25 14  7 23 11 12  8 10 20 15  1 24  2 
+</span><span>16  1 20 15 24 10 21  6  8 23  5  2 18  3 13 14  7  4  9 22 12 25 11 17 19 
+</span><span>14  5 17  6  3  1  7  2 11 12 23 22 19  8 15 21 25 24 13 20 10  9 18 16  4 
+</span><span>13 25  8  4  2 18 20 21 24 10 15  1  7 23  6 16  9  5 19 11 17  3 14 22 12 
+</span><span>22 24  3 21 23  9 17 19 13 16 18 14 20 25  5  6 12  2 15  4  1 10  8 11  7 
+</span><span> 7 14 15 12 10  3  4  8  2 11 22 16  9 19 17 20 13 25 23  1  6 24 21  5 18 
+</span><span>17 11 16  5  1 15  6 23  7 22  3 13  4 12  8 18 21 10 14 24 25 20 19  2  9 
+</span><span> 6  9 18 19 20 12  5 14  1 25  2 10 21 24 11  7 17  3 22  8 16  4 15 13 23 
+</span><span> 3  8  2 11  4 20 19  9 15 18  1 25 13  7 16 24  6 14  5 17 21 12 22 23 10 
+</span><span> 5 22 10 25 17  2  1  3  4 13  8 11  6 21 19 12 23 20 18  9  7 14 24 15 16 
+</span><span>18 20 12 16 13  8 24  5  6  7  9 23 17 10 14 15 22  1 21 25 19 11  2  4  3 
+</span><span>24 15  7 23 14 21 11 25 12 17  4  5 22 20  2 10  8 16  3 19 13 18  6  9  1 
+</span><span>21 19  9  1  6 16 10 22 23 14 24  3 12 15 18 11  2  7  4 13  5 17 20 25  8 
+</span><span>10 16  1 14  8 25 13 12  5  2 17 18 15 22 24  4 19 21 11 23  9  7  3  6 20 
+</span><span>12  2 25 17  7  6 15 24 18 21 10 19 11 13  1  3 14  9 20 16  4 22 23  8  5 
+</span><span>15 21  4 13 11 17 23 16 22  3  7  9  8  5 20 25  1  6  2 12 14 19 10 18 24 
+</span><span>19 18 23 24  5  4  8 20  9  1  6 21 14 16  3 22 10 17  7 15 11  2 13 12 25 
+</span><span>20  3  6  9 22 11 14  7 10 19 25  4 23  2 12 13 18  8 24  5 15  1 16 21 17 
+</span><span> 4 10  5  8 16 23 18 11 21 15 19 12  2  6 25  1 24 22 17  7  3 13  9 20 14 
+</span><span>23 17 22 20 19 24  2  1 25  6 21  8  3  4  9  5 15 13 10 14 18 16 12  7 11 
+</span><span>25 13 21 18 15  7 12 10 14  9 11 20 24 17 23  8  3 19 16  6  2  5  4  1 22 
+</span><span> 1  7 24  2 12 19 16 13  3  4 14 15  5 18 22  9 20 11 25 21 23  8 17 10  6 
+</span><span>11  6 14  3  9  5 22 17 20  8 13  7 16  1 10  2  4 23 12 18 24 21 25 19 15 
+</span></code></pre><p>結果、1秒以内に解ける問題だということでした。やったね。<p>面白いことはこの問題に限ってはstabilization modeを駆使した上で変数活性度をむしろリセットした方が進捗率が向上したこと。おそらく未探索空間を積極的に探訪するようになったせいだろうと思うけど、これは他の問題に生かすべきアプローチだろうか。何か最小不動点的なところでの相転移が必要なのかも知れないが、実際にやってみると極端に悪くなる。とは言えこのまま捨てるには惜しい現象だと思う。リセットせずとも同じような効果としてrephaseをすればいいので、ここを検討した方がいいのではと考えている。Learning Rateベースの活性度も、蛸壺分化型の尺度なので、グローバルに見ての最適保証戦略ではないことは注意すべきだろう。まあこれも基本的に性能悪化するという傾向は同じなのでなかなか先が見えないテーマではある。<h1 id=Luby_Stabilization>Luby Stabilization</h1><p>変数活性度のリセットの前に思いついたのがLubyStabilization。これはSplrの次バージョンに絶対に取り込みたいと思う。いくつかのリスタートのパラメータセットのバリエーションにおいて問題になるのが最終的にリスタート間隔が合理的なものでなくなる逸脱現象。そもそもリスタート用のパラメータが不適切なせいではあるが、だったら強制的に初期状態に定期的に戻せばいいのではなかろうかと考えたのがきっかけ。長い目では増加数列だが、短期的には増減を繰り返すとなると思い出すのは当然Luby数列。これでstabilization modeの間隔を調整すればいいのではないだろうか。単調に増加し（一方でその上限まで持たせる）CaDiCaLの制御法よりずっとスマートに思えた。これでよくわからない尺度に基づくリスタートの制御はやめて、極めて頻繁にリスタートを繰り返すexploreモードと全くリスタートをしないstabilizedモードを切り替えていけば放っておいてもかなりいい戦略になると思うのだがどうだろうか。よく検討しないうちに変数活性度のリセットにまで広げたので一旦戻ってちょっとだけベンチマークしてみることにした。まあこれで適当なところで0.5.1だか0.6.0だかにしよう。<h1 id=ベンチマーク疲れ>ベンチマーク疲れ</h1><p>前回も書いたかもしれないけど、ベンチマークをインチキな短いタイムアウト付きで走らせるのは電気代ばかり掛かって（研究した気になるばかりで）あまり生産的ではない気がしてきた。計算リソースがないに等しいからといって、インチキなベンチマークでお茶を濁してきたわけだが、もう標準ベンチマークでの測定はやめた方が精神衛生上いいかもしれない。3SATはちょっと傾向が違いすぎる気もするので、その程度の何か違う小さな問題セットに移りたいと強く思いだした。とはいえ新版のリリース前にはやらないといけない。そして一つ前のバージョンよりも遅くなっているのに新盤をリリースしないといけないのは忸怩たる思いである。しかし、0.5.1だか0.6.0はそうやってリリースするのだ。そして一ヶ月の雌伏の時を迎えるのだ。それでは。<div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2020-12-04</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#sat>#SAT</a></div><div class=navbar-item><a class=tagword href=/tags/#splr>#splr</a></div><div class=navbar-item><a class=tagword href=/tags/#unsatlog>#unsatlog</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

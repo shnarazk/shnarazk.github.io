@@ -1,0 +1,91 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Implementing clause vivification on Splr</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-banner><img src="https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"></div><div class=article-banner-caption>cover image https://unsplash.com/photos/-IMlv9Jlb24**</div><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">vivification part 3</h1><p>Version 0.4.2 リリース直前のSplr、性能的には妥協できるものが出来たので次の課題は妥当性。 SAT問題はいいのだけど、UNSAT問題に対する certification がおかしなものになっているとか。 vivification を切ると問題が解消するので、vivify時の節の追加削除が正しくcertification に反映されてないようだ。<h2 id=1._gratgenのこういうメッセージがどうやっても解消できない>1. gratgenのこういうメッセージがどうやっても解消できない</h2><pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>c Ignoring deletion of non-existent clause (pos 30441)
+</span><span>c Ignoring deletion of non-existent clause (pos 30441)
+</span><span>c Ignoring deletion of non-existent clause (pos 30441)
+</span></code></pre><p>うーん、そんなはずはないのだが。。。<p>理由：節内リテラルの順序とcertificateに書き出されたものでの順序とが一致していなかった。<h2 id=2._なぜかAssignStack中に未割り当てリテラルが出現する>2. なぜかAssignStack中に未割り当てリテラルが出現する</h2><p>理由：変数への仮割り当ての前提条件の検査が不十分だった。<h2 id=3._2020-08-21_記号の読み間違え判明>3. 2020-08-21 記号の読み間違え判明</h2><p><a href=/2020/2020-07-05-vivification2/>Clause Vivification updated 2020</a>に記載の通り。<h2 id=4._vivify中に決定による割り当てを行っただけでcertificateが不当なものになってしまう>4. vivify中に決定による割り当てを行っただけでcertificateが不当なものになってしまう</h2><p>理由：Eliminatorがバグってた！<h2 id=5._Eliminatorを直しても以下省略>5. Eliminatorを直しても以下省略</h2><p>理由：<code>cdb.detach(); cdb.garbage_collect();</code> が非常に怪しい。<h2 id=6._propagateしなくてもおかしくなる>6. <code>propagate</code>しなくてもおかしくなる</h2><p>理由：節の追加削除しか原因はない。<h2 id=7._Rule._3の解釈が怪しい>7. Rule. 3の解釈が怪しい</h2><blockquote><p><strong>Rule_3</strong>: If $\text{UP}(\phi \cup {\neg l_1, \ldots, \neg l_i }) = \Box$, then $\phi \cup {\neg l_1, \ldots, \neg l_i }$ is unsatisfiable and clause $l_1 \vee \cdots \vee l_i$ is a logical consequence of $\phi$ and could replace $C$. However, as before, let $R$ be the set of literals of the falsified clause, $conflAnalysis(\phi, \neg C' \cup {\neg l_i }, R)$, which is a sub-clause of $l_1 \vee \cdots \vee l_i$ .</blockquote><p>そもそも<code>conflict_analysis</code>の引数の解釈は大丈夫だろうか。なぜ3引数なのか。ということで論文より引用し直し。<p><img alt src=/2020/2020-08-19_Algorithm4-conflAnalysis.jpg><p><img alt src=/2020/2020-07-05_vivi-algo3.jpg><p>大丈夫なようだ。矛盾しているリテラルを拾うためにリテラルベースではなく、変数ベースでアクセスしている。 特に問題はない。例えば節長が1の学習節をcertificateに含めても問題は発生しない。<h2 id=8._しかし生成された節を_certificate_に含めると証明にならない>8. しかし生成された節を certificate に含めると証明にならない</h2><p>理由：<strong>Algorithm 4</strong>は間違い。もし最上位レベルでの含意によって割り当てられるリテラルだけからなる節によって矛盾が発生したとする。この場合<strong>Algorithm 4</strong>では決定変数が学習節に含まれない。なので<strong>Algorithm 4</strong>は以下であるべき。<pre class=language-diff data-lang=diff style=background:#fff;color:#323232><code class=language-diff data-lang=diff><span>  fn analyze(asg: &AssignStack, cdb: &ClauseDB, lits: &[Lit], reason: &[Lit], ...) -> Vec&LTLit> {
+</span><span>       let mut res: Vec&LTLit> = Vec::new();
+</span><span>       for l in reason { seen[l.vi()] = key; }
+</span><span>       for l in asg.stack_iter().rev() {
+</span><span>           if seen[l.vi()] != key { continue; }
+</span><span>           if lits.contains(l) {
+</span><span>               res.push(!*l);
+</span><span style=background:#ffecec;color:#323232>-              continue;
+</span><span>           } else if lits.contains(&!*l) {
+</span><span>               res.push(*l);
+</span><span style=background:#ffecec;color:#323232>-              continue;
+</span><span>           }
+</span><span>           for r in asg.reason_literals(cdb, *l).iter() { seen[r.vi()] = key; }
+</span><span>       }
+</span><span>       res
+</span><span>  }
+</span></code></pre><p><strong>2020-08-23: これでバグが取れた！</strong><h1 id=最終版>最終版</h1><pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>pub fn </span><span style=font-weight:700;color:#795da3>vivify</span><span>(asg: </span><span style=font-weight:700;color:#a71d5d>&mut</span><span> AssignStack, cdb: </span><span style=font-weight:700;color:#a71d5d>&mut</span><span> ClauseDB) -> MaybeInconsistent {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>while let </span><span style=color:#0086b3>Some</span><span>(ci) </span><span style=font-weight:700;color:#a71d5d>=</span><span> clauses.</span><span style=color:#62a35c>pop</span><span>() {
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>let</span><span> c: </span><span style=font-weight:700;color:#a71d5d>&mut</span><span> Clause </span><span style=font-weight:700;color:#a71d5d>= &mut</span><span> cdb[ci];
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>let</span><span> clits </span><span style=font-weight:700;color:#a71d5d>=</span><span> c.lits.</span><span style=color:#62a35c>clone</span><span>();
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> copied: </span><span style=color:#0086b3>Vec</span><span>&LTLit> </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>Vec</span><span>::new();
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> flipped </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>        'this_clause: </span><span style=font-weight:700;color:#a71d5d>for</span><span> l </span><span style=font-weight:700;color:#a71d5d>in</span><span> clits.</span><span style=color:#62a35c>iter</span><span>() {
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>match</span><span> asg.</span><span style=color:#62a35c>assigned</span><span>(</span><span style=font-weight:700;color:#a71d5d>*</span><span>l) {
+</span><span>                </span><span style=color:#0086b3>Some</span><span>(</span><span style=color:#0086b3>false</span><span>) </span><span style=font-weight:700;color:#a71d5d>=> continue 'this_clause</span><span>, </span><span style=font-style:italic;color:#969896>// Rule 1
+</span><span>                </span><span style=color:#0086b3>Some</span><span>(</span><span style=color:#0086b3>true</span><span>) </span><span style=font-weight:700;color:#a71d5d>=> </span><span>{
+</span><span>                    </span><span style=font-style:italic;color:#969896>// This path is optimized for the case the decision level is zero.
+</span><span>                    copied.</span><span style=color:#62a35c>clear</span><span>();
+</span><span>                    flipped </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>;
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>break 'this_clause</span><span>;
+</span><span>                }
+</span><span>                </span><span style=color:#0086b3>None </span><span style=font-weight:700;color:#a71d5d>=> </span><span>{
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>let</span><span> cid: </span><span style=color:#0086b3>Option</span><span>&LTClauseId> </span><span style=font-weight:700;color:#a71d5d>= match</span><span> copied.</span><span style=color:#62a35c>len</span><span>() {
+</span><span>                        </span><span style=color:#0086b3>0 </span><span style=font-weight:700;color:#a71d5d>=> </span><span style=color:#0086b3>None</span><span>,
+</span><span>                        </span><span style=color:#0086b3>1 </span><span style=font-weight:700;color:#a71d5d>=> </span><span>{
+</span><span>                            asg.</span><span style=color:#62a35c>assign_by_decision</span><span>(copied[</span><span style=color:#0086b3>0</span><span>]);
+</span><span>                            </span><span style=color:#0086b3>None
+</span><span>                        }
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>_ => </span><span style=color:#0086b3>Some</span><span>(cdb.</span><span style=color:#62a35c>new_clause</span><span>(asg, </span><span style=font-weight:700;color:#a71d5d>&mut</span><span> copied.</span><span style=color:#62a35c>clone</span><span>(), </span><span style=color:#0086b3>true</span><span>, </span><span style=color:#0086b3>false</span><span>)),
+</span><span>                    };
+</span><span>                    asg.</span><span style=color:#62a35c>assign_by_decision</span><span>(</span><span style=font-weight:700;color:#a71d5d>!*</span><span>l);
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>let</span><span> cc </span><span style=font-weight:700;color:#a71d5d>=</span><span> asg.</span><span style=color:#62a35c>propagate</span><span>(cdb);
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if !</span><span>cc.</span><span style=color:#62a35c>is_none</span><span>() {
+</span><span>                        copied.</span><span style=color:#62a35c>push</span><span>(</span><span style=font-weight:700;color:#a71d5d>!*</span><span>l);
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>let</span><span> r </span><span style=font-weight:700;color:#a71d5d>=</span><span> cdb[cc].lits.</span><span style=color:#62a35c>clone</span><span>(); </span><span style=font-style:italic;color:#969896>// Rule 3
+</span><span>                        copied </span><span style=font-weight:700;color:#a71d5d>=</span><span> asg.</span><span style=color:#62a35c>analyze</span><span>(cdb, </span><span style=font-weight:700;color:#a71d5d>&</span><span>copied, </span><span style=font-weight:700;color:#a71d5d>&</span><span>r, </span><span style=font-weight:700;color:#a71d5d>&mut</span><span> seen);
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if !</span><span>copied.</span><span style=color:#62a35c>is_empty</span><span>() { flipped </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>; }
+</span><span>                    }
+</span><span>                    asg.</span><span style=color:#62a35c>cancel_until</span><span>(asg.root_level);
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(cj) </span><span style=font-weight:700;color:#a71d5d>=</span><span> cid { cdb.</span><span style=color:#62a35c>detach</span><span>(cj); }
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if !</span><span>cc.</span><span style=color:#62a35c>is_none</span><span>() { </span><span style=font-weight:700;color:#a71d5d>break 'this_clause</span><span>; }
+</span><span>                    copied.</span><span style=color:#62a35c>push</span><span>(</span><span style=font-weight:700;color:#a71d5d>!*</span><span>l); </span><span style=font-style:italic;color:#969896>// Rule 4
+</span><span>                }
+</span><span>            }
+</span><span>        }
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>if</span><span> flipped { </span><span style=color:#62a35c>flip</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut</span><span> copied); }
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>match</span><span> copied.</span><span style=color:#62a35c>len</span><span>() {
+</span><span>            </span><span style=color:#0086b3>0 </span><span style=font-weight:700;color:#a71d5d>if</span><span> flipped </span><span style=font-weight:700;color:#a71d5d>=> return </span><span style=color:#0086b3>Err</span><span>(SolverError::Inconsistent),
+</span><span>            </span><span style=color:#0086b3>0 </span><span style=font-weight:700;color:#a71d5d>=></span><span> cdb.</span><span style=color:#62a35c>detach</span><span>(ci),
+</span><span>            </span><span style=color:#0086b3>1 </span><span style=font-weight:700;color:#a71d5d>=> </span><span>{
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>let</span><span> l0 </span><span style=font-weight:700;color:#a71d5d>=</span><span> copied[</span><span style=color:#0086b3>0</span><span>];
+</span><span>                cdb.</span><span style=color:#62a35c>certificate_add</span><span>(</span><span style=font-weight:700;color:#a71d5d>&</span><span>copied);
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> asg.</span><span style=color:#62a35c>assigned</span><span>(l0) </span><span style=font-weight:700;color:#a71d5d>== </span><span style=color:#0086b3>None </span><span>{
+</span><span>                    asg.</span><span style=color:#62a35c>assign_at_rootlevel</span><span>(l0)</span><span style=font-weight:700;color:#a71d5d>?</span><span>;
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if !</span><span>asg.</span><span style=color:#62a35c>propagate</span><span>(cdb).</span><span style=color:#62a35c>is_none</span><span>() {
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>return </span><span style=color:#0086b3>Err</span><span>(SolverError::Inconsistent);
+</span><span>                    }
+</span><span>                }
+</span><span>                cdb.</span><span style=color:#62a35c>detach</span><span>(ci);
+</span><span>            }
+</span><span>            n </span><span style=font-weight:700;color:#a71d5d>if</span><span> n </span><span style=font-weight:700;color:#a71d5d>==</span><span> clits.</span><span style=color:#62a35c>len</span><span>() </span><span style=font-weight:700;color:#a71d5d>=> </span><span>(),
+</span><span>            n </span><span style=font-weight:700;color:#a71d5d>=> </span><span>{
+</span><span>                cdb.</span><span style=color:#62a35c>new_clause</span><span>(asg, </span><span style=font-weight:700;color:#a71d5d>&mut</span><span> copied);
+</span><span>                cdb.</span><span style=color:#62a35c>detach</span><span>(ci);
+</span><span>            }
+</span><span>        }
+</span><span>        clauses.</span><span style=color:#62a35c>retain</span><span>(|ci| </span><span style=font-weight:700;color:#a71d5d>!</span><span>cdb[ci].</span><span style=color:#62a35c>is</span><span>(Flag::</span><span style=color:#0086b3>DEAD</span><span>));
+</span><span>    }
+</span><span>    </span><span style=color:#0086b3>Ok</span><span>(())
+</span><span>}
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2020-08-19   Last updated 2020-08-23 </div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#sat>#SAT</a></div><div class=navbar-item><a class=tagword href=/tags/#vivification>#vivification</a></div><div class=navbar-item><a class=tagword href=/tags/#splr>#splr</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

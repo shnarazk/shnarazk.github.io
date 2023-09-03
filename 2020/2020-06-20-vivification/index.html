@@ -1,0 +1,220 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Vivification of a CNF formula</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-banner><img src="https://images.unsplash.com/photo-1506884403171-cdb32baec15f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"></div><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">as a SAT solver's preprocessor</h1><p>Vivification がなんなのか、日本語で探しても出てこないので以下の論文をまとめてみた。 （最新の話かと思っていたけど2008年とは。。。）<ul><li>C. Piette, Y. Hamadi, and L. Saïs, "Vivifying propositional clausal formulae,” <em>Front. Artif. Intell</em>. Appl., vol. 178, pp. 525–529, 2008.</ul><p>Splr でいうところの <code>processor</code> が節数に対する制約内での網羅的な変数除去と節包摂(clause subsumption)とを実行するのに対し、vivification は（その節に「対応」する割り当てを仮定して）propagateを行った結果を用いて節の包摂方針を決めるというもの。 節長を減らす方向でのみ置換するので、（節数の増加と引き換えに）不要な複雑さの導入を抑えることができるらしい。 効果は1割程度のようである。<p>ちなみに 'vivify' は論文では'shorten existing clauses'の意味で使われているが、辞書で引くと：<blockquote><p>verb: enliven or animate: outings vivify learning for children.</blockquote><p>とのこと。ぼやけていた制約の強化ということで、日本語になっているビビッドからも想像できる感じなんだろう。<p><strong>cover image: https://images.unsplash.com/photo-1506884403171-cdb32baec15f</strong><h1 id=アルゴリズム（上記論文より引用）>アルゴリズム（上記論文より引用）</h1><p><img alt src=/2020/2020-06-20_algorithm1.jpg><ul><li>6行目で $c$ を $\Sigma$ から削除して、30行目で戻している。しかし $\Sigma$ に対する伝播は行わないので、30行目まで残しておいても構わない。<li>20行目の解釈： 節 $c$ が存在しない $\Sigma_b$ において、リテラル $l$ に対して決定による割当てを行うと矛盾した（11行目）。しかし、学習節 $c_l$ は節 $c$ に含まれないなら（16行目）。これは矛盾は別の節集合によって生じたことを意味する。従ってこの節は冗長かもしれない。もし学習節 $c_l$ が節 $c$ より小さいなら（17行目）、これは節 $c$ より強い制約であるので $\Sigma_b$ に追加する。そして節 $c$ 自身も $\Sigma_b$ に戻した上で、節 $c$ に対する検査を終了させる（矛盾節を含む式と学習節を含む式とは充足可能性において等価である（矛盾の回避は割当て列に関する枝刈であって論理式の等価変換であることには違いない））。そうでないなら（19行目）、つまり節 $c$ （に含まれるリテラル集合）は今回の矛盾とは関係ないが今回の矛盾によって吸収できるとは言い切れない場合には、節 $c$ に含まれていたリテラル集合 $c_b$ を $\Sigma_b$ に追加し（代わりに $c$ を削除し）て節 $c$ に対する処理を終了する（より強い制約に置き換えている？？）。</ul><blockquote><ol><li>$\exists i \in {1, \cdots, n-1}; s.t.; \Sigma\backslash{c} \cup {\neg l_1, \cdots, \neg l_i} \models_{UP} \bot$<br> In this case, we have $\Sigma\backslash{c} \models_{UP} c'$ with $c' = (l_1 \vee \cdots \vee l_i)$. This new clause $c'$ strictly subsumes $c$. Hence, the original clause can be substituted by the new deduced one. Obviously, $c'$ is not necessarily minimally redundant modulo UP. Indeed, another ordering on the literals ${l_1, l_2, \cdots, l_i}$ might lead to an even shorter sub-clause. Thanks to a conflict analysis, the deduced sub-clause $c'$ could be shortened again leading to an even smaller sub-clause. Indeed, a new clause η can be generated by a complete traversal of the implication graph associated to $\Sigma$ and to the assignments of the literals ${\neg l_1, \cdots, \neg l_i}$. The complete traversal of the implication graph ensure that the clause η contains only literals from $c'$. Thereby, η is a sub-clause of $(l_1 \vee \cdots \vee l_i)$.</ol></blockquote><ul><li>23, 27行目の型が合わないんだけどなあ。念のためもう一本読んでおいた方がよさそうだ。<li>$A \leftarrow A \cup B$ は <code>A.push(B);</code> ではなく <code>if !A.contains(&B) { A.push(B); }</code> であることに注意。</ul><p>もう少し説明を加えるとこういう感じ。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>while</span><span> 不動点になるまで
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>for</span><span> sigma中の全ての節cに対して
+</span><span>        現在のsigmaのコピーをenvとする
+</span><span>        cb.</span><span style=color:#62a35c>clear</span><span>();
+</span><span>        shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>;
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>while !</span><span>shortened </span><span style=font-weight:700;color:#a71d5d>&&</span><span> c </span><span style=font-weight:700;color:#a71d5d>!=</span><span> cb                             </span><span style=font-style:italic;color:#969896>// == until shorten || c == cb { .. }
+</span><span>            c\cbから適当にリテラルlを選ぶ
+</span><span>            cbにlを追加する
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>!</span><span>lを割当て伝播させる
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>if</span><span> 矛盾しているなら
+</span><span>                その学習節をclとする
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> 学習節clが元々の節cを包摂するなら
+</span><span>                    clをsigmaに追加; shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>else
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if</span><span> cよりclの方が節長が短いなら
+</span><span>                        clをsigmaに追加; cb </span><span style=font-weight:700;color:#a71d5d>=</span><span> c;                </span><span style=font-style:italic;color:#969896>// これは終了条件, cは後でsigmaに追加される
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if</span><span> c </span><span style=font-weight:700;color:#a71d5d>!=</span><span> cb   　　　                         </span><span style=font-style:italic;color:#969896>// ここがわからない
+</span><span>                        cbをsigmaに追加; shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>else
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> cの残りに含まれるリテラルlsの中で、env中に含まれるものがあるなら
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if</span><span> cの残りがls以外のリテラルを含んでいたら
+</span><span>                        cbにlsだけを追加した節を sigma に追加; shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> cの残りに含まれるリテラルlsの中で、env中にその反リテラルが含まれるものがあるなら
+</span><span>　　　　　　　     cからリテラルlsを除いてsigma に追加; shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>if</span><span> shorted
+</span><span>                sigma.</span><span style=color:#62a35c>remove</span><span>(c);
+</span><span>                change </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span></code></pre><h1 id=Splr実装案>Splr実装案</h1><p>これを何も考えずにRustで書いてみるとこんな感じだろうか。 Splr だと単位節は <code>cdb</code> に入れられないので CNF というよりも<code>(asg, cdb)</code> を持ち回るとした方が現実的かも。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-style:italic;color:#969896>/// Vivification of a given CNF formula, returning a vivified CNF formula
+</span><span style=font-style:italic;color:#969896>/// Note: `remove` used here is a non-destructive function (`Fn&LTT>([T]) -> Vec&LTT>`).
+</span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>vivify</span><span>(</span><span style=font-weight:700;color:#a71d5d>mut </span><span>sigma: (AssginStack, ClauseDB)) {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> env: (AssignStack, ClauseDB);
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> change: </span><span style=font-weight:700;color:#a71d5d>bool = </span><span style=color:#0086b3>true</span><span>;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> shortened: </span><span style=font-weight:700;color:#a71d5d>bool = </span><span style=color:#0086b3>true</span><span>;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> cb: </span><span style=color:#0086b3>Vec</span><span>&LTLit> </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>Vec</span><span>::new();
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> ci: </span><span style=font-weight:700;color:#a71d5d>usize</span><span>;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>while</span><span> change {
+</span><span>        change </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>;
+</span><span>        ci </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>0</span><span>;
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>while</span><span> ci </span><span style=font-weight:700;color:#a71d5d><</span><span> sigma.</span><span style=color:#62a35c>len</span><span>() {
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> c </span><span style=font-weight:700;color:#a71d5d>= &mut</span><span> sigma[ci];
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let c_len =</span><span> c.</span><span style=color:#62a35c>len</span><span>();
+</span><span>            ci </span><span style=font-weight:700;color:#a71d5d>+= </span><span style=color:#0086b3>1</span><span>;
+</span><span>            env </span><span style=font-weight:700;color:#a71d5d>=</span><span> sigma.</span><span style=color:#62a35c>clone</span><span>();
+</span><span>            env.</span><span style=color:#62a35c>remove_clause</span><span>(ci);
+</span><span>            cb.</span><span style=color:#62a35c>clear</span><span>();
+</span><span>            shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>;
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>while !</span><span>shortened </span><span style=font-weight:700;color:#a71d5d>&&</span><span> c </span><span style=font-weight:700;color:#a71d5d>!=</span><span> cb {
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>let</span><span> cx </span><span style=font-weight:700;color:#a71d5d>=</span><span> c.</span><span style=color:#62a35c>remove_items</span><span>(cb);
+</span><span>                l </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#62a35c>select_literal</span><span>(cx);
+</span><span>                cb.</span><span style=color:#62a35c>push</span><span>(l);                                     </span><span style=font-style:italic;color:#969896>// cb = cb ∪ {l};
+</span><span>                env.</span><span style=color:#62a35c>add_assignment</span><span>(</span><span style=font-weight:700;color:#a71d5d>!</span><span>l);                         </span><span style=font-style:italic;color:#969896>// Σb ← (Σb ∪ {¬l})
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(ls) </span><span style=font-weight:700;color:#a71d5d>=</span><span> env.</span><span style=color:#62a35c>propagate</span><span>() {             </span><span style=font-style:italic;color:#969896>// ⊥ ∈ UP(Σb)
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>let</span><span> learnt </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#62a35c>conflict_analyze</span><span>();            </span><span style=font-style:italic;color:#969896>// returns a learnt clause
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if</span><span> learnt.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>all</span><span>(|l| c.</span><span style=color:#62a35c>includes</span><span>(l)) {   </span><span style=font-style:italic;color:#969896>// cl ⊂ c
+</span><span>                        sigma.</span><span style=color:#62a35c>new_clause</span><span>(learnt);               </span><span style=font-style:italic;color:#969896>// Σ ← Σ ∪ {cl}
+</span><span>                        shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                    } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if</span><span> learnt.</span><span style=color:#62a35c>len</span><span>() </span><span style=font-weight:700;color:#a71d5d>== c_len </span><span>{
+</span><span>                            sigma.</span><span style=color:#62a35c>new_clause</span><span>(learnt);           </span><span style=font-style:italic;color:#969896>// Σ ← Σ ∪ {cl}
+</span><span>                            cb </span><span style=font-weight:700;color:#a71d5d>=</span><span> c;
+</span><span>                        }
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if</span><span> c </span><span style=font-weight:700;color:#a71d5d>!=</span><span> cb {
+</span><span>                            sigma.</span><span style=color:#62a35c>new_clause</span><span>(cb);               </span><span style=font-style:italic;color:#969896>// Σ ← Σ ∪ {cb}
+</span><span>                            shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                        }
+</span><span>                    }
+</span><span>                } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(ls) </span><span style=font-weight:700;color:#a71d5d>=</span><span> cx.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>find</span><span>(|l| env.</span><span style=color:#62a35c>contains</span><span>(l)) { </span><span style=font-style:italic;color:#969896>// ∃(ls ∈ (c\cb))
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if </span><span style=color:#0086b3>1 </span><span style=font-weight:700;color:#a71d5d><</span><span> cx.</span><span style=color:#62a35c>len</span><span>() {                       </span><span style=font-style:italic;color:#969896>// (c\cb) /= {ls}
+</span><span>                            sigma.</span><span style=color:#62a35c>new_clause</span><span>(cb.</span><span style=color:#62a35c>push</span><span>(ls));      </span><span style=font-style:italic;color:#969896>// Σ ← Σ ∪ {cb ∪ {ls}} ;
+</span><span>                            shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                        }
+</span><span>                    }
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(ls) </span><span style=font-weight:700;color:#a71d5d>=</span><span> cx.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>find</span><span>(|l| env.</span><span style=color:#62a35c>contains</span><span>(</span><span style=font-weight:700;color:#a71d5d>!</span><span>l)) { </span><span style=font-style:italic;color:#969896>// ∃(¬ls ∈ (c\cb))
+</span><span>                        sigma.</span><span style=color:#62a35c>new_clause</span><span>(c.</span><span style=color:#62a35c>remove</span><span>(ls));         </span><span style=font-style:italic;color:#969896>// Σ ← Σ ∪ {c\{ls}}
+</span><span>                        shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                    }
+</span><span>                }
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> shortened {
+</span><span>                    sigma.</span><span style=color:#62a35c>kill</span><span>(c);
+</span><span>                    change </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                }
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style=font-style:italic;color:#969896>// return sigma;
+</span><span>}
+</span></code></pre><h2 id=2020-06-23>2020-06-23</h2><p><code>AssignStack</code> や <code>ClauseDB</code> のコピーはコストが大きいので $\Sigma$ だけで対応したい。<ul><li>$\Sigma$ と <code>env</code> の違いは$l$の割り当てをもつかどうか。これは割り当てをキャンセルできればいいはず。<li>内側のwhile文中で $\Sigma$ に対して節や割り当てを追加しているので、これを遅延させる。<li><code>assign</code>, <code>conflict_analysis</code>, <code>cancel_until</code>を呼び出すので変数および節の活性度が影響を受ける。どうしたものか。</ul><pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>vivify</span><span>(</span><span style=font-weight:700;color:#a71d5d>mut </span><span>sigma: (AssginStack, ClauseDB)) {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> change: </span><span style=font-weight:700;color:#a71d5d>bool = </span><span style=color:#0086b3>true</span><span>;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>while</span><span> change {
+</span><span>        change </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>;
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> ci: </span><span style=font-weight:700;color:#a71d5d>usize = </span><span style=color:#0086b3>0</span><span>;
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> clauses: </span><span style=color:#0086b3>Vec</span><span><</span><span style=color:#0086b3>Vec</span><span>&LTLit>> </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>Vec</span><span>::new();
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>while</span><span> ci </span><span style=font-weight:700;color:#a71d5d><</span><span> sigma.</span><span style=color:#62a35c>len</span><span>() {
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> c </span><span style=font-weight:700;color:#a71d5d>= &mut</span><span> sigma[ci];
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let c_lits =</span><span> c.lits.</span><span style=color:#62a35c>clone</span><span>();
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let c_len =</span><span> c.</span><span style=color:#62a35c>len</span><span>();
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let</span><span> dl </span><span style=font-weight:700;color:#a71d5d>=</span><span> sigma.</span><span style=color:#62a35c>decision_level</span><span>();
+</span><span>            i </span><span style=font-weight:700;color:#a71d5d>+= </span><span style=color:#0086b3>1</span><span>;
+</span><span>            sigma.</span><span style=color:#62a35c>remove_clause</span><span>(ci);
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> cb: </span><span style=color:#0086b3>Vec</span><span>&LTLit> </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>Vec</span><span>::new();
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>;
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>while !</span><span>shortened </span><span style=font-weight:700;color:#a71d5d>&&</span><span> c </span><span style=font-weight:700;color:#a71d5d>!=</span><span> cb {
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>let</span><span> cx </span><span style=font-weight:700;color:#a71d5d>=</span><span> c.</span><span style=color:#62a35c>remove_items</span><span>(cb);
+</span><span>                l </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#62a35c>select_literal</span><span>(cx);
+</span><span>                cb.</span><span style=color:#62a35c>push</span><span>(l);                                     </span><span style=font-style:italic;color:#969896>// cb = cb ∪ {l};
+</span><span>                sigma.</span><span style=color:#62a35c>assign_by_decision</span><span>(</span><span style=font-weight:700;color:#a71d5d>!</span><span>l);                   </span><span style=font-style:italic;color:#969896>// Σb ← (Σb ∪ {¬l})
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(ls) </span><span style=font-weight:700;color:#a71d5d>=</span><span> sigma.</span><span style=color:#62a35c>propagate</span><span>() {           </span><span style=font-style:italic;color:#969896>// ⊥ ∈ UP(Σb)
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>let</span><span> learnt </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#62a35c>conflict_analyze</span><span>();            </span><span style=font-style:italic;color:#969896>// returns a learnt clause
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if</span><span> learnt.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>all</span><span>(|l| c.</span><span style=color:#62a35c>includes</span><span>(l)) {   </span><span style=font-style:italic;color:#969896>// cl ⊂ c
+</span><span>                        clauses.</span><span style=color:#62a35c>push</span><span>(learnt);                   </span><span style=font-style:italic;color:#969896>// MODIFIED: Σ ← Σ ∪ {cl}
+</span><span>                        shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                    } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if</span><span> learnt.</span><span style=color:#62a35c>len</span><span>() </span><span style=font-weight:700;color:#a71d5d>== c_len </span><span>{
+</span><span>                            clauses.</span><span style=color:#62a35c>push</span><span>(learnt);               </span><span style=font-style:italic;color:#969896>// MODIFIED: Σ ← Σ ∪ {cl}
+</span><span>                            cb </span><span style=font-weight:700;color:#a71d5d>=</span><span> c;
+</span><span>                        }
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if</span><span> c </span><span style=font-weight:700;color:#a71d5d>!=</span><span> cb {
+</span><span>                            clauses.</span><span style=color:#62a35c>push</span><span>(cb);                   </span><span style=font-style:italic;color:#969896>// MODIFIED: Σ ← Σ ∪ {cb}
+</span><span>                            shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                        }
+</span><span>                    }
+</span><span>                } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(ls) </span><span style=font-weight:700;color:#a71d5d>=</span><span> cx.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>find</span><span>(|l| sigma.</span><span style=color:#62a35c>contains</span><span>(l)) { </span><span style=font-style:italic;color:#969896>// ∃(ls ∈ (c\cb))
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if </span><span style=color:#0086b3>1 </span><span style=font-weight:700;color:#a71d5d><</span><span> cx.</span><span style=color:#62a35c>len</span><span>() {                       </span><span style=font-style:italic;color:#969896>// (c\cb) /= {ls}
+</span><span>                            clauses.</span><span style=color:#62a35c>push</span><span>(cb.</span><span style=color:#62a35c>push</span><span>(ls));          </span><span style=font-style:italic;color:#969896>// MODIFIED: Σ ← Σ ∪ {cb ∪ {ls}} ;
+</span><span>                            shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                        }
+</span><span>                    }
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(ls) </span><span style=font-weight:700;color:#a71d5d>=</span><span> cx.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>find</span><span>(|l| sigma.</span><span style=color:#62a35c>contains</span><span>(</span><span style=font-weight:700;color:#a71d5d>!</span><span>l)) { </span><span style=font-style:italic;color:#969896>// ∃(¬ls ∈ (c\cb))
+</span><span>                        clauses.</span><span style=color:#62a35c>push</span><span>(c.</span><span style=color:#62a35c>remove</span><span>(ls));             </span><span style=font-style:italic;color:#969896>// MODIFIED: Σ ← Σ ∪ {c\{ls}}
+</span><span>                        shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                    }
+</span><span>                }
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if !</span><span>shortened {
+</span><span>                    sigma.</span><span style=color:#62a35c>new_clause</span><span>(</span><span style=font-weight:700;color:#a71d5d>c_lits</span><span>);
+</span><span>                } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                    change </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                }
+</span><span>                sigma.</span><span style=color:#62a35c>cancel_until</span><span>(dl);
+</span><span>            }
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>for</span><span> c </span><span style=font-weight:700;color:#a71d5d>in &</span><span>clauses {
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> c.</span><span style=color:#62a35c>len</span><span>() </span><span style=font-weight:700;color:#a71d5d>== </span><span style=color:#0086b3>1 </span><span>{
+</span><span>                    sigma.</span><span style=color:#62a35c>new_assignment</span><span>(c[</span><span style=color:#0086b3>0</span><span>]);
+</span><span>                } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                    sigma.</span><span style=color:#62a35c>new_clause</span><span>(c);
+</span><span>                }
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre><p>これでどうだろうか。実装してみなくては。<p>こうしてみると、統計的ソルバの手法みたい。<h2 id=2020-06-24>2020-06-24</h2><p>めちゃくちゃ重い！ vivifyに10000秒くらい掛かりそうだ。 節に含まれるリテラル全てに対して伝播検査をしているのだから当然ではある。 とりあえず先頭のリテラルだけの伝播にしてみたのだが、それでも論外。 <code>propagate</code>で矛盾が検出されたときの依存グラフをキャッシュに残すようにするとどうだろうか。。。<ul><li><code>conflict_analyze</code>のカスタムバージョンが必要 -- TODO<li>cidが GCで変わってしまう -- しかしこれは <code>shortened</code> の時にpurgeすればいい。<li>purgeされるリテラルが多すぎてヒット率が低いのではないか -- no idea<li>矛盾が発生する場合は結果をキャッシュできるが、そうでない場合は有用ではないのでは -- うーむ</ul><pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>type </span><span>ConflictDep </span><span style=font-weight:700;color:#a71d5d>= </span><span>HashMap&LTLit, (</span><span style=font-weight:700;color:#a71d5d>bool</span><span>, HashSet&LTClauseId>, </span><span style=color:#0086b3>Vec</span><span>&LTLit>)>
+</span><span>
+</span><span style=font-weight:700;color:#a71d5d>impl </span><span>ConflictDep {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>clear</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, l: Lit) { </span><span style=font-weight:700;color:#a71d5d>... </span><span>}
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>put</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, l: Lit, ...) { </span><span style=font-weight:700;color:#a71d5d>... </span><span>}
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>purge</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut </span><span>self, l: Lit) { </span><span style=font-weight:700;color:#a71d5d>... </span><span>}
+</span><span>}
+</span></code></pre><h2 id=2020-06-26>2020-06-26</h2><p>もう少し軽いキャッシュを実装してみた。 無矛盾時の処理をサボっても論理的には間違いではないので、一度調べたリテラルの伝播結果をキャッシュすると(assign $\to$ propagate $\to$ cancel_until)の一連の処理が減らせる。 とにかく網羅速度を上げなければ。<h2 id=2020-06-27>2020-06-27</h2><p>vivificationは<code>propagate</code>や<code>cancel_until</code>など多くの機能を流用しているが、sandbox化しなくていいだろうか。<ul><li>各種計数カウンタは切り離すべき<li>変数活性度は取り込むべき。理由はどうであれ伝播の結果わかった統計情報なのだから。<li>ただし変数活性度の計算にはいくつかのカウンタは正しく動いている（更新される）ことが必要なので、計数カウンタを止めたサンドボックスを作るよりもvivify後に増分をキャンセルすることが必要かも。</ul><h2 id=2020-06-29>2020-06-29</h2><p>アルゴリズムの理解進展。いろいろ突っ込みどころを見つけて、反映したバージョンがこちら。<ul><li>23行目と27行目が同時に成立することはない<li>30行目はwhileの中に入れる必要はない<li>キャッシュは意味がない。多くの場合すぐに<code>break</code>しているから。</ul><pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>vivify</span><span>(asg: </span><span style=font-weight:700;color:#a71d5d>&mut</span><span> AssignStack, cdb: </span><span style=font-weight:700;color:#a71d5d>&mut</span><span> ClauseDB) {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> changed: </span><span style=font-weight:700;color:#a71d5d>bool = </span><span style=color:#0086b3>true</span><span>;
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>while</span><span> changed {
+</span><span>        changed </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>;
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>for</span><span> c </span><span style=font-weight:700;color:#a71d5d>in &</span><span>clauses {
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let</span><span> clits </span><span style=font-weight:700;color:#a71d5d>=</span><span> c.lits.</span><span style=color:#62a35c>clone</span><span>();
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>false</span><span>;
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> new_clause: </span><span style=color:#0086b3>Vec</span><span>&LTLit> </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>Vec</span><span>::new();
+</span><span>            cdb.</span><span style=color:#62a35c>delete_clause</span><span>(c);
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>for </span><span>(i, l) </span><span style=font-weight:700;color:#a71d5d>in</span><span> clits.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>enumerate</span><span>() {
+</span><span>                asg.</span><span style=color:#62a35c>assign_by_decision</span><span>(</span><span style=font-weight:700;color:#a71d5d>!*</span><span>l);
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> asg.</span><span style=color:#62a35c>propagate</span><span>(cdb) </span><span style=font-weight:700;color:#a71d5d>==</span><span> ⊥ {
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>let</span><span> learnt </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#62a35c>conflict_analyze_and_learnt</span><span>(asg, cdb);
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if</span><span> learnt.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>all</span><span>(|l| clits.</span><span style=color:#62a35c>contains</span><span>(l)) {
+</span><span>                        new_clause </span><span style=font-weight:700;color:#a71d5d>=</span><span> learnt.</span><span style=color:#62a35c>clone</span><span>();
+</span><span>                        shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                    } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if</span><span> learnt.</span><span style=color:#62a35c>len</span><span>() </span><span style=font-weight:700;color:#a71d5d><</span><span> clits.</span><span style=color:#62a35c>len</span><span>() {
+</span><span>                            asg.</span><span style=color:#62a35c>cancel_until</span><span>(asg.root_level);
+</span><span>                            </span><span style=font-weight:700;color:#a71d5d>break</span><span>;
+</span><span>                        }
+</span><span>                        </span><span style=font-weight:700;color:#a71d5d>if</span><span> i </span><span style=font-weight:700;color:#a71d5d><</span><span> clits.</span><span style=color:#62a35c>len</span><span>() </span><span style=font-weight:700;color:#a71d5d>- </span><span style=color:#0086b3>1 </span><span>{
+</span><span>                            new_clause </span><span style=font-weight:700;color:#a71d5d>=</span><span> clits[</span><span style=font-weight:700;color:#a71d5d>..=</span><span>i].</span><span style=color:#62a35c>to_vec</span><span>();
+</span><span>                            shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                        }
+</span><span>                    }
+</span><span>                } </span><span style=font-weight:700;color:#a71d5d>else if let </span><span style=color:#0086b3>Some</span><span>(ls) </span><span style=font-weight:700;color:#a71d5d>=</span><span> clits[i </span><span style=font-weight:700;color:#a71d5d>+ </span><span style=color:#0086b3>1</span><span style=font-weight:700;color:#a71d5d>..</span><span>].</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>find</span><span>(|l| asg.</span><span style=color:#62a35c>assigned</span><span>(</span><span style=font-weight:700;color:#a71d5d>**</span><span>l) </span><span style=font-weight:700;color:#a71d5d>== </span><span style=color:#0086b3>Some</span><span>(</span><span style=color:#0086b3>true</span><span>)) {
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>if</span><span> i </span><span style=font-weight:700;color:#a71d5d><</span><span> clits.</span><span style=color:#62a35c>len</span><span>() </span><span style=font-weight:700;color:#a71d5d>- </span><span style=color:#0086b3>1 </span><span>{
+</span><span>                        new_clause </span><span style=font-weight:700;color:#a71d5d>=</span><span> clits[</span><span style=font-weight:700;color:#a71d5d>..=</span><span>i].</span><span style=color:#62a35c>to_vec</span><span>();
+</span><span>                        new_clause.</span><span style=color:#62a35c>push</span><span>(</span><span style=font-weight:700;color:#a71d5d>*</span><span>ls);
+</span><span>                        shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                    }
+</span><span>                } </span><span style=font-weight:700;color:#a71d5d>else if let </span><span style=color:#0086b3>Some</span><span>(ls) </span><span style=font-weight:700;color:#a71d5d>=</span><span> clits[i </span><span style=font-weight:700;color:#a71d5d>+ </span><span style=color:#0086b3>1</span><span style=font-weight:700;color:#a71d5d>..</span><span>].</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>find</span><span>(|l| asg.</span><span style=color:#62a35c>assigned</span><span>(</span><span style=font-weight:700;color:#a71d5d>!**</span><span>l) </span><span style=font-weight:700;color:#a71d5d>== </span><span style=color:#0086b3>Some</span><span>(</span><span style=color:#0086b3>true</span><span>)) {
+</span><span>                    new_clause </span><span style=font-weight:700;color:#a71d5d>=</span><span> clits.</span><span style=color:#62a35c>iter</span><span>().</span><span style=color:#62a35c>copied</span><span>().</span><span style=color:#62a35c>filter</span><span>(|l| l </span><span style=font-weight:700;color:#a71d5d>!=</span><span> ls).collect::<</span><span style=color:#0086b3>Vec</span><span><</span><span style=font-weight:700;color:#a71d5d>_</span><span>>>();
+</span><span>                    shortened </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>                }
+</span><span>                asg.</span><span style=color:#62a35c>cancel_until</span><span>(asg.root_level);
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> shortened {
+</span><span>                    </span><span style=font-weight:700;color:#a71d5d>break</span><span>;
+</span><span>                }
+</span><span>            }
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>if</span><span> shortened {
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>if</span><span> new_clause.</span><span style=color:#62a35c>len</span><span>() </span><span style=font-weight:700;color:#a71d5d>== </span><span style=color:#0086b3>1 </span><span>{
+</span><span>                    asg.</span><span style=color:#62a35c>assign_at_rootlevel</span><span>(new_clause[</span><span style=color:#0086b3>0</span><span>]);
+</span><span>                } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                    cdb.</span><span style=color:#62a35c>new_clause</span><span>(asg, new_clause);
+</span><span>                }
+</span><span>                changed </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>            } </span><span style=font-weight:700;color:#a71d5d>else </span><span>{
+</span><span>                cdb.</span><span style=color:#62a35c>new_clause</span><span>(asg, clits);
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre><h2 id=2020-07-01>2020-07-01</h2><p>やはり、vivification中の活性度修正はしない方がよさそうだ。確かに外乱ではある。 そして、短くなった節にはrewardを受け継がせなければ。。。<h2 id=2020-07-04>2020-07-04</h2><p><code>cancel_until</code>を呼び出す場所を間違っていた。今のままだと、新しい節は空節から始まってだんだん長くなっていくのではなく、常に単位節ということになる。正しいように修正したら遅くなった。 まあ確かにヒューリスティックスとして全てのリテラルを確かめるというのはあるかもしれないが、論文通りにすべきではなかろうか。。。<h2 id=2020-07-05>2020-07-05</h2><p>ベンチマークを実行してみると少しは効果がありました。 しかし、そろそろ新しい論文の方を読んで検討すべき頃合いだろう（もっと早く読めって）。 長さ的にもいい頃合いなので、<a href=/2020/2020-07-05-vivification2/>項を改めて</a>検討を続けることにします。<div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2020-07-05</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#sat>#SAT</a></div><div class=navbar-item><a class=tagword href=/tags/#vivification>#vivification</a></div><div class=navbar-item><a class=tagword href=/tags/#splr>#splr</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

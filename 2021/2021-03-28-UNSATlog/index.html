@@ -1,0 +1,84 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>UNSAT LOG, 2021, Mar.</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-banner><img src=/2021/2021-03-28_banner.jpg></div><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">Vol.2, No.3.</h1><h1 id=UNSATlog>UNSATlog</h1><h2 id=Splr-0.7.1リリースのはずが>Splr-0.7.1リリースのはずが</h2><p>前号を出したのが12日でそれから2週間足らずなので、Splr-0.7.1をリリースしたことしか書くことないよなあと思っていたら、リリース前のルーチンワークのベンチマークの検証中にエラーが発見されてしまった。<p>まさか、UNSAT問題をSATと答えるなんて！ それも、原因モジュールの同定に数時間かかることになってしまって、半日経っても何が問題なのかすら判明できていない有様。 ちょっとこのバグはキツい。リリースは（楽観的にみて）1週間ほど延期になりそうだ。<p>という以上の内容だけでvol.3を出して、Splr-0.7.1のリリースのタイミングで次の号を出し、そこで UNSAT logの号数を実暦に合わせよう。ああ、それだけが楽しみ。<h2 id=2021-04-02>2021-04-02</h2><p>やっと、やっと、原因の節が特定できそう。<code>watch</code>が適切なリテラルを持ってない。 多分shrink, shortenでのリテラル削除に監視リテラルが追従してないようだ。<pre style=background:#fff;color:#323232><code><span>$ splr aes.cnf
+</span><span>aes.cnf                                      501284,2928183 |time:     5.21
+</span><span> #conflict:          0, #decision:            0, #propagate:         221128
+</span><span>  Assignment|#rem:    34160, #ass:   221128, #elm:   245996, prg%:  93.1855
+</span><span>      Clause|Remv:        0, LBD2:        0, Binc:  2472979, Perm:  4073761
+</span><span>     Restart|#BLK:        0, #RST:        0, trgr:        1, peak:        1
+</span><span>         LBD|avrg:   0.0000, trnd:      NaN, depG:   0.0000, /dpc:     0.00
+</span><span>    Conflict|tASG:      NaN, cLvl:     0.00, bLvl:     0.00, /ppc:     0.00
+</span><span>        misc|elim:        1, #sub:    87499, core:   501284, /cpr:     0.00
+</span><span>unreachable core: 24650
+</span><span>[src/cdb/db.rs:958] 
+</span><span>  (l, w.blocker, w.c, &c.lits)
+</span><span>  = ( L151359, L158797, Cid3949122, [ L151358, L149809, L151175 ])
+</span></code></pre><p>この結果を出すのに実行時間は3時間越え。 原因を正確につきとめようと細かくチェックを入れたら10時間経ってもコアサイズが31000を下回らなかった。 今日中に塞げるだろうか。<h2 id=2021-04-03>2021-04-03</h2><p>塞げたような気がする。 まだ結論が出てないので「気がする」としか書きようがないのが、とにかく検証中。 バグによって偶然解けたことになってしまった問題なので、何時間かかっても解き、さらにそれが無謬であることを証明しなければならない。 計算が終わるまでじっと我慢しなくては。<p>ダメだった。この結果を出すのに7時間。Splr開発史上ベスト3に入る難問。<pre style=background:#fff;color:#323232><code><span>$ splr -t 50000 -c aes.cnf                                                                                 
+</span><span>aes.cnf                                      501284,2928183 |time: 24585.10
+</span><span> #conflict:   16888219, #decision:     31352807, #propagate:     5559560810
+</span><span>  Assignment|#rem:     8797, #ass:   243789, #elm:   248698, prg%:  98.2451
+</span><span>      Clause|Remv:   798625, LBD2:    24841, Binc:  2484735, Perm:  8987095
+</span><span>     Restart|#BLK:     7868, #RST:     8946, trgr:        1, peak:      128
+</span><span>         LBD|avrg:   7.0407, trnd:   0.3329, depG:   4.9266, /dpc:     1.62
+</span><span>    Conflict|tASG:   0.0247, cLvl:   313.07, bLvl:   311.69, /ppc:    23.16
+</span><span>        misc|elim:       28, #sub:   101678, core:        0, /cpr:  1676.43
+</span><span>      Result|file: ./ans_aes.cnf
+</span><span>s SATISFIABLE: aes.cnf
+</span></code></pre><h3 id=2021-04-05>2021-04-05</h3><p>バグ取れた！<ul><li>Eliminator でwatchを適切に更新してなかったため、<code>propagate</code>が単位節に気づかないことがあった。<li><code>ClauseDB::strengthen</code>でbiclauseになった節の<code>LEARNT</code>フラグを落としてなかっため、設定次第で<code>reduce_db</code>が回収してしまっていた。</ul><p>ということらしい。以下の通り、4時間掛かって検証できた。<pre style=background:#fff;color:#323232><code><span>[04-05T15:48:54]$ splr -c -t 300000 aes.cnf
+</span><span>aes.cnf                                      501284,2928183 |time: 13814.37
+</span><span> #conflict:   25313304, #decision:     50455202, #propagate:     4858368671
+</span><span>  Assignment|#rem:     8700, #ass:   243745, #elm:   248839, prg%:  98.2645
+</span><span>      Clause|Remv:   549214, LBD2:    43074, Binc:  2485952, Perm:  4429040
+</span><span>     Restart|#BLK:     9997, #RST:    13738, trgr:        8, peak:      128
+</span><span>         LBD|avrg:   2.6736, trnd:   0.3569, depG:   4.7183, /dpc:     1.01
+</span><span>    Conflict|tASG:   1.0058, cLvl:     9.60, bLvl:     8.36, /ppc:    10.11
+</span><span>        misc|elim:       52, #sub:   102614, core:        4, /cpr:   282.31
+</span><span>      Result|file: ./ans_aes.cnf
+</span><span> Certificate|file: proof.drat
+</span><span>s UNSATISFIABLE: aes.cnf
+</span><span>[04-05T19:39:15]$ gratgen aes.cnf proof.drat -o proof.grat 
+</span><span>c sizeof(cdb_t) = 4
+</span><span>c sizeof(cdb_t*) = 8
+</span><span>c Using RAT run heuristics
+</span><span>c Parsing formula ... 4035ms
+</span><span>c Parsing proof (ASCII format) ... 907366ms
+</span><span>c Forward pass ... 41143ms
+</span><span>c Starting Backward pass
+</span><span>c Single threaded mode
+</span><span>c Waiting for aux-threads ...done
+</span><span>c Lemmas processed by threads: 3649502 mdev: 0
+</span><span>c Finished Backward pass: 305584ms
+</span><span>c Writing combined proof ... 17723ms
+</span><span>s VERIFIED
+</span><span>c Timing statistics (ms)
+</span><span>c Parsing:  911402
+</span><span>c Checking: 347424
+</span><span>c   * bwd:  305584
+</span><span>c Writing:  17723
+</span><span>c Overall:  1277911
+</span><span>c   * vrf:  1260188
+</span><span>
+</span><span>c Lemma statistics
+</span><span>c RUP lemmas:  3649502
+</span><span>c RAT lemmas:  0
+</span><span>c   RAT run heuristics:   0
+</span><span>c Total lemmas:  3649502
+</span><span>
+</span><span>c Size statistics (bytes)
+</span><span>c Number of clauses: 33358889
+</span><span>c Clause DB size:  6030820484
+</span><span>c Item list:       986114048
+</span><span>c Pivots store:    134217728
+</span><span>[04-05T20:39:29]$ gratchk unsat aes.cnf proof.grat
+</span><span>c Reading cnf
+</span><span>c Reading proof
+</span><span>c Done
+</span><span>c Verifying unsat
+</span><span>s VERIFIED UNSAT
+</span><span>[T20:55:04]$
+</span></code></pre><p>ただ時々、SATになっちゃうことがあるんだなあ。あるいは実行時間が大きく変動したりとか。 今のSplrに非決定性はないので、ハードウェアエラーくらいしか理由が思いつかない。。。<div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2021-03-28   Last updated 2021-04-05 </div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#sat>#SAT</a></div><div class=navbar-item><a class=tagword href=/tags/#splr>#splr</a></div><div class=navbar-item><a class=tagword href=/tags/#unsatlog>#unsatlog</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

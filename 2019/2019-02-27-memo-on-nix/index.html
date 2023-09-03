@@ -1,0 +1,69 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Memo on Nixpkgs</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">nixで最強パッケージ管理</h1><h2 id=Location_of_my_configuration_file>Location of my configuration file</h2><p>is <strong>~/.config/nixpkgs/config.nix</strong>.<ul><li>https://nixos.wiki/wiki/FAQ#How_can_I_manage_software_with_nix-env_like_with_configuration.nix.3F</ul><h2 id=Overriding_nix_package>Overriding nix package</h2><ul><li>'error: attribute `override' missing'</ul><p>Probably you're trying to override a non-existing package.<p>For example, the following emits the error because <code>emacs26</code> doesn't exist.<pre style=background:#fff;color:#323232><code><span># ~/.config/nixpkgs/config.nix
+</span><span>{ pkgs }:
+</span><span>{
+</span><span>    allowBroken = true;
+</span><span>    allowUnfree = true;
+</span><span>
+</span><span>    packageOverrides = pkgs : rec {
+</span><span>   	emacs26 = pkgs.stdenv.lib.overrideDerivation pkgs.emacs26 (oldAttrs : {
+</span><span>	    name = "emacs-26.1.92";
+</span><span>	    version = "26.1.92";
+</span><span>	    src = pkgs.fetchurl {
+</span><span>	        url = "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.1.92.tar.xz";
+</span><span>		    sha256 = "0aa1dfa39b020feb49b82a388863c8a4b2ee0f1dfc04528f49759dbba4f28d41";
+</span><span>		};
+</span><span>	});
+</span><span>  };
+</span><span>}
+</span></code></pre><p>By changing the package name to <code>emacs</code>, it works.<ul><li>https://github.com/NixOS/nixpkgs/issues/4017</ul><h3 id=UPDATE>UPDATE</h3><p><code>overrideDerivation</code> is almost depricated. Here's a better version:<pre style=background:#fff;color:#323232><code><span>self: super:
+</span><span>{
+</span><span>    emacs26 = super.emacs26.overrideAttrs (attrs: rec {
+</span><span>        name = "emacs-26.1.92";
+</span><span>        version = "26.1.92";
+</span><span>        src = super.fetchurl {
+</span><span>            url = "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.1.92.tar.xz";
+</span><span>            sha256 = "0aa1dfa39b020feb49b82a388863c8a4b2ee0f1dfc04528f49759dbba4f28d41";
+</span><span>        };
+</span><span>        patches = [];
+</span><span>    });
+</span><span>}
+</span></code></pre><h3 id=nixファイルの構造>nixファイルの構造</h3><p>nixファイルはnix式を定義するもの。<ul><li><p>nix-buildはderivationを生成する式を要求する。そしてその環境のシェルを走らせる。?</p><li><p>config.nixやオーバレイはnixpkgsを更新する関数を定義するもの。?</p><li><p>https://nixos.org/nixos/manual/index.html#sec-nix-syntax-summary</p><li><p>https://nixos.org/nixos/manual/index.html#sec-configuration-syntax</p></ul><h3 id=そもそもの関数の構文>そもそもの関数の構文</h3><ul><li><code>:</code>が引数と本体のセパレータ。</ul><pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span>x : x </span><span style=font-weight:700;color:#a71d5d>+ </span><span style=color:#0086b3>1
+</span></code></pre><ul><li>集合を引数に取り、その中の特定要素を参照するならば、セレクタを並べた（カンマ区切り）集合が引数に位置する。</ul><pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span>{ x</span><span style=font-weight:700;color:#a71d5d>, </span><span>y }: x </span><span style=font-weight:700;color:#a71d5d>+ </span><span>y
+</span></code></pre><p>これは一見、2引数関数のように見えるがコロンの位置からもそうではない。<p>ということで、例えばlet構文（式）なしで集合型の返値が計算できるなら<pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span>{ config</span><span style=font-weight:700;color:#a71d5d>, </span><span>pkgs }:
+</span><span>{
+</span><span>	</span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>属性の定義式;</span><span>
+</span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>}</span><span>
+</span></code></pre><p>となるし、let構文を使いたいなら以下のようになる。<pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span>{ config</span><span style=font-weight:700;color:#a71d5d>, </span><span>pkgs }:
+</span><span style=font-weight:700;color:#a71d5d>let
+</span><span>  </span><span style=color:#795da3>x </span><span style=font-weight:700;color:#a71d5d>= </span><span>{ ... };
+</span><span>  </span><span style=color:#795da3>y </span><span style=font-weight:700;color:#a71d5d>= </span><span>{ ... };
+</span><span>  ...
+</span><span style=font-weight:700;color:#a71d5d>in
+</span><span>  x
+</span></code></pre><p>なお、2引数関数はoverlayで用いられている。<pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span>self: super:
+</span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>...</span><span>
+</span></code></pre><ul><li>nix-buildに与えるべきnixファイル(shell.nixという名前がconvention?)はこんな感じ:</ul><pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span style=font-weight:700;color:#a71d5d>with </span><span style=color:#62a35c>import </span><span style=color:#183691>&LTnixgkgs> </span><span>{};   </span><span style=font-style:italic;color:#969896># この;は文を区切るものではなく、withは次の行まで続いている
+</span><span>  </span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>...</span><span>  </span><span style=font-style:italic;color:#969896># derivationを返すこと
+</span></code></pre><p>A derivationを返すwith構文が一つあるだけ。with構文については後述。<ul><li>nix-shellに与えるべきnixファイル（default.nixがデフォールト）はこんな感じ:</ul><pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span style=font-weight:700;color:#a71d5d>with </span><span style=color:#62a35c>import </span><span style=color:#183691>&LTnixgkgs> </span><span>{};
+</span><span>{ </span><span style=font-weight:700;color:#a71d5d>... </span><span>} </span><span style=font-style:italic;color:#969896># 集合を返す
+</span></code></pre><p>pkgsを更新している？<h3 id=モジュールとwith構文>モジュールとwith構文</h3><p>ということで多くのファイルは以下の構造で単一の関数が定義されているだけ。<pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span>{ </span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>依存するモジュール（カンマ区切り）</span><span> }:
+</span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>返値</span><span>
+</span></code></pre><p>オーバレイも ~/.config/nixpkgs/config.nix もこんな感じ。<pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span>{ pkgs }:
+</span><span>{
+</span><span>	</span><span style=font-weight:700;color:#a71d5d>...
+</span><span>}
+</span></code></pre><p>ここで<code>with import &LTnixpkgs></code>を先頭に置いても問題ないはず。 試してみたところ、下のどちらの書き方でも正しく評価できる。<pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span style=font-weight:700;color:#a71d5d>with </span><span style=color:#62a35c>import </span><span style=color:#183691>&LTinxpkgs></span><span>; self: super:
+</span><span>  </span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>...</span><span>
+</span></code></pre><pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span style=font-weight:700;color:#a71d5d>with </span><span style=color:#62a35c>import </span><span style=color:#183691>&LTinxpkgs> </span><span>{}; self: super:
+</span><span>  </span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>...</span><span>
+</span></code></pre><p>それどころか以下でも問題ない。<pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span style=font-weight:700;color:#a71d5d>with </span><span style=color:#62a35c>import </span><span style=color:#183691>&LTinxpkgs> </span><span>{} {}; self: super:
+</span><span>  </span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>...</span><span>
+</span></code></pre><p>何故ならば、<code>import &LTnixpkgs></code>は<code>関数：集合 -> 集合</code>。 なので<code>(import &LTinxpkgs>) {}</code>は関数適用。もちろんその返値は集合を受け付ける関数。なので<code>{}</code>を受け付 ける。 そして評価が終わった<code>import &LTinxpkgs> {} {}</code>までを環境として、セミコロン以下の本体を評価するのがwith 構文（式）。<ul><li>https://nixos.org/nixos/nix-pills/functions-and-imports.html#idm140737316371552</ul><p>S式で表せばこういうこと。<pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span>(</span><span style=font-weight:700;color:#a71d5d>with </span><span>(((</span><span style=color:#62a35c>import </span><span style=color:#183691>&LTinxpkgs></span><span>) {}) {}) (self: super: </span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>...</span><span>)</span><span style=background:#f5f5f5;font-weight:700;color:#b52a1d>)</span><span>
+</span></code></pre><p>うーん、ヘンタイ。<div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2019-02-27</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#nixos>#nixos</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

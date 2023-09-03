@@ -1,0 +1,79 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>About Observable</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">強力な可視化機能を手に入れた</h1><p>Javascript版jupyterのようなものの一つの<a href=https://observablehq.com/>Observable</a>。 可視化の結果を貼り付けられるように、Nuxtベースのこのブログに組み込めないか現在考え中。 とりあえず[こういうこと](dead link https://observablehq.com/d/1cbb7a450b192e69)ができるなら、 やる価値はありそうだ。<p>まず、以下のコードでObservableのノートは一つのJavascriptにexportできるらしい。<pre class=language-js data-lang=js style=background:#fff;color:#323232><code class=language-js data-lang=js><span style=font-weight:700;color:#a71d5d><</span><span>script type</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"module"</span><span style=font-weight:700;color:#a71d5d>>
+</span><span style=font-weight:700;color:#a71d5d>import </span><span>{Runtime, Inspector} </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>"https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"</span><span>;
+</span><span style=font-weight:700;color:#a71d5d>import </span><span>notebook </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>"https://api.observablehq.com/d/1cbb7a450b192e69.js?v=3"</span><span>;
+</span><span style=font-weight:700;color:#a71d5d>new </span><span>Runtime().</span><span style=font-weight:700;color:#795da3>module</span><span>(notebook, Inspector.</span><span style=font-weight:700;color:#795da3>into</span><span>(document.body));
+</span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>script</span><span style=font-weight:700;color:#a71d5d>>
+</span></code></pre><p>なので、それをfetchするような専用のテンプレートを用意すれば埋め込めるはず。<ul><li>pages/_year/_slug/index.vue<li>pages/_year/_slug/observable/index.vue</ul><p>みたいにすればいいのでは。でその中身は、<pre class=language-js data-lang=js style=background:#fff;color:#323232><code class=language-js data-lang=js><span>&LTscript>
+</span><span style=font-weight:700;color:#a71d5d>await </span><span style=font-weight:700;color:#795da3>fetch</span><span>()
+</span><span>&LTscript>
+</span></code></pre><p>はて？ templateの中に書けるのかしらん？ さっきのコードをちゃんと読んで、だんだんわかってきた。 jquery的なDOM mountが前提だ。vueの仮想DOMとは相性悪そう。。。</p><script type=module>
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import notebook from "https://api.observablehq.com/d/1cbb7a450b192e69.js?v=3";
+new Runtime().module(notebook, Inspector.into(document.body));
+</script><p>とりあえずでっち上げたもの：<ul><li>https://shnarazk.now.sh/obs/<li>https://shnarazk.now.sh/obs/index.html</ul><p>routerを設定しないといけない？？<h2 id=2019-08-01T21:05_上手くいったversion_0.1>2019-08-01T21:05 上手くいったversion 0.1</h2><p>まずインデックスページにJSONおよびエントリをでっち上げて nuxt-linkで振ってみる。このようなObservable由来のページは<ul><li>pages/_year/_slug/obs/index.vue</ul><p>に処理させることにした。index.vueの中身は以下の通り。 template中のscriptはObservableのマニュアルにあったものをそのまま流用。<pre class=language-js data-lang=js style=background:#fff;color:#323232><code class=language-js data-lang=js><span>&LTtemplate>
+</span><span>  &LTdiv>
+</span><span>    </span><span style=font-weight:700;color:#a71d5d><</span><span>Header title</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"Embedded Observable" </span><span style=font-weight:700;color:#a71d5d>/>
+</span><span>    </span><span style=font-weight:700;color:#a71d5d><</span><span>section class</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"section"</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>      </span><span style=font-weight:700;color:#a71d5d><</span><span>div id</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"Observed"</span><span style=font-weight:700;color:#a71d5d>></span><span>&LT/div>
+</span><span>      </span><span style=font-weight:700;color:#a71d5d><</span><span>EntryFooter tags</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"['Observable']" </span><span style=font-weight:700;color:#a71d5d>/>
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>section</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>    </span><span style=font-weight:700;color:#a71d5d><</span><span>script type</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"module"</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>      </span><span style=font-weight:700;color:#a71d5d>import </span><span>{
+</span><span>        Runtime,
+</span><span>        Inspector
+</span><span>      } </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>'https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js'
+</span><span>      </span><span style=font-weight:700;color:#a71d5d>import </span><span>notebook </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>'https://api.observablehq.com/d/1cbb7a450b192e69.js?v=3'
+</span><span>      </span><span style=font-weight:700;color:#a71d5d>new </span><span>Runtime().</span><span style=font-weight:700;color:#795da3>module</span><span>(notebook, Inspector.</span><span style=font-weight:700;color:#795da3>into</span><span>(</span><span style=color:#183691>'#Observed'</span><span>))
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>script</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>  </span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>div</span><span style=font-weight:700;color:#a71d5d>>
+</span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>template</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>&LTscript>
+</span><span style=font-weight:700;color:#a71d5d>import </span><span>Header </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>'~/components/TheHeader'
+</span><span style=font-weight:700;color:#a71d5d>import </span><span>EntryFooter </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>'~/components/EntryFooter'
+</span><span style=font-weight:700;color:#a71d5d>export default </span><span>{
+</span><span>  components: {
+</span><span>    Header,
+</span><span>    EntryFooter
+</span><span>  }
+</span><span>}
+</span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>script</span><span style=font-weight:700;color:#a71d5d>>
+</span></code></pre><p>仮想DOMとの協調は不安定だが中身は<code>#Obesarbable</code>な要素に取り込まれ、 他のエントリと同じ体裁で表示できるようになった。 DOMの上書き問題は適切なidを作成してやればいいだろう。 あとはvuexにうまく取り込めばいい。<h2 id=2019-08-03T21:05_上手くいったversion_0.9>2019-08-03T21:05 上手くいったversion 0.9</h2><p>先日の方法を延長するだけでうまくいきそうだ。<ul><li>mdから作ったjsonファイルにObservable用の手書きJSONを混ぜてvuexに登録<li>Observableのnotebookに対するend pointは先に書いた通り <ul><li>pages/_year/_slug/obs/index.vue に対応させる。</ul><li>canvasの埋め込み先はObservableでのnotebook idを<code>_sulg</code>としたユニークな<code>dvi</code>要素にすることで、 仮想DOMによる干渉を極力避ける。<li><code>\deep\</code>対応したCSSを用意してあげる。 ただしcanvasのサイズがピクセルで固定なのはどう対応したものか見当つかない。</ul><p>まあ、これくらいで最低限のことはできるようになった。<pre class=language-js data-lang=js style=background:#fff;color:#323232><code class=language-js data-lang=js><span>&LTtemplate>
+</span><span>  &LTdiv>
+</span><span>    </span><span style=font-weight:700;color:#a71d5d><</span><span>Header title</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"Embedded Observable Notebook" </span><span style=font-weight:700;color:#a71d5d>/>
+</span><span>    </span><span style=font-weight:700;color:#a71d5d><</span><span>section class</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"section"</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>      </span><span style=font-weight:700;color:#a71d5d><</span><span>h1 class</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"title has-text-primary has-text-weight-semibold"</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>        </span><span style=font-weight:700;color:#a71d5d><</span><span>a :href</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"'https://observablehq.com/d/' + $route.params.slug"</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>          Id #_{{ $route.params.slug }}
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>a</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>      </span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>h1</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>      </span><span style=font-weight:700;color:#a71d5d><</span><span>div :id</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"'_' + $route.params.slug" </span><span>class</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"observable-content"</span><span style=font-weight:700;color:#a71d5d>></span><span>&LT/div>
+</span><span>      </span><span style=font-weight:700;color:#a71d5d><</span><span>EntryFooter :tags</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"['Observable']" </span><span style=font-weight:700;color:#a71d5d>/>
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>section</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>    </span><span style=font-weight:700;color:#a71d5d><</span><span>script type</span><span style=font-weight:700;color:#a71d5d>=</span><span style=color:#183691>"module"</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>      </span><span style=font-weight:700;color:#a71d5d>import </span><span>{
+</span><span>        Runtime,
+</span><span>        Inspector
+</span><span>      } </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>'https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js'
+</span><span>      </span><span style=font-weight:700;color:#a71d5d>import </span><span>notebook </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>'https://api.observablehq.com/d/{{$route.params.slug}}.js?v=3'
+</span><span>      </span><span style=font-weight:700;color:#a71d5d>new </span><span>Runtime().</span><span style=font-weight:700;color:#795da3>module</span><span>(notebook, Inspector.</span><span style=font-weight:700;color:#795da3>into</span><span>(</span><span style=color:#183691>'{{'</span><span>#_</span><span style=color:#183691>' + $route.params.slug}}'</span><span>))
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>script</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>  </span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>div</span><span style=font-weight:700;color:#a71d5d>>
+</span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>template</span><span style=font-weight:700;color:#a71d5d>>
+</span><span>&LTscript>
+</span><span style=font-weight:700;color:#a71d5d>import </span><span>Header </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>'~/components/TheHeader'
+</span><span style=font-weight:700;color:#a71d5d>import </span><span>EntryFooter </span><span style=font-weight:700;color:#a71d5d>from </span><span style=color:#183691>'~/components/EntryFooter'
+</span><span style=font-weight:700;color:#a71d5d>export default </span><span>{
+</span><span>  components: {
+</span><span>    Header,
+</span><span>    EntryFooter
+</span><span>  }
+</span><span>}
+</span><span style=font-weight:700;color:#a71d5d>&LT/</span><span>script</span><span style=font-weight:700;color:#a71d5d>>
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2019-07-31</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#javascript>#javascript</a></div><div class=navbar-item><a class=tagword href=/tags/#observable>#Observable</a></div><div class=navbar-item><a class=tagword href=/tags/#nuxtjs>#Nuxtjs</a></div><div class=navbar-item><a class=tagword href=/tags/#jang>#jang</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

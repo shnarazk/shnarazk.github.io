@@ -1,0 +1,54 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Kissat on macOS</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">Abort! No!</h1><h2 id=2021-11-28>2021-11-28</h2><p>NixOS 21.11のリリースに向けての総ざらえでマージされた。<h2 id=2021-10-09>2021-10-09</h2><p>言われるがままにPR修正したのにone approveされたところで放置されてしまった。 <code>git rebase master; git push -f</code>したら中身は変わってないのだけど1週間ぶりに反応があった。 さあどうなるんだか 🙁<p><del>結局approve されなかったので流産となりました。</del><h2 id=2021-09-24>2021-09-24</h2><p>nixpkgsにPR送った。<h2 id=2021-09-18>2021-09-18</h2><p>Biere先生にissue送って、修正してもらった。2.0.1でパッケージできるようになった。<h2 id=2021-09-07>2021-09-07</h2><p>手に負えないと思ったけど、ちょっとだけコードを追ってみると単なる境界条件の判定ミスだ。 丁寧な表現でissue立てたけど返事がこん。 今週返事がなければ修正パッチ込みでNixパッケージ化しよう！<h2 id=2021-08-31>2021-08-31</h2><p>KissatをNix package化しようとして、OSの違いに阻まれてしまった。 こりゃ手に負えない。<pre style=background:#fff;color:#323232><code><span>$ ./result/bin/kissat ../SAT/kissat/test/cnf/add128.cnf proof                 
+</span><span>c ---- [ banner ] ------------------------------------------------------------
+</span><span>c                                                                             
+</span><span>c KISSAT SAT Solver                                                           
+</span><span>c Copyright (c) 2019-2021 Armin Biere JKU Linz                                
+</span><span>c                                                                             
+</span><span>c Version 2.0.0 unknown                                                       
+</span><span>c clang version 7.1.0 (tags/RELEASE_710/final) -W -Wall -O3 -DNDEBUG          
+</span><span>c Mon Aug 30 23:51:02 UTC 2021 Darwin demorgan.local 20.6.0 x86_64            
+</span><span>c                                                                             
+</span><span>c ---- [ proving ] -----------------------------------------------------------
+</span><span>c                                                                             
+</span><span>c opened and writing proof to DRAT file:                                      
+</span><span>c                                                                             
+</span><span>c   proof                                                                     
+</span><span>c                                                                             
+</span><span>c ---- [ parsing ] -----------------------------------------------------------
+</span><span>c                                                                             
+</span><span>c opened and reading DIMACS file:                                             
+</span><span>c                                                                             
+</span><span>c   ../SAT/kissat/test/cnf/add128.cnf                                         
+</span><span>c                                                                             
+</span><span>c parsed 'p cnf 2282 6586' header                                             
+</span><span>c closing input after reading 96737 bytes (94 KB)                             
+</span><span>c finished parsing after 0.00 seconds                                         
+</span><span>c                                                                             
+</span><span>c ---- [ solving ] -----------------------------------------------------------
+</span><span>c                                                                             
+</span><span>c  seconds switched rate      trail    variables                              
+</span><span>c         MB reductions conflicts glue      remaining                         
+</span><span>c          level restarts redundant irredundant                               
+</span><span>c                                                                             
+</span><span>c *  0.00  0 0 0 0  0 0   0   0 0% 0 6584 2280 100%                           
+</span><span>c {  0.00  0 0 0 0  0 0   0   0 0% 0 6584 2280 100%                           
+</span><span>c i  0.00  0 128 0 0  0 128   1   0 11% 0 6584 2279 100%                      
+</span><span>c i  0.01  0 230 0 0  1 77   6   2 38% 1 6584 2277 100%                       
+</span><span>c -  0.01  0 260 0 1  8 9 301 206 60% 2 6576 2277 100%                        
+</span><span>c i  0.01  0 152 0 1 124 20 664 506 47% 2 6576 2263 99%                       
+</span><span>c }  0.02  0 149 1 1 220 30 1000 741 50% 2 6576 2263 99%                      
+</span><span>c [  0.02  0 0 1 1 220 0 1000 741 0% 0 6576 2263 99%                          
+</span><span>c O  0.02  0 143 1 1 220 31 1004 672 21% 2 6538 2263 99%                      
+</span><span>c i  0.02  0 199 1 1 220 41 1009 675 55% 2 6538 2261 99%
+</span><span>c i  0.02  0 169 1 1 220 24 1025 682 38% 2 6538 2257 99%
+</span><span>../src/proof.c:269: check_repeated_proof_lines: Coverage goal `proof->units[punit]' reached.
+</span><span>c caught signal 6 (SIGABRT)
+</span><span>c
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2021-08-31   Last updated 2021-11-28 </div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#kissat>#kissat</a></div><div class=navbar-item><a class=tagword href=/tags/#sat>#SAT</a></div><div class=navbar-item><a class=tagword href=/tags/#maxos>#maxOS</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

@@ -1,0 +1,59 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>BQNでAoC2022 day19を解こう</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-banner><img src=/2023/2023-03-07_banner.jpg></div><div class=article-banner-caption>Mixamo → Blender</div><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">（できたら）配列指向で経路探索問題を</h1><p><a href=https://adventofcode.com/2022/day/19>Advent of Code y2022 day19</a>の<a href=https://github.com/mlochbaum/BQN>BQN</a>解法に大変苦労した（している）のでちょこっとメモしておこう。<p>基本的には最短経路問題なので<a href=https://github.com/shnarazk/advent-of-code/blob/main/src/y2022/day19.rs>Rust版</a>だとこんな感じ。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>let mut</span><span> to_visit: BinaryHeap;
+</span><span style=font-weight:700;color:#a71d5d>let mut</span><span> visited: HashSet;
+</span><span>
+</span><span style=font-weight:700;color:#a71d5d>while let </span><span style=color:#0086b3>Some</span><span>(state) </span><span style=font-weight:700;color:#a71d5d>=</span><span> to_visit.</span><span style=color:#62a35c>pop</span><span>() {
+</span><span>  </span><span style=font-weight:700;color:#a71d5d>for</span><span> next </span><span style=font-weight:700;color:#a71d5d>in</span><span> state.</span><span style=color:#62a35c>expand</span><span>() {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>if !</span><span>visited.</span><span style=color:#62a35c>contains</span><span>(</span><span style=font-weight:700;color:#a71d5d>&</span><span>next) {
+</span><span>      visited.</span><span style=color:#62a35c>insert</span><span>(</span><span style=font-weight:700;color:#a71d5d>&</span><span>next);
+</span><span>      to_visit.</span><span style=color:#62a35c>insert</span><span>(</span><span style=font-weight:700;color:#a71d5d>&</span><span>next);
+</span><span>    }
+</span><span>  }
+</span><span>}
+</span></code></pre><p>これを基にBQN版を作っていったのだがとても遅くて解けるとは言えなかったのでさらに知恵を絞ることになった。 ちなみに<a href=https://github.com/dzaima/aoc/blob/master/2022/BQN/19.bqn>dzaima版</a>は実行してない。<h2 id=1._時間を単位とする遷移からロボット追加を単位とする遷移へ>1. 時間を単位とする遷移からロボット追加を単位とする遷移へ</h2><p>これはRust版でも実装済み。状態空間を縮小するため、何もしないで資源が増えるだけの次クロック状態を保持するのではなく、ロボットの増加させた後の状態への遷移で次状態を定義しよう。<h2 id=2._必要以上にロボットを溜め込む必要はない>2. 必要以上にロボットを溜め込む必要はない</h2><p>clayロボットだけを作り続ける遷移は意味がない。他のロボットも作らねば。 ということで必要以上にロボットを溜め込むような次状態は探索対象に追加しないようにした。 これで状態数が有限に抑えられ、時間計算量も空間計算量も削減できる。<h2 id=3._N台のロボットの状態からN+1台のロボットの状態に遷移したあとではN台のロボットの状態を記憶しておく必要はない。>3. N台のロボットの状態からN+1台のロボットの状態に遷移したあとではN台のロボットの状態を記憶しておく必要はない。</h2><p>ロボット数の増加が状態遷移をもたらすなら、ロボット数Nの状態からなる集合をそれぞれ展開（探索）してできる状態集合は（全ての）ロボット数N+1の状態なので探索済みかどうかはその集合内要素が重複していないことの判定に帰着する。 N未満のロボット数の状態を記憶しておく必要はない。Life gameのように2つのbagを切り替えながら展開していけばよい。<h2 id=4._状態の枝刈>4. 状態の枝刈</h2><p>さらに状態が完全に順序付け可能なら枝刈ができる。つまり<ul><li>時刻が早い<li>資源（鉱石量）が多い<li>ロボットが多い</ul><p>ならば、小さな方の状態を展開対象に追加する必要はない。<p>Rust版では完全一致だけしか見ていなかったのでより良い枝刈ができる。多分$O(N)$の総当たりな実装でも見合うはず。<h2 id=5._深さ1のリスト化>5. 深さ1のリスト化</h2><p>性能に寄与するのかしないのかわからないのだが、状態の表現をネストをやめてフラットなベクターにしてみた。<pre class=language-apl data-lang=apl style=background:#fff;color:#323232><code class=language-apl data-lang=apl><span>time‿⟨nore‿nclay‿nobsidian‿ngeode⟩‿⟨rore‿rclay‿robsidian‿rgeode⟩
+</span></code></pre><p>がこうなった。<pre class=language-apl data-lang=apl style=background:#fff;color:#323232><code class=language-apl data-lang=apl><span>time‿nore‿nclay‿nobsidian‿ngeode‿rore‿rclay‿robsidian‿rgeode
+</span></code></pre><h2 id=6._時間方向を逆転することによる状態の半順序関係定義の簡略化>6. 時間方向を逆転することによる状態の半順序関係定義の簡略化</h2><p>状態の順序関係の定義は時刻だけが不等号の向きが逆で残念なことになっているので、統一しよう。 そのため、時刻は0から始まり<code>¯∞</code>に向かって進むことにすると時刻が早いとは値が大きいことを意味するので、<pre class=language-apl data-lang=apl style=background:#fff;color:#323232><code class=language-apl data-lang=apl><span>{(𝕨(>○⊑)𝕩)∧(𝕨((∧´<)○(1↓))𝕩)}
+</span></code></pre><p>はこうなる：<pre class=language-apl data-lang=apl style=background:#fff;color:#323232><code class=language-apl data-lang=apl><span>(∧´<)
+</span></code></pre><p>golf!<h2 id=7-X._既に状態集合に登録された状態の枝刈>7-X. 既に状態集合に登録された状態の枝刈</h2><p>新しい状態を登録するかどうかを既に登録されている次状態との順序関係に基づき判定することが有効なら、 逆に登録済みの状態の削除も有効なはずなんだが速度が2倍ほど低下してしまった。 計算コストの問題だろうか。<h2 id=7._状態集合の整列>7. 状態集合の整列</h2><p>一方、Nロボットの状態からの遷移先を全て求めた後で、N+1状態の展開を始める前に状態集合をソートしてやるとなぜか実行時間が半分ほどになった。 ソートは昇順でなければならず、降順だと1時間経っても終わらなかった。 ただし<code>´</code>でfoldしているので実際には降順、つまり終了時刻に近い方から展開しているので、 深さ優先探索になったようだ。<p><a href=https://github.com/shnarazk/advent-of-code/blob/main/bqn/2022/day19.bqn>ここ</a>までで脳みそ切れ。頑張ったのだがpart2は10分掛かる。<h2 id=追記>追記</h2><p>syntax highlighterのどれかがBQNに対応したという話を見たのでちょっと貼り付けてみよう。<p>こちらは<code>apl</code>:<pre class=language-apl data-lang=apl style=background:#fff;color:#323232><code class=language-apl data-lang=apl><span>  Examine ← { u 𝕊 n:
+</span><span>    best‿bp‿upto ← ⟨0,n⊏data,-u⟩
+</span><span>    masks‿limits ← ⟨0<˘bp,0‿0‿0‿∞⌈⌈´˘⍉bp⟩
+</span><span>    Expand ← {
+</span><span>      𝕊 ⟨⟩: best;
+</span><span>      𝕊 cands:
+</span><span>        𝕊 ∧ ⟨⟩ { time‿resources‿robots 𝕊 next:
+</span><span>          { 𝕊 i:
+</span><span>            upto< t ← time- w ← 1+⌈⌈´(i⊏masks)/robots÷˜(n ← i⊏bp)(0⊸⌈-)resources ?
+</span><span>              { ¬∨´(∧´𝕩⊸≤)¨next ? next ⟨𝕩⟩⊸∾ ↩, best ((4⊑𝕩)+(t-upto)×¯1⊑𝕩)⊸⌈ ↩ ;@
+</span><span>              } t∾(n-˜resources+w×robots)∾((1⊸+)⌾(i⊸⊑)robots)
+</span><span>            ;@
+</span><span>          }¨{robots<○(𝕩⊸⊑)limits }¨⊸/↕4
+</span><span>          next
+</span><span>        }´{⟨⊑𝕩,4↑1↓𝕩,5↓𝕩⟩}¨cands
+</span><span>    }
+</span><span>    (•Fmt n) lib.Debug Expand ⟨⟨0⟩∾⟨0,0,0,0⟩∾⟨1,0,0,0⟩⟩ # ⟨time,resources,robots⟩
+</span><span>  }
+</span></code></pre><p>こちらは<code>bqn</code>:<pre class=language-bqn data-lang=bqn style=background:#fff;color:#323232><code class=language-bqn data-lang=bqn><span>  Examine ← { u 𝕊 n:
+</span><span>    best‿bp‿upto ← ⟨0,n⊏data,-u⟩
+</span><span>    masks‿limits ← ⟨0<˘bp,0‿0‿0‿∞⌈⌈´˘⍉bp⟩
+</span><span>    Expand ← {
+</span><span>      𝕊 ⟨⟩: best;
+</span><span>      𝕊 cands:
+</span><span>        𝕊 ∧ ⟨⟩ { time‿resources‿robots 𝕊 next:
+</span><span>          { 𝕊 i:
+</span><span>            upto< t ← time- w ← 1+⌈⌈´(i⊏masks)/robots÷˜(n ← i⊏bp)(0⊸⌈-)resources ?
+</span><span>              { ¬∨´(∧´𝕩⊸≤)¨next ? next ⟨𝕩⟩⊸∾ ↩, best ((4⊑𝕩)+(t-upto)×¯1⊑𝕩)⊸⌈ ↩ ;@
+</span><span>              } t∾(n-˜resources+w×robots)∾((1⊸+)⌾(i⊸⊑)robots)
+</span><span>            ;@
+</span><span>          }¨{robots<○(𝕩⊸⊑)limits }¨⊸/↕4
+</span><span>          next
+</span><span>        }´{⟨⊑𝕩,4↑1↓𝕩,5↓𝕩⟩}¨cands
+</span><span>    }
+</span><span>    (•Fmt n) lib.Debug Expand ⟨⟨0⟩∾⟨0,0,0,0⟩∾⟨1,0,0,0⟩⟩ # ⟨time,resources,robots⟩
+</span><span>  }
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2023-03-07   Last updated 2023-03-10 </div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#bqn>#bqn</a></div><div class=navbar-item><a class=tagword href=/tags/#advent-of-code>#advent-of-code</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

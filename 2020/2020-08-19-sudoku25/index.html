@@ -1,0 +1,137 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Rust製の「SATソルバーで25x25のナンプレが解けるだろうか」</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">Sudokuシリーズその2, 頑張れSplr</h1><p>何の調べ物をしていたのか忘れましたが、偶然こんなものを見つけました。 http://labs.timedia.co.jp/2017/07/sat25x2520.html<pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>| . 12  .  .  .| .  .  .  .  .| .  .  .  9  .| .  . 15  .  .|22  .  .  .  .|
+</span><span>| .  .  .  .  .| .  9  . 19  .| .  . 10 11  .| .  .  .  .  .| .  .  .  .  .|
+</span><span>| .  4  . 22  .| .  .  .  .  .| .  .  .  .  .| .  . 12  .  .|20 15  1  .  .|
+</span><span>|16  1 20 15  .| .  .  .  .  .| .  .  .  .  .|14  .  4  . 22|12 25  .  .  .|
+</span><span>| .  .  .  .  .| .  7  2 11  .|23  . 19  8  .| .  .  . 13  .| .  .  .  .  .|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>|13  .  8  .  2| .  .  .  .  .| .  .  7 23  6| .  9  . 19 11| .  .  .  .  .|
+</span><span>| .  .  .  . 23| .  .  .  . 16| .  .  .  .  .| .  .  .  .  .| 1  .  .  .  .|
+</span><span>| 7  .  .  . 10| 3  .  .  .  .| .  .  9 19  .| . 13  . 23  .| .  .  .  5  .|
+</span><span>| .  .  .  .  .|15  .  .  . 22| .  .  .  .  .| .  .  .  .  .|25 20  .  .  .|
+</span><span>| .  .  .  .  .|12  . 14  1 25| .  .  .  .  .| .  .  3  .  .|16  4 15  .  .|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>| .  .  .  .  .| . 19  9  .  .| .  . 13  7  .| .  .  .  5  .| .  .  . 23 10|
+</span><span>| . 22  . 25 17| .  .  .  .  .| .  .  .  .  .|12  . 20  .  .| .  .  .  .  .|
+</span><span>| . 20 12 16  .| .  .  .  .  .| .  .  .  . 14|15 22  1  . 25| .  .  .  .  .|
+</span><span>| . 15  .  .  .| . 11  .  .  .| .  .  .  .  .| .  . 16  .  .| .  .  .  9  .|
+</span><span>| .  .  .  1  .| . 10  . 23  .| .  .  .  . 18| .  .  .  .  .| .  .  .  .  8|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>|10  .  .  .  8| . 13  .  5  .| .  .  .  .  .| . 19  . 11 23| .  .  .  6  .|
+</span><span>| .  .  . 17  7| .  .  .  .  .| .  .  .  .  1| .  .  .  .  .| 4 22  .  .  .|
+</span><span>| .  .  .  . 11| . 23  .  .  .| .  .  .  . 20| .  .  .  2  .|14  .  .  .  .|
+</span><span>|19  . 23  .  5| .  8  .  9  .| . 21  .  .  .| . 10  .  7  .| .  .  .  .  .|
+</span><span>| .  3  .  .  .| .  .  .  .  .|25  4  .  . 12| .  .  .  .  .|15  1 16  .  .|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>| .  .  .  .  .| .  .  .  . 15| . 12  .  . 25| 1  . 22  .  .| 3  .  .  .  .|
+</span><span>|23  .  .  . 19| .  2  .  .  .| .  .  .  .  .| .  .  . 10  .| .  .  .  7 11|
+</span><span>| .  .  . 18  .| .  .  .  .  .| . 20  .  .  .| .  .  .  .  .| .  .  .  .  .|
+</span><span>| .  .  .  .  .| .  .  .  .  4|14 15  .  . 22| .  .  .  .  .| .  .  . 10  .|
+</span><span>|11  .  .  .  9| .  .  .  .  .| .  .  .  .  .| .  .  .  .  .| .  .  . 19  .|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span></code></pre><p>この問題をSATで解く（正確には、他の人に解いてもらう）という話です。<blockquote><p>さて、制約充足問題というと、すぐに思いつくのがSATであろう。ということで調べると、SATでパズルを解く研究をしている神戸大学情報基盤センターが直ぐに見つかる。</blockquote><p>「SATでパズルを解く研究をしている」という表現はどうなのかと思わないでもないけどもそれは置いといて、田村先生によって<a href=http://labs.timedia.co.jp/2017/07/sat25x2520-1.html>20秒で解かれてしまった</a>そうだ。<p>さて、Splrだとどうだろうか。面白そうなのでやってみました。<h1 id=Sudokuの符号化(part_1)>Sudokuの符号化(part 1)</h1><p>Sudokuのルールは以下の4つ。<ol><li>セルには一つの数を割り当てる（単一制約）<li>行には全ての数をそれぞれ一回のみ割り当てる（行制約）<li>列には全ての数をそれぞれ一回のみ割り当てる（列制約）<li>ブロックには全ての数をそれぞれ一回のみ割り当てる（ブロック制約）</ol><p>既に何度か符号化しているものの、以前作ったものがサイズ25に対応できてなかったことがわかったのでもう一度<a href=https://shnarazk.github.io/2020/2020-08-19-sudoku25/2020/2020-05-26-MiracleSudoku/>What's Miracle Sudoku?</a>で導入した、第１象限限定の幾何構造体<code>Pos</code>、その上の状態保持構造体<code>Cell</code>をそのまま利用して作り直し。例えばこんな感じで簡単に書ける。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>for</span><span> i </span><span style=font-weight:700;color:#a71d5d>in </span><span style=color:#0086b3>1</span><span style=font-weight:700;color:#a71d5d>..</span><span style=color:#0086b3>9 </span><span>{
+</span><span>  </span><span style=font-weight:700;color:#a71d5d>for</span><span> j </span><span style=font-weight:700;color:#a71d5d>in </span><span style=color:#0086b3>1</span><span style=font-weight:700;color:#a71d5d>..</span><span style=color:#0086b3>9 </span><span>{
+</span><span>     </span><span style=font-weight:700;color:#a71d5d>let</span><span> p </span><span style=font-weight:700;color:#a71d5d>= </span><span>Pos::at(i, j);
+</span><span>     </span><span style=font-weight:700;color:#a71d5d>for</span><span> jj </span><span style=font-weight:700;color:#a71d5d>in</span><span> j </span><span style=font-weight:700;color:#a71d5d>+ </span><span style=color:#0086b3>1</span><span style=font-weight:700;color:#a71d5d>..</span><span style=color:#0086b3>9</span><span>; 
+</span><span>         </span><span style=font-weight:700;color:#a71d5d>let</span><span> q </span><span style=font-weight:700;color:#a71d5d>= </span><span>Pos::at(i, jj);
+</span><span>         </span><span style=font-weight:700;color:#a71d5d>for</span><span> d </span><span style=font-weight:700;color:#a71d5d>in </span><span style=color:#0086b3>1</span><span style=font-weight:700;color:#a71d5d>..</span><span style=color:#0086b3>9 </span><span>{
+</span><span>             rules.</span><span style=color:#62a35c>add</span><span>(p.</span><span style=color:#62a35c>state</span><span>(d, </span><span style=color:#0086b3>true</span><span>).</span><span style=color:#62a35c>requires</span><span>(q.</span><span style=color:#62a35c>state</span><span>(d, </span><span style=color:#0086b3>false</span><span>)));
+</span><span>         }
+</span><span>     }
+</span><span>  }
+</span><span>}
+</span></code></pre><p>そして上の問題の設定は、件のブログではverbatimで与えられていたのでコピペして<code>&str</code>として取り込み、スライスをうまく作ってparseするのが現実的（解くのが数秒で問題入力が1時間ではちょっとね）。<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>const</span><span> dim: </span><span style=font-weight:700;color:#a71d5d>usize = </span><span style=color:#0086b3>25</span><span>;
+</span><span>
+</span><span style=font-weight:700;color:#a71d5d>const </span><span style=color:#0086b3>S25</span><span>: </span><span style=font-weight:700;color:#a71d5d>&str = </span><span style=color:#183691>"
+</span><span style=color:#183691>+--------------+--------------+--------------+--------------+--------------+
+</span><span style=color:#183691>| . 12  .  .  .| .  .  .  .  .| .  .  .  9  .| .  . 15  .  .|22  .  .  .  .|
+</span><span style=color:#183691>...
+</span><span style=color:#183691>"</span><span>;
+</span><span>
+</span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>parse</span><span>() -> </span><span style=color:#0086b3>Vec</span><span><(Pos, </span><span style=font-weight:700;color:#a71d5d>usize</span><span>)> {
+</span><span>  </span><span style=font-weight:700;color:#a71d5d>let</span><span> block_len </span><span style=font-weight:700;color:#a71d5d>= </span><span>(dim </span><span style=font-weight:700;color:#a71d5d>as f64</span><span>).</span><span style=color:#62a35c>sqrt</span><span>() </span><span style=font-weight:700;color:#a71d5d>as usize</span><span>;
+</span><span>  </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> i </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>0</span><span>;
+</span><span>  </span><span style=font-weight:700;color:#a71d5d>for </span><span>(ii, l) </span><span style=font-weight:700;color:#a71d5d>in </span><span style=color:#0086b3>S25</span><span>.</span><span style=color:#62a35c>lines</span><span>().</span><span style=color:#62a35c>skip</span><span>(</span><span style=color:#0086b3>1</span><span>).</span><span style=color:#62a35c>enumerate</span><span>() {
+</span><span>     </span><span style=font-weight:700;color:#a71d5d>if</span><span> ii </span><span style=font-weight:700;color:#a71d5d>% </span><span>(block_len </span><span style=font-weight:700;color:#a71d5d>+ </span><span style=color:#0086b3>1</span><span>) </span><span style=font-weight:700;color:#a71d5d>== </span><span style=color:#0086b3>0 </span><span>{
+</span><span>         </span><span style=font-weight:700;color:#a71d5d>continue</span><span>;
+</span><span>     }
+</span><span>     i </span><span style=font-weight:700;color:#a71d5d>+= </span><span style=color:#0086b3>1</span><span>;
+</span><span>     </span><span style=font-weight:700;color:#a71d5d>...
+</span><span>  } 
+</span></code></pre><p>でやってみたところ、全然だめ。いろいろ補助的なルールを追加しても5000秒でもだめ。<h3 id=2020-10-13>2020-10-13</h3><p>CaDiCaLが8000秒掛かっても解けないじゃん！！こんなん解けねーよ！<h3 id=2020-11-02>2020-11-02</h3><p>先月は10040あたりでピタリと停滞していたのが10150あたりまで伸びるようになってきた。<h3 id=2020-11-06>2020-11-06</h3><p>10040とか10150とか言っていたのはasserted varsの個数だけど、eliminated varsのことを考えてないので正確ではない。 大体残り5080くらいということ。<h3 id=2020-11-07>2020-11-07</h3><p>CaDiCaLで実行すると数時間掛かった。残りが減れば加速するかと思っていたけど、CaDiCaLですら残り4000台は淡々としか減っていかない。 残り3000の前半くらいからやっと終わりが見えてくる。 うーむ、4000台への突入ではなく3000台を通り過ごさなければならないのか。これは長い。<h3 id=2020-11-18>2020-11-18</h3><p><a href=/2020/2020-11-07-LubyStabilization>新しい実装</a>で5000秒で残り5081とか10000秒で4991くらい。 これはブレークスルーであるが、一方でコアがなかなか小さくならない（1100程度）ので時間を掛けても解けるかどうか自信がない。<pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>$ splr -t 10000 sudoku25.cnf
+</span><span>sudoku25.cnf                                   15625,970146 |time: 10000.10
+</span><span> #conflict:  108320000, #decision:    151987030, #propagate:     7602488160 
+</span><span>  Assignment|#rem:     4991, #ass:    10205, #elm:      429, prg%:  68.0576 
+</span><span>      Clause|Remv:    27129, LBD2:      291, Binc:  1020680, Perm:  1057443 
+</span><span>     Restart|#BLK:    44811, #RST:   383671, span:     8192, shft:    16382 
+</span><span>         EMA|tLBD:   1.6215, tASG:   0.9990, core:     1196, /dpc:     1.40 
+</span><span>    Conflict|eLBD:    32.07, cnfl:    44.64, bjmp:    43.51, /ppc:    70.19 
+</span><span>        misc|elim:       42, cviv:       16, #vbv:        0, /cpr:   282.31 
+</span><span>    Strategy|mode: HighSuccessiveConflict (long decision chains)
+</span><span>      Result|file: ./.ans_sudoku25.cnf
+</span><span>s UNKNOWN (TimeOut): sudoku25.cnf
+</span></code></pre><h3 id=2020-11-21>2020-11-21</h3><p>三連休は数独三昧になりそうだ。<ul><li>202011-21T11:23 (Online TeXを見ながら) 5000秒で4800台とか。<li>202011-22T22:00 2000秒台で4800台突入。</ul><h3 id=2020-11-24>2020-11-24</h3><p>あー、あるルールを追加してなかったなあと思って<a href=https://github.com/shnarazk/sudoku_sat/commit/1e41b14aecd58d02cb1a2087d3c239f661b67e5e>生成プログラムを変更</a>したらCaDiCaLが一瞬で解くようになった。 もしかしてと思ってやってみたら、<pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>$ splr sudoku25.cnf
+</span><span>sudoku25.cnf                                   15625,972021 |time:    15.03
+</span><span> #conflict:        324, #decision:         2920, #propagate:         101930 
+</span><span>  Assignment|#rem:     2507, #ass:    13118, #elm:        0, prg%:  83.9552 
+</span><span>      Clause|Remv:      229, LBD2:       35, Binc:   922556, Perm:   924329 
+</span><span>     Restart|#BLK:        8, #RST:        0, span:        1, shft:        0 
+</span><span>         EMA|tLBD:  38.8489, tASG:  52.9797, core:        0, /dpc:     9.01 
+</span><span>    Conflict|eLBD:     4.22, cnfl:     1.17, bjmp:     0.76, /ppc:   314.60 
+</span><span>        misc|elim:        2, cviv:        0, #vbv:        0, /cpr:     8.31 
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>      Result|file: ./.ans_sudoku25.cnf
+</span><span>s SATISFIABLE: sudoku25.cnf
+</span><span>$ dmcr sudoku25.cnf 
+</span><span>A valid assignment set for sudoku25.cnf is found in .ans_sudoku25.cnf
+</span></code></pre><p>ぎょえーーーーー、なんだったんだこの一ヶ月の電気代！！！！！！<p>とりあえず証拠の品を部分公開。<pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>| 8 12 11 10 18|14 25  4 16 24|20 17  1  9 21|19  5 15  6  2|22 23  7  3 13|
+</span><span>| 2  .  .  .  .| .  9  . 19  .| .  . 10 11  .| .  .  .  .  .| .  .  .  . 21|
+</span><span>| 9  4  . 22  .| .  .  .  .  .| .  .  .  .  .| .  . 12  .  .|20 15  1  .  2|
+</span><span>|16  1 20 15  .| .  .  .  .  .| .  .  .  .  .|14  .  4  . 22|12 25  .  . 19|
+</span><span>|14  .  .  .  .| .  7  2 11  .|23  . 19  8  .| .  .  . 13  .| .  .  .  .  4|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>|13  .  8  .  2| .  .  .  .  .| .  .  7 23  6| .  9  . 19 11| .  .  .  . 12|
+</span><span>|22  .  .  . 23| .  .  .  . 16| .  .  .  .  .| .  .  .  .  .| 1  .  .  .  7|
+</span><span>| 7  .  .  . 10| 3  .  .  .  .| .  .  9 19  .| . 13  . 23  .| .  .  .  5 18|
+</span><span>|17  .  .  .  .|15  .  .  . 22| .  .  .  .  .| .  .  .  .  .|25 20  .  .  9|
+</span><span>| 6  .  .  .  .|12  . 14  1 25| .  .  .  .  .| .  .  3  .  .|16  4 15  . 23|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>| 3  .  .  .  .| . 19  9  .  .| .  . 13  7  .| .  .  .  5  .| .  .  . 23 10|
+</span><span>| 5 22  . 25 17| .  .  .  .  .| .  .  .  .  .|12  . 20  .  .| .  .  .  . 16|
+</span><span>|18 20 12 16  .| .  .  .  .  .| .  .  .  . 14|15 22  1  . 25| .  .  .  .  3|
+</span><span>|24 15  .  .  .| . 11  .  .  .| .  .  .  .  .| .  . 16  .  .| .  .  .  9  1|
+</span><span>|21  .  .  1  .| . 10  . 23  .| .  .  .  . 18| .  .  .  .  .| .  .  .  .  8|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>|10  .  .  .  8| . 13  .  5  .| .  .  .  .  .| . 19  . 11 23| .  .  .  6 20|
+</span><span>|12  .  . 17  7| .  .  .  .  .| .  .  .  .  1| .  .  .  .  .| 4 22  .  .  5|
+</span><span>|15  .  .  . 11| . 23  .  .  .| .  .  .  . 20| .  .  .  2  .|14  .  .  . 24|
+</span><span>|19  . 23  .  5| .  8  .  9  .| . 21  .  .  .| . 10  .  7  .| .  .  .  . 25|
+</span><span>|20  3  .  .  .| .  .  .  .  .|25  4  .  . 12| .  .  .  .  .|15  1 16  . 17|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span><span>| 4  .  .  .  .| .  .  .  . 15| . 12  .  . 25| 1  . 22  .  .| 3  .  .  . 14|
+</span><span>|23  .  .  . 19| .  2  .  .  .| .  .  .  .  .| .  .  . 10  .| .  .  .  7 11|
+</span><span>|25  .  . 18  .| .  .  .  .  .| . 20  .  .  .| .  .  .  .  .| .  .  .  . 22|
+</span><span>| 1  .  .  .  .| .  .  .  .  4|14 15  .  . 22| .  .  .  .  .| .  .  . 10  6|
+</span><span>|11  6 14  3  9| 5 22 17 20  8|13  7 16  1 10| 2  4 23 12 18|24 21 25 19 15|
+</span><span>+--------------+--------------+--------------+--------------+--------------+
+</span></code></pre><h1 id=Sudokuの符号化(part_2)>Sudokuの符号化(part 2)</h1><p>Sudokuのルールは以下の4つ（これは再掲）：<ol><li>セルには{多くとも,少なくとも}一つの数を割り当てる（最多・最少単一制約）<li>行には全ての数をそれぞれ一回のみ割り当てる（行制約）<li>列には全ての数をそれぞれ一回のみ割り当てる（列制約）<li>ブロックには全ての数をそれぞれ一回のみ割り当てる（ブロック制約）</ol><p>ここで、2から4は以下のように解釈すべきである：<ol><li>行、列、ブロックなどのグループはあるセルに一つの数が割り当てられたら、他のセルにはその数は割り当てられない（<a href=https://github.com/shnarazk/sudoku_sat/commit/2f73c7205b7658658b154e1dfe2a54a48e054538>拡大最多単一制約</a>）<li>行、列、ブロックなどのグループは全ての数をそれぞれ少なくとも1回割り当てる（<a href=https://github.com/shnarazk/sudoku_sat/commit/1e41b14aecd58d02cb1a2087d3c239f661b67e5e>拡大最少単一制約</a>）</ol><p>この2番目が最初のプログラムにはなかった（negative assertionsからpositive assertionへの導出がなかったので、そりゃ探索空間が小さくならないわ）。 行制約の単純な解釈だと抜け落ちてしまう。 それでもN=9, 16くらいだと問題にならないので、ブログなどでは出てこなくても当然かもしれない。<p>これが色々なソルバーの説明で出てくるXOR gateの話に繋がるのだろうか。<h3 id=2020-11-25>2020-11-25</h3><p>上の説明とコードを見比べていて、無駄なルールを生成していたことに気づいたので、削除するとさらに速くなりました。<pre class=language-txt data-lang=txt style=background:#fff;color:#323232><code class=language-txt data-lang=txt><span>$ splr sudoku25.cnf
+</span><span>sudoku25.cnf                                   15625,925146 |time:     0.50
+</span><span> #conflict:        314, #decision:         3452, #propagate:         110839 
+</span><span>  Assignment|#rem:     3967, #ass:    11658, #elm:        0, prg%:  74.6112 
+</span><span>      Clause|Remv:      243, LBD2:       27, Binc:   922541, Perm:   924411 
+</span><span>     Restart|#BLK:        7, #RST:        0, span:        1, shft:        0 
+</span><span>         EMA|tLBD:  41.1487, tASG:  52.2173, core:        0, /dpc:    10.99 
+</span><span>    Conflict|eLBD:     5.74, cnfl:     1.63, bjmp:     1.14, /ppc:   352.99 
+</span><span>        misc|elim:        2, cviv:        0, #vbv:        0, /cpr:    10.47 
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>      Result|file: ./.ans_sudoku25.cnf
+</span><span>s SATISFIABLE: sudoku25.cnf
+</span></code></pre><h1 id=Sudokuの符号化(part_3)>Sudokuの符号化(part 3)</h1><p>Sudokuのルールは以下の2つである：<ol><li>セルには{多くとも,少なくとも}一つの数を割り当てる（最多・最少単一制約）<li>行、列、ブロックなどのグループには全ての数をそれぞれ{多くとも,少なくとも}一回のみ割り当てる（拡大最多・最少単一制約）</ol><p>2のルールから実行時に以下が自動的に導出される：<ol><li>グループにおいて、あるセルに一つの数が割り当てられたら、他のセルにはその数は割り当てられない(positive to negative implication)<li>グループにおいて、N-1セルにある数が割り当てられる可能性がなくなったら、残りセルにその数が割り当てられる(negatives to positive implication)</ol><p>これにより探索空間が単調に減少する。<div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2020-08-19   Last updated 2020-11-25 </div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#splr>#splr</a></div><div class=navbar-item><a class=tagword href=/tags/#sudoku>#sudoku</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

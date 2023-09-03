@@ -1,0 +1,139 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Profile Guided Optimization on Rust</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">(rustc-1.42.0)</h1><p><a href=https://doc.rust-lang.org/rustc/index.html>The rustc book</a>に <a href=https://doc.rust-lang.org/rustc/profile-guided-optimization.html>profile guided optimization</a> のわかりやすい説明があったのでSplrでやってみた。<pre style=background:#fff;color:#323232><code><span>DATA=./pgo-data
+</span><span>MERGED=/tmp/merged.profdata
+</span><span>
+</span><span># STEP 0: Make sure there is no left-over profiling data from previous runs
+</span><span>rm -rf ${DATA}
+</span><span>mkdir ${DATA}
+</span><span>
+</span><span># STEP 1: Build the instrumented binaries
+</span><span>RUSTFLAGS="-Cprofile-generate=${DATA}" cargo build --release
+</span><span>
+</span><span># STEP 2: Run the instrumented binaries with some typical data
+</span><span>./target/release/splr --to 1000 --quiet ../SC/T56.2.0.cnf
+</span><span>./target/release/splr --to 1000 --quiet ../SR/26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf
+</span><span>./target/release/splr --to 1000 --quiet ../SR/f6nidw-sc2012.cnf
+</span><span>
+</span><span># STEP 3: Merge the `.profraw` files into a `.profdata` file
+</span><span>llvm-profdata merge -o ${MERGED} ${DATA}
+</span><span>
+</span><span># STEP 4: Use the `.profdata` file for guiding optimizations
+</span><span>#RUSTFLAGS="-Cprofile-use=${MERGED}" cargo install -f --path .
+</span><span>RUSTFLAGS="-Cprofile-use=${MERGED}" cargo build --release
+</span><span>
+</span><span># TEST RUN
+</span><span>./target/release/splr --to 1000 --quiet ../SC/T56.2.0.cnf
+</span><span>./target/release/splr --to 1000 --quiet ../SR/26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf
+</span><span>./target/release/splr --to 1000 --quiet ../SR/f6nidw-sc2012.cnf
+</span></code></pre><p>ここで<code>profile-use</code> で指定するファイルは<code>/tmp</code>に置かないと存在しないエラーになってしまった。macOS の sandbox 化のせいだろうか、よくわからない。 また実行ファイルが正常終了しないとデータは使われないようなので、確実に求解できる CNF ファイルを指定してプロファイルを作成しなければならないようだ。<p>実行結果はこちら（生データは最後に付けます）。<table><thead><tr><th>CNF<th style=text-align:right>normal obj.<th style=text-align:right>profiling obj.<th style=text-align:right>profile guided<th style=text-align:right>　pg/no<tbody><tr><td>A<td style=text-align:right>509.45<td style=text-align:right>591.59<td style=text-align:right>501.86<td style=text-align:right>0.9851<tr><td>B<td style=text-align:right>163.12<td style=text-align:right>176.42<td style=text-align:right>161.07<td style=text-align:right>0.9874<tr><td>C<td style=text-align:right>7.30<td style=text-align:right>9.25<td style=text-align:right>7.13<td style=text-align:right>0.9767<tr><td>SUM<td style=text-align:right>679.87<td style=text-align:right>777.26<td style=text-align:right>670.06<td style=text-align:right>0.9831</table><ul><li>A: SC2018/T56.2.0.cnf<li>B: SR2019/26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf<li>C: SR2019/f6nidw-sc2012.cnf</ul><p>裏で色々としながらの計測ではあるが、見ての通り1から2％程度の高速化だった。 うーーん、測定誤差程度かあ。<h2 id=生データ>生データ</h2><pre style=background:#fff;color:#323232><code><span>$ sh pgo
+</span><span>   Compiling proc-macro2 v1.0.9
+</span><span>   ...
+</span><span>   Compiling splr v0.3.2-dev.1 (/Users/nash/Repositories/splr)
+</span><span>    Finished release [optimized] target(s) in 1m 03s
+</span><span>T56.2.0.cnf                                3145220,10854665 |time:   591.59
+</span><span> #conflict:     417842, #decision:      1198754, #propagate:        1616716
+</span><span>  Assignment|#rem:   573165, #fix:     6304, #elm:  2565751, prg%:  81.7766
+</span><span>      Clause|Remv:    84308, LBD2:    30005, Binc:  4813544, Perm:  3530977
+</span><span>     Restart|#BLK:     2970, #RST:      898, tASG:   0.1729, tLBD:   0.8118
+</span><span>    Conflict|eLBD:     4.83, cnfl:    37.97, bjmp:    36.67, rpc%:   0.2149
+</span><span>        misc|#rdc:       16, #sce:      145, core:      966, vdcy:   0.9131
+</span><span>    Strategy|mode: Generic (using a generic parameter set)
+</span><span>      Result|file: ./.ans_T56.2.0.cnf
+</span><span>UNSAT: ../SC/T56.2.0.cnf
+</span><span>26_stack_cas_longest_true-unreach-call.i-c 7807714,35975032 |time:   176.42
+</span><span> #conflict:       1636, #decision:       558092, #propagate:         559729
+</span><span>  Assignment|#rem:  7802492, #fix:     2464, #elm:     2758, prg%:   0.0669
+</span><span>      Clause|Remv:     1144, LBD2:       98, Binc:  7781031, Perm: 35968175
+</span><span>     Restart|#BLK:       31, #RST:        0, tASG: 781.1437, tLBD:   0.9137
+</span><span>    Conflict|eLBD:     6.26, cnfl:   227.46, bjmp:   224.67, rpc%:   0.0000
+</span><span>        misc|#rdc:        1, #sce:        2, core:        0, vdcy:   0.9600
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>      Result|file: ./.ans_26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf
+</span><span>SATISFIABLE: ../SR/26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf
+</span><span>f6nidw-sc2012.cnf                             190399,564775 |time:     9.25
+</span><span> #conflict:      96420, #decision:       238247, #propagate:         334674
+</span><span>  Assignment|#rem:    32849, #fix:     2853, #elm:   154697, prg%:  82.7473
+</span><span>      Clause|Remv:     7518, LBD2:      942, Binc:   376881, Perm:   206409
+</span><span>     Restart|#BLK:      432, #RST:       68, tASG:   0.9892, tLBD:   0.8494
+</span><span>    Conflict|eLBD:     4.65, cnfl:    17.02, bjmp:    15.92, rpc%:   0.0705
+</span><span>        misc|#rdc:        8, #sce:       18, core:      179, vdcy:   0.9623
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>      Result|file: ./.ans_f6nidw-sc2012.cnf
+</span><span>UNSAT: ../SR/f6nidw-sc2012.cnf
+</span><span>   Compiling proc-macro2 v1.0.9
+</span><span>   ...
+</span><span>   Compiling splr v0.3.2-dev.1 (/Users/nash/Repositories/splr)
+</span><span>    Finished release [optimized] target(s) in 44.58s
+</span><span>T56.2.0.cnf                                3145220,10854665 |time:   501.86
+</span><span> #conflict:     417842, #decision:      1198754, #propagate:        1616716
+</span><span>  Assignment|#rem:   573165, #fix:     6304, #elm:  2565751, prg%:  81.7766
+</span><span>      Clause|Remv:    84308, LBD2:    30005, Binc:  4813544, Perm:  3530977
+</span><span>     Restart|#BLK:     2970, #RST:      898, tASG:   0.1729, tLBD:   0.8118
+</span><span>    Conflict|eLBD:     4.83, cnfl:    37.97, bjmp:    36.67, rpc%:   0.2149
+</span><span>        misc|#rdc:       16, #sce:      145, core:      966, vdcy:   0.9131
+</span><span>    Strategy|mode: Generic (using a generic parameter set)
+</span><span>      Result|file: ./.ans_T56.2.0.cnf
+</span><span>UNSAT: ../SC/T56.2.0.cnf
+</span><span>26_stack_cas_longest_true-unreach-call.i-c 7807714,35975032 |time:   161.07
+</span><span> #conflict:       1247, #decision:       559271, #propagate:         560519
+</span><span>  Assignment|#rem:  7797316, #fix:     2464, #elm:     7934, prg%:   0.1332
+</span><span>      Clause|Remv:      757, LBD2:      103, Binc:  7781035, Perm: 35952651
+</span><span>     Restart|#BLK:       23, #RST:        0, tASG: 512.9724, tLBD:   0.9137
+</span><span>    Conflict|eLBD:     6.13, cnfl:   319.86, bjmp:   316.40, rpc%:   0.0000
+</span><span>        misc|#rdc:        1, #sce:        2, core:        0, vdcy:   0.9600
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>      Result|file: ./.ans_26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf
+</span><span>SATISFIABLE: ../SR/26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf
+</span><span>f6nidw-sc2012.cnf                             190399,564775 |time:     7.13
+</span><span> #conflict:      96420, #decision:       238247, #propagate:         334674
+</span><span>  Assignment|#rem:    32849, #fix:     2853, #elm:   154697, prg%:  82.7473
+</span><span>      Clause|Remv:     7518, LBD2:      942, Binc:   376881, Perm:   206409
+</span><span>     Restart|#BLK:      432, #RST:       68, tASG:   0.9892, tLBD:   0.8494
+</span><span>    Conflict|eLBD:     4.65, cnfl:    17.02, bjmp:    15.92, rpc%:   0.0705
+</span><span>        misc|#rdc:        8, #sce:       18, core:      179, vdcy:   0.9623
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>      Result|file: ./.ans_f6nidw-sc2012.cnf
+</span><span>UNSAT: ../SR/f6nidw-sc2012.cnf
+</span><span>$
+</span></code></pre><pre style=background:#fff;color:#323232><code><span>$ sh no-pgo
+</span><span>   Compiling proc-macro2 v1.0.9
+</span><span>   ...
+</span><span>   Compiling splr v0.3.2-dev.1 (/Users/nash/Repositories/splr)
+</span><span>    Finished release [optimized] target(s) in 1m 02s
+</span><span>T56.2.0.cnf                                3145220,10854665 |time:   509.45
+</span><span> #conflict:     417842, #decision:      1198754, #propagate:        1616716
+</span><span>  Assignment|#rem:   573165, #fix:     6304, #elm:  2565751, prg%:  81.7766
+</span><span>      Clause|Remv:    84308, LBD2:    30005, Binc:  4813544, Perm:  3530977
+</span><span>     Restart|#BLK:     2970, #RST:      898, tASG:   0.1729, tLBD:   0.8118
+</span><span>    Conflict|eLBD:     4.83, cnfl:    37.97, bjmp:    36.67, rpc%:   0.2149
+</span><span>        misc|#rdc:       16, #sce:      145, core:      966, vdcy:   0.9131
+</span><span>    Strategy|mode: Generic (using a generic parameter set)
+</span><span>      Result|file: ./.ans_T56.2.0.cnf
+</span><span>UNSAT: ../SC/T56.2.0.cnf
+</span><span>26_stack_cas_longest_true-unreach-call.i-c 7807714,35975032 |time:   163.12
+</span><span> #conflict:       1877, #decision:       462203, #propagate:         464081
+</span><span>  Assignment|#rem:  7785361, #fix:     2464, #elm:    19889, prg%:   0.2863
+</span><span>      Clause|Remv:     1383, LBD2:      125, Binc:  7781038, Perm: 35916790
+</span><span>     Restart|#BLK:       36, #RST:        0, tASG: 260.4156, tLBD:   0.8171
+</span><span>    Conflict|eLBD:     6.12, cnfl:   217.13, bjmp:   214.81, rpc%:   0.0000
+</span><span>        misc|#rdc:        1, #sce:        2, core:        0, vdcy:   0.9600
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>      Result|file: ./.ans_26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf
+</span><span>SATISFIABLE: ../SR/26_stack_cas_longest_true-unreach-call.i-cbmc-u2-sc2016.cnf
+</span><span>f6nidw-sc2012.cnf                             190399,564775 |time:     7.30
+</span><span> #conflict:      96420, #decision:       238247, #propagate:         334674
+</span><span>  Assignment|#rem:    32849, #fix:     2853, #elm:   154697, prg%:  82.7473
+</span><span>      Clause|Remv:     7518, LBD2:      942, Binc:   376881, Perm:   206409
+</span><span>     Restart|#BLK:      432, #RST:       68, tASG:   0.9892, tLBD:   0.8494
+</span><span>    Conflict|eLBD:     4.65, cnfl:    17.02, bjmp:    15.92, rpc%:   0.0705
+</span><span>        misc|#rdc:        8, #sce:       18, core:      179, vdcy:   0.9623
+</span><span>    Strategy|mode: Initial search phase before a main strategy
+</span><span>      Result|file: ./.ans_f6nidw-sc2012.cnf
+</span><span>UNSAT: ../SR/f6nidw-sc2012.cnf
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2020-03-16</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#rust>#Rust</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

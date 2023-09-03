@@ -1,0 +1,41 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Memo about @now/rust by Zeit</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">@now/rustを使ったサーバーレスコンピューティング</h1><h2 id=準備>準備</h2><p>まずシステムを汚染しないようにnowをインストール：<pre style=background:#fff;color:#323232><code><span>npm config set prefix ~/.local/npm/
+</span><span>npm install -g now
+</span><span>ln -s ~/.local/npm/bin/now `/.local/bin/now
+</span></code></pre><h2 id=試行>試行</h2><p>紹介ポスト(dead link https://zeit.co/blog/introducing-now-rust)は色々と内容が古くなっているので Document(dead link https://zeit.co/docs/v2/deployments/official-builders/now-rust/)をたどる方がよい。<h2 id=Tips>Tips</h2><h3 id=要求:_$TOP/index.rsではなくsrc/の下においてcargoでコンパイルしたい。>要求: <code>$TOP/index.rs</code>ではなくsrc/の下においてcargoでコンパイルしたい。</h3><p>now.jsonでビルド元を指定すればよい。<pre class=language-json data-lang=json style=background:#fff;color:#323232><code class=language-json data-lang=json><span>    </span><span style=color:#183691>"builds"</span><span>: [
+</span><span>	{
+</span><span>	    </span><span style=color:#183691>"src"</span><span>: </span><span style=color:#183691>"src/index.rs"</span><span>,
+</span><span>	    </span><span style=color:#183691>"use"</span><span>: </span><span style=color:#183691>"@now/rust"
+</span><span>	}
+</span><span>    ],
+</span></code></pre><p>ただし、これだけだとendpointの対応が取れなくなるのでroutesも指定する。<pre class=language-json data-lang=json style=background:#fff;color:#323232><code class=language-json data-lang=json><span>    </span><span style=color:#183691>"routes"</span><span>: [
+</span><span>	{
+</span><span>	    </span><span style=color:#183691>"src"</span><span>: </span><span style=color:#183691>"/"</span><span>,
+</span><span>	    </span><span style=color:#183691>"dest"</span><span>: </span><span style=color:#183691>"/src/"
+</span><span>	}
+</span><span>    ]
+</span></code></pre><h3 id=要求：手元でも実行できるようにして、ソースを変えずにデプロイしたい>要求：手元でも実行できるようにして、ソースを変えずにデプロイしたい</h3><p>デプロイするのはsrc/index.rsなので、それ以外のソースにmain関数があればいい。 実行ファイルを生成するためのファイルは.nowignoreで隠してしまえばよい。<pre style=background:#fff;color:#323232><code><span>/target
+</span><span>/src/bin
+</span><span>...
+</span></code></pre><p>そもそも、デプロイ時にはhandler関数を提供するRustライブラリパッケージという位置付けのようだ。 なのでそこに実行ファイルを置きたいならsrc/binの下のファイルを<code>cargo run -bin</code>で実行しろと いう話。<h3 id=要求：手元で実行するための依存パッケージをデプロイ先でコンパイルしたくない>要求：手元で実行するための依存パッケージをデプロイ先でコンパイルしたくない</h3><p>cargoのfeatureを使えばいい<pre style=background:#fff;color:#323232><code><span># Cargo.toml
+</span><span>
+</span><span>[dependencies]
+</span><span>http = "0.1"
+</span><span>regex = "1.1.0"
+</span><span>reqwest = { version = "0.9.12", optional = true }
+</span><span>scraper = { version = "0.9.2", optional = true }
+</span><span>serde = { version = "1.0.89", features = ["derive"] }
+</span><span>serde_json = "1.0"
+</span><span>url = { version = "1.7.2", features = [ "query_encoding" ] }
+</span><span>
+</span><span>[features]
+</span><span>prepare = ["reqwest", "scraper"]
+</span></code></pre><p>こうしておいて、手元で実行するときは以下を実行。<pre style=background:#fff;color:#323232><code><span>cargo run --bin xxx --features prepare
+</span></code></pre><p>デプロイ時にはfeaturesは指定されないので依存パッケージも取得、コンパイルされない。<h3 id=要求：handlerを手元で実行する時も流用したい>要求：handlerを手元で実行する時も流用したい</h3><p>handlerの型は<pre style=background:#fff;color:#323232><code><span>fn handler(request: http::Request<()>) -> http::Result&LThttp::Response&LTString>>;
+</span></code></pre><p>なのでこれと同じであればいいのだが、例えばactix-webではRequsetなどを自前で定義しているので 難しそうだ。traitオブジェクト的にコンパチかもしれないが。。。<p>まあ、htmlを返す下請け関数を作ってどちらからもこの関数を使うというあたりが落とし所か。<div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2019-03-17</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#rust>#Rust</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

@@ -1,0 +1,107 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Importance of modern techniques in SAT solvers</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">A case of CaDiCal</h1><p>さあ<a href=https://github.com/arminbiere/cadical>CaDiCaL</a>がなぜ速いのか検討しよう。 CaDiCalのbool型のオプションを一つづつ外して、<a href=https://github.com/shnarazk/SAT-bench>SAT-bench</a>を使ってUF250とUUF250の実行速度を計測してみた。以下が結果の生データ。<table><thead><tr><th>Technique<th style=text-align:right>SAT<th style=text-align:right>UNSAT<tbody><tr><td>arena<td style=text-align:right>67.276<td style=text-align:right>411.603<tr><td>arenacompact<td style=text-align:right>72.570<td style=text-align:right>385.086<tr><td>arenasort<td style=text-align:right>64.913<td style=text-align:right>403.137<tr><td>binary<td style=text-align:right>65.285<td style=text-align:right>400.457<tr><td>bump<td style=text-align:right><em>TIMEOUT</em><td style=text-align:right><em>TIMEOUT</em><tr><td>bumpreason<td style=text-align:right>73.502<td style=text-align:right><em>TIMEOUT</em><tr><td>checkassumptions<td style=text-align:right>65.905<td style=text-align:right>395.175<tr><td>checkfailed<td style=text-align:right>65.343<td style=text-align:right>394.922<tr><td>checkproof<td style=text-align:right>65.450<td style=text-align:right>393.980<tr><td>checkwitness<td style=text-align:right>65.381<td style=text-align:right>393.769<tr><td>chronoreusetrail<td style=text-align:right>64.292<td style=text-align:right>393.042<tr><td>compact<td style=text-align:right>65.512<td style=text-align:right>393.734<tr><td>decompose<td style=text-align:right>68.543<td style=text-align:right>396.974<tr><td>deduplicate<td style=text-align:right>65.446<td style=text-align:right>396.366<tr><td>eagersubsume<td style=text-align:right>78.028<td style=text-align:right>394.733<tr><td>elim<td style=text-align:right>75.681<td style=text-align:right>384.247<tr><td>elimands<td style=text-align:right>67.227<td style=text-align:right>402.034<tr><td>elimbackward<td style=text-align:right>66.500<td style=text-align:right>399.709<tr><td>elimequivs<td style=text-align:right>65.709<td style=text-align:right>398.184<tr><td>elimites<td style=text-align:right>66.295<td style=text-align:right>400.141<tr><td>elimlimited<td style=text-align:right>65.861<td style=text-align:right>393.830<tr><td>elimsubst<td style=text-align:right>65.375<td style=text-align:right>393.759<tr><td>elimxors<td style=text-align:right>65.207<td style=text-align:right>393.136<tr><td>inprocessing<td style=text-align:right>55.999<td style=text-align:right>374.042<tr><td>instantiateonce<td style=text-align:right>65.360<td style=text-align:right>393.572<tr><td>lucky<td style=text-align:right>70.052<td style=text-align:right>388.465<tr><td>minimize<td style=text-align:right>84.862<td style=text-align:right><em>TIMEOUT</em><tr><td>phase<td style=text-align:right>81.518<td style=text-align:right>386.279<tr><td>probe<td style=text-align:right>63.664<td style=text-align:right>390.642<tr><td>probehbr<td style=text-align:right>67.185<td style=text-align:right>393.756<tr><td>reduce<td style=text-align:right>127.971<td style=text-align:right><em>TIMEOUT</em><tr><td>rephase<td style=text-align:right>128.430<td style=text-align:right>376.436<tr><td>restart<td style=text-align:right>38.578<td style=text-align:right><em>TIMEOUT</em><tr><td>restartreusetrail<td style=text-align:right>68.626<td style=text-align:right>400.377<tr><td>score<td style=text-align:right>88.269<td style=text-align:right><em>TIMEOUT</em><tr><td>shufflequeue<td style=text-align:right>66.147<td style=text-align:right>399.462<tr><td>shufflescores<td style=text-align:right>65.964<td style=text-align:right>396.335<tr><td>simplify<td style=text-align:right>56.229<td style=text-align:right>374.795<tr><td>stabilize<td style=text-align:right>128.038<td style=text-align:right><em>TIMEOUT</em><tr><td>stabilizephase<td style=text-align:right>86.403<td style=text-align:right>367.847<tr><td>subsume<td style=text-align:right>66.877<td style=text-align:right>375.520<tr><td>subsumelimited<td style=text-align:right>64.952<td style=text-align:right>391.814<tr><td>subsumestr<td style=text-align:right>59.750<td style=text-align:right>392.570<tr><td>ternary<td style=text-align:right>64.958<td style=text-align:right>403.329<tr><td>transred<td style=text-align:right>66.878<td style=text-align:right>394.866<tr><td>vivify<td style=text-align:right>58.933<td style=text-align:right>372.927<tr><td>walk<td style=text-align:right>130.862<td style=text-align:right>386.060<tr><td>walknonstable<td style=text-align:right>87.557<td style=text-align:right>394.616</table><p>SAT, UNSATに分けてそれぞれ重要度でソートしたものが以下。<table><thead><tr><th>Technique<th style=text-align:right><em>SAT</em><th style=text-align:right>-----<th>done<tbody><tr><td>bump<td style=text-align:right><em>TIMEOUT</em><td style=text-align:right><em>TIMEOUT</em><td>0.1.0<tr><td>walk<td style=text-align:right>130.862<td style=text-align:right>386.060<td><tr><td>rephase<td style=text-align:right>128.430<td style=text-align:right>376.436<td>track<tr><td>stabilize<td style=text-align:right>128.038<td style=text-align:right><em>TIMEOUT</em><td>track<tr><td>reduce<td style=text-align:right>127.971<td style=text-align:right><em>TIMEOUT</em><td>0.1.0<tr><td>score<td style=text-align:right>88.269<td style=text-align:right><em>TIMEOUT</em><td>0.1.0<tr><td>walknonstable<td style=text-align:right>87.557<td style=text-align:right>394.616<td><tr><td>stabilizephase<td style=text-align:right>86.403<td style=text-align:right>367.847<td>track<tr><td>phase<td style=text-align:right>81.518<td style=text-align:right>386.279<td>0.1.0</table><table><thead><tr><th>Technique<th style=text-align:right>---<th style=text-align:right><em>UNSAT</em><th>done<tbody><tr><td>bump<td style=text-align:right><em>TIMEOUT</em><td style=text-align:right><em>TIMEOUT</em><td>0.1.0<tr><td>stabilize<td style=text-align:right>128.038<td style=text-align:right><em>TIMEOUT</em><td>track<tr><td>reduce<td style=text-align:right>127.971<td style=text-align:right><em>TIMEOUT</em><td>0.1.0<tr><td>score<td style=text-align:right>88.269<td style=text-align:right><em>TIMEOUT</em><td>0.1.0<tr><td>minimize<td style=text-align:right>84.862<td style=text-align:right><em>TIMEOUT</em><td>0.1.0<tr><td>bumpreason<td style=text-align:right>73.502<td style=text-align:right><em>TIMEOUT</em><td>0.3.1<tr><td>restart<td style=text-align:right>38.578<td style=text-align:right><em>TIMEOUT</em><td>0.1.0</table><p>ということで今後何やるべきかが見えてきた。<ul><li>bumpreason -- bump reason literals too<li>walk -- enable random walks<li>walknonstable -- walk in non-stabilizing phase<li>stabilizeとstabilizephaseは何が違うんだろう。わかってない。</ul><p>さあ1日1実装だ。<h2 id=2020-04-20>2020-04-20</h2><p>見返していてなんか結論が間違っていることにやっと気づいた。 大事なのは<ul><li>stabilize<li>walk<li>rephase</ul><p>のあたり。 <strong>done</strong>が付いているbump, reduce, score, phase, bumpreason, restartは既に実装済み。 stabilize中はphaseを切り替えるstabilizephaseは特に重要というわけではなかった。 さて、rephaseとはなんなんだろう。<h2 id=Appendix>Appendix</h2><pre class=language-zsh data-lang=zsh style=background:#fff;color:#323232><code class=language-zsh data-lang=zsh><span style=font-style:italic;color:#969896>#!/bin/zsh
+</span><span>parallel -k -j1 </span><span style=color:#183691>'sat-bench -Q -M \\{} --options \\{}=false -3 -U 250 cadical'</span><span> ::: \
+</span><span> --arena \
+</span><span> --arenacompact \
+</span><span> --arenasort \
+</span><span> --binary \
+</span><span> --bump \
+</span><span> --bumpreason \
+</span><span> --checkassumptions \
+</span><span> --checkfailed \
+</span><span> --checkproof \
+</span><span> --checkwitness \
+</span><span> --chronoreusetrail \
+</span><span> --compact \
+</span><span> --decompose \
+</span><span> --deduplicate \
+</span><span> --eagersubsume \
+</span><span> --elim \
+</span><span> --elimands \
+</span><span> --elimbackward \
+</span><span> --elimequivs \
+</span><span> --elimites \
+</span><span> --elimlimited \
+</span><span> --elimsubst \
+</span><span> --elimxors \
+</span><span> --inprocessing \
+</span><span> --instantiateonce \
+</span><span> --lucky \
+</span><span> --minimize \
+</span><span> --phase \
+</span><span> --probe \
+</span><span> --probehbr \
+</span><span> --reduce \
+</span><span> --rephase \
+</span><span> --restart \
+</span><span> --restartreusetrail \
+</span><span> --score \
+</span><span> --shufflequeue \
+</span><span> --shufflescores \
+</span><span> --simplify \
+</span><span> --stabilize \
+</span><span> --stabilizephase \
+</span><span> --subsume \
+</span><span> --subsumelimited \
+</span><span> --subsumestr \
+</span><span> --ternary \
+</span><span> --transred \
+</span><span> --vivify \
+</span><span> --walk \
+</span><span> --walknonstable
+</span></code></pre><pre style=background:#fff;color:#323232><code><span>arena,             67.276,  411.603
+</span><span>arenacompact,      72.570,  385.086
+</span><span>arenasort,         64.913,  403.137
+</span><span>binary,            65.285,  400.457
+</span><span>bump,              TIMEOUT, TIMEOUT
+</span><span>bumpreason,        73.502,  TIMEOUT
+</span><span>checkassumptions,  65.905,  395.175
+</span><span>checkfailed,       65.343,  394.922
+</span><span>checkproof,        65.450,  393.980
+</span><span>checkwitness,      65.381,  393.769
+</span><span>chronoreusetrail,  64.292,  393.042
+</span><span>compact,           65.512,  393.734
+</span><span>decompose,         68.543,  396.974
+</span><span>deduplicate,       65.446,  396.366
+</span><span>eagersubsume,      78.028,  394.733
+</span><span>elim,              75.681,  384.247
+</span><span>elimands,          67.227,  402.034
+</span><span>elimbackward,      66.500,  399.709
+</span><span>elimequivs,        65.709,  398.184
+</span><span>elimites,          66.295,  400.141
+</span><span>elimlimited,       65.861,  393.830
+</span><span>elimsubst,         65.375,  393.759
+</span><span>elimxors,          65.207,  393.136
+</span><span>inprocessing,      55.999,  374.042
+</span><span>instantiateonce,   65.360,  393.572
+</span><span>lucky,             70.052,  388.465
+</span><span>minimize,          84.862,  TIMEOUT
+</span><span>phase,             81.518,  386.279
+</span><span>probe,             63.664,  390.642
+</span><span>probehbr,          67.185,  393.756
+</span><span>reduce,            127.971, TIMEOUT
+</span><span>rephase,           128.430, 376.436
+</span><span>restart,           38.578,  TIMEOUT
+</span><span>restartreusetrail, 68.626,  400.377
+</span><span>score,             88.269,  TIMEOUT
+</span><span>shufflequeue,      66.147,  399.462
+</span><span>shufflescores,     65.964,  396.335
+</span><span>simplify,          56.229,  374.795
+</span><span>stabilize,         128.038, TIMEOUT
+</span><span>stabilizephase,    86.403,  367.847
+</span><span>subsume,           66.877,  375.520
+</span><span>subsumelimited,    64.952,  391.814
+</span><span>subsumestr,        59.750,  392.570
+</span><span>ternary,           64.958,  403.329
+</span><span>transred,          66.878,  394.866
+</span><span>vivify,            58.933,  372.927
+</span><span>walk,              130.862, 386.060
+</span><span>walknonstable,     87.557,  394.616
+</span><span>
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2020-04-08   Last updated 2020-04-20 </div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#cadical>#Cadical</a></div><div class=navbar-item><a class=tagword href=/tags/#splr>#Splr</a></div><div class=navbar-item><a class=tagword href=/tags/#sat>#SAT</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

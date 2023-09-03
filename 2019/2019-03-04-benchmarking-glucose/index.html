@@ -1,0 +1,53 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Running Glucose in benchmark mode</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">Glucoseのベンチマークがしたい</h1><p>Using my <a href=https://gitlab.com/satisfiability01/glucose/tree/v.4.1>patched</a> glucose, we can get more useful result.<pre style=background:#fff;color:#323232><code><span>glucose -cpu-lim=TIMEOUT -verb=0 a.cnf result.file
+</span></code></pre><ul><li><code>-cpu-lim=TIMEOUT</code> ; you can't insert whitespaces.<li>no progress report if <code>verb</code>== 0.</ul><p>Now the result file contains the stats information.<pre style=background:#fff;color:#323232><code><span>c restarts              : 2 (2201 conflicts in avg)
+</span><span>c blocked restarts      : 0 (multiple: 0) 
+</span><span>c last block at restart : 0
+</span><span>c nb ReduceDB           : 1
+</span><span>c nb removed Clauses    : 994
+</span><span>c nb learnts DL2        : 22
+</span><span>c nb learnts size 2     : 0
+</span><span>c nb learnts size 1     : 0
+</span><span>c conflicts             : 4403           (83932 /sec)
+</span><span>c decisions             : 5285           (0.00 % random) (100745 /sec)
+</span><span>c propagations          : 184690         (3520654 /sec)
+</span><span>c nb reduced Clauses    : 0
+</span><span>c CPU time              : 0.052459 s
+</span><span>-1 2 -3 -4 5 -6 -7 ...
+</span></code></pre><p>Nice!<h3 id=remaining_parts>remaining parts</h3><p>Let's run on the benchmark suit.<pre style=background:#fff;color:#323232><code><span>parallel -j1 "glucose -cpu-lim=5000 -verb=0 {} .ans_{/}" ::: SAT-COMPETITION/*.cnf
+</span></code></pre><p>Then gather the results into a csv.<pre class=language-rust data-lang=rust style=background:#fff;color:#323232><code class=language-rust data-lang=rust><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>main</span><span>() { </span><span style=font-weight:700;color:#a71d5d>...
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>for</span><span> e </span><span style=font-weight:700;color:#a71d5d>in </span><span>fs::read_dir(</span><span style=font-weight:700;color:#a71d5d>...</span><span>)</span><span style=font-weight:700;color:#a71d5d>? </span><span>{
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>let</span><span> f </span><span style=font-weight:700;color:#a71d5d>=</span><span> e</span><span style=font-weight:700;color:#a71d5d>?</span><span>;
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>if</span><span> f.</span><span style=color:#62a35c>file_name</span><span>().</span><span style=color:#62a35c>to_string_lossy</span><span>().</span><span style=color:#62a35c>starts_with</span><span>(</span><span style=color:#183691>".ans_"</span><span>) {
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(t) </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#62a35c>read_time</span><span>(</span><span style=font-weight:700;color:#a71d5d>...</span><span>) {
+</span><span>                hash.</span><span style=color:#62a35c>insert</span><span>(f, t);
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>break</span><span>;
+</span><span>            }
+</span><span>         }
+</span><span>    }
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>...
+</span><span>}
+</span><span>
+</span><span style=font-weight:700;color:#a71d5d>fn </span><span style=font-weight:700;color:#795da3>read_time</span><span>(input: ... ) -> </span><span style=color:#0086b3>Option</span><span><</span><span style=font-weight:700;color:#a71d5d>f64</span><span>> {
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let</span><span> re </span><span style=font-weight:700;color:#a71d5d>= </span><span>Regex::new(</span><span style=font-weight:700;color:#a71d5d>r</span><span style=color:#183691>"c CPU time +: ([.0-9]+)"</span><span>).</span><span style=color:#62a35c>expect</span><span>(</span><span style=color:#183691>"wrong regex"</span><span>);
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>let mut</span><span> buf </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>String</span><span>::new();
+</span><span>    </span><span style=font-weight:700;color:#a71d5d>while let </span><span style=color:#0086b3>Ok</span><span>(k) </span><span style=font-weight:700;color:#a71d5d>=</span><span> input.</span><span style=color:#62a35c>read_line</span><span>(</span><span style=font-weight:700;color:#a71d5d>&mut</span><span> buf) {
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>if</span><span> k </span><span style=font-weight:700;color:#a71d5d>== </span><span style=color:#0086b3>0 </span><span>{
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>break</span><span>;
+</span><span>        }
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Some</span><span>(c) </span><span style=font-weight:700;color:#a71d5d>=</span><span> re.</span><span style=color:#62a35c>captures</span><span>(</span><span style=font-weight:700;color:#a71d5d>&</span><span>buf) {
+</span><span>            </span><span style=font-weight:700;color:#a71d5d>if let </span><span style=color:#0086b3>Ok</span><span>(v) </span><span style=font-weight:700;color:#a71d5d>=</span><span> c[</span><span style=color:#0086b3>1</span><span>].parse::<</span><span style=font-weight:700;color:#a71d5d>f64</span><span>>() {
+</span><span>                </span><span style=font-weight:700;color:#a71d5d>return </span><span style=color:#0086b3>Some</span><span>(v)
+</span><span>            }
+</span><span>        }
+</span><span>        buf.</span><span style=color:#62a35c>clear</span><span>();
+</span><span>    }
+</span><span>    </span><span style=color:#0086b3>None
+</span><span>}
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2019-03-04</div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#glucose>#glucose</a></div><div class=navbar-item><a class=tagword href=/tags/#sat>#SAT</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>

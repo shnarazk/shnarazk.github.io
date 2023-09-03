@@ -1,0 +1,62 @@
+<!doctype html><html style="has-navbar-fixed-top has-navbar-fixed-bottom" lang=ja><head><meta charset=utf-8><meta viewport="width=device-width, initial-scale=1"><link href="/favicon.ico?refresh=1" rel=icon type=image/x-icon><link href=https://shnarazk.github.io/atom.xml rel=alternate title=RSS type=application/atom+xml><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link crossorigin href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X rel=stylesheet><script crossorigin defer integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js></script><script crossorigin defer integrity=sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/mathtex-script-type.min.js></script><script onload="renderMathInElement(document.body, {
+				delimiters: [
+					{left: '$$', right: '$$', display: true},
+					{left: '$', right: '$', display: false},
+					{left: '\\(', right: '\\)', display: false},
+					{left: '\\[', right: '\\]', display: true}
+				]
+			});" crossorigin defer integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js></script><script>document.addEventListener('DOMContentLoaded',()=>{const a=Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),0);if(a.length>0){a.forEach(b=>{b.addEventListener('click',()=>{const c=b.dataset.target;const d=document.getElementById(c);b.classList.toggle('is-active');d.classList.toggle('is-active')})})}})</script><title>Just a note</title><body><nav aria-label="main navigation" class="navbar is-fixed-top is-light" role=navigation><div class=navbar-brand><div class=navbar-item> <i class="fas fa-book-open has-text-info"></i> <a class=title href=/>Emacs 28.0.60 on Nix</a></div><a aria-expanded=false aria-label=menu class=navbar-burger data-target=navigation-bar role=button> <span aria-hidden=true></span> <span aria-hidden=true></span> <span aria-hidden=true></span> </a></div><div class=navbar-menu id=navigation-bar><div class=navbar-end><div class="navbar-item has-dropdown" id=navigation-dropdown><a onclick="document.getElementById('navigation-dropdown').classList.toggle('is-active')" class=navbar-link></a><div class="navbar-dropdown is-right is-size-5"><a class=navbar-item href=/tags> <i class="fas fa-tags"></i> Tags </a><a class=navbar-item href=/about> <i class="fas fa-question-circle"></i> About </a><a class=navbar-item href=/atom.xml> <i class="fas fa-rss-square"></i>  RSS </a></div></div></div></div></nav><div style=padding-top:3rem><div class=article-banner><img src=/2021/2021-11-13_banner.jpg></div><div class=article-container><h1 class="subtitle has-text-info has-text-weight-semibold">with native compilation</h1><h1 id=2021-11-14>2021-11-14</h1><p>以下のようなものが必要なことが判明。この変数の最後にはシステムファイルのためのディレクトリがこなければならない。 しかしnix packageとしてインストールするとそこにはnix storeが来てしまう。 なのでほとんどのファイルはeln化されていなかった。<pre style=background:#fff;color:#323232><code><span>(setq native-comp-eln-load-path (list (expand-file-name "~/.cache/emacs/native-lisp")))
+</span></code></pre><h1 id=2021-11-13>2021-11-13</h1><ul><li>なぜ<code>configureFlags</code>を定義する必要があるのだろうか。emacs27の<code>nativeComp</code>は正しく定義されているようなのに。<li>何度もflake.lockを更新してcommitするフローはおかしいのではないのか。<li>ターミナルの中で走らせていると実はそんなに差は感じない。</ul><pre class=language-nix data-lang=nix style=background:#fff;color:#323232><code class=language-nix data-lang=nix><span style=font-style:italic;color:#969896># flakes/emacs-head/flake.nix
+</span><span>{
+</span><span>  </span><span style=color:#795da3>description </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"Emacs Head, the unreleased 28.0"</span><span>;
+</span><span>  </span><span style=color:#795da3>inputs </span><span style=font-weight:700;color:#a71d5d>= </span><span>{
+</span><span>    </span><span style=color:#795da3>nixpkgs</span><span>.</span><span style=color:#795da3>url </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>github:NixOS/nixpkgs/nixpkgs-unstable</span><span>;
+</span><span>    </span><span style=color:#795da3>flake-utils</span><span>.</span><span style=color:#795da3>url </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>github:numtide/flake-utils</span><span>;
+</span><span>  };
+</span><span>  </span><span style=color:#795da3>outputs </span><span style=font-weight:700;color:#a71d5d>= </span><span>{ self</span><span style=font-weight:700;color:#a71d5d>, </span><span>nixpkgs</span><span style=font-weight:700;color:#a71d5d>, </span><span>flake-utils }:
+</span><span>    flake-utils</span><span style=font-weight:700;color:#a71d5d>.</span><span>lib</span><span style=font-weight:700;color:#a71d5d>.</span><span>eachDefaultSystem (system: {
+</span><span>      </span><span style=color:#795da3>overlay </span><span style=font-weight:700;color:#a71d5d>= </span><span>self: prev: {
+</span><span>        </span><span style=color:#795da3>emacs-head </span><span style=font-weight:700;color:#a71d5d>= </span><span>prev</span><span style=font-weight:700;color:#a71d5d>.</span><span>emacs-head</span><span style=font-weight:700;color:#a71d5d>.</span><span>override {
+</span><span>          </span><span style=color:#795da3>nativeComp </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>        };
+</span><span>      };
+</span><span>      </span><span style=color:#795da3>defaultPackage </span><span style=font-weight:700;color:#a71d5d>=
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>with </span><span style=color:#62a35c>import </span><span>nixpkgs { </span><span style=font-weight:700;color:#a71d5d>inherit </span><span style=color:#795da3>system</span><span>; };
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>let
+</span><span>          </span><span style=color:#795da3>emacsNative </span><span style=font-weight:700;color:#a71d5d>= </span><span>emacs27</span><span style=font-weight:700;color:#a71d5d>.</span><span>override {
+</span><span>            </span><span style=color:#795da3>nativeComp </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#0086b3>true</span><span>;
+</span><span>          };
+</span><span>        </span><span style=font-weight:700;color:#a71d5d>in
+</span><span>          emacsNative</span><span style=font-weight:700;color:#a71d5d>.</span><span>overrideAttrs (attrs: </span><span style=font-weight:700;color:#a71d5d>rec </span><span>{
+</span><span>            </span><span style=color:#795da3>name </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"emacs-head-${</span><span>version</span><span style=color:#183691>}"</span><span>;
+</span><span>            </span><span style=color:#795da3>pname </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"emacs-head"</span><span>;
+</span><span>            </span><span style=color:#795da3>version </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"28.0.60-20211113"</span><span>;
+</span><span>            </span><span style=color:#795da3>rev </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"42d4e24ff3f13ccbd401d93d70ecdee99b88a26d"</span><span>;
+</span><span>            </span><span style=color:#795da3>src </span><span style=font-weight:700;color:#a71d5d>= </span><span>fetchurl {
+</span><span>              </span><span style=color:#795da3>url </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"https://git.savannah.gnu.org/cgit/emacs.git/snapshot/emacs-${</span><span>rev</span><span style=color:#183691>}.tar.gz"</span><span>;
+</span><span>              </span><span style=font-style:italic;color:#969896># nix-prefetch-url --type sha256 ${url}
+</span><span>              </span><span style=color:#795da3>sha256 </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>"15anma0c9bxww9hns4nciinbs2yv2sjcnb5nlzsw1cwci93mrf9z"</span><span>;
+</span><span>            };
+</span><span>            </span><span style=color:#795da3>patches </span><span style=font-weight:700;color:#a71d5d>= </span><span>[];
+</span><span>            </span><span style=color:#795da3>preConfigure </span><span style=font-weight:700;color:#a71d5d>= </span><span style=color:#183691>''
+</span><span style=color:#183691>            ./autogen.sh
+</span><span style=color:#183691>                '' </span><span style=font-weight:700;color:#a71d5d>+ </span><span style=color:#183691>''
+</span><span style=color:#183691>            substituteInPlace lisp/international/mule-cmds.el \
+</span><span style=color:#183691>              --replace /usr/share/locale ${</span><span>gettext</span><span style=color:#183691>}/share/locale
+</span><span style=color:#183691>                 for makefile_in in $(find . -name Makefile.in -print); do
+</span><span style=color:#183691>                substituteInPlace $makefile_in --replace /bin/pwd pwd
+</span><span style=color:#183691>            done
+</span><span style=color:#183691>          ''</span><span>;
+</span><span>            </span><span style=color:#795da3>configureFlags </span><span style=font-weight:700;color:#a71d5d>= </span><span>emacs27</span><span style=font-weight:700;color:#a71d5d>.</span><span>configureFlags </span><span style=font-weight:700;color:#a71d5d>++ </span><span>[</span><span style=color:#183691>"--with-native-compilation"</span><span>];
+</span><span>            </span><span style=color:#795da3>buildInputs </span><span style=font-weight:700;color:#a71d5d>= </span><span>emacs27</span><span style=font-weight:700;color:#a71d5d>.</span><span>buildInputs
+</span><span>                          </span><span style=font-weight:700;color:#a71d5d>++ </span><span>[ autoconf automake texinfo gcc libgccjit zlib ]
+</span><span>                          </span><span style=font-weight:700;color:#a71d5d>++ </span><span>lib</span><span style=font-weight:700;color:#a71d5d>.</span><span>optionals stdenv</span><span style=font-weight:700;color:#a71d5d>.</span><span>isDarwin (
+</span><span>                            </span><span style=font-weight:700;color:#a71d5d>with </span><span>darwin</span><span style=font-weight:700;color:#a71d5d>.</span><span>apple_sdk</span><span style=font-weight:700;color:#a71d5d>.</span><span>frameworks; [
+</span><span>                              AppKit Carbon Cocoa GSS ImageIO ImageCaptureCore
+</span><span>                              IOKit OSAKit Quartz QuartzCore WebKit
+</span><span>                            ]);
+</span><span>          });
+</span><span>    });
+</span><span>}
+</span><span>
+</span></code></pre><div class="date-footer is-size-7 is-family-code has-text-grey has-text-right" style=margin-top:2rem>Published at 2021-11-13   Last updated 2021-11-14 </div></div><nav class="navbar is-fixed-bottom" aria-label=navigation id=bottombar><div class=navbar-brand><div class=navbar-item><a class=tagword href=/tags/#blender>#Blender</a></div></div></nav><footer class="copyright is-size-6 has-text-info">Copyright 2019-2023 Narazaki Shuji.</footer>
